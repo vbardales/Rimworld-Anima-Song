@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Anima Song</name>
+  <author>nelim</author>
+  <packageId>nelim.animasong</packageId>
+  <url>https://github.com/vbardales/Rimworld-Anima-Song</url>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Colonists can go and listen to an anima tree sing, as recreation.
+
+Vanilla Races Expanded - Phytokin has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and makes it sing a psychic orchestra. It fires once a quadrum, and only for them.
+
+This mod does not touch that ability. It adds a way to listen. Any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing — the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
+
+WHAT IT LOOKS LIKE
+
+While someone is listening, the tree wears a pulsing psychic halo and sends a wave of light out to each listener — you can see from across the map that it is singing.
+
+You do not have to wait for a colonist to decide on their own: select one, right-click the tree, and "Listen to the anima song" sends them out to sit. Select the tree instead and a toggle lets you allow or forbid listening entirely — turn it off to clear the ring before a psychic linking ritual, or when the tree grows somewhere you would rather your colonists did not sit. Anyone already listening gets up at once.
+
+WHY THIS IS WORTH A MOD
+
+The base game has ten recreation types and only four of them come from a building. Expectations ask for up to six different types, and tolerance is counted per type, not per building — a colonist who has played chess all week is just as tired of poker. An eleventh type is therefore worth far more than a tenth building of a type you already had. This one costs nothing to build: you only need an anima tree, which quietly rewards a tribal start.
+
+Listening leaves a memory: +3 mood for a day, multiplied by psychic sensitivity, and it does not stack. That is deliberately weaker than Phytokin's own +8 over two days — theirs is a once-a-quadrum ability, this is repeatable.
+
+SOFT DEPENDENCIES
+
+With Phytokin installed, the tree sings Phytokin's own recording, and the toggle wears their anima song icon. Without it, Royalty's anima linking sound and ritual icon are used instead. Nothing is copied from either mod, and no assembly is referenced: both are looked up by def name at runtime.
+
+Royalty is required, since the anima tree is a Royalty plant. Without it the mod loads and adds nothing.
+
+No save data of its own. The toggle and the song cooldown are stored on the tree, in the save; the mod can be added to or removed from an ongoing game.
+
+AI-GENERATED
+
+This mod's code was written with Claude Code (Anthropic) and its preview image generated with an image model, under human direction and review. Stated openly: designing with these tools is my job.
+
+THANKS
+
+Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for Vanilla Races Expanded - Phytokin, whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets were not called at all, say so and it stops.
+
+Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
+
+Claude Code (Anthropic).
+
+Full attribution, including what was studied and what is looked up at runtime: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md
+
+ADOPTION
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.</description>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Royalty</packageId>
+      <displayName>Royalty</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>vanillaracesexpanded.phytokin</li>
+  </loadAfter>
+</ModMetaData>

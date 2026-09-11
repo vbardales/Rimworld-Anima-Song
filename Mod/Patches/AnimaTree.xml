@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Grafts the song component onto the anima tree.
+
+       WHY A PATCH AND NOT A DEF OF OUR OWN. `Plant_TreeAnima` belongs to Royalty: the only way to
+       give it a component is to patch its def.
+
+       WHY A PLANT CAN CARRY A COMPONENT. `Plant` derives from `ThingWithComps` - the vanilla def
+       already declares `CompProperties_MeditationFocus`, `CompProperties_Glower` and
+       `CompProperties_SpawnSubplant`. The `<comps>` node therefore always exists, and we add to
+       it rather than creating a second one, which would be ignored.
+
+       THIS COMPONENT IS WHAT PROVIDES THE GIZMO. A `ThingWithComps` gets its gizmos from
+       `CompGetGizmosExtra`: without this patch the tree stays mute when selected, and nothing
+       tells the player the mod is there.
+
+       GUARDED ON THE DEF EXISTING, not on a mod identifier: that is the repository's rule, and
+       here it lands right, since without Royalty there is no anima tree at all. An xpath that
+       matches nothing would make the loader shout in red. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Plant_TreeAnima"]/comps</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Plant_TreeAnima"]/comps</xpath>
+      <value>
+        <li Class="AnimaSong.CompProperties_AnimaSong" />
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

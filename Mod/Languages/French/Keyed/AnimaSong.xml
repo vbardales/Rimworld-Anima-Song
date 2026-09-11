@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AnimaSong_AllowListening>Autoriser l'écoute</AnimaSong_AllowListening>
+  <AnimaSong_AllowListeningDesc>Autorise les colons à s'asseoir en cercle autour de cet arbre anima pour l'entendre chanter, en loisir.\n\nÀ couper pour les tenir à l'écart — avant un rituel de lien psychique, par exemple, ou si l'arbre pousse dans un endroit dangereux. Ceux qui écoutent déjà s'en vont aussitôt.</AnimaSong_AllowListeningDesc>
+
+  <AnimaSong_ListenOrder>Écouter le chant de l'arbre anima</AnimaSong_ListenOrder>
+  <AnimaSong_OrderForbidden>écoute interdite ici</AnimaSong_OrderForbidden>
+  <AnimaSong_OrderCannotHear>n'entend pas</AnimaSong_OrderCannotHear>
+  <AnimaSong_OrderFull>l'arbre a déjà tous ses auditeurs</AnimaSong_OrderFull>
+  <AnimaSong_OrderNoSeat>aucune place libre autour de l'arbre</AnimaSong_OrderNoSeat>
+
+  <AnimaSong_InspectSinging>Chante.</AnimaSong_InspectSinging>
+  <AnimaSong_InspectNotAllowed>Écoute interdite.</AnimaSong_InspectNotAllowed>
+</LanguageData>

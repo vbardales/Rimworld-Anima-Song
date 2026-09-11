@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- The anima tree's gizmo, and the two lines of its inspect pane. -->
+  <AnimaSong_AllowListening>Allow listening</AnimaSong_AllowListening>
+  <AnimaSong_AllowListeningDesc>Allow colonists to sit in a ring around this anima tree and hear it sing, as recreation.\n\nTurn it off to keep them away — before a psychic linking ritual, for instance, or when the tree stands somewhere dangerous. Colonists already listening leave at once.</AnimaSong_AllowListeningDesc>
+
+  <!-- The right-click order on the tree, and the reasons it can be greyed out. -->
+  <AnimaSong_ListenOrder>Listen to the anima song</AnimaSong_ListenOrder>
+  <AnimaSong_OrderForbidden>listening not allowed here</AnimaSong_OrderForbidden>
+  <AnimaSong_OrderCannotHear>cannot hear</AnimaSong_OrderCannotHear>
+  <AnimaSong_OrderFull>the tree has all the listeners it takes</AnimaSong_OrderFull>
+  <AnimaSong_OrderNoSeat>no free spot around the tree</AnimaSong_OrderNoSeat>
+
+  <AnimaSong_InspectSinging>Singing.</AnimaSong_InspectSinging>
+  <AnimaSong_InspectNotAllowed>Listening not allowed.</AnimaSong_InspectNotAllowed>
+
+</LanguageData>

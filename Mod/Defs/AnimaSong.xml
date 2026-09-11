@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The anima tree's song, made listenable by anyone, as recreation.
+
+       WHERE THIS COMES FROM. "Vanilla Races Expanded - Phytokin" has a `VRE_AnimaSong` ability:
+       a genetically gifted Phytokin points at an anima tree and makes it sing, which fires a
+       psychic soothe - once a quadrum. Lovely, and out of everyone else's reach.
+
+       WHAT WE DO WITH IT. Their ability is left alone. We add a way to listen: any colonist can
+       go and sit around the tree, the way they would use a telescope or watch a television. The
+       song comes from the tree, not from the pawn.
+
+       THE TYPE IS NEW, AND THAT IS THE POINT. The base game offers ten recreation types, only
+       four of which come from a building; expectations ask for up to six different ones and
+       tolerance is counted per type. An eleventh type is therefore worth far more than a tenth
+       building on a type already served. And this one costs nothing to build: you only need an
+       anima tree, which rewards a tribal start.
+
+       THE MEMORY IS NERFED, DELIBERATELY. Phytokin's is +8 mood over 2 days, which is fair for an
+       ability usable four times a year. Here listening is repeatable: at a permanent +8 it would
+       be the best mood bonus in the game for zero steel. We drop to +3 over 1 day, keeping the
+       multiplication by psychic sensitivity - that is what gives the original its flavour, since
+       a psychically deaf pawn only hears a pretty noise. `stackLimit` 1: listening twice in a row
+       does not add up.
+
+       WHY `MayRequire` AND NOT A GUARDED PATCH. The repository's usual rule - guard on the target
+       def existing rather than on `MayRequire` - aims at Workshop mods, whose packageId gets a
+       `_steam` suffix that `MayRequire` fails to match. Royalty is a DLC: its packageId is fixed,
+       and this is how the base game itself does it. -->
+
+  <!-- The type. Conditional on Royalty like the rest: with no anima tree, a type nothing can
+       produce would be a DEAD type, exactly the flaw Joy Rescue flags in red. -->
+  <JoyKindDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>AnimaSong_Song</defName>
+    <label>anima song</label>
+  </JoyKindDef>
+
+  <JobDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>AnimaSong_Listen</defName>
+    <driverClass>AnimaSong.JobDriver_ListenAnimaSong</driverClass>
+    <reportString>listening to the anima song.</reportString>
+    <joyDuration>4000</joyDuration>
+    <!-- Six: the 2-to-5-cell ring has room to spare, and a song is something you listen to
+         together. -->
+    <joyMaxParticipants>6</joyMaxParticipants>
+    <joyKind>AnimaSong_Song</joyKind>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JoyGiverDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>AnimaSong_Listen</defName>
+    <giverClass>AnimaSong.JoyGiver_ListenAnimaSong</giverClass>
+    <baseChance>2</baseChance>
+    <!-- An anima tree under a roof dies anyway; the line mostly keeps the giver from ever
+         offering a tree that has just been built over. -->
+    <unroofedOnly>true</unroofedOnly>
+    <thingDefs>
+      <li>Plant_TreeAnima</li>
+    </thingDefs>
+    <jobDef>AnimaSong_Listen</jobDef>
+    <joyKind>AnimaSong_Song</joyKind>
+    <!-- Hearing, and nothing else: a blind pawn hears the song, a deaf one does not. -->
+    <requiredCapacities>
+      <li>Hearing</li>
+    </requiredCapacities>
+  </JoyGiverDef>
+
+  <!-- No MayRequire here: this memory is named by a DefOf field, and a missing DefOf field makes
+       DefOfHelper shout at startup. It names no Royalty def, so it can always load, even if it is
+       never granted. -->
+  <ThoughtDef>
+    <defName>AnimaSong_Heard</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>anima song</label>
+        <description>The tree sang, and I sat and listened. It is still there at the back of my mind, settling my nerves.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

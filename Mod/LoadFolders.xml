@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+
+  <!-- WHY THIS FILE EXISTS. Two of the mod's defs carry MayRequire="Ludeon.RimWorld.Royalty" -
+       the JobDef and the JoyKindDef - so without Royalty they are never created. A DefInjected
+       key aimed at a def that does not exist injects into nothing, silently. Their French
+       translations therefore have to load only when Royalty does, which is what the Royalty
+       folder below is for. The ThoughtDef is NOT gated, so its translation stays at the root
+       with the Keyed strings.
+
+       THE ROOT HAS TO BE LISTED. Verified in Verse.ModContentPack.InitLoadFolders: when a
+       version block matches, the game adds the folders named here AND RETURNS. Neither the mod
+       root nor Common/ is added behind them. Drop the <li>/</li> and the mod loses its Defs,
+       its Patches, its assembly and its About in one go.
+
+       A DLC IS A MOD LIKE ANY OTHER HERE. IfModActive ends up in
+       ModLister.AnyModActiveNoSuffix, which lowercases the identifier before looking it up, and
+       expansions sit in the mod list with a fixed packageId - the same reason MayRequire can
+       name Royalty directly. -->
+
+  <v1.6>
+    <li>/</li>
+    <li IfModActive="Ludeon.RimWorld.Royalty">Royalty</li>
+  </v1.6>
+
+</loadFolders>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Anima Song preview composition</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 896px; height: 504px; overflow: hidden; }
+body { font-family: var(--font); }
+.art, .veil { position: absolute; inset: 0; width: 896px; height: 504px; }
+.art { object-fit: cover; }
+.copy { position: absolute; left: 50px; top: 54px; color: var(--inkPrimary); text-shadow: 0 3px 10px rgba(0,0,0,.75); }
+h1 { font-size: var(--titleSize); font-weight: 600; line-height: 1.1; letter-spacing: 0; width: max-content; max-width: 742px; }
+.tag { color: var(--inkSecondary); font-size: 24px; font-weight: 400; line-height: 1.1; letter-spacing: .2px; margin-top: 8px; }
+.rule { width: 58px; height: 3px; background: var(--accent); margin-top: 20px; margin-bottom: 16px; }
+.summary { width: 430px; font-size: 21px; font-weight: 400; line-height: 1.45; letter-spacing: 0; }
+.badge { position: absolute; right: 0; top: 0; width: 80px; height: 80px; background: var(--accent); clip-path: polygon(0 0,100% 0,100% 100%); }
+.version { position: absolute; left: 869px; top: 27px; transform: translate(-50%,-50%) rotate(45deg); color: var(--badgeInk); font-size: 26px; font-weight: 700; line-height: 1; text-shadow: none; }
+</style>
+<img class="art" alt="An anima tree with seated listeners">
+<div class="veil"></div>
+<main class="copy"><h1></h1><p class="tag" hidden></p><div class="rule"></div><p class="summary"></p></main>
+<div class="badge"></div><div class="version"></div>
+<script>
+window.ready = (async () => {
+  const [palette, layout] = await Promise.all(['preview-palette.json','preview-layout.json'].map(p => fetch(p).then(r => r.json())));
+  for (const [key, value] of Object.entries(palette)) document.documentElement.style.setProperty('--' + key, value);
+  document.documentElement.style.setProperty('--font', layout.font);
+  document.documentElement.style.setProperty('--titleSize', layout.titleSize + 'px');
+  document.querySelector('.art').src = layout.source;
+  document.querySelector('h1').textContent = layout.title;
+  document.querySelector('.summary').textContent = layout.summary;
+  document.querySelector('.version').textContent = layout.version;
+  if (layout.tag) { document.querySelector('.tag').hidden = false; document.querySelector('.tag').textContent = layout.tag; }
+  const rgb = palette.veil.match(/\w\w/g).map(x => parseInt(x,16)).join(',');
+  document.querySelector('.veil').style.background = `radial-gradient(circle at 0% 0%, rgba(${rgb},${layout.veilOpacity}) 0%, rgba(${rgb},0) ${layout.veilEndPercent}%)`;
+  await document.querySelector('.art').decode();
+  await document.fonts.ready;
+})();
+</script>
+</html>

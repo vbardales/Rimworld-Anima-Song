@@ -24,6 +24,42 @@ updated:      2026-09-12, the mod's own session
 
 # Anima Song — status
 
+## Preview overlay — 2026-09-12
+
+- Final asset: `Mod/About/Preview.png`, composed directly in HTML/CSS at 896 × 504,
+  711,863 bytes (below 900 KB). Nothing published.
+- Retained illustration: `Art/Preview.png`, an unchanged copy of the existing text-free
+  `Art/Preview-source.png`. No replacement or generation; the older original remains intact.
+  Its clear left-hand space suits the overlay. This pass retains the illustration's existing
+  cinematic style; it does not claim to correct the illustration deviations noted in the guide.
+- Composition: `Art/preview.html`; parameters and unchanged title/summary:
+  `Art/preview-layout.json`; sole colour reference: `Art/preview-palette.json`.
+  Reproduce with `Art/render-preview.cjs` (Node.js, Playwright, Sharp and installed Chrome).
+- Palette: the veil uses the broad blue-slate ground at the left, sampled over a region,
+  while the secondary ink is a lighter coloured blue from that dominant ground/shadow family.
+  The vivid violet accent comes from the tree's purple upper branches, with saturation
+  increased for the rule and badge. Its violet hue separates it from the dominant blue
+  ground and the lighter blue secondary ink; the former cyan accent was too close to that
+  ambient family. It represents a repeated feature of the subject rather than an isolated pixel.
+  Title and summary share exactly the same ivory ink; the badge uses dark ink.
+- Layout: text starts at (50, 54); title 46 px/600, rule 58 × 3 px, summary 21 px/400
+  across 430 px. Both words in `Anima Song` carry the identity of the title and stay at
+  full size: no prefix, suffix or connecting word requires a 65% span. No tag or reserved
+  tag row: original public production. Badge 80 × 80 px,
+  digits 26 px/700 rotated 45 degrees; version 1.6 checked against shipped supportedVersions.
+  Dark radial veil and text shadows follow STYLE_RIMWORLD.md.
+- Actual fonts verified through Chrome's platform-font reporting after `document.fonts.ready`:
+  Segoe UI Semibold for the title, Segoe UI for the summary, Segoe UI Bold for the badge.
+  No fallback font used.
+- QA: `Art/preview-qa.json`, `Art/preview-background.png` (text-free composite for measurement),
+  and `Art/preview-268.png`. Contrast checked over every pixel of both text bounding boxes
+  on the rendered background: title minimum 8.47:1, summary 12.04:1; badge 6.12:1 on its
+  opaque accent. All exceed 4.5:1. Tag contrast is not applicable because no tag is rendered.
+  Visually inspected at 896 × 504 and 268 px wide: no overlap or clipping, title and version
+  identifiable, rule visible. The violet rule and badge stand out from the blue scene;
+  violet accent and light-blue secondary ink are distinct palette families. The small
+  summary is intended to be read at full size.
+
 ## Verification — 2026-09-12
 
 - **Title:** keep `Anima Song`, without a suffix. This is an additional recreation mod,

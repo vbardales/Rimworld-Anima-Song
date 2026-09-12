@@ -1,0 +1,81 @@
+{
+  "dimensions": [
+    896,
+    504
+  ],
+  "thumbnailWidth": 268,
+  "bytes": 711863,
+  "version": "1.6",
+  "fonts": {
+    "h1": [
+      {
+        "familyName": "Segoe UI Semibold",
+        "postScriptName": "SegoeUI-Semibold",
+        "isCustomFont": false,
+        "glyphCount": 10
+      }
+    ],
+    ".summary": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI",
+        "isCustomFont": false,
+        "glyphCount": 54
+      }
+    ],
+    ".version": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI-Bold",
+        "isCustomFont": false,
+        "glyphCount": 3
+      }
+    ]
+  },
+  "boxes": {
+    "h1": {
+      "x": 50,
+      "y": 54,
+      "width": 254.21875,
+      "height": 50.59375
+    },
+    ".summary": {
+      "x": 50,
+      "y": 143.59375,
+      "width": 430,
+      "height": 60.875
+    },
+    ".version": {
+      "x": 846.7371826171875,
+      "y": 4.737185001373291,
+      "width": 44.525634765625,
+      "height": 44.52562856674194
+    }
+  },
+  "contrast": {
+    "h1": {
+      "minimumContrast": 8.471109294180462,
+      "position": [
+        88,
+        102
+      ],
+      "scope": "Every pixel of the text bounding box on text-free rendered PNG"
+    },
+    ".summary": {
+      "minimumContrast": 12.039356741370833,
+      "position": [
+        439,
+        162
+      ],
+      "scope": "Every pixel of the text bounding box on text-free rendered PNG"
+    },
+    "badge": {
+      "minimumContrast": 6.116588738403339
+    },
+    "tag": {
+      "status": "Not applicable: original public mod, no tag rendered",
+      "paletteContrastOnVeil": 8.734705019197145
+    }
+  },
+  "source": "Art/Preview.png (unchanged copy of Preview-source.png)"
+}

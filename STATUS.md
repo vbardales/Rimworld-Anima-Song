@@ -5,8 +5,8 @@ repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
 stage:        done
-licence:      original
-licence_at:   an original creation, MIT
+licence:      open
+licence_at:   LICENSE and Mod/LICENSE - MIT, copyright (c) 2026 nelim; third-party attribution in ATTRIBUTION.md
 dependencies: declared
 showcase:     complete
 tested_on:
@@ -23,6 +23,32 @@ updated:      2026-09-12, the mod's own session
 ---
 
 # Anima Song — status
+
+## Verification — 2026-09-12
+
+- **Title:** keep `Anima Song`, without a suffix. This is an additional recreation mod,
+  not a continuation of Phytokin. No `Renew` suffix is needed. The documented MIT licence
+  gives this repository the `open` classification; the publication rule does not require
+  `(unofficial)` for `open` public mods. `original` was inaccurate under this card's own
+  strict definition: ATTRIBUTION.md explicitly credits Phytokin's idea and the vanilla driver.
+- **Licence:** MIT, copyright (c) 2026 nelim. Root `LICENSE` and shipped `Mod/LICENSE`
+  are byte-identical. This records the licence declared for this repository, not a grant
+  over Phytokin or Ludeon assets; runtime references and the driver adaptation remain credited
+  in `ATTRIBUTION.md`.
+- **Manual tests:** 14 functional scenarios in `TESTING.md`, with setup, actions and expected
+  results, including passes with and without Phytokin. They remain **not executed in game**.
+- **Automated tests:** `_tools/Run-Functional-Tests.ps1` rerun successfully: 20 passed,
+  0 failed. These are offline integration and compatibility checks, not a gameplay run.
+- **XML:** reran the shared `../scripts/Check-XmlFields.ps1`, `Check-XmlClasses.ps1`,
+  `Check-DefRefs.ps1` and `Check-DefInjected.ps1` against `Mod/`, supplying the mod DLL
+  for reflection and `Source/` for class resolution. No unknown fields, unresolved classes,
+  missing or mistyped def references, or translation errors (4 injected keys checked).
+  The Royalty translation notices are informational: both files are in the gated folder,
+  also covered by automated test 20. The functional suite simulates the patch's addition
+  on the installed anima tree XML; actual in-game patch loading remains manual scenario 1.
+- **GitHub:** the About URL and attribution link were already present. A direct repository
+  link has also been added to the description itself.
+
 
 Status card, read by a pass over every mod rather than by asking each thread one at a time. It
 lives at the root, never inside `Mod/`, so Steam never receives it.

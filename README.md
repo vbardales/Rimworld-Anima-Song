@@ -82,6 +82,18 @@ Never run in game. The build is clean, the XML checkers pass and the translation
 paper, none of which exercises a single tick. `TESTING.md`, beside this file and outside the
 published folder, lists the fourteen scenarios that have to be watched and what counts as a pass.
 
+Between the two sits a suite that needs no game:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+```
+
+Twenty checks against the installed game's own assembly and def files, in a couple of seconds. It
+asks whether the overrides still override, whether the three claims this design rests on are still
+true of the base game, whether the patch still lands on the anima tree, and whether the six defs
+looked up by name at runtime still exist. What it cannot answer is anything only the screen can
+show, which is what `TESTING.md` is for.
+
 ## Save data
 
 None of its own. The toggle and the song cooldown are stored on the tree, in the save. Adding or

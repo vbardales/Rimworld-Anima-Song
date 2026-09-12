@@ -61,6 +61,12 @@ work would serve no one.
 `TESTING.md` stays the source: it says for each scenario what it proves and what its failure
 looks like. This card keeps only the balance.
 
+Since 2026-09-12 there is also `_tools/Run-Functional-Tests.ps1`, twenty checks against the
+installed game that need no RimWorld running: the overrides, the three claims about the base game
+this design rests on, the patch run against the real anima tree def, the six defs looked up by
+name, and the French memory handle. All twenty pass. They do not shorten the `remaining` list
+above, which is about what only the screen can answer.
+
 The `remaining` categories: `feature` for something missing from the first pass, `defect` for a
 known fault left unfixed, `unverified` for what could not be checked.
 

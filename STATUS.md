@@ -1,24 +1,25 @@
 ---
-mod:        Anima Song
-packageId:  nelim.animasong
-repo:            Rimworld-Anima-Song
-visibility: public
-detached:      yes
-stage:           done
-licence:    original
-licence_at: création originale, MIT
-showcase:      complete
-tested_on: 
-workshop:   
-remaining: 
-  - unverified: les quatorze scenarios de TESTING.md, aucun joue
-  - unverified: la greffe du comp sur l'arbre, qu'un PatchOperationConditional rate sans rien dire
-  - unverified: le halo, entretenu tick par tick par le job, a vitesse 3x
-  - unverified: le septieme auditeur refuse dans le menu, jamais rejoue depuis son correctif
-  - unverified: la passe B, avec Phytokin - son et icone cherches par nom de def
-  - unverified: la traduction FR du souvenir, dont la cle adresse l'etage par sa poignee
-session:    local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:           2026-09-12, session du mod
+mod:          Anima Song
+packageId:    nelim.animasong
+repo:         Rimworld-Anima-Song
+visibility:   public
+detached:     yes
+stage:        done
+licence:      original
+licence_at:   an original creation, MIT
+dependencies: declared
+showcase:     complete
+tested_on:
+workshop:
+remaining:
+  - unverified: the fourteen scenarios of TESTING.md, none played
+  - unverified: grafting the comp onto the tree, which a PatchOperationConditional can miss without a word
+  - unverified: the halo, maintained tick by tick by the job, at 3x speed
+  - unverified: the seventh colonist refused in the menu, never replayed since its fix
+  - unverified: pass B, with Phytokin - sound and icon looked up by def name
+  - unverified: the French translation of the memory, whose key addresses the stage by its handle
+session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
+updated:      2026-09-12, session du mod
 ---
 
 # Anima Song — status
@@ -30,6 +31,12 @@ Les champs deduits du disque le 2026-09-12 ont ete verifies un a un et sont just
 que le releve ne pouvait pas remplir sont tranches ici.
 
 - **`etape`** — `done` confirme, et le groupe de session dit la meme chose. Le developpement est
+- **`dependencies`** — `declared` when every mod this one needs is named in the About's
+  `modDependencies`, `to check` when a non-vanilla `loadAfter` suggests a dependency that is not
+  declared, `none` when the mod needs nothing. An undeclared dependency is not cosmetic: on
+  2026-09-11 Reequilibrage animaux took 47 vanilla animals down with it, Muffalo included, because
+  the class it injects belongs to a mod that was not declared and not loaded.
+
   fini, la paperasse de publication ecrite, le depot public rempli d'un commit d'import. Rien
   n'attend de code. Ce qui reste ne tient pas dans ce champ : l'essai en jeu et l'envoi Steam se
   lisent a `teste_le` et `workshop`, vides tous les deux.

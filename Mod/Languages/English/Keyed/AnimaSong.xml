@@ -7,6 +7,8 @@
 
   <!-- The right-click order on the tree, and the reasons it can be greyed out. -->
   <AnimaSong_ListenOrder>Listen to the anima song</AnimaSong_ListenOrder>
+  <!-- {0}: the localized reason listening is unavailable. -->
+  <AnimaSong_ListenOrderDisabled>Listen to the anima song ({0})</AnimaSong_ListenOrderDisabled>
   <AnimaSong_OrderForbidden>listening not allowed here</AnimaSong_OrderForbidden>
   <AnimaSong_OrderCannotHear>cannot hear</AnimaSong_OrderCannotHear>
   <AnimaSong_OrderFull>the tree has all the listeners it takes</AnimaSong_OrderFull>

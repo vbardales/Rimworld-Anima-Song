@@ -1,4 +1,8 @@
 ---
+localization: complete
+settings_audit: not_applicable
+translation_en: complete
+translation_fr: complete
 mod:          Anima Song
 packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
@@ -17,12 +21,248 @@ remaining:
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: the seventh colonist refused in the menu, never replayed since its fix
   - unverified: pass B, with Phytokin - sound and icon looked up by def name
-  - unverified: the French translation of the memory, whose key addresses the stage by its handle
+  - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-12, the mod's own session
+updated:      2026-09-13, user accepted Preview style; cumulative done restored
 ---
 
 # Anima Song — status
+
+## Preview style acceptance and cumulative status — 2026-09-13
+
+The user explicitly accepted the existing Preview style: "j'accepte son style."
+This waives the recorded visual-style deviation for the current shipped Preview,
+SHA256 `7cfc743e0dc4846ecf1d2c6181df621fee9c0b5faaee43e700b6c2230f2d46e4`.
+The prior ModIcon override remains in force. Neither acceptance claims that an
+image was corrected; the historical visual observations below remain preserved.
+
+**Current decision: `ModIcon générée` -> `done`.** The Preview gate now passes by
+user acceptance plus the verified PNG format, 896 x 504 dimensions and 538,176-byte
+size. The palette, title hierarchy and English description checks remain valid,
+and the final GitHub link has been corrected and checked. The independently passed
+settings audit (justified not applicable), localization, dependencies, written
+functional scenarios, successful build, 20 offline tests and XML checks therefore
+establish all cumulative gates through `done`. `showcase` is now `complete` under
+the two explicit user overrides.
+
+HEAD remains `3328c602f41ba993ae25d5b18dddd4e59a77867a` with the local changes
+documented in this audit and follow-ups. The shipped DLL hash was checked again
+and still matches the successfully rebuilt artifact:
+`F255B868AD643CDFA01E0E316D195F5AEB41B1651A573ED5D275D07CE3116B5C`.
+Only this status record changed in this step; no code or asset changed, so no
+independent technical result requires rerunning. Earlier statements that the
+Preview blocks progress are superseded by this acceptance.
+
+`done` means ready for final in-game validation, not tested in game. The next gate
+is `tested`: execute all fourteen TESTING.md scenarios, review logs and FR/EN UI,
+cover new and existing saves, the per-tree toggle and persistence, Phytokin
+present/absent, and any resulting regression checks. These remain **unverified**;
+`tested_on` stays empty. No gameplay pass or publication is claimed.
+
+## Description source link — 2026-09-13
+
+Following the user's request to continue, replaced the bare source URL in
+`Mod/About/About.xml` with the required Steam-formatted link at the very end of
+the description, after attribution and adoption. XML parsing passed; verified
+that the exact link appears once and ends the description. The repository target
+was verified live during the audit above. Nothing was published.
+
+The description finding is resolved. This metadata-only edit does not invalidate
+the build, settings or in-game localization checks. The Preview style decision
+remains pending, so the cumulative stage remains `ModIcon générée`.
+Earlier findings below are retained as history.
+
+## Preview compression — 2026-09-13
+
+At the user's request, losslessly recompressed `Mod/About/Preview.png` from
+711,863 to **538,176 bytes** (24.4% smaller). PNG format and 896 x 504 dimensions
+are unchanged. Decoded pixel buffers were compared byte for byte and are identical;
+all non-IDAT PNG chunks were preserved. Existing visual and contrast checks remain
+applicable. Updated `Art/preview-qa.json` to reflect the shipped size.
+
+SHA256: `7cfc743e0dc4846ecf1d2c6181df621fee9c0b5faaee43e700b6c2230f2d46e4`.
+The original, compression script and result are retained under
+`.build/audit-2026-09-13/` as `Preview-before-compression.png`,
+`compress-preview.cjs` and `compression.json`. Earlier byte counts and the audit
+manifest describe the pre-compression artifact. The existing renderer is unchanged;
+rendering again may require this final compression step to recover the smaller size.
+
+The image already met the size limit. This optimization does not resolve or waive
+the Preview style finding; `stage: ModIcon générée` remains unchanged.
+
+## ModIcon override — 2026-09-13
+
+The user explicitly accepted the current ModIcon despite the style findings:
+"j'override pour ModIcon". The icon's visual-style requirement is waived for this
+artifact; its verified format, dimensions and installation remain valid.
+This is acceptance by user override, not a claim that the image was corrected.
+
+**Current decision: `horsMonoRepo` -> `ModIcon générée`.** This literal stage name
+means the icon gate now passes cumulatively. The next transition, to `Preview générée`,
+remains blocked by the Preview findings. The override applies only to ModIcon;
+the Preview and description findings and pending in-game tests remain unchanged.
+No artifact or code was modified and no technical validation was invalidated.
+The audit below is retained as the record preceding this override; its instruction
+to correct the icon is superseded and no icon work remains required.
+
+## Cumulative workflow audit — 2026-09-13
+
+**Decision before the ModIcon override: `done` -> `horsMonoRepo`.** Stage values here use the workflow's
+literal names, not letter codes. `horsMonoRepo` means the standalone repository gate
+passes; the next gate is `ModIcon générée`. Later independent checks below remain
+valid but do not override an earlier failed gate. This section supersedes historical
+claims of current readiness below; the earlier reports are preserved as history.
+
+Authority: the supplied audit request, then `../PUBLISHING.md`, `../STYLE_RIMWORLD.md`,
+`../MOD_SETTINGS.md` and `../TRANSLATIONS.md`. In particular, the request permits the
+settings gate to pass by source analysis and applicable offline tests, and does not
+require a recorded comparison with a game screenshot or image-generation history.
+
+### Scope and revision
+
+- Repository: `C:/Users/nelim/Documents/rimworld/AnimaSong`, with its own `.git`;
+  distributed root: its `Mod/` directory (14 files, including 9 XML files).
+  The repository remains physically below the parent workspace but is an independent
+  Git repository; moving it elsewhere is not required.
+- Audited HEAD: `3328c602f41ba993ae25d5b18dddd4e59a77867a`.
+  Initial uncommitted files: `CHANGELOG.md`, `Mod/Assemblies/AnimaSong.dll`,
+  both English/French Keyed XML files, `STATUS.md`, `Source/CompAnimaSong.cs`,
+  and `TESTING.md`. These changes were included in the audit and preserved.
+- Read-only `gh repo view vbardales/Rimworld-Anima-Song --json
+  name,visibility,isEmpty,defaultBranchRef,url` confirmed PUBLIC, nonempty, main.
+  `git ls-remote origin HEAD` returned the same SHA as local HEAD. No push was made.
+- Only `STATUS.md` was edited by this audit. Disposable audit outputs are under
+  `.build/audit-2026-09-13/`: build logs, isolated rebuilt DLL, source/distribution
+  SHA256 manifest and 32-pixel icon inspection copy. No shipped artifact was changed.
+
+### Ordered gates
+
+| Transition | Result in this audit |
+| --- | --- |
+| dansMonoRepo -> horsMonoRepo | **Validated.** Independent Git root, configured GitHub origin and pushed commit verified live. Public/original decision is documented; MIT notices and attribution accompany the distribution. Root/shipped LICENSE and ATTRIBUTION copies are respectively byte-identical. English README, attribution and changelog exist. `Anima Song`, `nelim.animasong`, `AnimaSong` and `Rimworld-Anima-Song` form a coherent naming scheme; no renewal/private suffix applies. Attribution distinguishes runtime references from owned content; MIT is not treated as licensing third-party assets. |
+| horsMonoRepo -> ModIcon générée | **Defect found.** Source build passes and matches the shipped DLL, but the icon fails the graphic style gate. The 128 x 128 PNG is 29,110 bytes and has the correct winking orange mascot. Direct inspection at 128 and 32 pixels shows a glowing blue/violet ornamental ring, gradients and many tiny leaves/notes/sparkles, contrary to the flat, no-glow, one-or-two-object brief. At 32 pixels the head survives but the surrounding motifs merge. |
+| ModIcon générée -> Preview générée | **Independent defect found.** PNG format, 896 x 504 dimensions and 711,863-byte size pass. Inspected the shipped image and 268-pixel preview directly. Fine luminous foliage, radiating filaments and particle-like points around the trunk retain the cinematic treatment excluded by the matte low-detail brief. This is an observed artifact issue, not a demand for generation records. No camera-comparison paperwork is required and none is used as a blocker. |
+| Preview générée -> preOptions | **Partly validated.** Violet accent is visibly distinct from the blue ambient/secondary family; ivory text, title, rule and 1.6 badge remain identifiable without clipping. English wording and title hierarchy pass; neither title word is a connecting word and no prefix/suffix is required. The About description's GitHub line is a bare URL before attribution/adoption, rather than the final `[url=...]Source code on GitHub[/url]` required by PUBLISHING.md. |
+| preOptions -> options | **Not applicable, justified** for global settings; audit passed as detailed below. |
+| options -> l10n | **Validated independently.** All owned text inventoried, 10/10 Keyed entries per language, four English source Def fields and four resolving French injections. Parameters/newlines reviewed; runtime display remains unverified. |
+| l10n -> preTest | **Validated independently.** Royalty required and declared, Core/Royalty load order coherent, Phytokin optional with runtime fallback and loadAfter only. No Harmony or third-party assembly dependency. 1.6 LoadFolders retains `/` and gates Royalty translations; MayRequire fields and tree patch are consistent. |
+| preTest -> done | **Independent technical checks pass.** Fourteen written functional scenarios include setup, actions and expected results. Existing offline suite reports 20/20; XML checks pass; build matches the delivered DLL. This does not restore cumulative done while artwork gates fail. |
+| done -> tested | **Unverified.** No in-game scenario executed in this audit or established by existing results. FR/EN UI, logs, toggle persistence, new colony and existing-save coverage, Phytokin present/absent and gameplay regressions remain pending. |
+
+### Settings audit
+
+`settings_audit: not_applicable`. Reviewed all five C# sources and every shipped XML.
+No Mod subclass, ModSettings, GetSettings, SettingsCategory, DoSettingsWindowContents,
+MainButtonDef or MainTabWindow exists. There is no inherited settings interface,
+empty page or shortcut. No RIMMSQOL or other customization integration is claimed tested.
+
+The useful player choice is **Allow listening per tree**, already exposed by its
+Command_Toggle, default true, serialized on that tree through Scribe with the same
+default. The joy giver and menu read it; the job's failure condition reads it while
+running. This is a map-object command, not global mod configuration. Right-click
+listening is an action, not a setting. Six participants, the 2-to-5-cell ring, duration,
+cooldown, memory strength and effect timing are deliberate balance/implementation
+constants; no documented player requirement calls for global sliders or XML editing.
+Adding settings solely to expose those constants would not be justified.
+Settings-page input/reset/shortcut tests are therefore not applicable. Actual toggle
+effects and save/reload are still unverified gameplay checks (scenarios 6 and 12),
+not an implied runtime pass. The offline technical suite was executed after review.
+
+### Commands and observed results
+
+- `dotnet build Source/AnimaSong.csproj --no-restore -c Release -t:Rebuild
+  -p:OutputPath=../.build/audit-2026-09-13/build/`: **success, 0 warnings/errors**.
+  Initial sandbox attempt failed on SDK directory access (MSB4184); the authorized
+  retry succeeded. This was an environment restriction, not a source defect.
+  Isolated rebuilt and shipped DLL SHA256 both:
+  `F255B868AD643CDFA01E0E316D195F5AEB41B1651A573ED5D275D07CE3116B5C`.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`:
+  **20 passed, 0 failed, no skips**, against installed RimWorld **1.6.4871 rev590**.
+  Scope: reflection/IL contracts, real Core/Royalty definitions, simulated XML patch,
+  localization parity and DLC gating; no live gameplay or Phytokin integration run.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-XmlFields.ps1
+  -ModPath Mod -ExtraAssemblies Mod/Assemblies/AnimaSong.dll`: four files, no unknown fields.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-XmlClasses.ps1
+  -ModPath Mod -TypeLists ../rw16_types.txt -SourceDirs Source`: five referenced types resolved.
+  The current DLL's own classes were additionally loaded by the functional suite.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-DefRefs.ps1
+  -ModPath Mod`: no malformed XML, missing/mistyped Def references or unresolved parents.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-DefInjected.ps1
+  -TransMod Mod -ExtraAssemblies Mod/Assemblies/AnimaSong.dll`: four keys, zero errors,
+  no unresolved targets. Two Royalty notices are satisfied by the inspected gated folder.
+- Fresh XML/source comparison: nine XML files parsed; ten unique nonempty used Keyed
+  entries in each language, no omissions; placeholders, markup and escaped newlines
+  match. Reviewed all four Def text fields and their French injections. No hardcoded
+  owned UI text found. Earlier translation inventory remains applicable.
+
+### Next work and non-blocking recommendations
+
+To reach **ModIcon générée**, change only the icon's rendering to the prescribed simple,
+flat, non-glowing mascot/object composition, install the 128 x 128 PNG and inspect it
+at 128/32 pixels. The verified build does not need repeating for an image-only change.
+The Preview illustration and final description link must then pass their own gates.
+No development, image generation, publication or gameplay run was performed here.
+
+Optional test-harness hardening: test 3 in `_tools/Run-Functional-Tests.ps1` searches
+only for `error CS...` and ignores the compiler exit code, so a non-C# infrastructure
+failure can be reported as success. This audit does not rely on it to prove the build:
+the separate successful rebuild and byte comparison establish that criterion directly.
+Its IL reader also scans bytes rather than decoding instruction lengths; those checks
+are supporting compatibility probes, not proof of gameplay. These limitations do not
+invalidate the separately verified build, XML or translation results.
+
+## Translation audit — 2026-09-13
+
+Applied the shared `../PUBLISHING.md` and `../TRANSLATIONS.md` translation gate to
+revision `3328c602f41ba993ae25d5b18dddd4e59a77867a` plus the local changes listed here.
+The historical `stage: done` is retained; no in-game test or publication is claimed.
+
+Scope: all five `Source/*.cs` files, `Mod/Defs/AnimaSong.xml`,
+`Mod/Patches/AnimaTree.xml`, `Mod/LoadFolders.xml`, both Keyed files, and all three
+French DefInjected files, including the conditional `Mod/Royalty/` load folder.
+
+| Player-facing surface | Translation source | Coverage |
+| --- | --- | --- |
+| Toggle and tooltip | `AnimaSong_AllowListening`, `AnimaSong_AllowListeningDesc` | English/French Keyed |
+| Enabled and disabled orders | `AnimaSong_ListenOrder`, `AnimaSong_ListenOrderDisabled` | English/French Keyed; disabled template takes reason as `{0}` |
+| Four refusal reasons | `AnimaSong_OrderForbidden`, `AnimaSong_OrderCannotHear`, `AnimaSong_OrderFull`, `AnimaSong_OrderNoSeat` | English/French Keyed |
+| Singing and forbidden inspect lines | `AnimaSong_InspectSinging`, `AnimaSong_InspectNotAllowed` | English/French Keyed |
+| Recreation type | `AnimaSong_Song.label` | English Def; French JoyKindDef injection under Royalty |
+| Job report | `AnimaSong_Listen.reportString` | English Def; French JobDef injection under Royalty |
+| Memory label and description | `AnimaSong_Heard.stages.anima_song.label` and `.description` | English Def; French ThoughtDef injection at root |
+
+The disabled menu label formerly concatenated translated fragments and punctuation.
+It now translates a complete `AnimaSong_ListenOrderDisabled` template with one reason
+parameter; both resources were added and `Mod/Assemblies/AnimaSong.dll` rebuilt.
+All other owned UI text already used `.Translate()` or translatable Def fields.
+The patch adds only a comp, and JoyGiverDef adds no text. No settings, letters, alerts,
+custom grammar, additional version folders or dynamically constructed keys were found.
+Phytokin supplies only sound/icon assets; no dependency translation keys are reused.
+Vanilla-generated job decorations and recreation-room thoughts remain engine-owned.
+Internal def names, asset paths, save keys and the toil debug name are not UI text;
+About metadata, licences and documentation are outside this gate.
+
+Validation:
+
+- Manual source-to-resource inventory: 10 owned Keyed entries and 4 Def fields.
+  English and French wording reviewed; the tooltip keeps its two paragraph breaks.
+- PowerShell source/resource comparison extracted literal `.Translate()` calls from
+  all source files and compared them with each Keyed XML: 10/10 in both languages,
+  no missing, unused, duplicate or empty keys. Placeholder, markup and escaped newline
+  sequences match; `{0}` formats correctly in both languages. All shipped XML parses.
+- `dotnet build Source/AnimaSong.csproj --no-restore -c Release`: passed with no warnings
+  or errors; shipped DLL updated.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`:
+  20 passed, 0 failed, including Keyed parity, memory handle and Royalty load gating.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-DefInjected.ps1
+  -TransMod Mod -ExtraAssemblies Mod/Assemblies/AnimaSong.dll`: 4 keys checked,
+  0 errors, no unresolved targets. The two Royalty notices are satisfied by the
+  conditional load folder, independently covered by functional test 20.
+
+Runtime: English and French display, fallback, formatting and clipping checks remain
+**not executed**. Scenario 13 of `TESTING.md` now covers every surface above, all four
+refusal reasons, and both Phytokin configurations. Reset affected translation fields
+to `unchecked` after future UI, Def, patch or language changes until this audit is repeated.
 
 ## Preview overlay — 2026-09-12
 

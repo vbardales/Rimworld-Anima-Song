@@ -17,6 +17,7 @@ First version. RimWorld 1.6, Royalty required.
 - A right-click order, **Listen to the anima song**: select a colonist, click the tree, and they go and sit, instead of waiting for recreation time to come round. Greyed out with its reason when the pawn cannot hear, when the ring is full, or when listening is forbidden.
 - A toggle on the tree, **Allow listening**. Turned off, the joy giver skips that tree and current listeners stand up at once.
 - French translation.
+- Parameterized English and French disabled-order text, so translations control the complete menu label.
 
 ### Notes
 

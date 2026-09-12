@@ -45,13 +45,13 @@ Ludeon Studios, for the anima tree and for the psychic effects this mod reuses u
 
 Claude Code (Anthropic).
 
-Source code on GitHub: https://github.com/vbardales/Rimworld-Anima-Song
-
 Full attribution, including what was studied and what is looked up at runtime: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md
 
 ADOPTION
 
-If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.</description>
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+[url=https://github.com/vbardales/Rimworld-Anima-Song]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>Ludeon.RimWorld.Royalty</packageId>

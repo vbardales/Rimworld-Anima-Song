@@ -159,7 +159,7 @@ namespace AnimaSong
             if (reason != null)
             {
                 option.Disabled = true;
-                option.Label = option.Label + " (" + reason + ")";
+                option.Label = "AnimaSong_ListenOrderDisabled".Translate(reason);
             }
 
             yield return FloatMenuUtility.DecoratePrioritizedTask(option, myPawn, parent);

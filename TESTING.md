@@ -209,12 +209,27 @@ check it still soothes. This mod patches nothing of theirs.
 halo comes back while someone listens, and the tree does not immediately fire a second orchestra —
 the cooldown was saved too.
 
-## 13. French
+## 13. English and French translation audit
 
-Switch the game to French and walk scenarios 2, 6 and 8 again.
+Run this checklist in English, then switch the game to French and repeat it. Record the
+game version, language, modlist and result in STATUS.md. These checks have not yet been run.
 
-**Pass:** the toggle reads *Autoriser l'écoute* with its French description, the order reads
-*Écouter le chant de l'arbre anima* with its three French reasons, the job line reads *écoute le
+- Read the toggle and its complete tooltip (including the paragraph break).
+- Read the enabled right-click order, then each of its four disabled reasons: listening
+  forbidden, cannot hear, all six listener slots reserved, and no reachable free seat.
+  For the last case, leave a listener slot free but block all cells in the seating ring.
+- Inspect the tree while singing and while listening is forbidden.
+- Read the listening job report, the recreation type in the tolerance list, and the
+  memory label and full description (scenarios 2, 6, 8 and 9).
+- Check for raw keys, accidental English fallback in French, visible `{0}`, broken
+  punctuation, missing accents and clipping. Repeat with and without Phytokin;
+  its sound/icon integration must not change the mod's text coverage.
+
+**English pass:** all ten Keyed entries and four Def fields display the English resource
+text, including a disabled order such as *Listen to the anima song (cannot hear)*.
+
+**French pass:** the toggle reads *Autoriser l'écoute* with its French description, the order reads
+*Écouter le chant de l'arbre anima* with its four French reasons, the job line reads *écoute le
 chant de l'arbre anima.*, the recreation type is *chant anima*, and the memory is *chant anima*
 with its French description.
 

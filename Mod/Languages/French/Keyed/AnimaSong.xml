@@ -4,6 +4,8 @@
   <AnimaSong_AllowListeningDesc>Autorise les colons à s'asseoir en cercle autour de cet arbre anima pour l'entendre chanter, en loisir.\n\nÀ couper pour les tenir à l'écart — avant un rituel de lien psychique, par exemple, ou si l'arbre pousse dans un endroit dangereux. Ceux qui écoutent déjà s'en vont aussitôt.</AnimaSong_AllowListeningDesc>
 
   <AnimaSong_ListenOrder>Écouter le chant de l'arbre anima</AnimaSong_ListenOrder>
+  <!-- {0}: the localized reason listening is unavailable. -->
+  <AnimaSong_ListenOrderDisabled>Écouter le chant de l'arbre anima ({0})</AnimaSong_ListenOrderDisabled>
   <AnimaSong_OrderForbidden>écoute interdite ici</AnimaSong_OrderForbidden>
   <AnimaSong_OrderCannotHear>n'entend pas</AnimaSong_OrderCannotHear>
   <AnimaSong_OrderFull>l'arbre a déjà tous ses auditeurs</AnimaSong_OrderFull>

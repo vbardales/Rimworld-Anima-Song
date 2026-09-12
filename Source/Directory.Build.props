@@ -10,9 +10,14 @@
 
       Since the Mod/ split, only Mod/ is published and Source/ sits outside it - but the rule holds
       anyway, and it keeps the mod folder free of a 6 MB assembly.
+
+      The path stops at this folder's own .build/, which .gitignore covers. It used to climb one
+      level higher, into the monorepo this mod was developed in; now that the folder is a
+      repository of its own, that would write outside it - and outside any repository at all for
+      whoever clones this one.
     -->
-    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\..\.build\obj\AnimaSong\</BaseIntermediateOutputPath>
-    <BaseOutputPath>$(MSBuildThisFileDirectory)..\..\.build\bin\AnimaSong\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\.build\obj\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)..\.build\bin\</BaseOutputPath>
   </PropertyGroup>
 
 </Project>

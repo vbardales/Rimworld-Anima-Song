@@ -68,4 +68,5 @@ The `session` field was not touched: it comes from the sweep and names the sessi
 conversation.
 
 The `licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
-`alive` no licence but a living source, `forbidden` a written refusal, `original` nothing reused.
+`alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
+to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.

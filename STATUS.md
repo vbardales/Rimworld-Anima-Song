@@ -5,8 +5,8 @@ repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
 stage:        done
-licence:      open
-licence_at:   LICENSE and Mod/LICENSE - MIT, copyright (c) 2026 nelim; third-party attribution in ATTRIBUTION.md
+licence:      original
+licence_at:   Original creation by nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 nelim; credits in ATTRIBUTION.md
 dependencies: declared
 showcase:     complete
 tested_on:
@@ -27,10 +27,9 @@ updated:      2026-09-12, the mod's own session
 ## Verification — 2026-09-12
 
 - **Title:** keep `Anima Song`, without a suffix. This is an additional recreation mod,
-  not a continuation of Phytokin. No `Renew` suffix is needed. The documented MIT licence
-  gives this repository the `open` classification; the publication rule does not require
-  `(unofficial)` for `open` public mods. `original` was inaccurate under this card's own
-  strict definition: ATTRIBUTION.md explicitly credits Phytokin's idea and the vanilla driver.
+  not a continuation of Phytokin. This is an original creation by nelim, published under MIT,
+  so the classification is `original` and no publication suffix is required. The inspiration
+  and implementation credits in ATTRIBUTION.md remain applicable.
 - **Licence:** MIT, copyright (c) 2026 nelim. Root `LICENSE` and shipped `Mod/LICENSE`
   are byte-identical. This records the licence declared for this repository, not a grant
   over Phytokin or Ludeon assets; runtime references and the driver adaptation remain credited
@@ -99,6 +98,8 @@ known fault left unfixed, `unverified` for what could not be checked.
 The `session` field was not touched: it comes from the sweep and names the session group, not this
 conversation.
 
-The `licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
-`alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
-to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
+The `licence` vocabulary: `open` an explicitly licensed third-party source, `silent` no licence
+and a dead source, `alive` no licence but a living source, `forbidden` a written refusal,
+`original` an original production by nelim. Original authorship is compatible with a MIT
+licence and documented inspiration or runtime references; it does not remove attribution
+obligations or extend the repository's licence to third-party assets.

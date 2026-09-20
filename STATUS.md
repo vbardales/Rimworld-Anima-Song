@@ -10,7 +10,7 @@ visibility:   public
 detached:     yes
 stage:        done
 licence:      original
-licence_at:   Original creation by nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 nelim; credits in ATTRIBUTION.md
+licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 dependencies: declared
 showcase:     complete
 tested_on:
@@ -303,10 +303,10 @@ to `unchecked` after future UI, Def, patch or language changes until this audit 
 ## Verification — 2026-09-12
 
 - **Title:** keep `Anima Song`, without a suffix. This is an additional recreation mod,
-  not a continuation of Phytokin. This is an original creation by nelim, published under MIT,
+  not a continuation of Phytokin. This is an original creation by Nelim, published under MIT,
   so the classification is `original` and no publication suffix is required. The inspiration
   and implementation credits in ATTRIBUTION.md remain applicable.
-- **Licence:** MIT, copyright (c) 2026 nelim. Root `LICENSE` and shipped `Mod/LICENSE`
+- **Licence:** MIT, copyright (c) 2026 Nelim. Root `LICENSE` and shipped `Mod/LICENSE`
   are byte-identical. This records the licence declared for this repository, not a grant
   over Phytokin or Ludeon assets; runtime references and the driver adaptation remain credited
   in `ATTRIBUTION.md`.
@@ -376,6 +376,6 @@ conversation.
 
 The `licence` vocabulary: `open` an explicitly licensed third-party source, `silent` no licence
 and a dead source, `alive` no licence but a living source, `forbidden` a written refusal,
-`original` an original production by nelim. Original authorship is compatible with a MIT
+`original` an original production by Nelim. Original authorship is compatible with a MIT
 licence and documented inspiration or runtime references; it does not remove attribution
 obligations or extend the repository's licence to third-party assets.

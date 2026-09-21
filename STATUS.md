@@ -23,10 +23,30 @@ remaining:
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, the halo filmed with PickleTools film steps: no halo visible, one picture per 1.6 ticks
+updated:      2026-09-21, halo fix committed (b8d7f25), verification queued; done -> tested gate mapped, not met
 ---
 
 # Anima Song — status
+
+## Where `done -> tested` stands — 2026-09-21 (23:35)
+
+Stage stays `done`. This is the criteria of the `done -> tested` step read against what exists tonight, so that whoever
+continues (the Pickle runs, or the person who plays the rest) knows what is left. It claims nothing new.
+
+| Criterion | State |
+| --- | --- |
+| The functional scenarios are executed in game and pass | **Not met.** Of the fourteen of `TESTING.md`, one is played whole (1), one more whole (5); seven are played in part (2, 6, 7, 8, 11, 12, 13); one is found faulty and fixed but not confirmed (4); four are not played (3, 9, 10, 14). The table in `TESTING.md` says which part of each |
+| The Pickle suites run and are green, and their `@review` captures were actually opened | **Not met.** Ten of twelve scenarios green in the last full runs; the failures were the halo. The fix is committed (`b8d7f25`) and the six halo scenarios are queued against it, **no result yet**. Nine captures opened in this conversation: none shows a halo |
+| Played scenarios counted against features discovered, `exitReason` read first | Done for every run recorded here |
+| Logs checked | **Partly.** `no errors were logged` is asserted in eight scenarios; no full read of a real session's `Player.log` |
+| Interface checked in French and in English | **Partly.** See scenario 13 |
+| Options, persistence and the MainButtons shortcut | Not applicable to settings (`settings_audit: not_applicable`); the toggle's persistence through a save and reload is played |
+| New game and existing save | **Existing save only** (the fixture). No new colony |
+| Corrections followed by the regression tests | **Pending**: the halo fix and its six scenarios |
+
+What a person has to do, in order of value: play scenarios 3, 9, 10 and 14 (none has been watched by anything), the
+remainder of 2, 6, 7, 8, 11, 12 and 13 listed in `TESTING.md`, and look at the halo on the Windows game at 1x and 3x,
+because the Linux game cannot say whether it is drawn. Nothing here launches that game.
 
 ## The halo filmed by PickleTools' steps — 2026-09-21 (22:42)
 

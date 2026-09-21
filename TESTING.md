@@ -1,8 +1,9 @@
 # Anima Song — in-game test scenarios
 
-Nothing in this mod has ever been seen running. The build is clean, the XML checkers are clean and
-the translation keys resolve on paper, but none of that exercises a single tick of the game. This
-file is the list of what has to be watched, and what counts as a pass.
+No person has ever played this mod on the Windows game. The build is clean, the XML checkers are clean and
+the translation keys resolve on paper; since 2026-09-21 a Pickle suite has also watched part of it run in a
+headless Linux game (see the table below). This file is the list of what has to be watched, and what counts
+as a pass.
 
 It is not shipped: it lives beside `Mod/`, never inside it, so Steam never receives it.
 
@@ -18,10 +19,35 @@ running game. It automates the part of the list below that a machine can judge �
 on a spawned tree, the walk and the seat, the halo under ultrafast, the memory after a full
 sitting, the toggle biting at once and surviving a reload, the deaf refusal, and the six-listener
 cap with its seventh refused in the menu — and it attaches captures for the rest. Its README says
-which scenarios below it covers, which it deliberately leaves alone, and why. **It has never been
-run.** The fourteen scenarios here stay the reference: a suite that has not been executed proves
-nothing, and the judgements — whether the halo reads, whether the French comes out in French —
-remain a person's.
+which scenarios below it covers, which it deliberately leaves alone, and why. **It was run on
+2026-09-21**, in the headless Linux game: the table below says what each scenario got from it. The
+fourteen scenarios here stay the reference, and the judgements — whether the halo reads, whether the
+French comes out in French — remain a person's.
+
+## What the Pickle suite has already played, 2026-09-21
+
+Read this before playing anything by hand: it says which of the fourteen scenarios a machine has watched and which
+are still yours. "Played" means the scenario ran in the headless WSL game on the fixture's anima tree, in English and
+in French unless said otherwise, and passed; it does not mean the whole scenario as written below was covered.
+
+| # | Scenario | Pickle | What is left for a person |
+| --- | --- | --- | --- |
+| 1 | The mod loads, and the patch bites | **Played, passed.** The comp is on the spawned tree, its toggle is on the selection, no error logged. Passes A and B | Nothing new in game; a look at the log of a real session |
+| 2 | The right-click order | **Partly.** The order is driven through the comp's own menu entry (not a real click), the colonist walks and sits 2 to 5 cells out | The real right-click; the inspect line; the drafted colonist getting no entry; nobody on the trunk's eight cells |
+| 3 | The song fires once, then holds its tongue | Not played | All of it (5000-tick cooldown) |
+| 4 | The song is visible | **Found a fault, fixed, not yet confirmed.** The halo lived under a tick; `Maintain()` is now called when the mote is made. A rerun is queued | That the halo is drawn on screen, at 1x and 3x: the Linux game renders in software and cannot say |
+| 5 | The ring, and the seventh colonist | **Played, passed** in every full run: six on six distinct cells, the seventh refused before walking with the "all listeners" reason, the order back when one leaves | Nothing beyond the log of a real session |
+| 6 | The toggle | **Partly.** Off stands the listeners up at once, the order is refused with the "not allowed" reason, the state survives a save and reload | The inspect line by eye; that nobody goes on their own over a day |
+| 7 | Who may listen | **Partly.** A deaf colonist is refused with the "cannot hear" reason | A blind colonist listens |
+| 8 | The memory | **Partly.** A full sitting leaves the memory, a short one leaves none | It does not stack; it scales with psychic sensitivity |
+| 9 | The colonist who decides on their own | Not played | All of it (`baseChance` 2, the recreation type in the tolerance list) |
+| 10 | Walls and roofs | Not played | All of it |
+| 11 | The two soft dependencies | **Partly.** Pass A (Royalty's sound and icon) and pass B (Phytokin's: the def `VRE_AnimaSongSound` and the texture `UI/Abilities/AnimaSong` resolved) | That the sound is heard; that Phytokin's own `VRE_AnimaSong` still works beside the mod |
+| 12 | Saving in the middle | **Partly.** A save and reload with the toggle off | A save with three listeners, and the cooldown surviving |
+| 13 | English and French translation | **Partly.** Toggle, its label, the inspect lines and three of the four refusal reasons in both languages (assertions on the translated keys, plus captures opened). The French pane clips the mod's own line | The fourth reason ("no free spot"); the recreation type, the memory label and description, the job report |
+| 14 | Adding and removing on a live colony | Not played | All of it |
+
+**No pass was run on a new colony.** The fixture is an existing save.
 
 ## Before starting
 

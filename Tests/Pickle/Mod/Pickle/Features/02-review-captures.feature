@@ -45,6 +45,24 @@ Feature: what the song looks like
     And Anima Song: the halo of the tree at x=70 z=132 is alive
     Then I take a screenshot "the ring listening, halo and waves"
 
+  # THE HALO FILMED ONE PICTURE PER TICK. The two tick-by-tick scenarios of 01-the-song.feature give the
+  # numbers; this one gives the pictures, so a person can see what a halo that is up one tick in fifteen
+  # actually looks like, and whether it flashes or is simply never noticed. It needs a Pickle that knows
+  # @film-ticks:N, which the Workshop build does not: on that one the tag is ignored and the scenario just
+  # plays. The film covers the whole scenario from its first step, so the walk is in it too; run it with
+  # -pickle-max-film-seconds raised, or the cap ends the film before the interesting part.
+  @film-ticks:1 @timeout:300
+  Scenario: the halo filmed one picture per tick, with the camera on the tree
+    Given a colonist "Reel" exists
+    And game speed is ultrafast
+    When Anima Song: "Reel" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Reel" sits in the ring of the tree at x=70 z=132
+    And game speed is normal
+    And I zoom all the way in
+    And I move the camera to (70, 132)
+    And I wait 90 ticks
+    Then Anima Song: "Reel" is listening to the tree at x=70 z=132
+
   # The mod's own words, in the language this pass runs in. What to look for when the image comes
   # back: accented gibberish, which is dev mode saying a key is missing from the active language;
   # clean English inside a French run, which is a string hardcoded in C# or XML; a raw key; a

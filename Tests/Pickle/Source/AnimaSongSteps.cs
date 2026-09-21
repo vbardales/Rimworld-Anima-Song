@@ -305,23 +305,41 @@ namespace AnimaSong.PickleSteps
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             ctx.Assert(pingField != null, "CompAnimaSong.lastListenTick no longer exists: this step has to follow it");
 
+            var moteField = typeof(CompAnimaSong).GetField("auraMote",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            ctx.Assert(moteField != null, "CompAnimaSong.auraMote no longer exists: this step has to follow it");
+
+            // Why the halo is down matters as much as that it is: a field that is null (the mote was
+            // never made, or MoteMaker returned nothing), a mote that is Destroyed (made, then dead by
+            // the time of the reading) and a live one are three different faults.
+            ThingDef auraDef = DefDatabase<ThingDef>.GetNamedSilentFail("Mote_PsyfocusPulse");
+            bool onScreen = Find.CameraDriver.CurrentViewRect.Contains(comp.parent.Position);
+
             int up = 0;
             var ageCounts = new SortedDictionary<int, int>();
+            var stateCounts = new SortedDictionary<string, int>();
             var lines = new List<string>(ticks);
             for (int i = 0; i < ticks; i++)
             {
                 await ctx.WaitTicks(1);
-                bool halo = HaloIsUp(ctx, comp);
+                var mote = moteField.GetValue(comp) as Mote;
+                string state = mote == null ? "null" : mote.Destroyed ? "destroyed" : "alive";
+                bool halo = state == "alive";
                 int now = Find.TickManager.TicksGame;
                 int age = now - (int)pingField.GetValue(comp);
                 if (halo) up++;
                 ageCounts.TryGetValue(age, out int seen);
                 ageCounts[age] = seen + 1;
-                lines.Add($"{now}\thalo={(halo ? 1 : 0)}\tage={age}");
+                stateCounts.TryGetValue(state, out int seenState);
+                stateCounts[state] = seenState + 1;
+                lines.Add($"{now}\thalo={state}\tage={age}");
             }
 
             string ages = string.Join(", ", ageCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
-            string summary = $"halo up on {up} of {ticks} ticks; ticks since the last ping (age:count): {ages}";
+            string states = string.Join(", ", stateCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
+            string summary = $"halo up on {up} of {ticks} ticks; field state (state:count): {states}; " +
+                             $"ticks since the last ping (age:count): {ages}; " +
+                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; tree in view: {onScreen}";
             ctx.Attach("halo tick by tick", string.Join("\n", lines) + "\n" + summary);
             ctx.Assert(up >= ticks * 0.9, summary);
         }

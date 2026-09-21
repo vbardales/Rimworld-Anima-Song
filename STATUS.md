@@ -16,17 +16,44 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - defect: the halo is mostly absent while someone listens - up in 3 of 40 sampled frames at normal speed, 8 of 40 at 3x (Fast), 4 to 5 of 40 at ultrafast, in English, and 13 of 40 at ultrafast in French (Pickle, 2026-09-21, three separate runs); it comes up and is not held, at every speed, so it is not a high-speed problem, and the same with Phytokin loaded (2, 3 and 8 of 40 in pass B); measured: the job pings the tree every 15 ticks and the mote lives about one, so the halo is up 1 tick in 15 (tick-by-tick, 2026-09-21, camera off the tree); whether it is the same with the camera on the tree is not yet known, a scenario is written and not yet run
+  - defect: the halo is mostly absent while someone listens - up in 3 of 40 sampled frames at normal speed, 8 of 40 at 3x (Fast), 4 to 5 of 40 at ultrafast, in English, and 13 of 40 at ultrafast in French (Pickle, 2026-09-21, three separate runs); it comes up and is not held, at every speed, so it is not a high-speed problem, and the same with Phytokin loaded (2, 3 and 8 of 40 in pass B); measured: the job pings the tree every 15 ticks and the mote lives about one, so the halo is up 1 tick in 15 (tick-by-tick, 2026-09-21, camera off the tree); with the camera ON the tree the job pings every tick (age 1 on all 300) yet the halo is up on 0 of 300 ticks and none shows in the capture, so it is not only the ping cadence; why the mote is down (field null, mote destroyed) is not yet known, the per-tick step now records it and is not yet rerun
   - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
   - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, tick-by-tick: the job pings every 15 ticks (camera off the tree), halo up 1 tick in 15
+updated:      2026-09-21, camera on the tree: the job pings every tick and the halo is still absent (0 of 300)
 ---
 
 # Anima Song — status
+
+## Camera on the tree — 2026-09-21 (21:57)
+
+Stage unchanged, `done`. English, filtered to `::with the camera on the tree`: 2 scenarios played, because two
+names carry those words - the tick-by-tick one and the filmed one, which ran on the Workshop Pickle where its
+`@film-ticks:1` tag is unknown and ignored. `exitReason: failed`, 1 passed (the film scenario, which asserts only
+that the colonist listens) and 1 failed. Copies in `.build/pickle-run-2026-09-21-2157-camera/`.
+
+| Camera | Ticks since the last ping (of 300) | Halo up on |
+| --- | --- | --- |
+| Off the tree (21:28) | 0 to 14, twenty of each - one ping in fifteen | 20 of 300 |
+| **On the tree** | **1 on every one of the 300 - a ping every tick** | **0 of 300** |
+
+The off-screen hypothesis is half right: **the job does ping every tick when the tree is on screen**, so the 15-tick
+cadence was what an unwatched tree gets. But **that is not what was hiding the halo**: with a ping on every tick the
+halo is up on none of the 300 ticks, and the capture (`...with-the-camera-on-the-tree--step10.png`, camera on the
+tree at normal speed, the colonist standing beside it) shows no halo at all, not even the faint disc of an earlier
+French capture. What the player sees, with the camera on the tree, is nothing. This is worse than the off-screen
+case, where the halo at least came up on the ping tick.
+
+**Why is not known.** The step read the mote field as up or down; it now reads three states - field `null` (the mote
+was never made, or `MoteMaker` returned nothing), `destroyed` (made, dead by the time of the reading), `alive` - and
+whether `Mote_PsyfocusPulse` exists and whether the tree is in the camera's view rect. It is rebuilt and **not yet
+rerun**. The finding stays: on screen the halo is absent, with the job pinging normally; the cause is open.
+
+The scenario that films the same stretch one picture per tick is queued on a local Pickle build
+(`Documents\pickle-local\anima-film-mod`, `@film-ticks:1`); nothing from it is in.
 
 ## The tick-by-tick sampler, first result — 2026-09-21 (21:28)
 

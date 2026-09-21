@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-stage:        preTest
+stage:        done
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 dependencies: declared
@@ -16,7 +16,8 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - unverified: Pickle (Gherkin) suite for preTest -> done - none written, and the scope of what only a running game can show is not justified anywhere in the repository
+  - unverified: the ten Pickle scenarios of Tests/Pickle, written 2026-09-21 and never executed, on either side
+  - unverified: pass B of the Pickle suite, which cannot be staged here - Vanilla Races Expanded - Phytokin is not installed on this machine
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: grafting the comp onto the tree, which a PatchOperationConditional can miss without a word
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
@@ -24,10 +25,69 @@ remaining:
   - unverified: pass B, with Phytokin - sound and icon looked up by def name
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, workflow audit: done -> preTest (Pickle gate of preTest -> done not met)
+updated:      2026-09-21, Pickle suite written: preTest -> done
 ---
 
 # Anima Song — status
+
+## Pickle suite written — 2026-09-21
+
+**Decision: `preTest` -> `done`.** The audit earlier today put the mod back to `preTest` for one
+missing criterion: the Pickle (Gherkin) tests were neither written nor justified. They are now
+written, in `Tests/Pickle/`, and their scope is argued file by file. Nothing else changed, and
+**nothing has been run**: `done` means ready for the final in-game validation, not validated.
+
+### What was added
+
+- `Tests/Pickle/Mod/`, a companion mod **Anima Song - Pickle tests**, never published, beside
+  `Mod/` and outside the folder Steam receives. It declares Anima Song, Royalty and Pickle as hard
+  dependencies and Phytokin only under `loadAfter`, so a pass without Phytokin stays possible.
+- Two feature files, **10 scenarios**: the patch landing on a spawned tree and showing its toggle;
+  the sound and icon chosen from the modlist; the walk and the seat in the 2-to-5-cell ring; the
+  halo surviving a stretch of ultrafast; the memory after a full sitting and its absence after a
+  glance; the toggle emptying the ring at once and surviving a save and reload; the deaf refusal;
+  the six-listener cap with the seventh refused in the menu; and two `@review` capture scenarios.
+- `Tests/Pickle/Source/`, a step assembly reaching what no vanilla Pickle step can: the comp on the
+  tree, its gizmo, the float menu option the mod hands the game, the halo mote, and where the
+  listeners sit. Built to `Mod/Pickle/Assemblies/AnimaSong.PickleSteps.dll`; intermediates go to
+  `.build/pickle/`, outside both mod folders.
+- `Tests/Pickle/README.md`, which argues the scope: what needs a running game and why, and what is
+  deliberately left out — the autonomous colonist, whose `baseChance` of 2 would hold the machine
+  for a die roll; the roofed tree and the wall, which test the base game; the fourth refusal, which
+  needs sixty cells blocked; adding and removing the mod, which is a second game; and the mood
+  scaling, which is `effectMultiplyingStat` arithmetic.
+
+### Checks performed, all offline
+
+- `dotnet build Tests/Pickle/Source/AnimaSong.PickleSteps.csproj -c Release`: success, 0 warnings,
+  0 errors.
+- Both feature files parsed with **Pickle's own `Gherkin.dll`**, the parser the runner uses:
+  2 features, 10 scenarios, tags and step counts as intended.
+- Every one of the 19 step texts used in the features matches one of the 19 declared step
+  attributes exactly, checked by normalising the feature lines to their Cucumber expressions. The
+  16 vanilla steps used are each present in Pickle's own shipped features or step patterns.
+- The fixture was read rather than assumed: Pickle's `test-colony.rws` holds a Royalty anima tree at
+  **(70, 132)** with eight clear cells around it, no roof and no subplants. No tree is spawned.
+- No step spells an English label: the toggle is found by the translation of its own Keyed key and
+  each refusal by the key the mod chose for it, so the assertions hold in either language pass.
+
+### What this does not claim
+
+**No run, no game, no lock.** RimWorld was not launched, staged or driven, on either side, and the
+machine lock was never taken. The suite has never been executed: not one scenario has been seen to
+pass, fail, or even be selected. Its ten scenarios are recorded in `remaining` as `unverified`.
+
+Pass B, with Phytokin, **cannot be staged from this machine**: a corpus search over 8,900 mod
+folders found `vanillaracesexpanded.phytokin` only inside the About of a mod depending on it, never
+as an installed mod's own packageId. The README gives the one-line dep map to write once it is
+subscribed; no Workshop id was guessed, since the staging script would then copy somebody else's mod.
+
+### Next gate
+
+`done -> tested`: run the suite in WSL through `scripts/Run-PickleWsl.ps1`, once per language, and
+once more with Phytokin when it is installed; read `exitReason` before the numbers, compare
+scenarios played against features discovered, and open the `@review` captures. Then the fourteen
+`TESTING.md` scenarios the suite deliberately leaves to a person.
 
 ## Workflow audit — 2026-09-21
 
@@ -59,7 +119,7 @@ other than this file was changed.
 | preOptions -> options | **Validated, `settings_audit: not_applicable`.** Grep of `Source/` and `Mod/` for `ModSettings`, `GetSettings`, `SettingsCategory`, `DoSettingsWindowContents`, `MainButtonDef`, `MainTabWindow`, `Mod` subclasses: no match. No settings page and no shortcut exist. The only player choice, the per-tree toggle, is a gizmo saved on the tree. Toggle effect and save/reload stay in-game checks (scenarios 6, 12). |
 | options -> l10n | **Validated.** Source inventory: 10 `.Translate()` keys, all present and non-empty in English and French Keyed files, `{0}` parameter kept; 4 Def fields (English source in the Def, French through 3 DefInjected files, two under the Royalty-gated folder). No hardcoded player-facing text in the five C# files. `Check-DefInjected.ps1`: 4 keys, 0 errors. Runtime display unverified. |
 | l10n -> preTest | **Validated.** Only Royalty is required, declared in `modDependencies`; `loadAfter` Core, Royalty, Phytokin; Phytokin is optional, looked up by def name (`GetNamedSilentFail`) with a Royalty fallback; no assembly reference beyond `Krafs.Rimworld.Ref`, no Harmony. `LoadFolders.xml` 1.6 lists `/` and gates `Royalty` on `IfModActive`, matching the `MayRequire` defs. |
-| preTest -> done | **Not established.** Met: fourteen written scenarios (setup, actions, expected result) in `TESTING.md`; build matches the shipped DLL; automated suite 20/20; XML checks clean. **Missing: Pickle (Gherkin) tests.** No `Tests/Pickle` folder exists and no document justifies leaving them out. The mod has surfaces only a running game shows (the comp graft on the tree, the halo at 3x speed, the ring layout, the right-click entry through other mods' windows, persistence across reload), so non-applicability cannot be assumed. |
+| preTest -> done | **Not established at the time of this audit.** Met: fourteen written scenarios (setup, actions, expected result) in `TESTING.md`; build matches the shipped DLL; automated suite 20/20; XML checks clean. **Missing: Pickle (Gherkin) tests.** No `Tests/Pickle` folder exists and no document justifies leaving them out. The mod has surfaces only a running game shows (the comp graft on the tree, the halo at 3x speed, the ring layout, the right-click entry through other mods' windows, persistence across reload), so non-applicability cannot be assumed. *Resolved later the same day: see the section above.* |
 | done -> tested | **Unverified**, as before: nothing has been played in game. |
 
 ### Commands and observed results

@@ -13,6 +13,16 @@ first — a red line there explains a scenario that would have failed below, and
 than a colony. It proves nothing about what happens on screen, which is why the fourteen below
 stand unchanged.
 
+Since 2026-09-21 a second layer sits between the two: `Tests/Pickle/`, a Gherkin suite run inside a
+running game. It automates the part of the list below that a machine can judge — the patch landing
+on a spawned tree, the walk and the seat, the halo under ultrafast, the memory after a full
+sitting, the toggle biting at once and surviving a reload, the deaf refusal, and the six-listener
+cap with its seventh refused in the menu — and it attaches captures for the rest. Its README says
+which scenarios below it covers, which it deliberately leaves alone, and why. **It has never been
+run.** The fourteen scenarios here stay the reference: a suite that has not been executed proves
+nothing, and the judgements — whether the halo reads, whether the French comes out in French —
+remain a person's.
+
 ## Before starting
 
 - RimWorld 1.6, Royalty active, Anima Song active. Development mode on, so that silent failures

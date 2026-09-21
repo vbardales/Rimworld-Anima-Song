@@ -16,19 +16,45 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - defect: the halo is mostly absent while someone listens - up in 3 of 40 sampled frames at normal speed, 8 of 40 at 3x (Fast), 4 to 5 of 40 at ultrafast, in English, and 13 of 40 at ultrafast in French (Pickle, 2026-09-21, three separate runs); it comes up and is not held, at every speed, so it is not a high-speed problem, and the same with Phytokin loaded (2, 3 and 8 of 40 in pass B); the cause is not established (the job pings the mote less often than its one-tick lifetime, or the sampler is wrong; a tick-by-tick sampler is written and not yet run)
+  - defect: the halo is mostly absent while someone listens - up in 3 of 40 sampled frames at normal speed, 8 of 40 at 3x (Fast), 4 to 5 of 40 at ultrafast, in English, and 13 of 40 at ultrafast in French (Pickle, 2026-09-21, three separate runs); it comes up and is not held, at every speed, so it is not a high-speed problem, and the same with Phytokin loaded (2, 3 and 8 of 40 in pass B); measured: the job pings the tree every 15 ticks and the mote lives about one, so the halo is up 1 tick in 15 (tick-by-tick, 2026-09-21, camera off the tree); whether it is the same with the camera on the tree is not yet known, a scenario is written and not yet run
   - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
   - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, Pickle pass B (Phytokin) run: 9 of 12 green, soft dependency confirmed, halo fails as in pass A
+updated:      2026-09-21, tick-by-tick: the job pings every 15 ticks (camera off the tree), halo up 1 tick in 15
 ---
 
 # Anima Song — status
 
-## The tick-by-tick sampler — 2026-09-21Written after the passes above, **not yet run**. Two scenarios (normal speed and Fast) read the halo after everysingle tick, together with how long ago the job last pinged the tree, and attach the distribution to the report.They exist to separate the two open readings of the halo finding: a job that pings less often than the motelives, or a sampler that was a poor witness. The suite is now 14 scenarios; the last runs played 12.
+## The tick-by-tick sampler, first result — 2026-09-21 (21:28)
+
+Stage unchanged, `done`. English, filtered to `::followed tick by tick`: 2 scenarios played for 2 written,
+`exitReason: failed`, both failed, as tests. Report copied to `.build/pickle-run-2026-09-21-2128-tick/`.
+A first launch at 19:58 had been terminated after 62 s with exit 143 and wrote no report; **its cause is
+unknown**. It is not this result.
+
+| Speed | Halo up on | Ticks since the last ping (age: how many of 300) |
+| --- | --- | --- |
+| Normal | 20 of 300 | 0 to 14, twenty of each |
+| Fast (3x) | 48 of 300 | 0:48, 1:60, 4:60, 7:60, 10:60, 13:12 (each sample spans 3 ticks at 3x, so the ages step by 3): the same 15-tick cycle |
+
+**The job pings the tree once every 15 ticks, on a perfect sawtooth, and the halo is up on exactly the ping
+tick**: 20 of 300 is one in fifteen. The mote is `needsMaintenance` and dies within a tick or two of its last
+`Maintain()`, so it is alive for about 7 % of the time and dark the other 93 %, and it never lives long enough to
+finish its 0.2 s fade-in. That matches every capture: no halo readable. **This is measured, not inferred** - the
+age counter is the comp's own `lastListenTick`, read after each tick. The comment in `CompAnimaSong` expects
+deltas of 2 or 3 at higher speed; what the game delivers here is 15.
+
+**What is still open, and it is the important part.** In both scenarios the camera stayed on the base, sixty cells
+from the tree, because nothing moved it. If RimWorld 1.6 ticks off-screen pawns at an interval, 15 ticks is the
+cadence of an *unwatched* tree and says nothing about the tree a player is looking at. I have not established
+that rule; it is a hypothesis that fits a perfectly regular 15. A third scenario, the same question at normal speed
+with the camera zoomed in on the tree, is written for it and **not yet run**. The suite is 15 scenarios.
+Until that runs, the finding is: *the job pings every 15 ticks when the tree is not on screen, and the halo is
+dark most of the time then* - a defect only if the on-screen tree behaves the same way.
+
 ## Pickle pass B, with Phytokin — 2026-09-21 (17:17)
 
 Stage unchanged, `done`. English, `-DepMap wsl-deps.phytokin.map`: 13 mods staged and loaded (the 11 of

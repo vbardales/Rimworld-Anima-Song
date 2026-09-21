@@ -137,6 +137,24 @@ Feature: listening to an anima tree sing
     And I wait 60 ticks
     Then Anima Song: the halo of the tree at x=70 z=132 is followed tick by tick for 300 ticks
 
+  # THE CAMERA IS THE VARIABLE THE TWO ABOVE LEAVE OPEN. Their first run (2026-09-21, 21:28) read the job
+  # pinging the tree once every 15 ticks, on a perfect sawtooth: ages 0 to 14, twenty of each in 300
+  # ticks, the halo up on exactly the ping tick. Both scenarios ran with the camera on the base, sixty cells
+  # from the tree, and Pickle never moved it. If RimWorld 1.6 ticks off-screen pawns at an interval, that
+  # cadence is what an unwatched tree gets and says nothing about the tree a player is looking at - and a
+  # halo nobody sees does not matter. This one puts the camera on the tree first, and asks the same question.
+  @same-world @timeout:180
+  Scenario: the halo, followed tick by tick at normal speed, with the camera on the tree
+    Given a colonist "Watched" exists
+    And game speed is ultrafast
+    When Anima Song: "Watched" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Watched" sits in the ring of the tree at x=70 z=132
+    And game speed is normal
+    And I zoom all the way in
+    And I move the camera to (70, 132)
+    And I wait 180 ticks
+    Then Anima Song: the halo of the tree at x=70 z=132 is followed tick by tick for 300 ticks
+
   # The memory, which is gained in the job's finish action after half an in-game hour of sitting -
   # 1250 ticks. The offline suite proves the ThoughtDef and its French handle exist; only a sitting
   # grants it.

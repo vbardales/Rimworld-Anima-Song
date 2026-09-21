@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-stage:        done
+stage:        preTest
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 dependencies: declared
@@ -16,6 +16,7 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
+  - unverified: Pickle (Gherkin) suite for preTest -> done - none written, and the scope of what only a running game can show is not justified anywhere in the repository
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: grafting the comp onto the tree, which a PatchOperationConditional can miss without a word
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
@@ -23,10 +24,61 @@ remaining:
   - unverified: pass B, with Phytokin - sound and icon looked up by def name
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-13, user accepted Preview style; cumulative done restored
+updated:      2026-09-21, workflow audit: done -> preTest (Pickle gate of preTest -> done not met)
 ---
 
 # Anima Song — status
+
+## Workflow audit — 2026-09-21
+
+**Decision: `done` -> `preTest`.** Stage values use the workflow's literal names. `preTest`
+means every gate through `l10n -> preTest` is established; the `preTest -> done` gate is not,
+for one reason only: the Pickle (Gherkin) tests are neither written nor is their absence
+justified. This is missing work, not a defect of the mod. No code, asset or documentation
+other than this file was changed.
+
+### Scope and revision
+
+- Repository `C:/Users/nelim/Documents/rimworld/AnimaSong` (own `.git`), distributed root `Mod/`.
+- Audited HEAD `8d9fbe2e39a55fce31d9855d9c0ac5301b7f14cd`, working tree clean before this edit,
+  equal to `origin/main` (`git ls-remote origin HEAD`). `gh repo view`: PUBLIC, non-empty, `main`.
+- The audit prompt changed since 2026-09-13: `preTest -> done` now requires the Pickle tests to be
+  *written* with their scope justified, and states that no in-game run is needed for `done`.
+  That is the only criterion the previous `done` did not cover.
+- RimWorld was not launched, not staged and not driven; no lock was taken because nothing was run
+  in game. The offline suite below reads the installed game's assemblies and def files only.
+
+### Ordered gates
+
+| Transition | Result |
+| --- | --- |
+| dansMonoRepo -> horsMonoRepo | **Validated.** Standalone repo, GitHub remote, pushed HEAD, STATUS.md, public / `original` decision, MIT `LICENSE` and `ATTRIBUTION.md` byte-identical to the shipped copies, English README/CHANGELOG. Naming coherent (`Anima Song`, `nelim.animasong`, `AnimaSong`, `Rimworld-Anima-Song`). |
+| horsMonoRepo -> ModIcon générée | **Validated.** Fresh isolated rebuild: 0 warnings, 0 errors, DLL SHA256 identical to the shipped one (`F255B868...16B5C`). `Mod/About/ModIcon.png` is 128 x 128 PNG, 29,110 bytes, opened and looked at: winking orange mascot with leaf and note motifs. Style deviations remain waived by the user's 2026-09-13 override. |
+| ModIcon générée -> Preview générée | **Validated.** `Mod/About/Preview.png` is 896 x 504 PNG, 538,176 bytes (< 1 MB), SHA256 unchanged (`7cfc743e...6e4`). Opened and looked at. Style accepted by the user on 2026-09-13. |
+| Preview générée -> preOptions | **Validated.** Violet rule and badge distinct from the blue scene; English title `Anima Song`, no prefix/suffix; description in English and ends with `[url=https://github.com/vbardales/Rimworld-Anima-Song]Source code on GitHub[/url]`, matching `<url>` and the remote. |
+| preOptions -> options | **Validated, `settings_audit: not_applicable`.** Grep of `Source/` and `Mod/` for `ModSettings`, `GetSettings`, `SettingsCategory`, `DoSettingsWindowContents`, `MainButtonDef`, `MainTabWindow`, `Mod` subclasses: no match. No settings page and no shortcut exist. The only player choice, the per-tree toggle, is a gizmo saved on the tree. Toggle effect and save/reload stay in-game checks (scenarios 6, 12). |
+| options -> l10n | **Validated.** Source inventory: 10 `.Translate()` keys, all present and non-empty in English and French Keyed files, `{0}` parameter kept; 4 Def fields (English source in the Def, French through 3 DefInjected files, two under the Royalty-gated folder). No hardcoded player-facing text in the five C# files. `Check-DefInjected.ps1`: 4 keys, 0 errors. Runtime display unverified. |
+| l10n -> preTest | **Validated.** Only Royalty is required, declared in `modDependencies`; `loadAfter` Core, Royalty, Phytokin; Phytokin is optional, looked up by def name (`GetNamedSilentFail`) with a Royalty fallback; no assembly reference beyond `Krafs.Rimworld.Ref`, no Harmony. `LoadFolders.xml` 1.6 lists `/` and gates `Royalty` on `IfModActive`, matching the `MayRequire` defs. |
+| preTest -> done | **Not established.** Met: fourteen written scenarios (setup, actions, expected result) in `TESTING.md`; build matches the shipped DLL; automated suite 20/20; XML checks clean. **Missing: Pickle (Gherkin) tests.** No `Tests/Pickle` folder exists and no document justifies leaving them out. The mod has surfaces only a running game shows (the comp graft on the tree, the halo at 3x speed, the ring layout, the right-click entry through other mods' windows, persistence across reload), so non-applicability cannot be assumed. |
+| done -> tested | **Unverified**, as before: nothing has been played in game. |
+
+### Commands and observed results
+
+- `dotnet build Source/AnimaSong.csproj --no-restore -c Release -t:Rebuild -p:OutputPath=../.build/audit-2026-09-21/build/`: success, 0 warnings / 0 errors; DLL hash equal to `Mod/Assemblies/AnimaSong.dll`.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`: **20 passed, 0 failed**, against the installed game files; no game launched.
+- `../scripts/Check-XmlFields.ps1`: four files, no unknown field. `Check-XmlClasses.ps1`: five types resolved. `Check-DefRefs.ps1`: no missing or mistyped reference, no unresolved parent. `Check-DefInjected.ps1`: 4 keys, 0 errors (two Royalty-folder notices satisfied by the gated folder, also covered by functional test 20).
+- `git`/`gh`: HEAD pushed, repository public. `cmp` on LICENSE and ATTRIBUTION.md against `Mod/` copies: identical.
+
+### Work needed to cross `preTest -> done`
+
+Write a Pickle suite (`Tests/Pickle`) limited to what only a running game can show, and record why the
+rest stays in `_tools/Run-Functional-Tests.ps1` and `TESTING.md`. Running it is **not** required for
+`done`; it is a criterion of `done -> tested`, with its `@review` captures actually opened.
+
+### Optional, not blocking
+
+- Publishing wording (`IF I GO QUIET`, `AI-GENERATED`, `THANKS`, order of sections) and `PUBLICATION.md` belong to `tested -> prepublished`; the current description uses an `ADOPTION` heading and would need reconciling then.
+- `v1.0.0` tag and release remain owed until something has run.
 
 ## Preview style acceptance and cumulative status — 2026-09-13
 

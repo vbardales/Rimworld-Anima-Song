@@ -77,7 +77,8 @@ rest stays in `_tools/Run-Functional-Tests.ps1` and `TESTING.md`. Running it is 
 
 ### Optional, not blocking
 
-- Publishing wording (`IF I GO QUIET`, `AI-GENERATED`, `THANKS`, order of sections) and `PUBLICATION.md` belong to `tested -> prepublished`; the current description uses an `ADOPTION` heading and would need reconciling then.
+- Description wording: after this audit, `Mod/About/About.xml` was reordered to the `prepublished` layout (`IF I GO QUIET` with the unchanged adoption clause, `AI-GENERATED`, `THANKS`, the ATTRIBUTION.md line now also pointing to the MIT `LICENSE`, then the final `[url=...]Source code on GitHub[/url]`). Metadata-only edit, XML parses, the closing GitHub link is still last; no build, test or translation result is invalidated. The final read of the description remains part of `tested -> prepublished`.
+- `PUBLICATION.md` still belongs to `tested -> prepublished`.
 - `v1.0.0` tag and release remain owed until something has run.
 
 ## Preview style acceptance and cumulative status — 2026-09-13

@@ -33,6 +33,10 @@ Royalty is required, since the anima tree is a Royalty plant. Without it the mod
 
 No save data of its own. The toggle and the song cooldown are stored on the tree, in the save; the mod can be added to or removed from an ongoing game.
 
+IF I GO QUIET
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
 AI-GENERATED
 
 This mod's code was written with Claude Code (Anthropic) and its preview image generated with an image model, under human direction and review. Stated openly: designing with these tools is my job.
@@ -45,11 +49,7 @@ Ludeon Studios, for the anima tree and for the psychic effects this mod reuses u
 
 Claude Code (Anthropic).
 
-Full attribution, including what was studied and what is looked up at runtime: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md
-
-ADOPTION
-
-If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+Full attribution, including what was studied and what is looked up at runtime: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md. Released under the MIT licence: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE
 
 [url=https://github.com/vbardales/Rimworld-Anima-Song]Source code on GitHub[/url]</description>
   <modDependencies>

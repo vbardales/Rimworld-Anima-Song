@@ -81,6 +81,36 @@ Feature: listening to an anima tree sing
     And Anima Song: the halo of the tree at x=70 z=132 stays alive
     And Anima Song: the tree at x=70 z=132 is singing
 
+  # The two speeds a player actually uses. RimWorld's own are Normal 1x, Fast 3x, Superfast 6x and
+  # Ultrafast 15x, and the "3x" TESTING.md scenario 4 and the mod's comments speak of is FAST. The
+  # scenario above is the harsh case; these are the promised ones, and they are what tells a halo
+  # that blinks only at a speed nobody plays at from one that blinks for everybody. The first run of
+  # the sampler (2026-09-21, English 4 of 40 frames, French 13 of 40) was at ultrafast only.
+  #
+  # The colonist walks at ultrafast, because sixty cells at normal speed is a long time to hold the
+  # machine, and the speed is set back only once they are sitting.
+  @same-world @timeout:180
+  Scenario: the halo holds at normal speed
+    Given a colonist "Steady" exists
+    And game speed is ultrafast
+    When Anima Song: "Steady" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Steady" sits in the ring of the tree at x=70 z=132
+    And game speed is normal
+    And I wait 300 ticks
+    Then Anima Song: "Steady" is listening to the tree at x=70 z=132
+    And Anima Song: the halo of the tree at x=70 z=132 stays alive
+
+  @same-world @timeout:180
+  Scenario: the halo holds at 3x, the fast speed
+    Given a colonist "Brisk" exists
+    And game speed is ultrafast
+    When Anima Song: "Brisk" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Brisk" sits in the ring of the tree at x=70 z=132
+    And game speed is fast
+    And I wait 300 ticks
+    Then Anima Song: "Brisk" is listening to the tree at x=70 z=132
+    And Anima Song: the halo of the tree at x=70 z=132 stays alive
+
   # The memory, which is gained in the job's finish action after half an in-game hour of sitting -
   # 1250 ticks. The offline suite proves the ThoughtDef and its French handle exist; only a sitting
   # grants it.

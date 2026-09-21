@@ -1,0 +1,26 @@
+# Pass B: Anima Song with Vanilla Races Expanded - Phytokin, its only optional integration.
+#
+# Select it with -DepMap wsl-deps.phytokin.map. The bare pass stays the default, and there is
+# deliberately no wsl-deps.map beside this file: the staging script reads that name on every pass,
+# so a suite owning one can never have a pass without its optional mods.
+#
+# Read by scripts/stage-pickle-wsl.sh: one line per mod, packageId then Workshop id.
+#
+# Why Phytokin is here: Anima Song looks up its sound (VRE_AnimaSongSound) and its toggle icon
+# (UI/Abilities/AnimaSong) BY DEF NAME, with a Royalty fallback. The fallback that fires when it
+# should not is silent by construction, and only a modlist that really contains Phytokin can show
+# it. The scenario "the song and the icon follow the modlist" reads ModsConfig and demands
+# Phytokin's recording and icon when the mod is active.
+#
+# Phytokin requires Vanilla Expanded Framework, which the staging does not pull in for an optional:
+# it copies the hard dependencies of the mod under test only. VEF is listed first so it loads first.
+# Biotech, which Phytokin also needs, is a DLC and is activated by the staging itself.
+#
+# The Workshop id was read off the item's page, https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805
+# on 2026-09-21. That the item is at a 1.6 version has NOT been checked here.
+#
+# NOT YET STAGEABLE: the staging copies from the Windows Workshop folder only, and Phytokin is not
+# subscribed on this machine. The pass needs either that subscription or a download into a cache the
+# staging reads - the second is what the SkillIcons session was building on 2026-09-21.
+oskarpotocki.vanillafactionsexpanded.core   2023507013
+vanillaracesexpanded.phytokin               2927323805

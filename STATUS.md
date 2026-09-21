@@ -16,20 +16,59 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - unverified: Pickle suite, pass A (English, no Phytokin) - first run 2026-09-21 13:00: 6 of 10 passed, 4 failed; the failures are the suite's own (see the section below), fixes written and not yet rerun; nothing counts as passed until a rerun goes green
-  - unverified: Pickle suite in French, and pass B with Phytokin - neither has been run
-  - unverified: pass B of the Pickle suite, which cannot be staged here - Vanilla Races Expanded - Phytokin is not installed on this machine
+  - defect: the halo is up in only 4 of 40 frames in English and 13 of 40 in French at ultrafast (Pickle, 2026-09-21, repeatable in both languages) - it comes up but is not held; two scenarios now ask the same at normal speed and at 3x (Fast), the speeds the mod promises, written and not yet run, so the cause (job pings less often than the mote lifetime, or a sampling artefact of Pickle fast mode) is open
+  - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
+  - unverified: Pickle pass B with Phytokin - written (wsl-deps.phytokin.map), not stageable until Phytokin is on disk
   - unverified: the fourteen scenarios of TESTING.md, none played
-  - unverified: grafting the comp onto the tree, which a PatchOperationConditional can miss without a word
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
-  - unverified: the seventh colonist refused in the menu, never replayed since its fix
-  - unverified: pass B, with Phytokin - sound and icon looked up by def name
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, Pickle suite written: preTest -> done
+updated:      2026-09-21, Pickle passes A (EN, FR) run: 9 of 10 green each, halo open
 ---
 
 # Anima Song — status
+
+## Pickle reruns, English and French — 2026-09-21 (15:18 and 15:24)
+
+Stage unchanged, `done`. Both runs reached their end (`exitReason: failed`), 10 scenarios played for 10
+written, **9 passed and 1 failed in each language**. Reports were copied out before the next session's
+run could overwrite them, to `.build/pickle-run-2026-09-21-1518/` (English) and `-fr/` (French).
+
+The three timeout failures of the first run are gone: the `@timeout:` tags did what they were meant
+to. The only failure, in both languages, is **the halo**: up in 4 of 40 sampled frames in English and 13
+of 40 in French, at ultrafast, against the 90 % the step asks for. The earlier step, which waits for the
+halo to come up, passes: it is created, then not held. That is the risk the comments of `CompAnimaSong`
+name themselves - the mote dies within a tick unless the job pings it, and at higher speed the job can
+receive deltas of 2 or 3. **It is a signal, not a proven defect**: ultrafast is harsher than the 3x the
+mod promises, the sampler runs at frame boundaries of Pickle's fast mode, and nothing yet says what
+normal speed does. Two scenarios now ask the same question at normal speed and at 3x (RimWorld's Fast), the speeds the mod promises: written straight after these runs and **not yet run** - the suite is 12 scenarios from here, these runs played 10.
+
+**Captures opened.** Six images, three per language, taken with dev mode on.
+- English, ring: three colonists near the tree, **no halo readable**, one faint pale streak beside the
+  trunk. English, selected: the inspect pane reads "Singing.", the toggle is ticked. English,
+  forbidden: "Listening not allowed.", the toggle carries a red cross.
+- French, selected: the toggle reads "Autoriser l'écoute" and the pane is in French. A faint lighter
+  disc around the tree and a blue streak at the trunk are visible on that one frame, the only image
+  where anything like the halo shows. French, ring: no halo.
+- **Clipping, and a reading to make with care.** In French the inspect pane is too short for its own
+  text: the mod's line ("Chante." / "Écoute interdite.") is cut at the bottom edge and sits behind the
+  pane's scroll bar. Vanilla lines wrap longer in French too, so this is the pane's layout, not a
+  string the mod controls, and a player can scroll. It is still the line a French player has to hunt for.
+- **Clean English inside the French run, none of it the mod's:** the vanilla gizmo "Commencer anima tree
+  linking" and the message "Fallen monolith" come from Royalty and the base game, whose French
+  translation in this Linux depot is incomplete. Recorded so nobody attributes them to Anima Song.
+- No accented fallback gibberish and no raw key was seen on the mod's own strings.
+
+**What the eighteen green scenarios now show**, in a fixture and on Royalty's sound and icon: the comp
+on the tree and its toggle; the song and icon following the modlist; the memory after a full sitting and
+none after a glance; the toggle emptying the ring and surviving a reload; the deaf refusal with the right
+reason; and the six-listener cap with the seventh refused in the menu. In French, that the toggle label
+and the pane are translated. They do **not** show anything with Phytokin, on a new colony or an existing
+save, nor that the halo reads. `tested_on` stays empty.
+
+**Pass B.** `Tests/Pickle/wsl-deps.phytokin.map` is written (VEF, then Phytokin, Workshop id 2927323805
+read off the item's page, not checked for a 1.6 version). It cannot be staged: the staging copies from the
+Windows Workshop folder and Phytokin is not there yet.
 
 ## First Pickle run — 2026-09-21
 

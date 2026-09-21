@@ -18,6 +18,7 @@ machine for tens of minutes. Nothing here restates any of it.
 | the song and the icon follow the modlist | both are `GetNamedSilentFail` lookups by def name with a Royalty fallback. A fallback that fires when it should not is silent by construction, and only the loaded modlist says which answer is right |
 | an ordered colonist walks out, sits in the ring | `AnimaSongSeats.TryFindSeat` is a radial sweep with line of sight and a reachability test. Only a map answers it, and only a walk proves the seat was reachable |
 | the halo survives a stretch of ultrafast | the halo is a `needsMaintenance` mote the job pings every tick. It dies within a few ticks if nobody does, and at ultrafast the job receives deltas worth 2 or 3 instead of 1. This is exactly where it blinks or dies |
+| the halo holds at normal speed, and at 3x (Fast) | the two speeds a player uses. RimWorld's are Normal 1x, Fast 3x, Superfast 6x, Ultrafast 15x; the scenario above is the harsh case, and these say whether a blinking halo blinks for everybody or only at a speed nobody plays at. Written after the first two runs found the halo up in 4 of 40 frames (English) and 13 of 40 (French) at ultrafast, and **not yet run** |
 | a full sitting leaves a memory, a glance leaves none | the memory is granted in the job's finish action, past 1250 ticks of sitting. The def and its French handle are checked offline; only a sitting grants it |
 | the toggle empties the ring at once and survives a reload | "at once" is a `FailOn` evaluated while the job runs, and the toggle is `Scribe`d on the tree. A round trip through the save is the only way to read it back |
 | a colonist who cannot hear is refused | the refusal reads a live `PawnCapacityDef`, on a pawn with a body |
@@ -55,20 +56,16 @@ Only one scenario changes its expectation between the two mod passes, *the song 
 the modlist*: it reads `ModsConfig` and demands Phytokin's recording and icon when Phytokin is
 active, Royalty's when it is not. Every other scenario holds either way.
 
-**Pass B cannot be staged from this machine yet.** Vanilla Races Expanded - Phytokin is not
-installed here — the corpus search on 2026-09-21 found its packageId only in the About of a mod
-that depends on it, never as a mod's own. Once it is subscribed, pass B needs one file beside this
-one, `wsl-deps.phytokin.map`, holding its packageId and its Workshop id:
-
-```
-vanillaracesexpanded.phytokin   <the Workshop id>
-```
-
-and the pass selects it with `-DepMap wsl-deps.phytokin.map`. The file is deliberately not written
-with a guessed id: the staging script copies the folder that id names, and a wrong one stages
-somebody else's mod. There is no `wsl-deps.map` either, and that is the point — the staging script
-reads that name on **every** pass, so a suite owning one can never have a pass without its optional
-mod.
+**Pass B is written but cannot be staged from this machine yet.** `wsl-deps.phytokin.map` names
+Vanilla Expanded Framework and Vanilla Races Expanded - Phytokin, and the pass selects it with
+`-DepMap wsl-deps.phytokin.map`. Phytokin's Workshop id, 2927323805, was read off the item's own page
+on 2026-09-21; whether that item is at a 1.6 version was **not** checked. What is missing is the mod on
+disk: the staging copies from the Windows Workshop folder only, and a corpus search over 8,900 mod
+folders found Phytokin's packageId only inside the About of a mod that depends on it, never as an
+installed mod's own. Two ways in: subscribe to it, or download it into a cache the staging reads,
+which is what the SkillIcons session was building on 2026-09-21 and which the staging script does not
+read yet. There is no `wsl-deps.map` beside the pass, and that is the point — the staging reads that
+name on **every** pass, so a suite owning one can never have a pass without its optional mod.
 
 ## No fixture of its own, and no tree spawned
 

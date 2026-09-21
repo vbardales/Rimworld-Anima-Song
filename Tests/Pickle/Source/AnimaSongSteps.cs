@@ -240,15 +240,49 @@ namespace AnimaSong.PickleSteps
         /// if nobody does. Read from the comp's own field: nothing else in the game says whether it
         /// is alive at this instant.
         /// </summary>
-        [Then("Anima Song: the halo of the tree at x={int} z={int} is alive")]
-        public void HaloAlive(PickleContext ctx, int x, int z)
+        private static bool HaloIsUp(PickleContext ctx, CompAnimaSong comp)
         {
-            CompAnimaSong comp = SongAt(ctx, x, z);
             var field = typeof(CompAnimaSong).GetField("auraMote",
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             ctx.Assert(field != null, "CompAnimaSong.auraMote no longer exists: this step has to follow it");
             var halo = field.GetValue(comp) as Mote;
-            ctx.Assert(halo != null && !halo.Destroyed, "the halo is missing or has died");
+            return halo != null && !halo.Destroyed;
+        }
+
+        /// <summary>
+        /// Comes up within a few seconds. Not "is up this very instant": a listener that has just
+        /// arrived has not yet taken its first listening tick, so the halo does not exist yet - the
+        /// first run of this suite (2026-09-21) failed exactly there, right after the seat was
+        /// reached. Whether it then STAYS up is the next step's question.
+        /// </summary>
+        [Then("Anima Song: the halo of the tree at x={int} z={int} is alive")]
+        public async Task HaloAlive(PickleContext ctx, int x, int z)
+        {
+            CompAnimaSong comp = SongAt(ctx, x, z);
+            await ctx.WaitUntil(() => HaloIsUp(ctx, comp), 10f);
+            ctx.Assert(HaloIsUp(ctx, comp), "the halo never came up, though somebody is listening");
+        }
+
+        /// <summary>
+        /// The risk the mod names in its own comments: the halo is a mote that dies unless the job
+        /// pings it on every tick, and at higher speed the job can receive deltas of 2 or 3. A halo
+        /// that comes up but blinks would pass "is alive" at the right instant, so this samples it
+        /// frame after frame and asks that it be up nearly all the time. It says nothing about how
+        /// a blink looks, which is what the @review capture is for.
+        /// </summary>
+        [Then("Anima Song: the halo of the tree at x={int} z={int} stays alive")]
+        public async Task HaloStaysAlive(PickleContext ctx, int x, int z)
+        {
+            CompAnimaSong comp = SongAt(ctx, x, z);
+            const int frames = 40;
+            int up = 0;
+            for (int i = 0; i < frames; i++)
+            {
+                if (HaloIsUp(ctx, comp)) up++;
+                await ctx.WaitFrames(1);
+            }
+            ctx.Assert(up >= frames * 0.9,
+                $"the halo was up in {up} of {frames} frames: it blinks, or it is not maintained at this speed");
         }
 
         // ------------------------------------------------------------------ the listeners

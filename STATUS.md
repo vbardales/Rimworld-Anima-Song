@@ -16,7 +16,8 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - unverified: the ten Pickle scenarios of Tests/Pickle, written 2026-09-21 and never executed, on either side
+  - unverified: Pickle suite, pass A (English, no Phytokin) - first run 2026-09-21 13:00: 6 of 10 passed, 4 failed; the failures are the suite's own (see the section below), fixes written and not yet rerun; nothing counts as passed until a rerun goes green
+  - unverified: Pickle suite in French, and pass B with Phytokin - neither has been run
   - unverified: pass B of the Pickle suite, which cannot be staged here - Vanilla Races Expanded - Phytokin is not installed on this machine
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: grafting the comp onto the tree, which a PatchOperationConditional can miss without a word
@@ -30,7 +31,65 @@ updated:      2026-09-21, Pickle suite written: preTest -> done
 
 # Anima Song — status
 
-## Pickle suite written — 2026-09-21
+## First Pickle run — 2026-09-21
+
+Stage unchanged, `done`: running the suite is a criterion of `done -> tested`, not of `done`.
+Pass A only: English, `sans-facultatifs`, WSL under Xvfb, taken through `Run-PickleWsl.ps1` and the
+machine queue. Report archived by the runner as `pickle-reports-archive/0921-1300`; a copy of what
+was needed (summary, junit, log, the four failure screenshots) is under
+`.build/pickle-run-2026-09-21-1300/`, ignored by git.
+
+**Read in this order:** `exitReason: failed` (the run reached its end), 10 scenarios played for 10
+written, 6 passed, 4 failed, 0 skipped. The report is from this run: written 13:00, before the next
+session's run overwrote the shared folder.
+
+| Scenario | Outcome |
+| --- | --- |
+| the patch lands on the tree the game spawned | passed |
+| the song and the icon follow the modlist | passed |
+| an ordered colonist walks out, sits in the ring, and the tree sings | **failed** - step timeout |
+| the halo survives a stretch of ultrafast | **failed** - step timeout |
+| a full sitting leaves a memory, and a glance leaves none | passed |
+| the toggle empties the ring at once and survives a reload | passed |
+| a colonist who cannot hear is refused in the menu | passed |
+| six listeners fill the ring and the seventh is refused before walking | passed |
+| the ring, the halo, and the waves of light | **failed** - "the halo is missing or has died" |
+| the tree's interface in the language of this pass | **failed** - step timeout |
+
+**Three of the four failures are the suite's, not the mod's.** Each died at "sits in the ring" after
+exactly 5 s: Pickle gives a step the scenario's `@timeout:` tag, then five seconds, and these three
+scenarios carried no tag. The three that passed all carry one. The failure screenshot shows why the
+walk cannot fit: the fixture's colonists stand in the base, some sixty cells from the tree at
+(70, 132). The tag was added to every walking scenario.
+
+**The fourth is not yet understood.** The halo check ran immediately after the listeners were
+seated and found no halo. Two readings are open and this run cannot tell them apart: a race in the
+step (a listener that has just arrived has not yet taken its first listening tick, so the mote does
+not exist yet), or a real defect (the halo is not created or not maintained). The step now waits up
+to 10 s for the halo to come up, and a new step samples it over 40 frames and asks for 90 % up, which
+is the check that would catch a blink under deltas of 2 or 3. **Until that reruns green, the halo is
+unverified, not verified and not broken.**
+
+**What the six passes do and do not show.** They show: the comp lands on the spawned tree and its
+toggle is on the selection (visible in the failure screenshot, wearing Royalty's icon); the song and
+icon follow the modlist; the memory is granted after a full sitting and refused after a glance; the
+toggle empties the ring and is read back after a save and reload; a deaf colonist is refused with the
+right reason; and the six-listener cap holds with the seventh refused in the menu, with no
+`TryMakePreToilReservations` warning - the fix TESTING.md scenario 5 said had never been replayed.
+They show it in English, on Royalty's sound and icon, in a fixture. They do not show it in French, with
+Phytokin, on a new colony, or on an existing save. **No `@review` capture has been produced, so no
+image has been looked at.**
+
+**A fault outside the mod, found and fixed on the way.** The first launch attempt (12:07) aborted at
+staging with no scenario played: `scripts/stage-pickle-wsl.sh` called `copy_steam` on every hard
+dependency of the About and stopped on `Ludeon.RimWorld.Royalty`, which is a DLC with no Workshop id.
+The DLCs are already activated a few lines above, so the dependency loop now skips `ludeon.rimworld*`.
+That is a four-line change in the shared monorepo script, made under the machine lock, and not yet
+committed there.
+
+**Next:** rerun pass A with the fixes (in English, then `-Language French`), open the two `@review`
+captures, and stage Phytokin for pass B when it is installed.
+
 
 **Decision: `preTest` -> `done`.** The audit earlier today put the mod back to `preTest` for one
 missing criterion: the Pickle (Gherkin) tests were neither written nor justified. They are now

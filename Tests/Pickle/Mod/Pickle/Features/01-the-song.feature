@@ -53,7 +53,11 @@ Feature: listening to an anima tree sing
     And no errors were logged
 
   # The order, the walk, the seat, and the halo the job has to keep alive.
-  @same-world
+  # @timeout on every scenario that walks: a step with no timeout of its own gets the scenario's tag,
+  # then FIVE seconds - and the fixture's colonists stand some sixty cells from the tree, which is
+  # more than five seconds of walking. The first run (2026-09-21) lost three scenarios to that
+  # alone, at "sits in the ring", while the three that carried a tag passed.
+  @same-world @timeout:120
   Scenario: an ordered colonist walks out, sits in the ring, and the tree sings
     Given a colonist "Listener" exists
     And game speed is ultrafast
@@ -66,7 +70,7 @@ Feature: listening to an anima tree sing
 
   # The halo again, after time has actually passed at speed. The check above catches a halo that
   # never starts; this one catches a halo that dies under deltas worth more than one tick.
-  @same-world
+  @same-world @timeout:120
   Scenario: the halo survives a stretch of ultrafast
     Given a colonist "Sitter" exists
     And game speed is ultrafast
@@ -74,7 +78,7 @@ Feature: listening to an anima tree sing
     And Anima Song: "Sitter" sits in the ring of the tree at x=70 z=132
     And I wait 600 ticks
     Then Anima Song: "Sitter" is listening to the tree at x=70 z=132
-    And Anima Song: the halo of the tree at x=70 z=132 is alive
+    And Anima Song: the halo of the tree at x=70 z=132 stays alive
     And Anima Song: the tree at x=70 z=132 is singing
 
   # The memory, which is gained in the job's finish action after half an in-game hour of sitting -

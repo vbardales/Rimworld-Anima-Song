@@ -49,7 +49,7 @@ Feature: what the song looks like
   # back: accented gibberish, which is dev mode saying a key is missing from the active language;
   # clean English inside a French run, which is a string hardcoded in C# or XML; a raw key; a
   # visible {0}; and anything clipped by its box.
-  @same-world
+  @same-world @timeout:120
   Scenario: the tree's interface in the language of this pass
     Given a colonist "Shot-4" exists
     And game speed is ultrafast

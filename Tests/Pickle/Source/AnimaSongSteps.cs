@@ -285,6 +285,47 @@ namespace AnimaSong.PickleSteps
                 $"the halo was up in {up} of {frames} frames: it blinks, or it is not maintained at this speed");
         }
 
+        /// <summary>
+        /// The witness the frame sampler was not: one reading after every single tick. Three
+        /// numbers per tick - whether the halo is up, and how long ago the job last pinged the tree
+        /// (<c>lastListenTick</c>) - so that the two readings of "the halo is mostly absent" separate.
+        /// If the age is 0 on every tick and the halo is still down, the job pings and the mote does not
+        /// survive it; if the age climbs to 2 or 3 between pings, the job pings less often than the
+        /// mote lives, which is a fault in the maintenance; if the halo is up on every tick, the frame
+        /// sampler was a poor witness.
+        ///
+        /// It asserts the same 90 % as the frame sampler, so it can fail as a test, and it always
+        /// leaves the distribution in the failure message and as a report attachment.
+        /// </summary>
+        [Then("Anima Song: the halo of the tree at x={int} z={int} is followed tick by tick for {int} ticks")]
+        public async Task HaloTickByTick(PickleContext ctx, int x, int z, int ticks)
+        {
+            CompAnimaSong comp = SongAt(ctx, x, z);
+            var pingField = typeof(CompAnimaSong).GetField("lastListenTick",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            ctx.Assert(pingField != null, "CompAnimaSong.lastListenTick no longer exists: this step has to follow it");
+
+            int up = 0;
+            var ageCounts = new SortedDictionary<int, int>();
+            var lines = new List<string>(ticks);
+            for (int i = 0; i < ticks; i++)
+            {
+                await ctx.WaitTicks(1);
+                bool halo = HaloIsUp(ctx, comp);
+                int now = Find.TickManager.TicksGame;
+                int age = now - (int)pingField.GetValue(comp);
+                if (halo) up++;
+                ageCounts.TryGetValue(age, out int seen);
+                ageCounts[age] = seen + 1;
+                lines.Add($"{now}\thalo={(halo ? 1 : 0)}\tage={age}");
+            }
+
+            string ages = string.Join(", ", ageCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
+            string summary = $"halo up on {up} of {ticks} ticks; ticks since the last ping (age:count): {ages}";
+            ctx.Attach("halo tick by tick", string.Join("\n", lines) + "\n" + summary);
+            ctx.Assert(up >= ticks * 0.9, summary);
+        }
+
         // ------------------------------------------------------------------ the listeners
 
         [Then("Anima Song: {string} is listening to the tree at x={int} z={int}")]

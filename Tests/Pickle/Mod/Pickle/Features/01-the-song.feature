@@ -111,6 +111,32 @@ Feature: listening to an anima tree sing
     Then Anima Song: "Brisk" is listening to the tree at x=70 z=132
     And Anima Song: the halo of the tree at x=70 z=132 stays alive
 
+  # The witness the three scenarios above lack. They found the halo up in 2 to 13 frames of 40 at every
+  # speed, and a frame sampler cannot say why. This one reads the halo AFTER EVERY TICK, together with how
+  # long ago the job last pinged the tree, so the two candidate causes separate: a job that pings less
+  # often than the mote lives (age climbs to 2 or 3 between pings), a mote that dies despite a ping on
+  # every tick (age 0 throughout, halo down), or a sampler that was simply wrong (halo up throughout).
+  # The distribution is in the failure message and attached to the report whatever the verdict.
+  @same-world @timeout:180
+  Scenario: the halo, followed tick by tick at normal speed
+    Given a colonist "Tally" exists
+    And game speed is ultrafast
+    When Anima Song: "Tally" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Tally" sits in the ring of the tree at x=70 z=132
+    And game speed is normal
+    And I wait 60 ticks
+    Then Anima Song: the halo of the tree at x=70 z=132 is followed tick by tick for 300 ticks
+
+  @same-world @timeout:180
+  Scenario: the halo, followed tick by tick at 3x, the fast speed
+    Given a colonist "Metre" exists
+    And game speed is ultrafast
+    When Anima Song: "Metre" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Metre" sits in the ring of the tree at x=70 z=132
+    And game speed is fast
+    And I wait 60 ticks
+    Then Anima Song: the halo of the tree at x=70 z=132 is followed tick by tick for 300 ticks
+
   # The memory, which is gained in the job's finish action after half an in-game hour of sitting -
   # 1250 ticks. The offline suite proves the ThoughtDef and its French handle exist; only a sitting
   # grants it.

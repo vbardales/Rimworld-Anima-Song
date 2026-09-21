@@ -16,17 +16,63 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - defect: the halo is up in only 4 of 40 frames in English and 13 of 40 in French at ultrafast (Pickle, 2026-09-21, repeatable in both languages) - it comes up but is not held; two scenarios now ask the same at normal speed and at 3x (Fast), the speeds the mod promises, written and not yet run, so the cause (job pings less often than the mote lifetime, or a sampling artefact of Pickle fast mode) is open
+  - defect: the halo is mostly absent while someone listens - up in 3 of 40 sampled frames at normal speed, 8 of 40 at 3x (Fast), 4 to 5 of 40 at ultrafast, in English, and 13 of 40 at ultrafast in French (Pickle, 2026-09-21, three separate runs); it comes up and is not held, at every speed, so it is not a high-speed problem, and the same with Phytokin loaded (2, 3 and 8 of 40 in pass B); the cause is not established (the job pings the mote less often than its one-tick lifetime, or the sampler is wrong; a tick-by-tick sampler is written and not yet run)
   - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
-  - unverified: Pickle pass B with Phytokin - written (wsl-deps.phytokin.map), not stageable until Phytokin is on disk
+  - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, Pickle passes A (EN, FR) run: 9 of 10 green each, halo open
+updated:      2026-09-21, Pickle pass B (Phytokin) run: 9 of 12 green, soft dependency confirmed, halo fails as in pass A
 ---
 
 # Anima Song — status
+
+## The tick-by-tick sampler — 2026-09-21Written after the passes above, **not yet run**. Two scenarios (normal speed and Fast) read the halo after everysingle tick, together with how long ago the job last pinged the tree, and attach the distribution to the report.They exist to separate the two open readings of the halo finding: a job that pings less often than the motelives, or a sampler that was a poor witness. The suite is now 14 scenarios; the last runs played 12.
+## Pickle pass B, with Phytokin — 2026-09-21 (17:17)
+
+Stage unchanged, `done`. English, `-DepMap wsl-deps.phytokin.map`: 13 mods staged and loaded (the 11 of
+pass A plus Vanilla Expanded Framework and Phytokin), 12 scenarios played for 12 written,
+`exitReason: failed`, **9 passed, 3 failed, the same three halo scenarios**. Copies in
+`.build/pickle-run-2026-09-21-1717-phytokin/`.
+
+**The soft dependency is confirmed.** "The song and the icon follow the modlist" passed with Phytokin
+active: the step derives what it expects from `ModsConfig`, so it demanded `VRE_AnimaSongSound` and the
+texture at `UI/Abilities/AnimaSong`, and the tree sang that def and the toggle wore that texture. Before
+the run the item was checked on disk: it declares 1.6, its `packageId` is the one the step reads, and its
+1.6 folder defines the sound and carries the icon. The capture of the selected tree shows it: the toggle's
+icon is a spiral, where pass A's was Royalty's tree head. **It does not show the sound played** - only
+that the def the mod resolved is Phytokin's, not that anything was heard - and it does not exercise
+Phytokin's own `VRE_AnimaSong` ability beside the mod (TESTING.md scenario 11, pass B), which stays
+unverified.
+
+**The halo fails the same way**: up in 2, 3 and 8 of 40 frames at ultrafast, normal and Fast. Loading
+Phytokin changes nothing about it, which is consistent with a fault in the job's maintenance, or in the
+sampler, rather than in anything the soft dependency touches. The other nine scenarios stayed green.
+
+## Pickle pass A with the halo at three speeds — 2026-09-21 (17:12)
+
+Stage unchanged, `done`. English, 12 scenarios played for 12 written, `exitReason: failed`, **9 passed
+and 3 failed - the three halo scenarios**. Report and captures copied to
+`.build/pickle-run-2026-09-21-1712/` before the next session's run.
+
+| Speed | Halo up in |
+| --- | --- |
+| Normal (1x) | 3 of 40 frames |
+| Fast (3x, the speed the mod promises) | 8 of 40 |
+| Ultrafast (15x) | 5 of 40 (4 of 40 in the earlier English run, 13 of 40 in French) |
+
+The question the two new scenarios were written for is answered, and not the way a speed problem would
+answer it: **the halo is mostly absent at every speed, normal included**. The step that waits for it to
+come up keeps passing, so it is created; it is then not held. The inspect pane says "Singing." throughout,
+so the tree believes someone is listening. Five of the six earlier captures show no halo either.
+
+This is now the best-supported open finding of the suite, and **its cause is not established**. Two readings
+remain: the job does not ping the mote often enough (`Mote_PsyfocusPulse` is `needsMaintenance` and dies
+within a tick of the last `Maintain()`), which would be a real defect in `JobDriver_ListenAnimaSong`; or the
+sampler, which reads at frame boundaries, is a poor witness. A per-tick sampler - one reading after every
+single tick, over a few hundred ticks - would show the duty cycle exactly and separate the two. It is not
+written. The other nine scenarios stayed green, including the six-listener cap.
 
 ## Pickle reruns, English and French — 2026-09-21 (15:18 and 15:24)
 
@@ -41,7 +87,7 @@ halo to come up, passes: it is created, then not held. That is the risk the comm
 name themselves - the mote dies within a tick unless the job pings it, and at higher speed the job can
 receive deltas of 2 or 3. **It is a signal, not a proven defect**: ultrafast is harsher than the 3x the
 mod promises, the sampler runs at frame boundaries of Pickle's fast mode, and nothing yet says what
-normal speed does. Two scenarios now ask the same question at normal speed and at 3x (RimWorld's Fast), the speeds the mod promises: written straight after these runs and **not yet run** - the suite is 12 scenarios from here, these runs played 10.
+normal speed does. Two scenarios now ask the same question at normal speed and at 3x (RimWorld's Fast), the speeds the mod promises: written straight after these runs and **not yet run** - the suite was 12 scenarios after them and is 14 with the tick-by-tick pair below.
 
 **Captures opened.** Six images, three per language, taken with dev mode on.
 - English, ring: three colonists near the tree, **no halo readable**, one faint pale streak beside the

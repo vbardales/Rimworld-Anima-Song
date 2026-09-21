@@ -23,10 +23,24 @@ remaining:
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, the halo lives less than one tick: alive only on the tick of a ping (Maintain never reached)
+updated:      2026-09-21, the halo filmed with PickleTools film steps: no halo visible, one picture per 1.6 ticks
 ---
 
 # Anima Song — status
+
+## The halo filmed by PickleTools' steps — 2026-09-21 (22:42)
+
+Stage unchanged, `done`. Pass `film` (`wsl-deps.film.map`), Workshop Pickle, 12 mods staged and loaded, filtered to
+the filmed scenario with `-pickle-include-wip`: 1 scenario played for 1 written, `exitReason: passed`. The steps of
+`PickleTools/FilmTicks` were found and ran; the film sits in `screenshots/film/pickletools--halo-per-tick/`, copied
+to `.build/pickle-run-2026-09-21-2242-toolfilm/`. **56 pictures in 5.7 s**, encoded to 53 frames (three lost between
+capture and encode, unexplained).
+
+The game ran about 16 ticks a second during the filmed stretch, so the software renderer drew **one picture per
+1.6 ticks, not per tick**. I looked at 48 consecutive frames cropped on the tree: the colonist stands beside the
+tree, and **no halo shows in any of them**, no flash, nothing that changes between frames. That agrees with the
+reading of the state data below (a mote that never survives a tick, and never fades in), and it is equally what a
+shader that the software renderer does not draw would give. The film cannot tell those two apart.
 
 ## The halo lives less than one tick — 2026-09-21 (22:28)
 

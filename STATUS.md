@@ -16,17 +16,50 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - defect: the halo is mostly absent while someone listens - up in 3 of 40 sampled frames at normal speed, 8 of 40 at 3x (Fast), 4 to 5 of 40 at ultrafast, in English, and 13 of 40 at ultrafast in French (Pickle, 2026-09-21, three separate runs); it comes up and is not held, at every speed, so it is not a high-speed problem, and the same with Phytokin loaded (2, 3 and 8 of 40 in pass B); measured: the job pings the tree every 15 ticks and the mote lives about one, so the halo is up 1 tick in 15 (tick-by-tick, 2026-09-21, camera off the tree); with the camera ON the tree the job pings every tick (age 1 on all 300) yet the halo is up on 0 of 300 ticks and none shows in the capture, so it is not only the ping cadence; why the mote is down (field null, mote destroyed) is not yet known, the per-tick step now records it and is not yet rerun
+  - defect: the halo lives less than one tick - measured 2026-09-21 (tick by tick, mote state read each tick): the mote is alive only on a tick sampled after the job's ping (age 0), and destroyed on every sample taken at age 1 or more, in view or not (camera off the tree: alive 19, destroyed 281 of 300, pings every 15 ticks; camera on it: alive 300 of 300 when sampled at age 0, and an earlier run sampled at age 1 found it up on 0 of 300). Reading: CompAnimaSong.NotifyListening calls Maintain() only in the branch where the mote already exists, so a fresh mote is never maintained and dies at its first tick, then the next ping makes another; it is never visible because its fade-in restarts every tick. Not yet confirmed by a fix and a rerun
   - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
   - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
   - unverified: the fourteen scenarios of TESTING.md, none played
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, camera on the tree: the job pings every tick and the halo is still absent (0 of 300)
+updated:      2026-09-21, the halo lives less than one tick: alive only on the tick of a ping (Maintain never reached)
 ---
 
 # Anima Song — status
+
+## The halo lives less than one tick — 2026-09-21 (22:28)
+
+Stage unchanged, `done`. English, filtered by a comma list that matched two scenarios: the off-screen tick-by-tick
+one and the camera-on-the-tree one. `exitReason: failed`, 1 passed (camera on the tree) and 1 failed (off screen).
+Copies in `.build/pickle-run-2026-09-21-2228-states/`. **A filter with a comma is a list of terms, not one phrase**:
+mine ran the off-screen scenario again as well, by accident.
+
+The step now records three states per tick. What it read:
+
+| | Tree in view | Halo alive on | Field state | Ticks since the last ping |
+| --- | --- | --- | --- | --- |
+| Camera off the tree | no | 19 of 300 | alive 19, **destroyed 281**, never null | 0 to 14, every 15 ticks |
+| Camera on the tree | yes | **300 of 300** | alive 300 | 0 on all 300 |
+
+**It never was null: the mote is made every time and is dead again by the next sample.** And the two camera runs stop
+contradicting each other once the ping age is read next to the state: **the halo is alive on exactly the samples taken
+at age 0 - the same tick as a ping - and destroyed on every sample taken at age 1 or more.** Off screen that is 19
+alive among 19 age-0 samples and 281 destroyed among the rest. On screen at 21:57 the samples fell at age 1, all
+destroyed (0 of 300); at 22:28 they fell at age 0, all alive (300 of 300). Where Pickle's tick wait returns relative
+to the pawn's tick differs from run to run, which is all that changed. Sampling alone could not have shown it.
+
+**Reading, not yet proven by a fix.** `CompAnimaSong.NotifyListening` creates the mote when it is missing or destroyed
+and calls `Maintain()` only in the `else` branch, when it already exists. A `needsMaintenance` mote that was never
+maintained dies at its first tick, so by the next ping it is destroyed, the ping makes a new one, and `Maintain()` is
+never reached. The halo would then exist for less than a tick, every tick, and its 0.2 s fade-in would restart each
+time: never visible. That fits every measurement above, the six captures, and the film. The fix is one line -
+call `Maintain()` after creating the mote too - and it would change the shipped DLL, so it is **not made**.
+
+**A limit on this reading.** The states are read from the comp's own field; that the mote is *drawn* is not shown by
+them. The Linux game renders under a software renderer, and a distortion shader such as `PsyfocusMeditationPulse`
+might not show there even for a healthy mote. A fix would need a capture that shows the halo, or a run on the
+Windows game by hand, to be called verified.
 
 ## Camera on the tree — 2026-09-21 (21:57)
 

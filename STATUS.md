@@ -16,10 +16,10 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - defect: the halo lives less than one tick - measured 2026-09-21 (tick by tick, mote state read each tick): the mote is alive only on a tick sampled after the job's ping (age 0), and destroyed on every sample taken at age 1 or more, in view or not (camera off the tree: alive 19, destroyed 281 of 300, pings every 15 ticks; camera on it: alive 300 of 300 when sampled at age 0, and an earlier run sampled at age 1 found it up on 0 of 300). Reading: CompAnimaSong.NotifyListening calls Maintain() only in the branch where the mote already exists, so a fresh mote is never maintained and dies at its first tick, then the next ping makes another; it is never visible because its fade-in restarts every tick. Not yet confirmed by a fix and a rerun
+  - defect: the halo lives less than one tick - measured 2026-09-21 (tick by tick, mote state read each tick): the mote is alive only on a tick sampled after the job's ping (age 0), and destroyed on every sample taken at age 1 or more, in view or not (camera off the tree: alive 19, destroyed 281 of 300, pings every 15 ticks; camera on it: alive 300 of 300 when sampled at age 0, and an earlier run sampled at age 1 found it up on 0 of 300). Reading: CompAnimaSong.NotifyListening calls Maintain() only in the branch where the mote already exists, so a fresh mote is never maintained and dies at its first tick, then the next ping makes another; it is never visible because its fade-in restarts every tick. Fix committed 2026-09-21 (b8d7f25: Maintain() right after the mote is made); its six scenarios are queued and have no result yet
   - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
   - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
-  - unverified: the fourteen scenarios of TESTING.md, none played
+  - unverified: the fourteen scenarios of TESTING.md - two played whole (1, 5) and seven in part by the Pickle suite in the headless game (table in TESTING.md), four not played (3, 9, 10, 14), one faulty and fixed but not confirmed (4); none has been played by a person on the Windows game
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
@@ -88,7 +88,7 @@ and calls `Maintain()` only in the `else` branch, when it already exists. A `nee
 maintained dies at its first tick, so by the next ping it is destroyed, the ping makes a new one, and `Maintain()` is
 never reached. The halo would then exist for less than a tick, every tick, and its 0.2 s fade-in would restart each
 time: never visible. That fits every measurement above, the six captures, and the film. The fix is one line -
-call `Maintain()` after creating the mote too - and it would change the shipped DLL, so it is **not made**.
+call `Maintain()` after creating the mote too. **Made afterwards** (`b8d7f25`, the shipped DLL changed); see "Where `done -> tested` stands".
 
 **A limit on this reading.** The states are read from the comp's own field; that the mote is *drawn* is not shown by
 them. The Linux game renders under a software renderer, and a distortion shader such as `PsyfocusMeditationPulse`

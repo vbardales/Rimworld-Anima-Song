@@ -47,11 +47,14 @@ Feature: what the song looks like
 
   # THE HALO FILMED ONE PICTURE PER TICK. The two tick-by-tick scenarios of 01-the-song.feature give the
   # numbers; this one gives the pictures, so a person can see what a halo that is up one tick in fifteen
-  # actually looks like, and whether it flashes or is simply never noticed. It needs a Pickle that knows
-  # @film-ticks:N, which the Workshop build does not: on that one the tag is ignored and the scenario just
-  # plays. The film covers the whole scenario from its first step, so the walk is in it too; run it with
-  # -pickle-max-film-seconds raised, or the cap ends the film before the interesting part.
-  @film-ticks:1 @timeout:300
+  # actually looks like, and whether it flashes or is simply never noticed.
+  #
+  # It uses the steps of PickleTools/FilmTicks, which film only BETWEEN the two of them (Pickle's @film films
+  # from the first step, so the walk would use up its cap) and decide each picture from the tick counter.
+  # They are not part of the mod under test: the pass that stages them is named, and the scenario is @wip so
+  # every other pass skips it - without the mod its two steps would be undefined.
+  #   -DepMap wsl-deps.film.map -pickle-include-wip, with a filter
+  @wip @timeout:300
   Scenario: the halo filmed one picture per tick, with the camera on the tree
     Given a colonist "Reel" exists
     And game speed is ultrafast
@@ -60,7 +63,10 @@ Feature: what the song looks like
     And game speed is normal
     And I zoom all the way in
     And I move the camera to (70, 132)
+    And I wait 60 ticks
+    And Nelim's Pickle Tools: I film every 1 ticks as "halo per tick"
     And I wait 90 ticks
+    And Nelim's Pickle Tools: I stop filming
     Then Anima Song: "Reel" is listening to the tree at x=70 z=132
 
   # The mod's own words, in the language this pass runs in. What to look for when the image comes

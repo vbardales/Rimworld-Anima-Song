@@ -213,10 +213,15 @@ namespace AnimaSong
             {
                 auraMote = MoteMaker.MakeAttachedOverlay(parent, aura, Vector3.zero, AuraScale);
             }
-            else
-            {
-                auraMote.Maintain();
-            }
+
+            // Maintained on the tick it is made too, not only on the next ping. `Mote.lastMaintainTick`
+            // starts at 0 and only `Maintain()` writes it, and `Mote.TimeInterval` destroys a
+            // `needsMaintenance` mote on any tick after the last maintained one (`fadeOutUnmaintained` is
+            // false for this def). A fresh mote that waited for the next ping was already dead by then:
+            // it lived under a tick, was remade on every ping, and its fade-in restarted each time, so the
+            // halo never showed. Measured tick by tick with Pickle on 2026-09-21: alive on the sample taken
+            // at the tick of a ping, destroyed on every sample after it.
+            auraMote?.Maintain();
         }
 
         /// <summary>

@@ -113,7 +113,7 @@ Feature: listening to an anima tree sing
     And I zoom all the way in
     And I move the camera to (70, 132)
     And I wait 180 ticks
-    Then Anima Song: the halo of the tree at x=70 z=132 is followed tick by tick for 300 ticks
+    Then Anima Song: the halo of the tree at x=70 z=132 is followed tick by tick for 1500 ticks
 
   # The memory, which is gained in the job's finish action after half an in-game hour of sitting -
   # 1250 ticks. The offline suite proves the ThoughtDef and its French handle exist; only a sitting

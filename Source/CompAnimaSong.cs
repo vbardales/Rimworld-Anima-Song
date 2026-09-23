@@ -46,6 +46,12 @@ namespace AnimaSong
         private const int ListeningGraceTicks = 10;
 
         /// <summary>
+        /// How long after the last ping the halo is still maintained: a pawn nobody watches pings once every
+        /// 15 ticks, so one more than that.
+        /// </summary>
+        public const int HaloGraceTicks = 16;
+
+        /// <summary>
         /// Scale factors, not sizes: a mote is drawn at `graphicData.drawSize * Scale`.
         /// `Mote_PsyfocusPulse` measures 2.35 cells, calibrated for a meditating pawn - at 2.2 the
         /// halo covers the tree AND the ring of listeners, which is exactly the point. The flash
@@ -222,6 +228,21 @@ namespace AnimaSong
             // halo never showed. Measured tick by tick with Pickle on 2026-09-21: alive on the sample taken
             // at the tick of a ping, destroyed on every sample after it.
             auraMote?.Maintain();
+
+            // The pings are not every tick at higher speeds: the map keeps the halo up between them.
+            parent.Map.GetComponent<HaloKeeper>()?.Track(this);
+        }
+
+        /// <summary>
+        /// Called on every tick by the map's <see cref="HaloKeeper"/>. Maintains the halo while the last ping is
+        /// recent; false once it is not, or the tree is gone, and the keeper forgets the tree.
+        /// </summary>
+        public bool KeepHaloAlive()
+        {
+            if (parent == null || !parent.Spawned) return false;
+            if (Find.TickManager.TicksGame - lastListenTick > HaloGraceTicks) return false;
+            if (auraMote != null && !auraMote.Destroyed) auraMote.Maintain();
+            return true;
         }
 
         /// <summary>

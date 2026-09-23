@@ -303,6 +303,9 @@ namespace AnimaSong.PickleSteps
         /// mote lives, which is a fault in the maintenance; if the halo is up on every tick, the frame
         /// sampler was a poor witness.
         ///
+        /// The span is in game ticks. At ultrafast one wait returns per frame, about 30 ticks on, so 300 samples would
+        /// outlast the sitting; the ultrafast scenario asks for 1500 ticks, some fifty samples, inside it.
+        ///
         /// It asserts the same 90 % as the frame sampler, so it can fail as a test, and it always
         /// leaves the distribution in the failure message and as a report attachment.
         /// </summary>
@@ -330,9 +333,14 @@ namespace AnimaSong.PickleSteps
             var ageCounts = new SortedDictionary<int, int>();
             var stateCounts = new SortedDictionary<string, int>();
             var lines = new List<string>(ticks);
-            for (int i = 0; i < ticks; i++)
+            int startTick = Find.TickManager.TicksGame;
+            int samples = 0;
+            // The span is game ticks, not samples: at ultrafast a wait returns once a frame, some 30 ticks on, so 300
+            // samples would run past the end of the sitting and count the colonist standing up as a dead halo.
+            while (Find.TickManager.TicksGame - startTick < ticks && samples < ticks)
             {
                 await ctx.WaitTicks(1);
+                samples++;
                 var mote = moteField.GetValue(comp) as Mote;
                 string state = mote == null ? "null" : mote.Destroyed ? "destroyed" : "alive";
                 bool halo = state == "alive";
@@ -349,11 +357,11 @@ namespace AnimaSong.PickleSteps
 
             string ages = string.Join(", ", ageCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
             string states = string.Join(", ", stateCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
-            string summary = $"halo up on {up} of {ticks} ticks; field state (state:count): {states}; " +
+            string summary = $"halo up on {up} of {samples} samples over {Find.TickManager.TicksGame - startTick} game ticks; field state (state:count): {states}; " +
                              $"ticks since the last ping (age:count): {ages}; " +
-                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; tree in view on {inView} of {ticks} ticks";
+                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; tree in view on {inView} of {samples} samples";
             ctx.Attach("halo tick by tick", string.Join("\n", lines) + "\n" + summary);
-            ctx.Assert(up >= ticks * 0.9, summary);
+            ctx.Assert(samples > 0 && up >= samples * 0.9, summary);
         }
 
         // ------------------------------------------------------------------ the listeners

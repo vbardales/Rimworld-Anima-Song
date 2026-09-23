@@ -90,8 +90,8 @@ because the Linux game cannot say whether it is drawn. Nothing here launches tha
 
 Stage unchanged, `done`. Pass `film` (`wsl-deps.film.map`), Workshop Pickle, 12 mods staged and loaded, filtered to
 the filmed scenario with `-pickle-include-wip`: 1 scenario played for 1 written, `exitReason: passed`. The steps of
-`PickleTools/FilmTicks` were found and ran; the film sits in `screenshots/film/pickletools--halo-per-tick/`, copied
-to `.build/pickle-run-2026-09-21-2242-toolfilm/`. **56 pictures in 5.7 s**, encoded to 53 frames (three lost between
+`PickleTools/FilmTicks` were found and ran; the film sat in `screenshots/film/pickletools--halo-per-tick/`, copied
+to `.build/pickle-run-2026-09-21-2242-toolfilm/` (film and sheets deleted 2026-09-23, only the report kept). **56 pictures in 5.7 s**, encoded to 53 frames (three lost between
 capture and encode, unexplained).
 
 The game ran about 16 ticks a second during the filmed stretch, so the software renderer drew **one picture per
@@ -147,7 +147,7 @@ that the colonist listens) and 1 failed. Copies in (pruned 2026-09-23, supersede
 
 The off-screen hypothesis is half right: **the job does ping every tick when the tree is on screen**, so the 15-tick
 cadence was what an unwatched tree gets. But **that is not what was hiding the halo**: with a ping on every tick the
-halo is up on none of the 300 ticks, and the capture (`...with-the-camera-on-the-tree--step10.png`, camera on the
+halo is up on none of the 300 ticks, and the capture (`...with-the-camera-on-the-tree--step10.png`, deleted 2026-09-23 with its run, see `docs/runs/`; camera on the
 tree at normal speed, the colonist standing beside it) shows no halo at all, not even the faint disc of an earlier
 French capture. What the player sees, with the camera on the tree, is nothing. This is worse than the off-screen
 case, where the halo at least came up on the ping tick.

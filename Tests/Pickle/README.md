@@ -143,7 +143,9 @@ Then enable it below Anima Song and Pickle.
   judgements, and AUDIT.md is explicit that a green `@review` does not count as one having been
   made. Open the images.
 - **Copy what you need out of `PickleReports` before the next run.** A run overwrites the previous
-  report, captures included; the archive keeps only the last five.
+  report, captures included; the archive keeps only the last five. Then keep only what
+  [docs/runs/README.md](../../docs/runs/README.md) lists as worth keeping (`summary.md`, `junit.xml`, at most one
+  minified picture) and delete the rest: a capture is 3 MB and the disk is full.
 
 ## Status
 

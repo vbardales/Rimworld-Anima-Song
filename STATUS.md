@@ -138,7 +138,7 @@ Windows game by hand, to be called verified.
 Stage unchanged, `done`. English, filtered to `::with the camera on the tree`: 2 scenarios played, because two
 names carry those words - the tick-by-tick one and the filmed one, which ran on the Workshop Pickle where its
 `@film-ticks:1` tag is unknown and ignored. `exitReason: failed`, 1 passed (the film scenario, which asserts only
-that the colonist listens) and 1 failed. Copies in `.build/pickle-run-2026-09-21-2157-camera/`.
+that the colonist listens) and 1 failed. Copies in (pruned 2026-09-23, superseded; see docs/runs/2026-09-21.md).
 
 | Camera | Ticks since the last ping (of 300) | Halo up on |
 | --- | --- | --- |
@@ -163,7 +163,7 @@ The scenario that films the same stretch one picture per tick is queued on a loc
 ## The tick-by-tick sampler, first result — 2026-09-21 (21:28)
 
 Stage unchanged, `done`. English, filtered to `::followed tick by tick`: 2 scenarios played for 2 written,
-`exitReason: failed`, both failed, as tests. Report copied to `.build/pickle-run-2026-09-21-2128-tick/`.
+`exitReason: failed`, both failed, as tests. Report copied to (pruned 2026-09-23, superseded; see docs/runs/2026-09-21.md).
 A first launch at 19:58 had been terminated after 62 s with exit 143 and wrote no report; **its cause is
 unknown**. It is not this result.
 
@@ -236,7 +236,7 @@ written. The other nine scenarios stayed green, including the six-listener cap.
 
 Stage unchanged, `done`. Both runs reached their end (`exitReason: failed`), 10 scenarios played for 10
 written, **9 passed and 1 failed in each language**. Reports were copied out before the next session's
-run could overwrite them, to `.build/pickle-run-2026-09-21-1518/` (English) and `-fr/` (French).
+run could overwrite them, to (pruned 2026-09-23, superseded; see docs/runs/2026-09-21.md) (English) and `-fr/` (French).
 
 The three timeout failures of the first run are gone: the `@timeout:` tags did what they were meant
 to. The only failure, in both languages, is **the halo**: up in 4 of 40 sampled frames in English and 13
@@ -280,7 +280,7 @@ Stage unchanged, `done`: running the suite is a criterion of `done -> tested`, n
 Pass A only: English, `sans-facultatifs`, WSL under Xvfb, taken through `Run-PickleWsl.ps1` and the
 machine queue. Report archived by the runner as `pickle-reports-archive/0921-1300`; a copy of what
 was needed (summary, junit, log, the four failure screenshots) is under
-`.build/pickle-run-2026-09-21-1300/`, ignored by git.
+(pruned 2026-09-23, superseded; see docs/runs/2026-09-21.md), ignored by git.
 
 **Read in this order:** `exitReason: failed` (the run reached its end), 10 scenarios played for 10
 written, 6 passed, 4 failed, 0 skipped. The report is from this run: written 13:00, before the next

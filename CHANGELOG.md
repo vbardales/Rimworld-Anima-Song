@@ -3,11 +3,17 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
-## [1.0.0] — unreleased
+## 0.1.0
 
-On release: create the `v1.0.0` tag and the matching GitHub release.
+- Creation of the `PublishedFileId.txt` file (`Mod/About/PublishedFileId.txt`): the Workshop item exists, id
+  `3806709272`. It was created by the prepublication and Steam keeps it private until it is switched by hand.
 
-First version. RimWorld 1.6, Royalty required.
+The content of this version is the first version described below. On release: create the matching tag and the
+GitHub release with this file's content.
+
+## First version — RimWorld 1.6, Royalty required
+
+Written before the version number was fixed; it is what 0.1.0 contains.
 
 ### Added
 

@@ -14,7 +14,7 @@ licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyri
 dependencies: declared
 showcase:     complete
 tested_on:
-workshop:
+workshop:     3806709272
 remaining:
   - defect: the halo lives less than one tick - measured 2026-09-21 (tick by tick, mote state read each tick): the mote is alive only on a tick sampled after the job's ping (age 0), and destroyed on every sample taken at age 1 or more, in view or not (camera off the tree: alive 19, destroyed 281 of 300, pings every 15 ticks; camera on it: alive 300 of 300 when sampled at age 0, and an earlier run sampled at age 1 found it up on 0 of 300). Reading: CompAnimaSong.NotifyListening calls Maintain() only in the branch where the mote already exists, so a fresh mote is never maintained and dies at its first tick, then the next ping makes another; it is never visible because its fade-in restarts every tick. Fix committed 2026-09-21 (b8d7f25: Maintain() right after the mote is made); its six scenarios are queued and have no result yet
   - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
@@ -23,10 +23,32 @@ remaining:
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-21, halo fix committed (b8d7f25), verification queued; done -> tested gate mapped, not met
+updated:      2026-09-23, item prepublished by the owner (3806709272); new done -> tested criteria recorded; halo verification run to redo
 ---
 
 # Anima Song — status
+
+## Prepublished, and three new criteria for `tested` — 2026-09-23
+
+The owner created the Workshop item: `Mod/About/PublishedFileId.txt` holds **3806709272**, committed at once (`25751bc`),
+and the id is recorded in the `workshop` field. Steam keeps a new item private. The stage stays **`done`**: this is a
+fact about the upload, not a claim that the gates between `done` and `prepublished` are met - they are not, see
+below. `CHANGELOG.md` now opens on `0.1.0`, whose one entry is that file's creation. The tag and the GitHub release for
+0.1.0 are still owed. `PUBLICATION.md` is not written.
+
+The owner set three conditions for passing to `tested`:
+1. **No scenario left `@wip`.** One is: the halo film, played only with `-pickle-include-wip` in the pass of
+   `wsl-deps.film.map`. Not met.
+2. **Every conditional scenario has run.** The one condition this suite has is Phytokin, present or not: pass A and pass B
+   ran on 2026-09-21, before the halo fix and with 12 scenarios of today's 16. Not met until they are rerun on the final DLL.
+3. **No manual test left to validate: all green.** The fourteen scenarios of `TESTING.md` are not: see the table there.
+   Not met.
+
+**The halo verification never ran.** The six halo scenarios queued on 2026-09-21 at 23:29 aborted on 2026-09-22 at 08:03,
+exit 1, before playing anything: the runner tried to refresh its ticket and the ticket file no longer existed
+(`Run-PickleWsl.ps1` line 205, `Get-Item` on a missing path). The likely cause is that the machine slept for hours and
+the queue reaped the ticket as stale, but that was not verified. So **the `Maintain()` fix (`b8d7f25`) has still not
+been played**. The item was created while it was unplayed; what the upload carried was not checked.
 
 ## Where `done -> tested` stands — 2026-09-21 (23:35)
 

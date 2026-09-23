@@ -23,3 +23,10 @@ desktop.ini
 # Until this folder became a repository of its own the rule lived in the monorepo's .gitignore,
 # a file this repository does not carry.
 .claude/
+
+# Evidence of Pickle runs: on disk, never in git. The text summary that says what was concluded is docs/runs/.
+evidence/
+*.webm
+
+# Textures the game and the tools write; not sources of this mod.
+*.dds

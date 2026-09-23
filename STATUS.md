@@ -23,10 +23,26 @@ remaining:
   - unverified: the halo, maintained tick by tick by the job, at 3x speed
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-23, item prepublished by the owner (3806709272); new done -> tested criteria recorded; halo verification run to redo
+updated:      2026-09-23, suite reviewed and fixed (25 scenarios, none of the new ones run), docs/runs added
 ---
 
 # Anima Song — status
+
+## Review of the suite, and what changed — 2026-09-23
+
+A review of the Pickle work found eight things; the ones that mattered are fixed and none was run yet.
+- **Five halo scenarios could never be green**: they read the halo with the camera on the base, where the job pings once
+  every 15 ticks and the mote dies the tick after each ping, whatever the mod does. Replaced by three scenarios (1x, 3x,
+  15x) that put the camera on the tree first. The off-screen behaviour stays recorded here as an observation, not as a
+  failing test. The frame-sampled halo steps are removed.
+- **A timeout hid its own message**: `WaitUntil` throws, so the assertion after it never ran. Seven waits now go through
+  one helper that fails with where the pawn stands and what it is doing.
+- **The cooldown note could read too early** (before the first song): it now waits until the tree is singing.
+- Smaller: a missing null check on a reflected field, "tree in view" read once instead of per tick, two copy-pasted
+  helpers merged, and the text check compares key sets instead of a hard-coded count of ten.
+
+The suite is now **25 scenarios** (10 + 3 + 12). Run-by-run summaries are in `docs/runs/`; the evidence itself stays on disk,
+under `.build/`, ignored by git, as do `evidence/`, `*.webm` and `*.dds`. No `.dds` file was tracked in this repository.
 
 ## Prepublished, and three new criteria for `tested` — 2026-09-23
 

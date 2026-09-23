@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 using RimWorks.Pickle;
 using RimWorld;
@@ -71,16 +72,8 @@ namespace AnimaSong.PickleSteps
         [Given("Anima Song: {string} is made blind")]
         public void MakeBlind(PickleContext ctx, string nickname)
         {
+            AnimaSongSteps.LoseEveryPart(ctx, nickname, "Eye", PawnCapacityDefOf.Sight);
             Pawn pawn = AnimaSongSteps.Colonist(ctx, nickname);
-            List<BodyPartRecord> eyes = pawn.RaceProps.body.AllParts.Where(p => p.def.defName == "Eye").ToList();
-            ctx.Require(eyes.Count > 0, $"{nickname}'s body has no part named Eye");
-            foreach (BodyPartRecord eye in eyes)
-            {
-                pawn.health.AddHediff(HediffDefOf.MissingBodyPart, eye);
-            }
-
-            ctx.Assert(!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight),
-                $"{nickname} still sees after losing {eyes.Count} eyes");
             ctx.Assert(pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing),
                 $"{nickname} lost hearing along with sight: the scenario would prove nothing");
         }
@@ -93,18 +86,29 @@ namespace AnimaSong.PickleSteps
         /// only observable of "no new sound, no new flash" in a game that has no speakers.
         /// </summary>
         [When("Anima Song: I note when the tree at x={int} z={int} last sang")]
-        public void NoteSong(PickleContext ctx, int x, int z)
+        public async Task NoteSong(PickleContext ctx, int x, int z)
+        {
+            CompAnimaSong comp = AnimaSongSteps.SongAt(ctx, x, z);
+
+            // The listener's seat is reached a tick or more BEFORE the listen toil's first tick, and TrySing runs
+            // in that toil's initAction: read straight after "sits in the ring" the field can still be -1, and the
+            // first song would land after the note. The tree is singing once a listening tick has run.
+            await AnimaSongSteps.WaitOrExplain(ctx, () => comp.Singing, 30f,
+                () => "nobody is listening yet, so the tree has not had its first song to note");
+            ctx.Set(new SongNote { Tick = ReadLastSong(ctx, comp) });
+        }
+
+        private static int ReadLastSong(PickleContext ctx, CompAnimaSong comp)
         {
             ctx.Assert(LastSongTick != null, "CompAnimaSong.lastSongTick no longer exists: this step has to follow it");
-            int tick = (int)LastSongTick.GetValue(AnimaSongSteps.SongAt(ctx, x, z));
-            ctx.Set(new SongNote { Tick = tick });
+            return (int)LastSongTick.GetValue(comp);
         }
 
         [Then("Anima Song: the tree at x={int} z={int} has not sung since I noted it")]
         public void NotSungSince(PickleContext ctx, int x, int z)
         {
             int noted = ctx.Get<SongNote>().Tick;
-            int now = (int)LastSongTick.GetValue(AnimaSongSteps.SongAt(ctx, x, z));
+            int now = ReadLastSong(ctx, AnimaSongSteps.SongAt(ctx, x, z));
             ctx.Assert(now == noted, $"the tree sang again inside its cooldown: last song at tick {noted}, now {now}");
         }
 
@@ -112,7 +116,7 @@ namespace AnimaSong.PickleSteps
         public void SungSince(PickleContext ctx, int x, int z)
         {
             int noted = ctx.Get<SongNote>().Tick;
-            int now = (int)LastSongTick.GetValue(AnimaSongSteps.SongAt(ctx, x, z));
+            int now = ReadLastSong(ctx, AnimaSongSteps.SongAt(ctx, x, z));
             ctx.Assert(now > noted, $"the tree is still silent: last song at tick {noted}, and still {now}");
         }
 
@@ -121,7 +125,7 @@ namespace AnimaSong.PickleSteps
         public void SangAtNoted(PickleContext ctx, int x, int z)
         {
             int noted = ctx.Get<SongNote>().Tick;
-            int now = (int)LastSongTick.GetValue(AnimaSongSteps.SongAt(ctx, x, z));
+            int now = ReadLastSong(ctx, AnimaSongSteps.SongAt(ctx, x, z));
             ctx.Assert(now == noted, $"the cooldown did not survive the save: it was {noted}, it reads {now}");
         }
 
@@ -198,11 +202,16 @@ namespace AnimaSong.PickleSteps
             {
                 if ((cell - tree.Position).LengthHorizontal < AnimaSongSeats.MinRadius) continue;
                 if (!cell.InBounds(map) || !cell.Standable(map)) continue;
-                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.Wall, GenStuff.DefaultStuffFor(ThingDefOf.Wall)), cell, map);
+                SpawnWall(map, cell);
                 walls++;
             }
 
             ctx.Assert(walls > 0, "no standable cell in the ring: nothing was walled");
+        }
+
+        private static void SpawnWall(Map map, IntVec3 cell)
+        {
+            GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.Wall, GenStuff.DefaultStuffFor(ThingDefOf.Wall)), cell, map);
         }
 
         [Given("Anima Song: a wall stands north of the tree at x={int} z={int}")]
@@ -213,7 +222,7 @@ namespace AnimaSong.PickleSteps
             {
                 IntVec3 cell = new IntVec3(tree.Position.x + dx, 0, tree.Position.z + 2);
                 if (!cell.InBounds(tree.Map) || !cell.Standable(tree.Map)) continue;
-                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.Wall, GenStuff.DefaultStuffFor(ThingDefOf.Wall)), cell, tree.Map);
+                SpawnWall(tree.Map, cell);
             }
         }
 
@@ -264,8 +273,14 @@ namespace AnimaSong.PickleSteps
             // Keyed: every key, no parameter but the one the disabled order takes.
             string keyedDir = Path.Combine(mod.RootDir, "Languages", languageDir, "Keyed");
             var expected = ReadLanguageData(Directory.GetFiles(keyedDir, "*.xml"));
-            ctx.Assert(expected.Count == 10, $"{keyedDir} holds {expected.Count} entries, expected 10");
+            ctx.Assert(expected.Count > 0, $"{keyedDir} holds no entry");
             var wrong = new List<string>();
+            // The other language's file must hold the same keys: a key added to one and forgotten in the other is
+            // exactly the omission this step exists to catch, and a fixed count would only say "11, expected 10".
+            string otherDir = Path.Combine(mod.RootDir, "Languages", french ? "English" : "French", "Keyed");
+            var otherKeys = ReadLanguageData(Directory.GetFiles(otherDir, "*.xml")).Keys;
+            foreach (string missing in expected.Keys.Except(otherKeys)) wrong.Add($"{missing}: absent from the {(french ? "English" : "French")} Keyed file");
+            foreach (string missing in otherKeys.Except(expected.Keys)) wrong.Add($"{missing}: absent from the {languageDir} Keyed file");
             foreach (KeyValuePair<string, string> entry in expected)
             {
                 string actual = entry.Key == "AnimaSong_ListenOrderDisabled"
@@ -302,6 +317,11 @@ namespace AnimaSong.PickleSteps
                 wantDefs["AnimaSong_Heard.stages.anima_song.label"] = stage.Element("label").Value;
                 wantDefs["AnimaSong_Heard.stages.anima_song.description"] = stage.Element("description").Value;
             }
+
+            // Every Def field the French resources translate must be one this step reads from the live def:
+            // a fifth translated field would otherwise pass unchecked.
+            foreach (string untranslated in wantDefs.Keys.Except(live.Keys))
+                wrong.Add($"{untranslated}: translated in {languageDir} but not read back by this step");
 
             foreach (KeyValuePair<string, string> entry in live)
             {

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -85,6 +85,25 @@ namespace AnimaSong.PickleSteps
             return d >= AnimaSongSeats.MinRadius - 0.01f && d <= AnimaSongSeats.MaxRadius + 0.01f;
         }
 
+        /// <summary>
+        /// Waits for a condition and, when it never comes true, fails with what the world looks like NOW.
+        /// <c>PickleContext.WaitUntil</c> throws <see cref="TimeoutException"/> when it times out, so an
+        /// <c>Assert</c> written after a bare <c>await WaitUntil(...)</c> is reached only when the wait already
+        /// succeeded: the message that names where a pawn stands would never be seen, and a stuck colonist
+        /// would read as "Step ... timed out" and nothing else.
+        /// </summary>
+        internal static async Task WaitOrExplain(PickleContext ctx, Func<bool> condition, float seconds, Func<string> explain)
+        {
+            try
+            {
+                await ctx.WaitUntil(condition, seconds);
+            }
+            catch (TimeoutException)
+            {
+                ctx.Assert(false, $"after {seconds:0} s: {explain()}");
+            }
+        }
+
         // The gizmo the player would click: the selected tree's own toggle, found by the translation
         // of the key it is labelled with.
         private static Command_Toggle SelectedToggle(PickleContext ctx)
@@ -145,16 +164,26 @@ namespace AnimaSong.PickleSteps
         [Given("Anima Song: {string} is made deaf")]
         public void MakeDeaf(PickleContext ctx, string nickname)
         {
+            LoseEveryPart(ctx, nickname, "Ear", PawnCapacityDefOf.Hearing);
+        }
+
+        /// <summary>
+        /// Takes every body part of a defName from a colonist and asserts the capacity that rests on it is gone.
+        /// Deafness and blindness are the same removal with two names: a scenario should not have to spell a hediff.
+        /// </summary>
+        internal static void LoseEveryPart(PickleContext ctx, string nickname, string partDefName, PawnCapacityDef lost)
+        {
             Pawn pawn = Colonist(ctx, nickname);
-            List<BodyPartRecord> ears = pawn.RaceProps.body.AllParts
-                .Where(p => p.def.defName == "Ear").ToList();
-            ctx.Require(ears.Count > 0, $"{nickname}'s body has no part named Ear");
-            foreach (BodyPartRecord ear in ears)
+            List<BodyPartRecord> parts = pawn.RaceProps.body.AllParts
+                .Where(p => p.def.defName == partDefName).ToList();
+            ctx.Require(parts.Count > 0, $"{nickname}'s body has no part named {partDefName}");
+            foreach (BodyPartRecord part in parts)
             {
-                pawn.health.AddHediff(HediffDefOf.MissingBodyPart, ear);
+                pawn.health.AddHediff(HediffDefOf.MissingBodyPart, part);
             }
-            ctx.Assert(!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing),
-                $"{nickname} still hears after losing {ears.Count} ears");
+
+            ctx.Assert(!pawn.health.capacities.CapableOf(lost),
+                $"{nickname} still has {lost.defName} after losing {parts.Count} x {partDefName}");
         }
 
         // ------------------------------------------------------------------ the tree
@@ -223,16 +252,16 @@ namespace AnimaSong.PickleSteps
         public async Task Singing(PickleContext ctx, int x, int z)
         {
             CompAnimaSong comp = SongAt(ctx, x, z);
-            await ctx.WaitUntil(() => comp.Singing, 30f);
-            ctx.Assert(comp.Singing, "nobody is listening: the tree is silent");
+            await WaitOrExplain(ctx, () => comp.Singing, 30f,
+                () => "nobody is listening: the tree is silent");
         }
 
         [Then("Anima Song: the tree at x={int} z={int} is not singing")]
         public async Task NotSinging(PickleContext ctx, int x, int z)
         {
             CompAnimaSong comp = SongAt(ctx, x, z);
-            await ctx.WaitUntil(() => !comp.Singing, 30f);
-            ctx.Assert(!comp.Singing, "the tree is still singing after everyone left");
+            await WaitOrExplain(ctx, () => !comp.Singing, 30f,
+                () => "the tree is still singing after everyone left");
         }
 
         /// <summary>
@@ -259,34 +288,14 @@ namespace AnimaSong.PickleSteps
         public async Task HaloAlive(PickleContext ctx, int x, int z)
         {
             CompAnimaSong comp = SongAt(ctx, x, z);
-            await ctx.WaitUntil(() => HaloIsUp(ctx, comp), 10f);
-            ctx.Assert(HaloIsUp(ctx, comp), "the halo never came up, though somebody is listening");
+            await WaitOrExplain(ctx, () => HaloIsUp(ctx, comp), 10f,
+                () => "the halo never came up, though somebody is listening");
         }
 
         /// <summary>
-        /// The risk the mod names in its own comments: the halo is a mote that dies unless the job
-        /// pings it on every tick, and at higher speed the job can receive deltas of 2 or 3. A halo
-        /// that comes up but blinks would pass "is alive" at the right instant, so this samples it
-        /// frame after frame and asks that it be up nearly all the time. It says nothing about how
-        /// a blink looks, which is what the @review capture is for.
-        /// </summary>
-        [Then("Anima Song: the halo of the tree at x={int} z={int} stays alive")]
-        public async Task HaloStaysAlive(PickleContext ctx, int x, int z)
-        {
-            CompAnimaSong comp = SongAt(ctx, x, z);
-            const int frames = 40;
-            int up = 0;
-            for (int i = 0; i < frames; i++)
-            {
-                if (HaloIsUp(ctx, comp)) up++;
-                await ctx.WaitFrames(1);
-            }
-            ctx.Assert(up >= frames * 0.9,
-                $"the halo was up in {up} of {frames} frames: it blinks, or it is not maintained at this speed");
-        }
-
-        /// <summary>
-        /// The witness the frame sampler was not: one reading after every single tick. Three
+        /// The one witness of the halo that holds: one reading after every single tick. A frame sampler was
+        /// tried first and removed - where a wait returns relative to the pawn's tick differs from run to run, so
+        /// the same mote read 0 of 300 and 300 of 300. Three
         /// numbers per tick - whether the halo is up, and how long ago the job last pinged the tree
         /// (<c>lastListenTick</c>) - so that the two readings of "the halo is mostly absent" separate.
         /// If the age is 0 on every tick and the halo is still down, the job pings and the mote does not
@@ -313,8 +322,10 @@ namespace AnimaSong.PickleSteps
             // never made, or MoteMaker returned nothing), a mote that is Destroyed (made, then dead by
             // the time of the reading) and a live one are three different faults.
             ThingDef auraDef = DefDatabase<ThingDef>.GetNamedSilentFail("Mote_PsyfocusPulse");
-            bool onScreen = Find.CameraDriver.CurrentViewRect.Contains(comp.parent.Position);
 
+            // Read on every tick, not once before the loop: the camera eases toward its target frame by frame,
+            // so "in view" is a property of each sample and a snapshot could describe none of them.
+            int inView = 0;
             int up = 0;
             var ageCounts = new SortedDictionary<int, int>();
             var stateCounts = new SortedDictionary<string, int>();
@@ -328,6 +339,7 @@ namespace AnimaSong.PickleSteps
                 int now = Find.TickManager.TicksGame;
                 int age = now - (int)pingField.GetValue(comp);
                 if (halo) up++;
+                if (Find.CameraDriver.CurrentViewRect.Contains(comp.parent.Position)) inView++;
                 ageCounts.TryGetValue(age, out int seen);
                 ageCounts[age] = seen + 1;
                 stateCounts.TryGetValue(state, out int seenState);
@@ -339,7 +351,7 @@ namespace AnimaSong.PickleSteps
             string states = string.Join(", ", stateCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
             string summary = $"halo up on {up} of {ticks} ticks; field state (state:count): {states}; " +
                              $"ticks since the last ping (age:count): {ages}; " +
-                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; tree in view: {onScreen}";
+                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; tree in view on {inView} of {ticks} ticks";
             ctx.Attach("halo tick by tick", string.Join("\n", lines) + "\n" + summary);
             ctx.Assert(up >= ticks * 0.9, summary);
         }
@@ -351,9 +363,8 @@ namespace AnimaSong.PickleSteps
         {
             Thing tree = TreeAt(ctx, x, z);
             Pawn pawn = Colonist(ctx, nickname);
-            await ctx.WaitUntil(() => IsListening(pawn, tree), 30f);
-            ctx.Assert(IsListening(pawn, tree),
-                $"{nickname} is doing {pawn.CurJob?.def.defName ?? "nothing"}, not listening to this tree");
+            await WaitOrExplain(ctx, () => IsListening(pawn, tree), 30f,
+                () => $"{nickname} is doing {pawn.CurJob?.def.defName ?? "nothing"} at {pawn.Position}, not listening to this tree");
         }
 
         [Then("Anima Song: {string} is not listening to the tree at x={int} z={int}")]
@@ -361,8 +372,8 @@ namespace AnimaSong.PickleSteps
         {
             Thing tree = TreeAt(ctx, x, z);
             Pawn pawn = Colonist(ctx, nickname);
-            await ctx.WaitUntil(() => !IsListening(pawn, tree), 30f);
-            ctx.Assert(!IsListening(pawn, tree), $"{nickname} is still listening");
+            await WaitOrExplain(ctx, () => !IsListening(pawn, tree), 30f,
+                () => $"{nickname} is still listening, at {pawn.Position}");
         }
 
         /// <summary>
@@ -374,10 +385,10 @@ namespace AnimaSong.PickleSteps
         {
             Thing tree = TreeAt(ctx, x, z);
             Pawn pawn = Colonist(ctx, nickname);
-            await ctx.WaitUntil(() => IsListening(pawn, tree) && InRing(pawn, tree) && !pawn.pather.Moving, 90f);
-            ctx.Assert(IsListening(pawn, tree), $"{nickname} is not listening any more");
-            ctx.Assert(InRing(pawn, tree),
-                $"{nickname} stands {pawn.Position.DistanceTo(tree.Position):0.0} cells from the trunk, outside the ring");
+            await WaitOrExplain(ctx, () => IsListening(pawn, tree) && InRing(pawn, tree) && !pawn.pather.Moving, 90f,
+                () => $"{nickname} is doing {pawn.CurJob?.def.defName ?? "nothing"}, stands at {pawn.Position}, " +
+                      $"{pawn.Position.DistanceTo(tree.Position):0.0} cells from the trunk (ring: " +
+                      $"{AnimaSongSeats.MinRadius} to {AnimaSongSeats.MaxRadius}), moving: {pawn.pather.Moving}");
         }
 
         [Then("Anima Song: {int} listeners sit on {int} different cells around the tree at x={int} z={int}")]
@@ -386,14 +397,15 @@ namespace AnimaSong.PickleSteps
             Map map = CurrentMap(ctx);
             Thing tree = TreeAt(ctx, x, z);
             Func<List<Pawn>> seated = () => ListenersOf(map, tree).Where(p => !p.pather.Moving && InRing(p, tree)).ToList();
-            await ctx.WaitUntil(() => seated().Count >= listeners, 120f);
+            await WaitOrExplain(ctx, () => seated().Count >= listeners, 120f,
+                () => $"{seated().Count} of {listeners} listeners sit in the ring; the listeners not seated: " +
+                      string.Join(", ", ListenersOf(map, tree).Except(seated()).Select(p => $"{p.LabelShort} at {p.Position}")));
 
             List<Pawn> sitting = seated();
             ctx.Assert(ListenersOf(map, tree).Count() == listeners,
                 $"{ListenersOf(map, tree).Count()} colonists are listening, expected {listeners}");
             ctx.Assert(sitting.Count == listeners,
-                $"{sitting.Count} of {listeners} listeners sit in the ring; the others: " +
-                string.Join(", ", ListenersOf(map, tree).Except(sitting).Select(p => $"{p.LabelShort} at {p.Position}")));
+                $"{sitting.Count} of {listeners} listeners sit in the ring, expected {listeners}");
             int distinct = sitting.Select(p => p.Position).Distinct().Count();
             ctx.Assert(distinct == cells, $"the listeners sit on {distinct} different cells, expected {cells}");
         }

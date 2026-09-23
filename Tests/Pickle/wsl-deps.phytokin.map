@@ -17,10 +17,12 @@
 # Biotech, which Phytokin also needs, is a DLC and is activated by the staging itself.
 #
 # The Workshop id was read off the item's page, https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805
-# on 2026-09-21. That the item is at a 1.6 version has NOT been checked here.
-#
-# NOT YET STAGEABLE: the staging copies from the Windows Workshop folder only, and Phytokin is not
-# subscribed on this machine. The pass needs either that subscription or a download into a cache the
-# staging reads - the second is what the SkillIcons session was building on 2026-09-21.
+# on 2026-09-21, and checked on disk the same day: it declares 1.6, its packageId is the one the scenario reads,
+# and its 1.6 folder defines the sound and carries the icon. The staging copies from the Windows Workshop
+# folder, so Phytokin has to be subscribed there; it is, since 2026-09-21.
 oskarpotocki.vanillafactionsexpanded.core   2023507013
 vanillaracesexpanded.phytokin               2927323805
+
+# The film tool again: this map REPLACES wsl-deps.map for the pass, it does not add to it, and the film scenario runs in
+# this pass too.
+nelim.pickletools.filmticks   path:PickleTools/FilmTicks/Mod

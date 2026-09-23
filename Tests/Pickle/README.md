@@ -4,7 +4,7 @@ The scenarios of [TESTING.md](../../TESTING.md) that a running game is needed fo
 `Mod/` is a companion mod, **Anima Song - Pickle tests**, never published: it lives beside `Mod/`,
 outside the folder Steam receives.
 
-**Read `_tools/Run-Functional-Tests.ps1` first.** Twenty checks against the installed game's own
+**Read `_tools/Run-Functional-Tests.ps1` first.** Twenty-one checks against the installed game's own
 assembly and def files, in a couple of seconds, needing no RimWorld: the overrides, the three claims
 about the base game this design rests on, the patch's xpath run on the real anima tree def, the six
 defs looked up by name, the French memory handle, the Keyed parity. A Pickle run confiscates the
@@ -25,22 +25,34 @@ machine for tens of minutes. Nothing here restates any of it.
 | a colonist who cannot hear is refused | the refusal reads a live `PawnCapacityDef`, on a pawn with a body |
 | six listeners and the seventh refused before walking | **the one that has never been replayed since its fix.** A free cell is not a free slot: the ring holds some sixty cells while the job allows six pawns, and nothing enforces that until the job reserves the tree. Before the menu learnt to test the cap, the seventh walked the whole way and ended on `TryMakePreToilReservations() returned false for a non-queued job` |
 | the two `@review` captures | judgements about pictures: whether the ring reads as a ring, whether the halo and the waves are visible, and how the mod's own words come out in the language of the pass |
+| a real right-click, a drafted colonist, a blind colonist | `FloatMenuMakerMap` asked at the tree with the colonist selected (what a click does), then a drafted one: no entry; then a colonist with both eyes gone, who must still listen since only Hearing is required. Written 2026-09-23 from `03-the-rest-of-testing-md.feature`, **not yet run** |
+| the song fires once, then holds its tongue | the cooldown read as the tree's `lastSongTick`: a second listener inside 5000 ticks leaves it where it was, a third after 5200 moves it. No sound is heard, there are no speakers; the state behind the early return is the observable. **Not yet run** |
+| the memory does not stack | two full sittings in a row leave one memory of the anima song. **Not yet run** |
+| the giver, the tolerance, the roof, the toggle | `TryGiveJob` of the recreation giver, asked directly: it finds the tree, gives nothing when listening is forbidden or the tree is roofed over, and a sitting builds tolerance for the new kind (the kind reaches the need). `baseChance`, how often recreation time picks the giver, stays the base game's. **Not yet run** |
+| a wall to the north, a ring walled in | every listener has the trunk in sight and is unroofed; with every ring cell walled the order is refused with the "no free spot" reason, the fourth one. **Not yet run** |
+| a save with three listeners | the tree's cooldown comes back from the save, no error is logged, and the tree sings again. **Not yet run** |
+| the texts in the language of the pass | the ten Keyed entries and the four Def fields, read back from the game and compared with the mod's own resource files. Says something only in the language it runs in, so the suite is played once per language. **Not yet run** |
+| Phytokin's own ability left alone | `@requires:` Phytokin: skipped in a pass without it, runs in the one with it. Asserts only that this mod patches nothing of theirs; **not** that the ability soothes when cast. **Not yet run** |
 
 ## What is deliberately not here
 
-- **The autonomous colonist**, TESTING.md scenario 9. `baseChance` is 2 and the pawn has to want
-  recreation: a scenario waiting for it would hold the machine for an unbounded time to prove a
-  die roll. What can fail silently there — the `JoyGiverDef`, its `joyKind`, `unroofedOnly`, the
-  search going through `listerThings` — is checked offline, tests 5 and 8 to 10.
-- **The roofed tree and the wall**, scenario 10: pathing and `unroofedOnly` are the base game's,
-  and building a wall mid-scenario tests the construction system more than this mod.
-- **The fourth refusal, "no free spot"**, which needs some sixty cells blocked to reach. Its text is
-  covered by the translation inventory and its place in the chain is a matter of code order. A
-  scenario that spent a minute filling the ring with walls would prove the wall.
-- **Adding and removing the mod on a live colony**, scenario 14: that is a modlist change, which
-  means a second game, and one machine has one game.
-- **The mood figure scaling with psychic sensitivity**, scenario 8 step 4: that is
-  `effectMultiplyingStat` on the ThoughtDef, the base game's arithmetic, not this mod's.
+Until 2026-09-23 this list was longer: the autonomous colonist, the roofed tree and the wall, the fourth refusal and
+the mood scaling were left to a person, with reasons that read well. The owner then set the condition for `tested` -
+no manual test left to validate - and each of them turned out to have a deterministic form, written in
+`03-the-rest-of-testing-md.feature`: the giver's `TryGiveJob` asked directly instead of waiting on `baseChance`, the
+roof and the wall spawned by a step, the ring walled in for the fourth refusal, and the memory's multiplier checked
+offline as the one field the base game reads (`_tools/Run-Functional-Tests.ps1`, test 21). What stays out, and is
+said in `TESTING.md` as still to be validated by a person:
+
+- **That the halo is drawn.** The Linux game renders in software, and a distortion shader such as
+  `PsyfocusMeditationPulse` may not show there even for a healthy mote. The scenarios read the mote's state; only the
+  Windows game can say what a player sees.
+- **That the song is heard.** There are no speakers. The cooldown and the sound's def are checked; what reaches an ear is not.
+- **That Phytokin's own ability soothes beside the mod.** The scenario asserts this mod patches nothing of theirs.
+- **`baseChance`**, how often recreation time picks the giver. It is the base game's, and a die roll.
+- **Adding and removing the mod on a live colony**, scenario 14 in its second half: removing it from a save and loading
+  that save again is a modlist change between two games. The first half - a save that never had the mod gains the
+  toggle - is what every run does, since the fixture predates the mod.
 
 ## Two passes, two languages
 
@@ -66,9 +78,13 @@ powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod Anim
 
 The staging copies from the Windows Workshop folder, so Phytokin has to be subscribed there. It was
 checked on disk on 2026-09-21 before the first pass B: it declares 1.6, its packageId is the one the
-step reads, and its 1.6 folder defines the sound and carries the icon. There is no `wsl-deps.map`
-beside the pass, and that is the point - the staging reads that name on **every** pass, so a suite
-owning one can never have a pass without its optional mod.
+step reads, and its 1.6 folder defines the sound and carries the icon.
+
+**`wsl-deps.map`** stages PickleTools' `FilmTicks`, the one tool this suite uses to film, in **every** pass that names
+no map of its own; `wsl-deps.phytokin.map` repeats that line, because a named map replaces the default one instead of
+adding to it. The tool is staged everywhere because the scenario that films the halo is not `@wip` and never skipped:
+a suite that must leave no scenario behind cannot keep one out of some passes. It is test infrastructure, not an
+optional integration of the mod, so the bare pass is still a pass without Phytokin.
 
 ## No fixture of its own, and no tree spawned
 

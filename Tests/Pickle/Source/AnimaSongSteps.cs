@@ -34,13 +34,13 @@ namespace AnimaSong.PickleSteps
 
         // ------------------------------------------------------------------ finding things
 
-        private static Map CurrentMap(PickleContext ctx)
+        internal static Map CurrentMap(PickleContext ctx)
         {
             ctx.Require(Current.Game != null && Find.CurrentMap != null, "load a save first");
             return Find.CurrentMap;
         }
 
-        private static Thing TreeAt(PickleContext ctx, int x, int z)
+        internal static Thing TreeAt(PickleContext ctx, int x, int z)
         {
             Map map = CurrentMap(ctx);
             var cell = new IntVec3(x, 0, z);
@@ -51,7 +51,7 @@ namespace AnimaSong.PickleSteps
             return tree;
         }
 
-        private static CompAnimaSong SongAt(PickleContext ctx, int x, int z)
+        internal static CompAnimaSong SongAt(PickleContext ctx, int x, int z)
         {
             Thing tree = TreeAt(ctx, x, z);
             CompAnimaSong comp = tree.TryGetComp<CompAnimaSong>();
@@ -60,7 +60,7 @@ namespace AnimaSong.PickleSteps
             return comp;
         }
 
-        private static Pawn Colonist(PickleContext ctx, string nickname)
+        internal static Pawn Colonist(PickleContext ctx, string nickname)
         {
             Pawn pawn = CurrentMap(ctx).mapPawns.FreeColonists.FirstOrDefault(p =>
                 p.Name is NameTriple triple && triple.Nick == nickname);
@@ -68,18 +68,18 @@ namespace AnimaSong.PickleSteps
             return pawn;
         }
 
-        private static bool IsListening(Pawn pawn, Thing tree)
+        internal static bool IsListening(Pawn pawn, Thing tree)
         {
             Job job = pawn.CurJob;
             return job != null && job.def == AnimaSongDefOf.AnimaSong_Listen && job.targetA.Thing == tree;
         }
 
-        private static IEnumerable<Pawn> ListenersOf(Map map, Thing tree)
+        internal static IEnumerable<Pawn> ListenersOf(Map map, Thing tree)
         {
             return map.mapPawns.AllPawnsSpawned.Where(p => IsListening(p, tree));
         }
 
-        private static bool InRing(Pawn pawn, Thing tree)
+        internal static bool InRing(Pawn pawn, Thing tree)
         {
             float d = pawn.Position.DistanceTo(tree.Position);
             return d >= AnimaSongSeats.MinRadius - 0.01f && d <= AnimaSongSeats.MaxRadius + 0.01f;

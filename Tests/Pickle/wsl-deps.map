@@ -1,0 +1,11 @@
+# Test infrastructure for every pass of this suite: PickleTools' film steps, and nothing else.
+#
+# The staging reads this file on every pass that names no map of its own, so the bare pass stages the tool: the
+# scenario "the halo filmed one picture per tick" uses two of its steps and must run in every pass, not only in a
+# named one - a scenario tagged @wip to keep it out of the other passes is a scenario that is skipped, and the
+# owner does not accept one left that way. The tool is not an optional integration of the mod under test: it is
+# how the suite films, and it changes nothing in the game the mod runs in.
+#
+# nelim.pickletools.filmticks is a folder of this repository's collection, not a Workshop item: the staging reads a
+# `path:` line as a folder relative to the collection's root.
+nelim.pickletools.filmticks   path:PickleTools/FilmTicks/Mod

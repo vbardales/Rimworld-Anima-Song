@@ -493,6 +493,19 @@ Test-That "the Royalty-gated defs keep their translation behind the same gate" {
     ($loadFolders -match 'IfModActive="Ludeon\.RimWorld\.Royalty"') -and ($loadFolders -match '<li>/</li>')
 }
 
+# TESTING.md 8, step 4: the memory scales with psychic sensitivity, does not stack, lasts a day. The
+# scaling is arithmetic the base game does from ONE field, effectMultiplyingStat, so the field is what
+# is checked; a scenario that gave a colonist another sensitivity would test the base game's multiplier.
+Test-That "the memory is +3 for one day, multiplied by psychic sensitivity, and does not stack" {
+    $t = $defsXml.SelectSingleNode('/Defs/ThoughtDef[defName="AnimaSong_Heard"]')
+    if (-not $t) { Note 'ThoughtDef AnimaSong_Heard not found'; return $false }
+    $mood = $t.SelectSingleNode('stages/li/baseMoodEffect').InnerText
+    Note ("effectMultiplyingStat {0}, stackLimit {1}, durationDays {2}, baseMoodEffect {3}" -f `
+        $t.effectMultiplyingStat, $t.stackLimit, $t.durationDays, $mood)
+    ($t.effectMultiplyingStat -eq 'PsychicSensitivity') -and ($t.stackLimit -eq '1') -and
+    ($t.durationDays -eq '1') -and ($mood -eq '3')
+}
+
 # ---------------------------------------------------------------------------------------------
 Write-Host ""
 Write-Host ("  {0} passed, {1} failed, {2} total" -f $script:pass, $script:fail, $script:n) `

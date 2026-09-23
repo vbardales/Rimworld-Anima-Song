@@ -51,10 +51,9 @@ Feature: what the song looks like
   #
   # It uses the steps of PickleTools/FilmTicks, which film only BETWEEN the two of them (Pickle's @film films
   # from the first step, so the walk would use up its cap) and decide each picture from the tick counter.
-  # They are not part of the mod under test: the pass that stages them is named, and the scenario is @wip so
-  # every other pass skips it - without the mod its two steps would be undefined.
-  #   -DepMap wsl-deps.film.map -pickle-include-wip, with a filter
-  @wip @timeout:300
+  # Every pass stages that tool (wsl-deps.map, and wsl-deps.phytokin.map repeats it), so the scenario is never
+  # skipped: it is not @wip, and there is no pass in which its two steps would be undefined.
+  @timeout:300
   Scenario: the halo filmed one picture per tick, with the camera on the tree
     Given a colonist "Reel" exists
     And game speed is ultrafast

@@ -10,8 +10,10 @@ namespace AnimaSong
     /// job only pings the tree from `tickIntervalAction`, whose delta is 2 or more at higher game speeds
     /// (and 15 for a pawn nobody watches). Measured with Pickle at ultrafast on 2026-09-23: the ping was
     /// one tick old and the halo already destroyed on 112 samples of 300. The tree cannot tick itself
-    /// (plants tick every 2000 ticks), so the map does it: one tick a map, one `Maintain()` for each tree
-    /// pinged within <see cref="CompAnimaSong.HaloGraceTicks"/>.
+    /// (plants tick every 2000 ticks), so the map does it: one tick a map, one maintenance for each tree
+    /// pinged within <see cref="CompAnimaSong.HaloGraceTicks"/>. It has to be stamped a tick ahead, because
+    /// `Mote.TimeInterval` compares strictly and the map ticks after the mote (a first version that called
+    /// `Maintain()` here changed nothing: 2026-09-24 run, 37 of 151 samples still dead at normal speed).
     /// Nothing here is saved: after a load the next ping registers the tree again.
     /// </summary>
     public class HaloKeeper : MapComponent

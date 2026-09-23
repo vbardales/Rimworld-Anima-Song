@@ -241,9 +241,24 @@ namespace AnimaSong
         {
             if (parent == null || !parent.Spawned) return false;
             if (Find.TickManager.TicksGame - lastListenTick > HaloGraceTicks) return false;
-            if (auraMote != null && !auraMote.Destroyed) auraMote.Maintain();
+            if (auraMote != null && !auraMote.Destroyed)
+            {
+                // One tick AHEAD, not `Maintain()`: `Mote.TimeInterval` destroys the mote when TicksGame is
+                // greater than `lastMaintainTick`, with no slack, and the map ticks after the things do. A
+                // maintenance stamped with the current tick therefore arrives too late for the mote's own
+                // tick of the next one whenever the listener did not ping in between. The field is not
+                // public; without it the plain call is all there is.
+                if (lastMaintainField != null)
+                    lastMaintainField.SetValue(auraMote, Find.TickManager.TicksGame + 1);
+                else
+                    auraMote.Maintain();
+            }
             return true;
         }
+
+        private static readonly System.Reflection.FieldInfo lastMaintainField = typeof(Mote).GetField(
+            "lastMaintainTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Public);
 
         /// <summary>
         /// A wave leaving the tree and reaching the listener: the anima linking ritual's own mote,

@@ -149,9 +149,10 @@ Then enable it below Anima Song and Pickle.
 
 ## Status
 
-**Pass A in English, 2026-09-23: 25 scenarios written, 25 played, 23 passed, 1 skipped (Phytokin's), 1 failed** - the halo
-at ultrafast. That fault was in the mod (the listener skips ticks at higher speeds) and in the step (300 samples outlast
-the sitting at ultrafast); both are fixed, and the three halo scenarios then passed on build `c04edcc` on 2026-09-24
-(150 of 150, 50 of 50, 52 of 52 samples alive). A full run of that final build, the French pass and the pass with Phytokin
-are still owed: they are queued. `STATUS.md` holds the reading of each run and `docs/runs/` the one line per run. Running
-the suite is a criterion of `done -> tested`; none of it is claimed as a validation.
+**All 25 scenarios played in three passes on build `c04edcc`, 2026-09-24:** English 23 passed, 1 skipped (Phytokin's) and 1
+failed - the memory scenario, a test fault (the passer-by was made at the start and probably took the recreation giver on
+their own), corrected in `0746bba` and rerun green once; French 24 passed, 1 skipped; Phytokin 25 of 25. The halo, once
+the mod's fault twice over (`b8d7f25`, `HaloKeeper` in `c04edcc`), holds at 1x, 3x and 15x in all three. Not covered by any
+scenario: that the halo is drawn, that a sound is heard, that Phytokin's ability soothes, `baseChance`, removing the mod from
+a save. `STATUS.md` holds the reading of each run and `docs/runs/` the one line per run. Running the suite is a criterion of
+`done -> tested`; none of it is claimed as a validation.

@@ -27,10 +27,10 @@ French comes out in French — remain a person's.
 ## What the Pickle suite has played, 2026-09-23 and 09-24
 
 Read this before playing anything by hand: it says which of the fourteen scenarios a machine has watched and which
-are still yours. "Played" means the scenario ran in the headless WSL game on the fixture's anima tree, in English
-(pass A, 25 scenarios, 2026-09-23: 23 passed, 1 skipped, 1 failed on the ultrafast halo, since fixed and 3 of 3 on the
-halo scenarios of build `c04edcc`, 2026-09-24), and passed. The French and Phytokin passes are queued and have not
-run on this suite. It does not mean the whole scenario as written below was covered. Details in `docs/runs/`.
+are still yours. "Played" means the scenario ran in the headless WSL game on the fixture's anima tree and passed, on
+build `c04edcc` (2026-09-24): pass A in English (25 written, 23 passed, 1 skipped, and the memory scenario, a test fault,
+corrected and rerun green), pass A in French (24 passed, 1 skipped) and pass B with Phytokin (25 of 25). It does not mean
+the whole scenario as written below was covered. Details in `docs/runs/`.
 
 | # | Scenario | Pickle | What is left for a person |
 | --- | --- | --- | --- |
@@ -44,9 +44,9 @@ run on this suite. It does not mean the whole scenario as written below was cove
 | 8 | The memory | **Played, passed.** A full sitting leaves it, a short one none, two in a row leave one. The psychic sensitivity scaling is checked offline (test 21) | Nothing |
 | 9 | The colonist who decides on their own | **Played, passed.** The recreation giver finds the tree, gives nothing when forbidden or roofed, a sitting builds tolerance | `baseChance`, how often the base game picks the giver: a die roll, not measured |
 | 10 | Walls and roofs | **Played, passed.** A wall to the north: every listener has the trunk in sight; a roofed tree is not offered | Nothing |
-| 11 | The two soft dependencies | **Partly.** Royalty's sound and icon (pass A, played 2026-09-23); Phytokin's resolved on 2026-09-21 (pass B). The scenario that Phytokin's own ability is left alone is skipped without it and has **not run** | That the sound is heard; that Phytokin's `VRE_AnimaSong` soothes beside the mod |
+| 11 | The two soft dependencies | **Played, passed.** Royalty's sound and icon (pass A), Phytokin's (pass B: `VRE_AnimaSongSound` and `UI/Abilities/AnimaSong` resolved), and the scenario that this mod patches nothing of Phytokin's own ability ran green with Phytokin | That the sound is heard; that Phytokin's `VRE_AnimaSong` **soothes** when cast beside the mod |
 | 12 | Saving in the middle | **Played, passed.** A save with three listeners loads clean, the cooldown comes back, the tree sings again | Nothing |
-| 13 | English and French translation | **English played, passed:** the ten Keyed entries and the four Def fields read back and compared with the resource files, and all four refusal reasons. **French not run on this suite** (queued) | The look of the French pane, which clips the mod's own line |
+| 13 | English and French translation | **Played, passed in both:** the ten Keyed entries and the four Def fields read back from the game and compared with the resource files, and all four refusal reasons | The look of the French pane, which clips the mod's own line |
 | 14 | Adding and removing on a live colony | **First half only:** a save that never had the mod gains the toggle, in every run. Removing the mod from a save is a modlist change between two games | The second half |
 
 **No pass was run on a new colony.** The fixture is an existing save.

@@ -16,16 +16,41 @@ showcase:     complete
 tested_on:
 workshop:     3806709272
 remaining:
-  - unverified: the halo drawn on screen: Pickle plays it as a mote alive on every sample at 1x, 3x and ultrafast (2026-09-24, build c04edcc, 3 of 3), but the Linux game renders in software and cannot say whether the distortion shader shows; a person looks at the Windows game
-  - unverified: the full suite on the final build (c04edcc): pass A English ran 23 of 25 green before HaloKeeper (the failure was the ultrafast halo, now 3 of 3), French and Phytokin passes queued
-  - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
-  - unverified: TESTING.md scenarios 11 and 14 in part (Phytokin's own ability soothing; removing the mod from a live save) and 13 in French, which needs the queued French pass; the rest ran green in English on 2026-09-23 (table in TESTING.md); none has been played by a person on the Windows game
-  - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
+  - unverified: the halo drawn on screen: Pickle plays it as a mote alive on every sample at 1x, 3x and ultrafast in the three passes (2026-09-24, build c04edcc), but the Linux game renders in software and cannot say whether the distortion shader shows; a person looks at the Windows game
+  - unverified: by a person on the Windows game: the sound heard, Phytokin's own ability soothing beside the mod (TESTING.md 11), baseChance (9), removing the mod from a live save (14); the whole suite ran green on c04edcc in English, French and with Phytokin (2026-09-24)
+  - unverified: how the French reads on screen: the texts are read back and equal to the resource files in both languages (2026-09-24), but the French inspect pane clips the mod's own line, and no picture of it has been judged since
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-24, first full run of 25 scenarios (23 green, 1 skipped), halo fixed and 3 of 3 on c04edcc
+updated:      2026-09-24, the three full passes on c04edcc (English, French, Phytokin), all 25 played; the memory scenario, a test fault, corrected
 ---
 
 # Anima Song — status
+
+## The whole suite, three passes, on the final build — 2026-09-24
+
+Stage stays **`done`**. Run detail in [docs/runs/2026-09-23.md](docs/runs/2026-09-23.md); mod build `c04edcc`.
+
+| Pass | Played | Result |
+| --- | --- | --- |
+| A, English | 25 of 25 | 23 passed, 1 skipped (Phytokin's, by design), **1 failed: the memory scenario** - a test fault (below), rerun green on `0746bba` |
+| A, French | 25 of 25 | **`passed`**: 24 passed, 1 skipped |
+| B, Phytokin, English | 25 of 25 | **`passed`**: 25 passed, none skipped |
+
+- **The halo holds at 1x, 3x and 15x in all three passes.** Twice-over fault, fixed: a fresh mote never maintained
+  (`b8d7f25`) and a listener that skips ticks at higher speeds (`HaloKeeper`, `c04edcc`).
+- **The one failure was the test's.** The passer-by of "a full sitting leaves a memory, and a glance leaves none" was made
+  at the start with joy at 10 percent and, probably, took the recreation giver on their own while the first listener sat:
+  they held the memory before being ordered. Not proven (the report does not show what they were doing). The passer-by is
+  now made after the wait, and the scenario alone passed once (`0746bba`).
+- **The first French and Phytokin passes were lost**: they ran on 2026-09-23 on the build before `HaloKeeper`, and their
+  reports were overwritten and rotated away before I copied them. Nothing is concluded from them; the passes above are
+  the reruns, copied at the moment the runner returned.
+
+Against the three conditions for `tested` (see the section of 2026-09-23 below): (1) no scenario left `@wip` - **met**;
+(2) every conditional scenario has run - **met**: the one condition this suite has is Phytokin, and pass B ran it green;
+(3) no manual test left to validate - **not met**, and by nature: that the halo is **drawn** on screen (the Linux game
+renders in software), that the song is **heard**, that Phytokin's ability **soothes** when cast, `baseChance`, and removing the
+mod from a live save stay for a person on the Windows game. One green rerun of the memory scenario is not a proof that the
+flake is gone; the scenario is worth a second look on the next full run.
 
 ## First run of the 25 scenarios, and the halo fixed — 2026-09-24
 
@@ -219,7 +244,7 @@ dark most of the time then* - a defect only if the on-screen tree behaves the sa
 Stage unchanged, `done`. English, `-DepMap wsl-deps.phytokin.map`: 13 mods staged and loaded (the 11 of
 pass A plus Vanilla Expanded Framework and Phytokin), 12 scenarios played for 12 written,
 `exitReason: failed`, **9 passed, 3 failed, the same three halo scenarios**. Copies in
-`.build/pickle-run-2026-09-21-1717-phytokin/`.
+`.build/pickle-run-2026-09-21-1717-phytokin/` (only the JPEG is left; the report was pruned 2026-09-24, see `docs/runs/`).
 
 **The soft dependency is confirmed.** "The song and the icon follow the modlist" passed with Phytokin
 active: the step derives what it expects from `ModsConfig`, so it demanded `VRE_AnimaSongSound` and the

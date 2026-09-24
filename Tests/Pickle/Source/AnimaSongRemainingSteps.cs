@@ -78,6 +78,53 @@ namespace AnimaSong.PickleSteps
                 $"{nickname} lost hearing along with sight: the scenario would prove nothing");
         }
 
+        // ------------------------------------------------------------------ the right-click menu, on screen
+
+        /// <summary>
+        /// Opens the menu a click on the tree would open, so that a picture can be taken of it. The real click
+        /// belongs to a mouse and a person: this asks <c>FloatMenuMakerMap</c> what it would list for the selected
+        /// colonist (what <see cref="RightClickOffers"/> asserts on) and puts that list on screen as the game does,
+        /// as a <see cref="FloatMenu"/>. The mouse of a run is wherever it was left, and a floating menu opens at the
+        /// mouse and closes once the mouse is far from it, so it is placed beside the tree and kept open.
+        /// </summary>
+        [When("Anima Song: the right-click menu of the tree at x={int} z={int} is open for {string}")]
+        public void OpenRightClickMenu(PickleContext ctx, int x, int z, string nickname)
+        {
+            Thing tree = AnimaSongSteps.TreeAt(ctx, x, z);
+            Pawn pawn = AnimaSongSteps.Colonist(ctx, nickname);
+            CloseFloatMenus();
+
+            Find.Selector.ClearSelection();
+            Find.Selector.Select(pawn, false, true);
+
+            List<FloatMenuOption> options = FloatMenuMakerMap.GetOptions(
+                new List<Pawn> { pawn }, tree.DrawPos, out FloatMenuContext _);
+            ctx.Assert(options != null && options.Count > 0, $"the menu at the tree holds nothing for {nickname}");
+
+            var menu = new FloatMenu(options) { vanishIfMouseDistant = false };
+            Find.WindowStack.Add(menu);
+            Vector2 at = GenMapUI.LabelDrawPosFor(tree, 0f);
+            menu.windowRect = new Rect(
+                Mathf.Clamp(at.x + 40f, 0f, UI.screenWidth - menu.windowRect.width),
+                Mathf.Clamp(at.y - 20f, 0f, UI.screenHeight - menu.windowRect.height),
+                menu.windowRect.width, menu.windowRect.height);
+        }
+
+        [When("Anima Song: the right-click menu is closed")]
+        public void CloseRightClickMenu(PickleContext ctx)
+        {
+            CloseFloatMenus();
+        }
+
+        private static void CloseFloatMenus()
+        {
+            foreach (FloatMenu open in Find.WindowStack.Windows.OfType<FloatMenu>().ToList())
+            {
+                Find.WindowStack.TryRemove(open, false);
+            }
+        }
+
+
         // ------------------------------------------------------------------ the song fires once
 
         /// <summary>

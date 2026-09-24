@@ -90,3 +90,34 @@ Feature: what the song looks like
     And I wait 60 ticks
     Then Anima Song: the tree at x=70 z=132 forbids listening
     Then I take a screenshot "tree selected with listening forbidden"
+
+  # THE RIGHT-CLICK MENU, ON SCREEN. The manual check G of TESTING.md is a click of a mouse, which no run has: this puts on
+  # screen the menu the game builds for a click on the tree (FloatMenuMakerMap, the same list the "right-clicking the
+  # tree" scenario asserts on) and photographs it three times - the order offered, refused for a colonist who cannot
+  # hear, refused because listening is forbidden - so a person can read the labels and the reasons as a player would.
+  # Not covered here, and still to be seen in a real game: the refusal when six already listen (it takes seven colonists
+  # and a long walk; the "six listeners" scenario asserts it) and the click itself.
+  @timeout:240
+  Scenario: the right-click menu of the tree, offered and refused
+    Given a colonist "Clicker" exists
+    And a colonist "Deaf" exists
+    And Anima Song: "Deaf" is made deaf
+    When I zoom all the way in
+    And I move the camera to (70, 132)
+    And I wait 200 ticks
+    Then the camera is looking at (70, 132)
+    When Anima Song: the right-click menu of the tree at x=70 z=132 is open for "Clicker"
+    And I wait 30 ticks
+    Then I take a screenshot "right-click menu - the order is offered"
+    When Anima Song: the right-click menu is closed
+    And Anima Song: the right-click menu of the tree at x=70 z=132 is open for "Deaf"
+    And I wait 30 ticks
+    Then I take a screenshot "right-click menu - refused, cannot hear"
+    When Anima Song: the right-click menu is closed
+    And Anima Song: I select the tree at x=70 z=132
+    And Anima Song: I press the toggle of the selected tree
+    And Anima Song: the right-click menu of the tree at x=70 z=132 is open for "Clicker"
+    And I wait 30 ticks
+    Then I take a screenshot "right-click menu - refused, listening forbidden"
+    When Anima Song: the right-click menu is closed
+    Then no errors were logged

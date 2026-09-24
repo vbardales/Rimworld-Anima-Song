@@ -102,7 +102,8 @@ The owner created the Workshop item: `Mod/About/PublishedFileId.txt` holds **380
 and the id is recorded in the `workshop` field. Steam keeps a new item private. The stage stays **`done`**: this is a
 fact about the upload, not a claim that the gates between `done` and `prepublished` are met - they are not, see
 below. `CHANGELOG.md` now opens on `0.1.0`, whose one entry is that file's creation. The tag and the GitHub release for
-0.1.0 are still owed. `PUBLICATION.md` is not written.
+0.1.0 are **not made by hand**: the CI creates them after a successful Steam upload (root `AGENTS.md`, "Publishing by CI":
+a dry-run of the exact commit first, then a `publish` that only the owner approves). `PUBLICATION.md` is not written.
 
 The owner set three conditions for passing to `tested`:
 1. **No scenario left `@wip`.** One is: the halo film, played only with `-pickle-include-wip` in the pass of

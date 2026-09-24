@@ -19,7 +19,7 @@ remaining:
   - unverified: the halo drawn on screen: Pickle plays it as a mote alive on every sample at 1x, 3x and ultrafast in the three passes (2026-09-24, build c04edcc), but the Linux game renders in software and cannot say whether the distortion shader shows; a person looks at the Windows game
   - unverified: by a person on the Windows game: the sound heard, Phytokin's own ability soothing beside the mod (TESTING.md 11), baseChance (9), removing the mod from a live save (14); the whole suite ran green on c04edcc in English, French and with Phytokin (2026-09-24)
   - unverified: how the French reads on screen: the texts are read back and equal to the resource files in both languages (2026-09-24), but the French inspect pane clips the mod's own line, and no picture of it has been judged since
-session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
+session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
 updated:      2026-09-24, the three full passes on c04edcc (English, French, Phytokin), all 25 played; the memory scenario, a test fault, corrected
 ---
 

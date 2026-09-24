@@ -121,17 +121,20 @@ Feature: listening to an anima tree sing
   @same-world @timeout:180
   Scenario: a full sitting leaves a memory, and a glance leaves none
     Given a colonist "Rememberer" exists
-    And a colonist "Passerby" exists
     # Joy kept low on purpose: the job ends early on full joy - JoyTickCheckEnd with
     # JoyTickFullJoyAction.EndJob - and a colonist who arrives nearly satisfied would stand up
     # before the 1250 ticks the memory needs, failing this scenario for a reason that is not a fault.
     And "Rememberer" needs "Joy" is set to 10 percent
-    And "Passerby" needs "Joy" is set to 10 percent
     And game speed is ultrafast
     When Anima Song: "Rememberer" is ordered to listen to the tree at x=70 z=132
     And Anima Song: "Rememberer" sits in the ring of the tree at x=70 z=132
     And I wait 1400 ticks
-    And Anima Song: "Passerby" is ordered to listen to the tree at x=70 z=132
+    # The passer-by is made only now, and with low joy so that the order is accepted at once: made at the start, a
+    # colonist with joy at 10 percent picks the recreation giver on their own during the 1400 ticks above, sits the
+    # full 1250 and earns the memory before the scenario orders them (the 2026-09-24 English run).
+    Given a colonist "Passerby" exists
+    And "Passerby" needs "Joy" is set to 10 percent
+    When Anima Song: "Passerby" is ordered to listen to the tree at x=70 z=132
     And Anima Song: "Passerby" sits in the ring of the tree at x=70 z=132
     And I wait 60 ticks
     And I draft "Passerby"

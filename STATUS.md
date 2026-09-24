@@ -16,17 +16,44 @@ showcase:     complete
 tested_on:
 workshop:     3806709272
 remaining:
-  - defect: the halo lives less than one tick - measured 2026-09-21 (tick by tick, mote state read each tick): the mote is alive only on a tick sampled after the job's ping (age 0), and destroyed on every sample taken at age 1 or more, in view or not (camera off the tree: alive 19, destroyed 281 of 300, pings every 15 ticks; camera on it: alive 300 of 300 when sampled at age 0, and an earlier run sampled at age 1 found it up on 0 of 300). Reading: CompAnimaSong.NotifyListening calls Maintain() only in the branch where the mote already exists, so a fresh mote is never maintained and dies at its first tick, then the next ping makes another; it is never visible because its fade-in restarts every tick. Fix committed 2026-09-21 (b8d7f25: Maintain() right after the mote is made); its six scenarios are queued and have no result yet
-  - unverified: Pickle suite, pass A in English and in French - 9 of 10 scenarios green in each, the tenth being the halo above; captures opened, no image yet proves the halo visible
+  - unverified: the halo drawn on screen: Pickle plays it as a mote alive on every sample at 1x, 3x and ultrafast (2026-09-24, build c04edcc, 3 of 3), but the Linux game renders in software and cannot say whether the distortion shader shows; a person looks at the Windows game
+  - unverified: the full suite on the final build (c04edcc): pass A English ran 23 of 25 green before HaloKeeper (the failure was the ultrafast halo, now 3 of 3), French and Phytokin passes queued
   - unverified: Pickle pass B in French, and Phytokin's own VRE_AnimaSong ability still working beside the mod (TESTING.md scenario 11, pass B) - pass B ran in English only and does not exercise their ability
-  - unverified: the fourteen scenarios of TESTING.md - two played whole (1, 5) and seven in part by the Pickle suite in the headless game (table in TESTING.md), four not played (3, 9, 10, 14), one faulty and fixed but not confirmed (4); none has been played by a person on the Windows game
-  - unverified: the halo, maintained tick by tick by the job, at 3x speed
+  - unverified: TESTING.md scenarios 11 and 14 in part (Phytokin's own ability soothing; removing the mod from a live save) and 13 in French, which needs the queued French pass; the rest ran green in English on 2026-09-23 (table in TESTING.md); none has been played by a person on the Windows game
   - unverified: English and French in-game display of every inventoried text, including all four refusal reasons and the memory stage handle; TESTING.md scenario 13
 session:      local_5e30f42a-ec8b-4932-9f21-00964209cc65
-updated:      2026-09-23, suite reviewed and fixed (25 scenarios, none of the new ones run), docs/runs added
+updated:      2026-09-24, first full run of 25 scenarios (23 green, 1 skipped), halo fixed and 3 of 3 on c04edcc
 ---
 
 # Anima Song — status
+
+## First run of the 25 scenarios, and the halo fixed — 2026-09-24
+
+Stage stays **`done`**. Run detail in [docs/runs/2026-09-23.md](docs/runs/2026-09-23.md).
+
+- **Pass A in English, 25 scenarios written and 25 played: 23 passed, 1 skipped (Phytokin's, as expected), 1 failed
+  (the halo at ultrafast).** `exitReason: failed`. All twelve scenarios of `03-the-rest-of-testing-md.feature` passed on
+  their first run, and so did the tree's patch, the icon, the walk, the memory, the toggle and its reload, the refusals, the
+  save with three listeners and the texts.
+- **The halo, at last.** Diagnosed in the game's own IL: `Mote.TimeInterval` destroys a `needsMaintenance` mote when
+  `TicksGame > lastMaintainTick`, with no slack. Two faults: a fresh mote was never maintained (`b8d7f25`, holds the halo
+  at 1x and 3x: 300 of 300 ticks), and at higher speeds the listener's `tickIntervalAction` skips ticks (`HaloKeeper`,
+  a `MapComponent` stamping `lastMaintainTick` one tick ahead, `c04edcc`). **The last build, halo scenarios only:
+  3 of 3 passed** - 150 of 150 samples alive at normal speed, 50 of 50 at 3x, 52 of 52 over 1518 game ticks at
+  ultrafast. A first keeper that called `Maintain()` from the map's tick changed nothing (114 of 151 alive) and is recorded
+  as such in `docs/runs/`.
+- **The ultrafast step counted wrongly, not only the mod.** At ultrafast one wait returns once a frame, about 30 game ticks
+  on, so 300 samples outlasted the sitting and counted a colonist who had stood up as a dead halo. The step now spans game
+  ticks.
+- **What the last full run did not have:** the build with `HaloKeeper`. The other scenarios last ran without it; the steps
+  and the rest of the mod are unchanged, but a full run of the final build is owed, and the French and Phytokin passes
+  (tickets 14228 and 29164) are still queued and will stage it.
+
+Against the three conditions for `tested` (previous section): (1) **no scenario left `@wip` - met**, the filmed halo
+scenario is a normal one and played in this run; (2) every conditional scenario has run - **not met** until the pass with
+Phytokin runs on the final build; (3) no manual test left to validate - **not met**: the halo drawn on screen, the sound
+heard, Phytokin's ability soothing, `baseChance` and removing the mod from a save stay for a person, and `TESTING.md`'s
+table still describes the suite as of 2026-09-21.
 
 ## Review of the suite, and what changed — 2026-09-23
 
@@ -91,7 +118,7 @@ because the Linux game cannot say whether it is drawn. Nothing here launches tha
 Stage unchanged, `done`. Pass `film` (`wsl-deps.film.map`), Workshop Pickle, 12 mods staged and loaded, filtered to
 the filmed scenario with `-pickle-include-wip`: 1 scenario played for 1 written, `exitReason: passed`. The steps of
 `PickleTools/FilmTicks` were found and ran; the film sat in `screenshots/film/pickletools--halo-per-tick/`, copied
-to `.build/pickle-run-2026-09-21-2242-toolfilm/` (film and sheets deleted 2026-09-23, only the report kept). **56 pictures in 5.7 s**, encoded to 53 frames (three lost between
+to the pruned `.build/pickle-run-2026-09-21-2242-toolfilm/` (deleted 2026-09-24, see `docs/runs/2026-09-21.md`). **56 pictures in 5.7 s**, encoded to 53 frames (three lost between
 capture and encode, unexplained).
 
 The game ran about 16 ticks a second during the filmed stretch, so the software renderer drew **one picture per
@@ -104,7 +131,7 @@ shader that the software renderer does not draw would give. The film cannot tell
 
 Stage unchanged, `done`. English, filtered by a comma list that matched two scenarios: the off-screen tick-by-tick
 one and the camera-on-the-tree one. `exitReason: failed`, 1 passed (camera on the tree) and 1 failed (off screen).
-Copies in `.build/pickle-run-2026-09-21-2228-states/`. **A filter with a comma is a list of terms, not one phrase**:
+Copies were in `.build/pickle-run-2026-09-21-2228-states/` (deleted 2026-09-24, see `docs/runs/`). **A filter with a comma is a list of terms, not one phrase**:
 mine ran the off-screen scenario again as well, by accident.
 
 The step now records three states per tick. What it read:
@@ -212,7 +239,7 @@ sampler, rather than in anything the soft dependency touches. The other nine sce
 
 Stage unchanged, `done`. English, 12 scenarios played for 12 written, `exitReason: failed`, **9 passed
 and 3 failed - the three halo scenarios**. Report and captures copied to
-`.build/pickle-run-2026-09-21-1712/` before the next session's run.
+`.build/pickle-run-2026-09-21-1712/` (deleted 2026-09-24, see `docs/runs/`).
 
 | Speed | Halo up in |
 | --- | --- |

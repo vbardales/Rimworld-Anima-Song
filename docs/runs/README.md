@@ -30,3 +30,4 @@ Rules kept here:
 | File | Covers |
 | --- | --- |
 | [2026-09-21.md](2026-09-21.md) | The first day of runs: the suite written, two passes, two languages, the halo found and measured, the film |
+| [2026-09-23.md](2026-09-23.md) | The first run of the 25 scenarios, the halo found faulty twice over and fixed, and a first keeper that changed nothing |

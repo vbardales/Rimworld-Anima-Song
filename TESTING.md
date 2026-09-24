@@ -24,28 +24,30 @@ which scenarios below it covers, which it deliberately leaves alone, and why. **
 fourteen scenarios here stay the reference, and the judgements — whether the halo reads, whether the
 French comes out in French — remain a person's.
 
-## What the Pickle suite has already played, 2026-09-21
+## What the Pickle suite has played, 2026-09-23 and 09-24
 
 Read this before playing anything by hand: it says which of the fourteen scenarios a machine has watched and which
-are still yours. "Played" means the scenario ran in the headless WSL game on the fixture's anima tree, in English and
-in French unless said otherwise, and passed; it does not mean the whole scenario as written below was covered.
+are still yours. "Played" means the scenario ran in the headless WSL game on the fixture's anima tree, in English
+(pass A, 25 scenarios, 2026-09-23: 23 passed, 1 skipped, 1 failed on the ultrafast halo, since fixed and 3 of 3 on the
+halo scenarios of build `c04edcc`, 2026-09-24), and passed. The French and Phytokin passes are queued and have not
+run on this suite. It does not mean the whole scenario as written below was covered. Details in `docs/runs/`.
 
 | # | Scenario | Pickle | What is left for a person |
 | --- | --- | --- | --- |
-| 1 | The mod loads, and the patch bites | **Played, passed.** The comp is on the spawned tree, its toggle is on the selection, no error logged. Passes A and B | Nothing new in game; a look at the log of a real session |
-| 2 | The right-click order | **Partly.** The order is driven through the comp's own menu entry (not a real click), the colonist walks and sits 2 to 5 cells out | The real right-click; the inspect line; the drafted colonist getting no entry; nobody on the trunk's eight cells |
-| 3 | The song fires once, then holds its tongue | Not played | All of it (5000-tick cooldown) |
-| 4 | The song is visible | **Found a fault, fixed, not yet confirmed.** The halo lived under a tick; `Maintain()` is now called when the mote is made. A rerun is queued | That the halo is drawn on screen, at 1x and 3x: the Linux game renders in software and cannot say |
-| 5 | The ring, and the seventh colonist | **Played, passed** in every full run: six on six distinct cells, the seventh refused before walking with the "all listeners" reason, the order back when one leaves | Nothing beyond the log of a real session |
-| 6 | The toggle | **Partly.** Off stands the listeners up at once, the order is refused with the "not allowed" reason, the state survives a save and reload | The inspect line by eye; that nobody goes on their own over a day |
-| 7 | Who may listen | **Partly.** A deaf colonist is refused with the "cannot hear" reason | A blind colonist listens |
-| 8 | The memory | **Partly.** A full sitting leaves the memory, a short one leaves none | It does not stack; it scales with psychic sensitivity |
-| 9 | The colonist who decides on their own | Not played | All of it (`baseChance` 2, the recreation type in the tolerance list) |
-| 10 | Walls and roofs | Not played | All of it |
-| 11 | The two soft dependencies | **Partly.** Pass A (Royalty's sound and icon) and pass B (Phytokin's: the def `VRE_AnimaSongSound` and the texture `UI/Abilities/AnimaSong` resolved) | That the sound is heard; that Phytokin's own `VRE_AnimaSong` still works beside the mod |
-| 12 | Saving in the middle | **Partly.** A save and reload with the toggle off | A save with three listeners, and the cooldown surviving |
-| 13 | English and French translation | **Partly.** Toggle, its label, the inspect lines and three of the four refusal reasons in both languages (assertions on the translated keys, plus captures opened). The French pane clips the mod's own line | The fourth reason ("no free spot"); the recreation type, the memory label and description, the job report |
-| 14 | Adding and removing on a live colony | Not played | All of it |
+| 1 | The mod loads, and the patch bites | **Played, passed.** The comp is on the spawned tree, its toggle is on the selection, no error logged | A look at the log of a real session |
+| 2 | The right-click order | **Played, passed.** The float menu asked at the tree with the colonist selected offers the order, a drafted colonist gets none, the colonist walks and sits 2 to 5 cells out. Not a real mouse click | The real click; the inspect line by eye |
+| 3 | The song fires once, then holds its tongue | **Played, passed.** The tree's `lastSongTick` stays put for a second listener and moves after 5200 ticks | That the sound is heard (no speakers) |
+| 4 | The song is visible | **Played, passed on build `c04edcc`.** The halo mote is alive on every sample at 1x (150 of 150), 3x (50 of 50) and ultrafast (52 of 52 over 1518 game ticks). Two faults were found and fixed on the way | That the halo is **drawn** on screen: the Linux game renders in software and cannot say |
+| 5 | The ring, and the seventh colonist | **Played, passed:** six on six distinct cells, the seventh refused before walking | Nothing beyond the log |
+| 6 | The toggle | **Played, passed.** Off stands the listeners up at once, refuses the order, shuts the recreation giver too, survives a save and reload | The inspect line by eye |
+| 7 | Who may listen | **Played, passed.** A deaf colonist is refused, a blind one listens | Nothing |
+| 8 | The memory | **Played, passed.** A full sitting leaves it, a short one none, two in a row leave one. The psychic sensitivity scaling is checked offline (test 21) | Nothing |
+| 9 | The colonist who decides on their own | **Played, passed.** The recreation giver finds the tree, gives nothing when forbidden or roofed, a sitting builds tolerance | `baseChance`, how often the base game picks the giver: a die roll, not measured |
+| 10 | Walls and roofs | **Played, passed.** A wall to the north: every listener has the trunk in sight; a roofed tree is not offered | Nothing |
+| 11 | The two soft dependencies | **Partly.** Royalty's sound and icon (pass A, played 2026-09-23); Phytokin's resolved on 2026-09-21 (pass B). The scenario that Phytokin's own ability is left alone is skipped without it and has **not run** | That the sound is heard; that Phytokin's `VRE_AnimaSong` soothes beside the mod |
+| 12 | Saving in the middle | **Played, passed.** A save with three listeners loads clean, the cooldown comes back, the tree sings again | Nothing |
+| 13 | English and French translation | **English played, passed:** the ten Keyed entries and the four Def fields read back and compared with the resource files, and all four refusal reasons. **French not run on this suite** (queued) | The look of the French pane, which clips the mod's own line |
+| 14 | Adding and removing on a live colony | **First half only:** a save that never had the mod gains the toggle, in every run. Removing the mod from a save is a modlist change between two games | The second half |
 
 **No pass was run on a new colony.** The fixture is an existing save.
 

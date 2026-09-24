@@ -14,7 +14,7 @@ First version. RimWorld 1.6, Royalty required.
 
 - A new recreation type, `AnimaSong_Song`: any colonist able to hear can walk out to an anima tree, sit down in a ring 2 to 5 cells from the trunk, and listen to it sing. Up to six listeners at once, outdoors only, line of sight required.
 - A memory worth +3 mood for one day, multiplied by psychic sensitivity and not stacking — deliberately weaker than the +8 over two days of Phytokin's own once-a-quadrum ability.
-- A visible song: a pulsing psychic halo around the tree while anyone is listening, and a wave of light travelling from the trunk to each listener every two seconds.
+- A visible song: while anyone is listening the tree wears a soft teal glow (the colour of its leaves, from a texture of the mod's own) under Royalty's pulsing psychic halo, and a wave of light travels from the trunk to each listener every two seconds.
 - A right-click order, **Listen to the anima song**: select a colonist, click the tree, and they go and sit, instead of waiting for recreation time to come round. Greyed out with its reason when the pawn cannot hear, when the ring is full, when no free spot is left, or when listening is forbidden.
 - A toggle on the tree, **Allow listening**. Turned off, the joy giver skips that tree and current listeners stand up at once.
 - French translation.

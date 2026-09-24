@@ -271,11 +271,17 @@ namespace AnimaSong.PickleSteps
         /// </summary>
         private static bool HaloIsUp(PickleContext ctx, CompAnimaSong comp)
         {
-            var field = typeof(CompAnimaSong).GetField("auraMote",
+            return MoteIsUp(ctx, comp, "auraMote") && MoteIsUp(ctx, comp, "glowMote");
+        }
+
+        /// <summary>One of the tree's two halo motes (Royalty's pulse, the mod's own glow), by its field name.</summary>
+        private static bool MoteIsUp(PickleContext ctx, CompAnimaSong comp, string fieldName)
+        {
+            var field = typeof(CompAnimaSong).GetField(fieldName,
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            ctx.Assert(field != null, "CompAnimaSong.auraMote no longer exists: this step has to follow it");
-            var halo = field.GetValue(comp) as Mote;
-            return halo != null && !halo.Destroyed;
+            ctx.Assert(field != null, $"CompAnimaSong.{fieldName} no longer exists: this step has to follow it");
+            var mote = field.GetValue(comp) as Mote;
+            return mote != null && !mote.Destroyed;
         }
 
         /// <summary>
@@ -330,6 +336,7 @@ namespace AnimaSong.PickleSteps
             // so "in view" is a property of each sample and a snapshot could describe none of them.
             int inView = 0;
             int up = 0;
+            int glowUp = 0;
             var ageCounts = new SortedDictionary<int, int>();
             var stateCounts = new SortedDictionary<string, int>();
             var lines = new List<string>(ticks);
@@ -347,6 +354,7 @@ namespace AnimaSong.PickleSteps
                 int now = Find.TickManager.TicksGame;
                 int age = now - (int)pingField.GetValue(comp);
                 if (halo) up++;
+                if (MoteIsUp(ctx, comp, "glowMote")) glowUp++;
                 if (Find.CameraDriver.CurrentViewRect.Contains(comp.parent.Position)) inView++;
                 ageCounts.TryGetValue(age, out int seen);
                 ageCounts[age] = seen + 1;
@@ -359,9 +367,9 @@ namespace AnimaSong.PickleSteps
             string states = string.Join(", ", stateCounts.Select(kv => $"{kv.Key}:{kv.Value}"));
             string summary = $"halo up on {up} of {samples} samples over {Find.TickManager.TicksGame - startTick} game ticks; field state (state:count): {states}; " +
                              $"ticks since the last ping (age:count): {ages}; " +
-                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; tree in view on {inView} of {samples} samples";
+                             $"Mote_PsyfocusPulse def {(auraDef == null ? "MISSING" : "present")}; glow mote (the mod's own, tinted) alive on {glowUp} of {samples} samples; tree in view on {inView} of {samples} samples";
             ctx.Attach("halo tick by tick", string.Join("\n", lines) + "\n" + summary);
-            ctx.Assert(samples > 0 && up >= samples * 0.9, summary);
+            ctx.Assert(samples > 0 && up >= samples * 0.9 && glowUp >= samples * 0.9, summary);
         }
 
         // ------------------------------------------------------------------ the listeners

@@ -66,6 +66,7 @@ namespace AnimaSong
         private int lastListenTick = -1;
 
         private Mote auraMote;
+        private Mote glowMote;
 
         private static SoundDef songSound;
         private static bool songResolved;
@@ -203,8 +204,9 @@ namespace AnimaSong
         }
 
         /// <summary>
-        /// Called on every tick by the driver, for one listener. Maintains the tree's pulsing halo -
-        /// the only thing on screen that says the song is under way.
+        /// Called on every tick by the driver, for one listener. Maintains the tree's halo - the only thing on
+        /// screen that says the song is under way: Royalty's pulse, a distortion that a game may not draw, and the
+        /// mod's own soft glow in the tree's colour, which is plain sprite and always shows.
         /// </summary>
         public void NotifyListening()
         {
@@ -212,25 +214,31 @@ namespace AnimaSong
 
             if (parent == null || !parent.Spawned) return;
 
-            ThingDef aura = DefDatabase<ThingDef>.GetNamedSilentFail("Mote_PsyfocusPulse");
-            if (aura == null) return;
-
-            if (auraMote == null || auraMote.Destroyed)
-            {
-                auraMote = MoteMaker.MakeAttachedOverlay(parent, aura, Vector3.zero, AuraScale);
-            }
-
-            // Maintained on the tick it is made too, not only on the next ping. `Mote.lastMaintainTick`
-            // starts at 0 and only `Maintain()` writes it, and `Mote.TimeInterval` destroys a
-            // `needsMaintenance` mote on any tick after the last maintained one (`fadeOutUnmaintained` is
-            // false for this def). A fresh mote that waited for the next ping was already dead by then:
-            // it lived under a tick, was remade on every ping, and its fade-in restarted each time, so the
-            // halo never showed. Measured tick by tick with Pickle on 2026-09-21: alive on the sample taken
-            // at the tick of a ping, destroyed on every sample after it.
-            auraMote?.Maintain();
+            auraMote = MakeOrMaintain(auraMote, DefDatabase<ThingDef>.GetNamedSilentFail("Mote_PsyfocusPulse"), AuraScale);
+            glowMote = MakeOrMaintain(glowMote, DefDatabase<ThingDef>.GetNamedSilentFail("AnimaSong_HaloGlow"), 1f);
 
             // The pings are not every tick at higher speeds: the map keeps the halo up between them.
             parent.Map.GetComponent<HaloKeeper>()?.Track(this);
+        }
+
+        /// <summary>
+        /// Makes the mote if there is none (or it has died) and maintains it on the tick it is made too, not only on
+        /// the next ping. `Mote.lastMaintainTick` starts at 0 and only `Maintain()` writes it, and `Mote.TimeInterval`
+        /// destroys a `needsMaintenance` mote on any tick after the last maintained one (`fadeOutUnmaintained` is
+        /// false for Royalty's pulse). A fresh mote that waited for the next ping was already dead by then: it lived
+        /// under a tick, was remade on every ping, and its fade-in restarted each time, so the halo never showed.
+        /// Measured tick by tick with Pickle on 2026-09-21: alive on the sample taken at the tick of a ping,
+        /// destroyed on every sample after it.
+        /// </summary>
+        private Mote MakeOrMaintain(Mote mote, ThingDef def, float scale)
+        {
+            if (def == null) return mote;
+            if (mote == null || mote.Destroyed)
+            {
+                mote = MoteMaker.MakeAttachedOverlay(parent, def, Vector3.zero, scale);
+            }
+            mote?.Maintain();
+            return mote;
         }
 
         /// <summary>
@@ -241,19 +249,24 @@ namespace AnimaSong
         {
             if (parent == null || !parent.Spawned) return false;
             if (Find.TickManager.TicksGame - lastListenTick > HaloGraceTicks) return false;
-            if (auraMote != null && !auraMote.Destroyed)
-            {
-                // One tick AHEAD, not `Maintain()`: `Mote.TimeInterval` destroys the mote when TicksGame is
-                // greater than `lastMaintainTick`, with no slack, and the map ticks after the things do. A
-                // maintenance stamped with the current tick therefore arrives too late for the mote's own
-                // tick of the next one whenever the listener did not ping in between. The field is not
-                // public; without it the plain call is all there is.
-                if (lastMaintainField != null)
-                    lastMaintainField.SetValue(auraMote, Find.TickManager.TicksGame + 1);
-                else
-                    auraMote.Maintain();
-            }
+            StampAhead(auraMote);
+            StampAhead(glowMote);
             return true;
+        }
+
+        /// <summary>
+        /// One tick AHEAD, not `Maintain()`: `Mote.TimeInterval` destroys the mote when TicksGame is greater than
+        /// `lastMaintainTick`, with no slack, and the map ticks after the things do. A maintenance stamped with the
+        /// current tick therefore arrives too late for the mote's own tick of the next one whenever the listener did
+        /// not ping in between. The field is not public; without it the plain call is all there is.
+        /// </summary>
+        private static void StampAhead(Mote mote)
+        {
+            if (mote == null || mote.Destroyed) return;
+            if (lastMaintainField != null)
+                lastMaintainField.SetValue(mote, Find.TickManager.TicksGame + 1);
+            else
+                mote.Maintain();
         }
 
         private static readonly System.Reflection.FieldInfo lastMaintainField = typeof(Mote).GetField(

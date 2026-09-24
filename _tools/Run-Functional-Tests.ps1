@@ -17,7 +17,7 @@
       through listerThings, CanInteractWith ignoring def.building, and the vanilla driver's hard
       cast to Building?
     - does the patch still land on the anima tree, and leave the def in one piece?
-    - do the six defs this mod looks up by name still exist?
+    - do the seven defs this mod names still exist?
     - does the French memory key still match the handle the game builds from the stage label?
 
   All of it by reflection and IL against the installed game's own Assembly-CSharp, plus the real
@@ -172,7 +172,7 @@ Test-That "the game, the mod assembly, the defs and the patch all loaded" {
     Note ("game types {0}, mod types {1}, defs {2}, patch operations {3}" -f `
         $gameTypes.Count, $modTypes.Count, $defsXml.SelectNodes('/Defs/*').Count, $patchXml.SelectNodes('/Patch/Operation').Count)
     ($gameTypes.Count -gt 10000) -and ($modTypes.Count -ge 5) -and
-    ($defsXml.SelectNodes('/Defs/*').Count -eq 4) -and ($patchXml.SelectNodes('/Patch/Operation').Count -eq 1) -and
+    ($defsXml.SelectNodes('/Defs/*').Count -eq 5) -and ($patchXml.SelectNodes('/Patch/Operation').Count -eq 1) -and
     (Test-Path $plantsXml)
 }
 
@@ -349,10 +349,10 @@ Test-That "Plant still derives from ThingWithComps" {
 # ---------------------------------------------------------------------------------------------
 Write-Host " The defs and the patch" -ForegroundColor Cyan
 
-# Six defs are fetched by name at runtime, every one of them with GetNamedSilentFail or a
+# Seven defs are fetched by name at runtime (six, and the shader of the halo glow), every one of them with GetNamedSilentFail or a
 # ContentFinder that returns null rather than complaining. A rename in a future version costs the
 # song, the halo, the wave or the memory's scaling, and nothing in the log would say so.
-Test-That "the six defs looked up by name are still there" {
+Test-That "the game's defs this mod names (seven) are still there" {
     $wanted = @{
         'AnimaTreeLink'         = 'SoundDef'     # the song, without Phytokin
         'Mote_PsyfocusPulse'    = 'ThingDef'     # the halo
@@ -360,6 +360,7 @@ Test-That "the six defs looked up by name are still there" {
         'PsycastPsychicEffect'  = 'FleckDef'     # the flash when the song starts
         'PsychicSensitivity'    = 'StatDef'      # what multiplies the memory
         'Hearing'               = 'PawnCapacityDef'
+        'MoteGlow'              = 'ShaderTypeDef' # what draws the mod's own halo glow
     }
     $missing = @()
     $files = Get-ChildItem $GameData -Recurse -Filter *.xml -File -ErrorAction SilentlyContinue
@@ -505,6 +506,30 @@ Test-That "the memory is +3 for one day, multiplied by psychic sensitivity, and 
     ($t.effectMultiplyingStat -eq 'PsychicSensitivity') -and ($t.stackLimit -eq '1') -and
     ($t.durationDays -eq '1') -and ($mood -eq '3')
 }
+# The halo's colour (mod def, own texture). The texture is the mod's, so it can be checked on disk, unlike Royalty's: the file
+# exists where texPath says, is a PNG with real transparency in it, and the def names a parent and a shader that the base game
+# defines. The colour is read from the def, where it is meant to be changed.
+Test-That "the halo glow is a mote of the mod's own, with its own texture, tinted in XML" {
+    $d = $defsXml.SelectSingleNode('/Defs/ThingDef[defName="AnimaSong_HaloGlow"]')
+    if (-not $d) { Note 'ThingDef AnimaSong_HaloGlow not found'; return $false }
+    $tex = $d.SelectSingleNode('graphicData/texPath').InnerText
+    $file = Join-Path $Mod ("Textures\" + ($tex -replace '/', '\') + '.png')
+    if (-not (Test-Path $file)) { Note ("no texture at {0}" -f $file); return $false }
+    Add-Type -AssemblyName System.Drawing
+    $img = [System.Drawing.Bitmap]::FromFile($file)
+    $centre = $img.GetPixel([int]($img.Width / 2), [int]($img.Height / 2)).A
+    $corner = $img.GetPixel(0, 0).A
+    $ring = $img.GetPixel([int]($img.Width * 0.77), [int]($img.Height / 2)).A
+    $size = "$($img.Width)x$($img.Height)"
+    $img.Dispose()
+    $color = $d.SelectSingleNode('graphicData/color').InnerText
+    Note ("texture {0} {1}, alpha centre {2} / ring {3} / corner {4}; colour {5}; parent {6}; shader {7}" -f $tex, $size, $centre, $ring, $corner, $color, $d.ParentName, $d.SelectSingleNode('graphicData/shaderType').InnerText)
+    ($d.ParentName -eq 'MoteBase') -and ($d.SelectSingleNode('graphicData/shaderType').InnerText -eq 'MoteGlow') -and
+    ($d.SelectSingleNode('mote/needsMaintenance').InnerText -eq 'True') -and
+    ($d.SelectSingleNode('mote/fadeOutUnmaintained').InnerText -eq 'True') -and
+    ($corner -eq 0) -and ($ring -gt $centre) -and ($ring -gt 100) -and ($color -match '^\(\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*\)$')
+}
+
 
 # ---------------------------------------------------------------------------------------------
 Write-Host ""

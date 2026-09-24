@@ -51,6 +51,26 @@ the whole scenario as written below was covered. Details in `docs/runs/`.
 
 **No pass was run on a new colony.** The fixture is an existing save.
 
+## What a person still has to check, 2026-09-24
+
+Everything the headless game could not say. Play it on the Windows game with development mode on, Royalty and Anima Song
+active, on a colony that has an anima tree, and write the result in the last column (then in `STATUS.md`). "Checked by the
+suite" is what a machine did prove; the rest of the row is yours.
+
+| # | What to look at | Expected | Checked by the suite | Result |
+| --- | --- | --- | --- | --- |
+| A | **The halo is drawn.** Right-click the tree with a colonist selected, "Listen to the anima song"; once they sit, keep the camera on the tree at normal speed, then Fast, then Ultrafast | A pulsing violet disc over the tree and its ring of listeners, and a wave of light from the trunk to each listener about every two seconds, at every speed, without blinking out | The halo mote is alive on every sample at 1x, 3x and 15x (a software-rendered game: whether the distortion shader is drawn there is unknown) | |
+| B | **The song is heard.** Volume up; the first listener sits down | A recording plays once when the first listener arrives, then silence for about 5000 ticks even with more listeners. Royalty's anima linking sound without Phytokin, their recording with it | The cooldown moves once and holds; the sound's def is the right one for the modlist. No speakers | |
+| C | **Phytokin's own ability beside the mod.** With a Phytokin who has the gene, cast their anima song on the tree, once with nobody listening and once with a colonist listening | Their ability behaves as without this mod: the orchestra plays, the +8 mood over two days on those it reaches; nothing of ours interferes | This mod patches nothing of theirs (`VRE_AnimaSong` untouched, pass with Phytokin green). Not that it soothes when cast | |
+| D | **They go on their own.** No orders; a colonist with a low recreation need, an anima tree in reach, over a day or two | Sometimes they walk out to the tree by themselves during recreation time. Only that it happens, not how often | The recreation giver offers the tree, and refuses it when forbidden or roofed. `baseChance` (how often the game picks it) is the base game's and not measured | |
+| E | **Removing the mod from an existing save.** Save with Anima Song active and a listener seated; remove the mod; load | The save loads, the tree is an ordinary anima tree, only the usual "mod missing" notice and no red error about this mod. Then add it back to that save: the toggle is back on | A save that never had the mod gains the toggle, and a save with three listeners reloads clean with the mod present. Removal is a modlist change between two games | |
+| F | **The French reads well.** Game in French, select the tree | "Autoriser l'écoute" on the toggle; the mod's own inspect line readable, not cut off by the pane | The texts read back in French equal the resource files. The pane clips the line in the headless capture | |
+| G | **A real click.** With the mouse, not the API: colonist selected, right-click the tree | The entry "Listen to the anima song" (French: as in the resource file), greyed out with its reason for a colonist who cannot hear, when six already listen, or when listening is forbidden | The float menu asked at the tree offers the order and refuses with each reason. Not a mouse click | |
+
+A fresh capture of the ring, the halo and the waves, and a per-tick film of the halo, both from the headless game on the
+current build, are requested (2026-09-24) and land in `.build/pickle-run-2026-09-24-review-captures/` and `-halo-film/`;
+they show what the software renderer draws, which is what row A compares with what you see.
+
 ## Before starting
 
 - RimWorld 1.6, Royalty active, Anima Song active. Development mode on, so that silent failures

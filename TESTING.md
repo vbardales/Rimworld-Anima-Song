@@ -67,6 +67,11 @@ suite" is what a machine did prove; the rest of the row is yours.
 | F | **The French reads well.** Game in French, select the tree | "Autoriser l'écoute" on the toggle; the mod's own inspect line readable, not cut off by the pane | The texts read back in French equal the resource files. The pane clips the line in the headless capture | |
 | G | **A real click.** With the mouse, not the API: colonist selected, right-click the tree | The entry "Listen to the anima song" (French: as in the resource file), greyed out with its reason for a colonist who cannot hear, when six already listen, or when listening is forbidden | The float menu asked at the tree offers the order and refuses with each reason. Not a mouse click | |
 
+**Not a defect, seen in the captures: the anima grass stays at 0 %.** The tree's grass only advances when someone
+*meditates* (`CompSpawnSubplant.AddProgress` is called from `JobDriver_Meditate` and from nothing else, checked in the game's
+assembly on 2026-09-25); listening never does, and the ring keeps the seats off the trunk so the grass the linking ritual
+needs is not trampled. Decided with the owner on 2026-09-25: listening does not grow it.
+
 A fresh capture of the ring, the halo and the waves, and a per-tick film of the halo, both from the headless game on the
 current build, are requested (2026-09-24) and land in `.build/pickle-run-2026-09-24-review-captures/` and `-halo-film/`;
 they show what the software renderer draws, which is what row A compares with what you see.

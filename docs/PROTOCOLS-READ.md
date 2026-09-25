@@ -14,6 +14,7 @@ Read in full unless said otherwise. Re-read a file when its last commit is no lo
 | `PUBLISHING.md` | `90d51374` 2026-09-25, clean | The gallery folder holds only the images to upload, named `01-`, `02-`, ... (and is the `--gallery-dir`); the one-shot items (description, packageId, `PublishedFileId.txt`); the 1.0.0 production steps done by the owner by hand (visibility, comments, "Watch all activity" of the mod and its parents); GitHub topics `rimworld rimworld-mod mod` for a public repository; the `ATTRIBUTION.md` copy in `Mod/` compared by hash; commit messages and comments in English |
 | `TRANSLATIONS.md` | `90d51374` 2026-09-25, clean | The l10n gate and `localization`, `translation_en`, `translation_fr` in `STATUS.md`; the new glow mote adds no text, so nothing to inventory |
 | `STYLE_RIMWORLD.md` | `90d51374` 2026-09-25, clean | Read for the Preview rules; **it says `AnimaSong/About/Preview.png` "a dérivé" (anime-like tree and colonists)**. Not acted on: a Preview is the owner's to regenerate. Also: captures for the Workshop page must be assembled by the scenario, with no dev tools, no debug overlay, no Pickle panel |
+| `PickleTools/docs/steps.md` | `7268217` 2026-09-25 | The tools' step catalogue: SoundCapture (`the game is playing the sound {string}`, `I film with sound as`, `the game volume is {int} percent`), ScreenshotMode (`developer mode is turned off for the capture`), ScreenshotStudio (`I frame the studio`), FilmTicks, InspectTabs |
 | `PickleTools/SoundCapture/README.md` | `1ffef12` 2026-09-25 17:22 | Eleven steps: record the sink, film with sound (`film-sound.mp4`), set the game volume (the WSL profile mutes it), and three that assert what the game itself holds as playing (`the game is playing the sound {string}`); runs in the WSL |
 | `PickleTools/README.md` | `d20db95` 2026-09-25, clean | The table of tools (SoundCapture, ScreenshotStudio, FilmTicks, InspectTabs, ScreenshotMode...); pass maps name a tool with `path:PickleTools/<Tool>/Mod` |
 | `PickleTools/Headless/README.md` | `b2712fc` 2026-09-25, clean | Filter terms, `-DepMap`, `-Then` and **`-ThenWithout`** (a launch that loads a save without the mod that made it: the way to automate "removing the mod from a save", written and not yet seen running), evidence, "nothing is edited while a run is going" |
@@ -31,7 +32,7 @@ Read in full unless said otherwise. Re-read a file when its last commit is no lo
 
 | File | Note |
 | --- | --- |
-| `Docs/steps.md` (Pickle's step catalogue) | Not in this collection nor in the Workshop copy of Pickle; the vocabulary it holds is quoted in `AUDIT.md` ("Le vocabulaire") and used from there |
+| `Docs/steps.md` | Pickle's own catalogue lives in its repository (GitHub), not here. **PickleTools has its own: `PickleTools/docs/steps.md`** (generated, `7268217` 2026-09-25, 80 steps, one table per tool): read it before writing a step. It shows that my `Anima Song: the game plays the tree's song...` duplicates part of `the game is playing the sound {string}` (SoundCapture); the tool's step is to be used instead (owner, 2026-09-25: "ne réécris pas, utilise l'outil") |
 | `BACKLOG.md`, `NOTES.md`, `BUGS.md` | This mod has none |
 
 ## This mod's own files

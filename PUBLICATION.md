@@ -1,6 +1,6 @@
 # Publication sheet
 
-**Written 2026-09-24. The mod is at `done`; the stage is not `tested` yet (`STATUS.md`). The Workshop item exists
+**Written 2026-09-24, fail-fast policy added 2026-09-25. The mod is at `done`; the stage is not `tested` yet (`STATUS.md`). The Workshop item exists
 (`3806709272`, created by the 0.1.0 prepublication of 2026-09-23, private as Steam creates them) and
 `Mod/About/PublishedFileId.txt` is committed (`25751bc`). What is still ahead: the items below marked TO DO, the manual
 checks that lead to `tested`, the upload of 1.0.0 by the CI, the switch to public, and the one thanks.**
@@ -17,9 +17,26 @@ therefore uploads a payload that differs from the one on the page: the DLL at le
 - **Repository.** Working tree clean and pushed, and the distributed DLL matches the sources: rebuild
   `dotnet build Source/AnimaSong.csproj -c Release` and compare the SHA256 of `Mod/Assemblies/AnimaSong.dll` with the
   committed one (at `c04edcc`: `E4389F8F…`). **TO DO** on the commit that will be dispatched.
-- **`tested` first.** The condition that is not met is the manual one: the halo drawn on screen, the song heard,
-  Phytokin's own ability soothing beside the mod, `baseChance`, removing the mod from an existing save (`STATUS.md`,
-  `TESTING.md`). Nothing is uploaded before the owner has played those, or has decided in writing to go without.
+- **Publication policy: fail fast** (owner, 2026-09-25; `../PUBLISHING.md` "À chaque mise à jour", `../AUDIT.md` step
+  `prepublished -> published`; the model is `../WorkStudio/PUBLICATION.md`). Publish after the dry-run of the exact commit and
+  the owner's approval of `steam-production`, **then** let the tests still open speak; if one comes back red, publish a
+  rollback and, later, a fix. It applies to 1.0.0 of an item created by its 0.1.0 prepublication, which is a way to create the
+  item and not a tested version; the item stays private until the owner switches it to public herself. So the manual checks
+  of `TESTING.md` (the halo drawn on screen, the song heard, Phytokin's own ability soothing, `baseChance`, removing the mod
+  from a save, the French pane, a real click) **no longer hold the upload back**: they are known gaps, written down, and their
+  verdict goes to `STATUS.md` and `docs/runs/` as a defect of the published version if one is red. The stage stays `done`
+  until they are checked. The gates of the pipeline do not move: dry-run, full SHA, only Virginie approves.
+- **Rollback target, to choose before publishing.** There is no tagged good version: `v1.0.0` will be the first, and the
+  item holds only the 0.1.0 prepublication content (commit not recorded, and it predates the halo fixes). **Proposed target:
+  `c04edcc`**, the last commit on which the three full passes ran (English, French and Phytokin, 2026-09-24; the one
+  failure of the English pass was a test fault, corrected in `0746bba`, which changes no file under `Mod/`). A rollback would
+  be published as 1.0.1 with `ref` = the full SHA of `c04edcc` and the note "Rolls back to the build before the teal glow,
+  because <what failed>". **To confirm with the owner before the dry-run**; and once 1.0.0 is uploaded, its tag is the next
+  rollback target.
+- **Still open at publication time**, to run right after it in small tickets: a final full pass on the published commit
+  (English, French, Phytokin; the last full runs predate the glow and the right-click scenario), and the owner's manual
+  checks. Already green on the build with the glow: the halo scenarios (3 of 3, 2026-09-25), the tree's interface in French,
+  the ring and halo capture, the right-click menu in its three states.
 - **CHANGELOG.** `## [1.0.0] — unreleased` must be given its date before the upload: the release notes of the GitHub
   release are that section. The tag `v1.0.0` and the release are created **by the CI after a successful upload**, on the
   exact SHA it uploaded, never by hand.

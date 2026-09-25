@@ -1,0 +1,11 @@
+# Pass "studio": Anima Song in the owner's photographic colony, for the images of the Workshop page (PUBLICATION.md).
+#
+# Select it with -DepMap wsl-deps.studio.map, in English (the page is English). A named map REPLACES the default one, so the film tool is
+# repeated. The tools are PickleTools': the studio (the fixture `nelim-zen-meadow-studio`, its camera presets and its presentation
+# mode), the screenshot mode (developer mode turned off for a capture that keeps the interface), and the clear screen (no other
+# mod's window over the picture). The scenarios that need them are tagged @requires:nelim.pickletools.screenshotstudio and are
+# skipped in every other pass.
+nelim.pickletools.filmticks         path:PickleTools/FilmTicks/Mod
+nelim.pickletools.screenshotstudio  path:PickleTools/ScreenshotStudio/Mod
+nelim.pickletools.screenshotmode    path:PickleTools/ScreenshotMode/Mod
+nelim.pickletools.clearscreen       path:PickleTools/ClearScreen/Mod

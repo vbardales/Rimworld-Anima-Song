@@ -37,20 +37,27 @@ Feature: the song, heard
     When Anima Song: "Choir" is ordered to listen to the tree at x=70 z=132
     Then Nelim's Pickle Tools: the game is playing the sound "VRE_AnimaSongSound"
 
-  # The video with its sound, for a person to watch and listen to: the tree with its glow, a listener who sits, the song. The
-  # recording is a few seconds, and starts before the order so that the start of the song is on it.
+  # The video with its sound, for a person to watch and listen to: the tree with its glow, a listener who sits, the song. Two
+  # things the first try (2026-09-25) got wrong: the colonist was still walking for almost the whole film, and the track was never
+  # silent, which is the game's own background music. So the listener is seated at ultrafast BEFORE the speed goes back to normal
+  # (the film then holds the moment they sit and ten seconds of the song with the glow), and the music and the ambience are muted,
+  # so that "not silent" is the mod's sound and not the game's music.
   @requires:nelim.pickletools.soundcapture @timeout:240
   Scenario: the song on a video with its sound
     Given a colonist "Recorded" exists
     And "Recorded" needs "Joy" is set to 10 percent
     And Anima Song: "Recorded" stands 6 cells from the tree at x=70 z=132
     And Nelim's Pickle Tools: the game volume is 80 percent
+    And Anima Song: the music and the ambience are muted
     And I zoom all the way in
     And I move the camera to (70, 132)
     And I wait 120 ticks
+    And game speed is ultrafast
     When Nelim's Pickle Tools: I film with sound as "the song"
     And Anima Song: "Recorded" is ordered to listen to the tree at x=70 z=132
-    And Nelim's Pickle Tools: I let 12 real seconds go by
+    And Anima Song: "Recorded" sits in the ring of the tree at x=70 z=132
+    And game speed is normal
+    And Nelim's Pickle Tools: I let 10 real seconds go by
     And Nelim's Pickle Tools: I stop filming with sound
-    Then Anima Song: "Recorded" sits in the ring of the tree at x=70 z=132
+    Then Anima Song: "Recorded" is listening to the tree at x=70 z=132
     And Nelim's Pickle Tools: the sound recorded as "the song" is not silent

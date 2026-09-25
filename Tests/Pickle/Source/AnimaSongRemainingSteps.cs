@@ -158,6 +158,35 @@ namespace AnimaSong.PickleSteps
             ctx.Assert(pawn.Position == spot, $"{nickname} was not moved to {spot}");
         }
 
+        // ------------------------------------------------------------------ what else the game plays
+
+        private static float? mutedMusic, mutedAmbient;
+
+        /// <summary>
+        /// Turns the game's music and ambient sounds off for the scenario, so that a recording of the audio output holds what the
+        /// mod asks for and not the background music the game plays on its own: the first video with sound (2026-09-25) was never
+        /// silent from its first second to its last, which says nothing about the song. The master volume is PickleTools' step
+        /// (`the game volume is N percent`); this leaves the game's own sound effects, the song among them, at their level. Put back
+        /// after the scenario.
+        /// </summary>
+        [Given("Anima Song: the music and the ambience are muted")]
+        public void MuteMusicAndAmbience(PickleContext ctx)
+        {
+            mutedMusic = Prefs.VolumeMusic;
+            mutedAmbient = Prefs.VolumeAmbient;
+            Prefs.VolumeMusic = 0f;
+            Prefs.VolumeAmbient = 0f;
+        }
+
+        [AfterScenario]
+        public void RestoreMusicAndAmbience()
+        {
+            if (mutedMusic.HasValue) Prefs.VolumeMusic = mutedMusic.Value;
+            if (mutedAmbient.HasValue) Prefs.VolumeAmbient = mutedAmbient.Value;
+            mutedMusic = null;
+            mutedAmbient = null;
+        }
+
         // ------------------------------------------------------------------ the song fires once
 
         /// <summary>

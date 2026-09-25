@@ -19,13 +19,16 @@ therefore uploads a payload that differs from the one on the page: the DLL at le
   committed one. Rebuilt on 2026-09-25 at `43f9092`: identical, SHA256 `4A61285D…65E4` (built from `Source/`, glow included).
 - **Publication policy: fail fast** (owner, 2026-09-25; `../PUBLISHING.md` "À chaque mise à jour", `../AUDIT.md` step
   `prepublished -> published`; the model is `../WorkStudio/PUBLICATION.md`). Publish after the dry-run of the exact commit and
-  the owner's approval of `steam-production`, **then** let the tests still open speak; if one comes back red, publish a
-  rollback and, later, a fix. It applies to 1.0.0 of an item created by its 0.1.0 prepublication, which is a way to create the
-  item and not a tested version; the item stays private until the owner switches it to public herself. So the manual checks
-  of `TESTING.md` (the halo drawn on screen, the song heard, Phytokin's own ability soothing, `baseChance`, removing the mod
-  from a save, the French pane, a real click) **no longer hold the upload back**: they are known gaps, written down, and their
-  verdict goes to `STATUS.md` and `docs/runs/` as a defect of the published version if one is red. The stage stays `done`
-  until they are checked. The gates of the pipeline do not move: dry-run, full SHA, only Virginie approves.
+  the owner's approval of `steam-production`, **then** let the Pickle tests still open speak; if one comes back red, roll
+  back and, later, fix. **What fail fast skips is only the wait for the game runs still queued behind other sessions.** It
+  does **not** skip, and both are **indispensable before the publish is launched** (owner, 2026-09-25):
+  1. **the Workshop gallery**: the images of the page are taken, opened and put in `Art/WorkshopScreenshots/` first;
+  2. **the owner's manual validations** of `TESTING.md` (the halo drawn on screen, the song heard, Phytokin's own ability
+     soothing, `baseChance`, removing the mod from a save, the French pane, a real click), their results written in the table
+     of that file and in `STATUS.md`.
+  The item stays private after the upload until the owner switches it to public herself; the gates of the pipeline do not
+  move: dry-run, full SHA, only Virginie approves. **Both are open on 2026-09-25**, so the `publish` of the dry-run of
+  `7ef3894` is not launched.
 - **Rollback target, chosen with the owner on 2026-09-25: switch the item back to private.** There is no earlier good
   version to publish again (`v1.0.0` will be the first tag, and the item holds only the 0.1.0 prepublication content, which
   predates the halo fixes), so a red result on the published 1.0.0 is answered by **hiding it, not by uploading an older
@@ -34,10 +37,10 @@ therefore uploads a payload that differs from the one on the page: the DLL at le
   `docs/runs/`, and the fix is a later publication of its own, made public again only once its tests are green. Nothing
   reaches players while the item is private, which is why this is enough for a first version. Once 1.0.0 is uploaded and
   tagged, **its tag is the rollback target of the next update**, and this choice is made again then.
-- **Still open at publication time**, to run right after it in small tickets: a final full pass on the published commit
-  (English, French, Phytokin; the last full runs predate the glow and the right-click scenario), and the owner's manual
-  checks. Already green on the build with the glow: the halo scenarios (3 of 3, 2026-09-25), the tree's interface in French,
-  the ring and halo capture, the right-click menu in its three states.
+- **Still open after the publication**, to run right after it in small tickets (the only part fail fast lets wait): a final
+  full pass on the published commit (English, French, Phytokin; the last full runs predate the glow and the right-click
+  scenario). Already green on the build with the glow: the halo scenarios (3 of 3, 2026-09-25), the tree's interface in
+  French, the ring and halo capture, the right-click menu in its three states.
 - **CHANGELOG.** `## [1.0.0] — 2026-09-25`, dated (the dry-run needs it): the release notes of the GitHub release are that
   section. The tag `v1.0.0` and the release are created **by the CI after a successful upload**, on the exact SHA it
   uploaded, never by hand.

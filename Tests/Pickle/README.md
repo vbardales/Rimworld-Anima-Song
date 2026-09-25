@@ -78,6 +78,8 @@ The staging copies from the Windows Workshop folder, so Phytokin has to be subsc
 checked on disk on 2026-09-21 before the first pass B: it declares 1.6, its packageId is the one the
 step reads, and its 1.6 folder defines the sound and carries the icon.
 
+**`wsl-deps.sound.map`** names PickleTools' SoundCapture for the one scenario that records the sink (`04-the-song-heard.feature`). `AUDIT.md` (2026-09-25) allows those tests **only alone, on Windows, on the owner's explicit request**, with `PickleTools/SoundCapture/Run-Windows.ps1`; the WSL measured only silence. The map is therefore not used through the ticket queue.
+
 **`wsl-deps.map`** stages PickleTools' `FilmTicks`, the one tool this suite uses to film, in **every** pass that names
 no map of its own; `wsl-deps.phytokin.map` repeats that line, because a named map replaces the default one instead of
 adding to it. The tool is staged everywhere because the scenario that films the halo is not `@wip` and never skipped:

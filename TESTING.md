@@ -51,30 +51,40 @@ the whole scenario as written below was covered. Details in `docs/runs/`.
 
 **No pass was run on a new colony.** The fixture is an existing save.
 
-## What a person still has to check, 2026-09-24
+## What is left of the manual checks, 2026-09-25
 
-Everything the headless game could not say. Play it on the Windows game with development mode on, Royalty and Anima Song
-active, on a colony that has an anima tree, and write the result in the last column (then in `STATUS.md`). "Checked by the
-suite" is what a machine did prove; the rest of the row is yours.
+`AUDIT.md` (step 9): no manual test is left to validate when what used to be ticked by hand is **automated and green**, or
+**listed as not applicable with its reason**; reading a `@review` picture is not a manual test. Fail fast keeps this
+requirement before the `publish` (owner, 2026-09-25). Each former manual check, then:
 
-| # | What to look at | Expected | Checked by the suite | Result |
-| --- | --- | --- | --- | --- |
-| A | **The halo is drawn.** Right-click the tree with a colonist selected, "Listen to the anima song"; once they sit, keep the camera on the tree at normal speed, then Fast, then Ultrafast | A pulsing violet disc over the tree and its ring of listeners, and a wave of light from the trunk to each listener about every two seconds, at every speed, without blinking out | The halo mote is alive on every sample at 1x, 3x and 15x (a software-rendered game: whether the distortion shader is drawn there is unknown) | |
-| B | **The song is heard.** Volume up; the first listener sits down | A recording plays once when the first listener arrives, then silence for about 5000 ticks even with more listeners. Royalty's anima linking sound without Phytokin, their recording with it | The cooldown moves once and holds; the sound's def is the right one for the modlist. No speakers | |
-| C | **Phytokin's own ability beside the mod.** With a Phytokin who has the gene, cast their anima song on the tree, once with nobody listening and once with a colonist listening | Their ability behaves as without this mod: the orchestra plays, the +8 mood over two days on those it reaches; nothing of ours interferes | This mod patches nothing of theirs (`VRE_AnimaSong` untouched, pass with Phytokin green). Not that it soothes when cast | |
-| D | **They go on their own.** No orders; a colonist with a low recreation need, an anima tree in reach, over a day or two | Sometimes they walk out to the tree by themselves during recreation time. Only that it happens, not how often | The recreation giver offers the tree, and refuses it when forbidden or roofed. `baseChance` (how often the game picks it) is the base game's and not measured | |
-| E | **Removing the mod from an existing save.** Save with Anima Song active and a listener seated; remove the mod; load | The save loads, the tree is an ordinary anima tree, only the usual "mod missing" notice and no red error about this mod. Then add it back to that save: the toggle is back on | A save that never had the mod gains the toggle, and a save with three listeners reloads clean with the mod present. Removal is a modlist change between two games | |
-| F | **The French reads well.** Game in French, select the tree | "Autoriser l'écoute" on the toggle; the mod's own inspect line readable, not cut off by the pane | The texts read back in French equal the resource files. The pane clips the line in the headless capture | |
-| G | **A real click.** With the mouse, not the API: colonist selected, right-click the tree | The entry "Listen to the anima song" (French: as in the resource file), greyed out with its reason for a colonist who cannot hear, when six already listen, or when listening is forbidden | The float menu asked at the tree offers the order and refuses with each reason, and its three states were photographed on 2026-09-25 (`docs/runs/`): offered, "(cannot hear)", "(listening not allowed here)". Not a mouse click, and not the "six already listen" one | |
+| # | Check | State | Reason or what is left |
+| --- | --- | --- | --- |
+| A | The halo is drawn | **Validated by reading the pictures** | The teal glow shows in the software-rendered game (`docs/runs/`: interface in French, ring and halo capture) and the owner saw it and approved its colour and size (2026-09-25). The mote is alive on every sample at 1x, 3x and 15x, with the glow. **Open:** the waves of light from the trunk to each listener are not visible at the zoom of the captures; a closer capture is to be taken |
+| B | The song is heard | **Automated, queued; the recording is the owner's call** | The game itself must have the tree's song among its playing one-shots, under the def the modlist calls for (`03`, "the game plays the tree's song when the first listener sits"): ticket filed 2026-09-25, not run yet. That the audio output renders it is `PickleTools/SoundCapture`, which `AUDIT.md` allows **only alone, on Windows, on the owner's explicit request**; the scenario is written (`04-the-song-heard.feature`) and will not go through the WSL queue |
+| C | Phytokin's own ability soothes beside the mod | **Not applicable** | The ability is the Vanilla Expanded team's and this mod patches nothing of it (the def is asserted unpatched, the Phytokin pass is green). What it does when cast is their code, not a claim of this mod |
+| D | Colonists go on their own (`baseChance`) | **Not applicable** | `baseChance` is a die roll of the base game's recreation choice. What is the mod's is automated and green: the recreation giver offers the tree, refuses it when forbidden or roofed, and a sitting builds tolerance |
+| E | Removing the mod from an existing save | **To automate** | A `-Then` launch with `-ThenWithout nelim.animasong` (`../PickleTools/Headless/README.md`): a first launch saves a game with a listener, a second loads it without the mod. The mechanism is written and not yet seen running; needs a companion fixture that does not depend on the mod. Adding the mod to a save that never had it is what every run does |
+| F | The French reads well | **To capture** | The texts read back in French equal the resource files (green). The pane clips the mod's own inspect line in the headless capture; a French capture where that line is visible is to be taken and read |
+| G | A real mouse click | **Not applicable for the click; automated for its result** | A mouse click is the engine's input layer, not the mod's. What the click produces is asked of the game's own menu builder and photographed in its three states (offered, "(cannot hear)", "(listening not allowed here)", `docs/runs/`). The "six already listen" refusal is asserted, not photographed |
 
 **Not a defect, seen in the captures: the anima grass stays at 0 %.** The tree's grass only advances when someone
 *meditates* (`CompSpawnSubplant.AddProgress` is called from `JobDriver_Meditate` and from nothing else, checked in the game's
 assembly on 2026-09-25); listening never does, and the ring keeps the seats off the trunk so the grass the linking ritual
 needs is not trampled. Decided with the owner on 2026-09-25: listening does not grow it.
 
-A fresh capture of the ring, the halo and the waves, and a per-tick film of the halo, both from the headless game on the
-current build, are requested (2026-09-24) and land in `.build/pickle-run-2026-09-24-review-captures/` and `-halo-film/`;
-they show what the software renderer draws, which is what row A compares with what you see.
+The three not-applicable lines (C, D and the click of G) are proposals the owner accepted on 2026-09-25 ("le reste ok").
+
+## The passes this mod needs (`AUDIT.md`: a TESTING.md that does not say how many is not tested, only tried)
+
+| Pass | Command (`Submit-PickleRun.ps1`) | What it covers |
+| --- | --- | --- |
+| Without the optional mods, English | `-Mod AnimaSong` | The suite alone: the mod stands by itself; Royalty's sound and icon; the one scenario tagged `@requires` Phytokin is skipped |
+| Without the optional mods, French | `-Mod AnimaSong -Language French` | The mod's own texts in French, read back and compared with the resource files |
+| With Phytokin | `-Mod AnimaSong -DepMap wsl-deps.phytokin.map` | Phytokin's recording and icon resolved by def name; Phytokin's own ability left unpatched (the `@requires` scenario runs) |
+| Sound recording | `PickleTools/SoundCapture/Run-Windows.ps1`, **only on the owner's explicit request** (`AUDIT.md`), alone, on the Windows game, under the lock | `04-the-song-heard.feature` (`@requires:nelim.pickletools.soundcapture`, skipped in every other pass). `Tests/Pickle/wsl-deps.sound.map` names the tool for that run; it is **not** for the WSL queue |
+
+No optional mod is declared incompatible, so no incompatibility pass. The restart chain (removing the mod from a save) is one
+more request, `-Filter <write> -Then <read> -ThenWithout nelim.animasong`, not written yet.
 
 ## Before starting
 

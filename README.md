@@ -27,7 +27,7 @@ skips that tree, the order greys out, and anyone already listening stands up at 
 clear the ring before a psychic linking ritual, or when the tree grows somewhere you would rather
 nobody sat.
 
-While someone is listening, the tree wears a pulsing psychic halo and sends a wave of light out
+While someone is listening, the tree wears a soft teal glow under a pulsing psychic halo, and sends a wave of light out
 to each listener every two seconds, so you can tell from across the map that it is singing.
 
 ## Why an eleventh type is worth more than a tenth building
@@ -52,7 +52,7 @@ Royalty is required, since the anima tree is a Royalty plant.
 
 ## How it hooks in
 
-Three small classes and one patch, no Harmony.
+Four small classes and one patch, no Harmony.
 
 **`JoyGiver_ListenAnimaSong`** derives from `JoyGiver_InteractBuilding`. The name misleads:
 `JoyGiver.GetSearchSet` goes through `map.listerThings.ThingsOfDef`, not `listerBuildings`, and
@@ -73,32 +73,38 @@ so an ordered listener sits exactly where an autonomous one would.
 **`CompAnimaSong`** lives on the tree, added by `Patches/AnimaTree.xml`. It owns the toggle, the
 song cooldown (5000 ticks, so six colonists sitting down in a row do not stack six orchestras),
 the sound and the visual effects. It does not tick: plants tick every 2000 ticks, while a
-`needsMaintenance` mote dies within a few, so the job driver maintains the halo on each listening
-tick instead.
+`needsMaintenance` mote is destroyed on the first tick nobody maintained it. The job driver maintains
+the halo on each listening tick, and **`HaloKeeper`**, a component on the map, keeps it up on the ticks
+the job skips at higher game speeds (its maintenance is stamped one tick ahead, since the mote's own
+tick comes before the map's). Royalty's halo is a pure distortion with a transparent texture, so the
+mod adds a second mote of its own, `AnimaSong_HaloGlow`: a soft ring in the teal of the tree's leaves,
+from a texture of the mod's, tinted by the def's colour.
 
 ## Status
 
-Never run in game. The build is clean, the XML checkers pass and the translation keys resolve on
-paper, none of which exercises a single tick. `TESTING.md`, beside this file and outside the
-published folder, lists the fourteen scenarios that have to be watched and what counts as a pass.
+Played by an automated in-game suite (25 scenarios, in English, in French and with Phytokin; see
+`TESTING.md` and `docs/runs/`), **not yet watched by a person on the Windows game**. `TESTING.md`,
+beside this file and outside the published folder, lists the fourteen scenarios, which of them a
+machine has played and what is left for a person.
 
-Between the two sits a suite that needs no game:
+Beside it sits a suite that needs no game:
 
 ```
 powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
 ```
 
-Twenty checks against the installed game's own assembly and def files, in a couple of seconds. It
-asks whether the overrides still override, whether the three claims this design rests on are still
-true of the base game, whether the patch still lands on the anima tree, and whether the six defs
-looked up by name at runtime still exist. What it cannot answer is anything only the screen can
-show, which is what `TESTING.md` is for.
+Twenty-two checks against the installed game's own assembly and def files, in a couple of seconds.
+It asks whether the overrides still override, whether the three claims this design rests on are
+still true of the base game, whether the patch still lands on the anima tree, whether the defs
+looked up by name at runtime (and the shader of the halo glow) still exist, and whether the glow's
+def and texture are sound. What it cannot answer is anything only the screen can show, which is
+what `TESTING.md` is for.
 
 ## Save data
 
-None of its own. The toggle and the song cooldown are stored on the tree, in the save. Adding or
-removing the mod does not corrupt anything; removing it leaves colonists with a memory that
-expires within a day.
+None of its own. The toggle and the song cooldown are stored on the tree, in the save. Adding the
+mod to a save that never had it is what every test run does. Removing it from a save has not been
+tested yet; the memory it leaves would expire within a day.
 
 ## Licence
 

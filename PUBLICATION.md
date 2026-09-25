@@ -127,7 +127,7 @@ game cannot say whether the halo's distortion shader is drawn, so the first imag
 taken on a game that draws it: the owner's photographic colony (`nelim-zen-meadow-studio`, package
 `nelim.pickletools.screenshotstudio`) with an anima tree and a ring of listeners, or her own game. Each image is opened before
 it is uploaded, against what it is meant to show. The page is English, so the English shots are the ones to use; they go
-under `Art/WorkshopScreenshots/`, named so that their alphabetical order is the order of the page (`1-…`, `2-…`).
+under `Art/WorkshopScreenshots/`, named `01-…`, `02-…`, `03-…` in the order they go on the page, **and nothing else in that folder** (no earlier version, no raw capture, no subfolder; raw captures go elsewhere, ignored by git, and are deleted once cropped): the folder is uploaded as it is and is the `--gallery-dir` of the workflow (`../PUBLISHING.md`, "Images").
 
 Proposed order: 1. the tree singing, its halo up, listeners seated in the ring with the waves of light; 2. the right-click
 order on the tree with a colonist selected (the menu entry, and one greyed out with its reason); 3. the tree selected with
@@ -169,6 +169,21 @@ tell me and it stops. https://steamcommunity.com/sharedfiles/filedetails/?id=380
 
 The message is not posted; posting to another author's page is the owner's act. When it is, the registry row goes to `posted`
 with the date.
+
+## The 1.0.0 goes to production: by the owner, by hand
+
+Neither the CI nor a session does these (`../PUBLISHING.md`, "Mise en production d'une 1.0.0"), and they are recorded in
+`STATUS.md` (date, and the three points) before the stage is marked `published`:
+
+1. change the item's visibility, private to public, after subscribing to it and testing the content she receives;
+2. subscribe to the item's comments;
+3. "Watch all activity" of the mod **and of its parent mods**: Vanilla Races Expanded - Phytokin (`2927323805`) and the
+   Royalty page's owner is Ludeon (no Workshop page), so Phytokin.
+
+The same day, for a public repository (`../PUBLISHING.md`, "Topics et image de partage GitHub"): the topics `rimworld`,
+`rimworld-mod` and `mod` (`gh repo edit vbardales/Rimworld-Anima-Song --add-topic rimworld --add-topic rimworld-mod
+--add-topic mod`) and the social preview image (`Mod/About/Preview.png`, set on the repository's Settings page: no API
+sets it). **Checked 2026-09-25: the three topics are set, and the page carries a custom `og:image` on `repository-images.githubusercontent.com`; whether it is the current `Preview.png` was not compared.** Then the Phytokin thanks above.
 
 ## After the upload, and it cannot be undone
 

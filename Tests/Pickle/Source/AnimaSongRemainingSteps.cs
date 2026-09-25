@@ -9,7 +9,6 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace AnimaSong.PickleSteps
 {
@@ -126,35 +125,38 @@ namespace AnimaSong.PickleSteps
         }
 
 
-        // ------------------------------------------------------------------ the sound, in the game
+        // ------------------------------------------------------------------ where a colonist starts
 
         /// <summary>
-        /// That the game itself is playing the tree's song: the one-shot the mod asks for when the first listener sits is among
-        /// <c>SampleOneShotManager.PlayingOneShots</c>, under the def this modlist calls for (Phytokin's recording when
-        /// Phytokin is active, Royalty's anima linking sound otherwise). It is what the game does when it is told to play a
-        /// sound, read from its own list, not the mod's word for it. It does not say that a loudspeaker renders it - the
-        /// recording step of PickleTools' SoundCapture is the one that measures a level - and a game with no audio output may
-        /// never create the sample at all, in which case the failure says what it did play, which is nothing.
+        /// Puts a colonist a few cells from the tree, on a standable cell they can reach. The fixture spawns a new colonist at a cell
+        /// the scenario does not choose, and on 2026-09-25 that cell was (94, 197) with the tree at (70, 132): every one of the ring's 72
+        /// cells was unreachable from it, so the order was refused with "no free spot" (two runs, then a third with the seat diagnostics).
+        /// A scenario about the SOUND has no use for a sixty-cell walk, and a recording is short: it places the colonist instead.
         /// </summary>
-        [Then("Anima Song: the game plays the tree's song, the sound this modlist calls for")]
-        public async Task GamePlaysTheSong(PickleContext ctx)
+        [Given("Anima Song: {string} stands {int} cells from the tree at x={int} z={int}")]
+        public void StandsNearTree(PickleContext ctx, string nickname, int distance, int x, int z)
         {
-            string want = ModsConfig.IsActive("vanillaracesexpanded.phytokin") ? "VRE_AnimaSongSound" : "AnimaTreeLink";
-            var seen = new HashSet<string>();
-            await AnimaSongSteps.WaitOrExplain(ctx, () =>
-            {
-                foreach (SampleOneShot sample in Current.Root.soundRoot.oneShotManager.PlayingOneShots)
-                {
-                    string name = sample.subDef?.parentDef?.defName;
-                    if (name == null) continue;
-                    seen.Add(name);
-                    if (name == want) return true;
-                }
-                return false;
-            }, 40f, () => $"the game never had \"{want}\" among its playing one-shots; it played: " +
-                          (seen.Count == 0 ? "nothing at all (no audio output in this game, perhaps)" : string.Join(", ", seen)));
-        }
+            Thing tree = AnimaSongSteps.TreeAt(ctx, x, z);
+            Pawn pawn = AnimaSongSteps.Colonist(ctx, nickname);
+            Map map = pawn.Map;
 
+            IntVec3 spot = IntVec3.Invalid;
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(tree.Position, distance + 1.5f, true)
+                         .Where(c => (c - tree.Position).LengthHorizontal >= distance - 0.5f))
+            {
+                if (cell.InBounds(map) && cell.Standable(map) && !cell.IsForbidden(pawn) && !cell.Roofed(map) &&
+                    map.reachability.CanReach(cell, tree.Position, PathEndMode.Touch, TraverseParms.For(pawn)))
+                {
+                    spot = cell;
+                    break;
+                }
+            }
+            ctx.Assert(spot.IsValid, $"no standable, reachable cell {distance} cells from the tree at ({x}, {z}); the ring is walled in or the tree is cut off");
+
+            pawn.Position = spot;
+            pawn.Notify_Teleported(true, true);
+            ctx.Assert(pawn.Position == spot, $"{nickname} was not moved to {spot}");
+        }
 
         // ------------------------------------------------------------------ the song fires once
 

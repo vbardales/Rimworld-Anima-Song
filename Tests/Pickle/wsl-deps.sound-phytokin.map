@@ -1,0 +1,7 @@
+# Pass "sound with Phytokin": the sound pass (PickleTools' SoundCapture) and Phytokin, for the one scenario that expects Phytokin's
+# recording. Select it with -DepMap wsl-deps.sound-phytokin.map and -Filter '::plays Phytokin'. A named map REPLACES the default one,
+# so the film tool is repeated. Vanilla Expanded Framework first: Phytokin needs it and the staging does not pull it in.
+oskarpotocki.vanillafactionsexpanded.core   2023507013
+vanillaracesexpanded.phytokin               2927323805
+nelim.pickletools.filmticks                 path:PickleTools/FilmTicks/Mod
+nelim.pickletools.soundcapture              path:PickleTools/SoundCapture/Mod

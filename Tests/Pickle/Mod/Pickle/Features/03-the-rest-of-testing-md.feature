@@ -173,3 +173,18 @@ Feature: the rest of the manual scenarios
   Scenario: Phytokin's own anima song ability is left alone
     Then def "VRE_AnimaSong" exists
     And no def "VRE_AnimaSong" was patched
+
+  # TESTING.md 14, the half that is the mod's: what a save holds of it. Removing the mod from a save is the game's own handling of a
+  # mod list (AUDIT.md, "On ne teste pas le jeu"); what the mod answers for is what it WRITES. With one listener seated the save is
+  # read for every word that names the mod, and each must be something the mod says it stores: the tree's two fields, a job's
+  # counter and its driver, the three defs it names, the mod's id in the header. The list is attached to the report.
+  @timeout:180
+  Scenario: what a save holds of the mod is what it says it stores
+    Given a colonist "Saved" exists
+    And "Saved" needs "Joy" is set to 10 percent
+    And Anima Song: "Saved" stands 6 cells from the tree at x=70 z=132
+    And game speed is ultrafast
+    When Anima Song: "Saved" is ordered to listen to the tree at x=70 z=132
+    And Anima Song: "Saved" sits in the ring of the tree at x=70 z=132
+    And Anima Song: the game is saved to a file
+    Then Anima Song: the saved file mentions the mod only through what it says it stores

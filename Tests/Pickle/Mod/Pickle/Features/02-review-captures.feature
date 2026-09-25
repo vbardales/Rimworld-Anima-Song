@@ -83,12 +83,15 @@ Feature: what the song looks like
     And I move the camera to (70, 132)
     And I wait 200 ticks
     Then Anima Song: the tree at x=70 z=132 is singing
+    And Anima Song: the inspect text of the tree at x=70 z=132 carries the mod's line
+    And Anima Song: a wave of light is travelling from the tree at x=70 z=132
     Then I take a screenshot "tree selected while singing - toggle and inspect line"
     # The same interface with listening forbidden, which is the other inspect line and the state the
     # toggle reads in reverse.
     When Anima Song: I press the toggle of the selected tree
     And I wait 60 ticks
     Then Anima Song: the tree at x=70 z=132 forbids listening
+    And Anima Song: the inspect text of the tree at x=70 z=132 carries the mod's line
     Then I take a screenshot "tree selected with listening forbidden"
 
   # THE RIGHT-CLICK MENU, ON SCREEN. The manual check G of TESTING.md is a click of a mouse, which no run has: this puts on

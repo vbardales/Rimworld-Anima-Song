@@ -24,6 +24,11 @@ namespace AnimaSong.PickleSteps
     [PickleSteps]
     public class AnimaSongRemainingSteps
     {
+        private sealed class SavedFile
+        {
+            public string Path;
+        }
+
         private sealed class SongNote
         {
             public int Tick;
@@ -156,6 +161,81 @@ namespace AnimaSong.PickleSteps
             pawn.Position = spot;
             pawn.Notify_Teleported(true, true);
             ctx.Assert(pawn.Position == spot, $"{nickname} was not moved to {spot}");
+        }
+
+        // ------------------------------------------------------------------ what the mod leaves in a save
+
+        /// <summary>
+        /// Saves the game to a file of its own (the game's own saver) and remembers its name for the step that reads it.
+        /// </summary>
+        [When("Anima Song: the game is saved to a file")]
+        public void SaveToAFile(PickleContext ctx)
+        {
+            const string name = "pickle-animasong-save-check";
+            GameDataSaveLoader.SaveGame(name);
+            string path = GenFilePaths.FilePathForSavedGame(name);
+            ctx.Assert(File.Exists(path), $"the game did not write {path}");
+            ctx.Set(new SavedFile { Path = path });
+        }
+
+        /// <summary>
+        /// What the mod says it stores in a save, and nothing else: the toggle and the cooldown on the tree, the listening counter of
+        /// a job in progress and its driver, the three defs it names (job, joy kind, memory), and the mod's own id in the header that
+        /// lists the active mods. The check reads every word of the saved file that names the mod, and lists them, so that a
+        /// forgotten field or a def saved by mistake shows in the report. What the game does with such a save when the mod is gone
+        /// is the game's, not asserted here.
+        /// </summary>
+        [Then("Anima Song: the saved file mentions the mod only through what it says it stores")]
+        public void SaveMentionsOnlyWhatItStores(PickleContext ctx)
+        {
+            string path = ctx.Get<SavedFile>().Path;
+            string text = File.ReadAllText(path);
+            var words = new System.Text.RegularExpressions.Regex(@"[A-Za-z0-9_.]*[Aa]nima[ ]?[Ss]ong[A-Za-z0-9_.]*")
+                .Matches(text).Cast<System.Text.RegularExpressions.Match>().Select(m => m.Value).ToList();
+            var allowed = new System.Text.RegularExpressions.Regex(
+                @"^(AnimaSong\.(listeningAllowed|lastSongTick|ticksListened)|AnimaSong\.JobDriver_ListenAnimaSong|AnimaSong_(Listen|Song|Heard)|nelim\.animasong(\.pickletests)?|Anima Song( - Pickle tests)?)$");
+            var groups = words.GroupBy(w => w).OrderBy(g => g.Key).ToList();
+            string listing = string.Join("; ", groups.Select(g => $"{g.Key} x{g.Count()}"));
+            ctx.Attach("what the save says of the mod", listing);
+            File.Delete(path);
+            var stray = groups.Where(g => !allowed.IsMatch(g.Key)).Select(g => g.Key).ToList();
+            ctx.Assert(groups.Count > 0, "the saved file never names the mod: the check reads nothing");
+            ctx.Assert(stray.Count == 0, $"the save names the mod in places it does not say it stores: {string.Join(", ", stray)}. All: {listing}");
+        }
+
+        // ------------------------------------------------------------------ the inspect line, and the waves
+
+        /// <summary>
+        /// The mod's own line is in the tree's inspect text: whatever the language of the pass, the text the game builds for the
+        /// selected tree contains what the comp adds to it. The pane it is drawn in scrolls and, in French, the captures show that line
+        /// below the fold of the pane, so a picture cannot say it is there; the text can.
+        /// </summary>
+        [Then("Anima Song: the inspect text of the tree at x={int} z={int} carries the mod's line")]
+        public void InspectTextCarriesTheLine(PickleContext ctx, int x, int z)
+        {
+            Thing tree = AnimaSongSteps.TreeAt(ctx, x, z);
+            CompAnimaSong comp = tree.TryGetComp<CompAnimaSong>();
+            ctx.Assert(comp != null, "the anima tree carries no CompAnimaSong");
+            string line = comp.CompInspectStringExtra();
+            ctx.Assert(!string.IsNullOrEmpty(line), "the comp has no inspect line to show in this state");
+            string text = tree.GetInspectString();
+            ctx.Assert(text.Contains(line), $"the inspect text of the tree does not carry the mod's line \"{line}\"; it reads: {text.Replace("\n", " | ")}");
+        }
+
+        /// <summary>
+        /// A wave of light is in flight from the tree to a listener: the anima linking pulse the driver throws every two seconds, seen
+        /// as a live mote of that def on the map. What the software renderer draws of it is another question (the capture's).
+        /// </summary>
+        [Then("Anima Song: a wave of light is travelling from the tree at x={int} z={int}")]
+        public async Task WaveInFlight(PickleContext ctx, int x, int z)
+        {
+            Thing tree = AnimaSongSteps.TreeAt(ctx, x, z);
+            Map map = tree.Map;
+            await AnimaSongSteps.WaitOrExplain(ctx,
+                () => map.listerThings.AllThings.Any(t => t.def.defName == "Mote_PsychicLinkPulse"),
+                20f,
+                () => "no Mote_PsychicLinkPulse on the map after 20 s of listening; the map holds " +
+                      map.listerThings.AllThings.Count(t => t.def.category == ThingCategory.Mote) + " mote(s) in its thing lister");
         }
 
         // ------------------------------------------------------------------ what else the game plays

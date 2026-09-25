@@ -90,7 +90,7 @@ GitHub release. Limit 8000 bytes.
 ```
 First release. Colonists can walk out to an anima tree, sit in a ring around it and listen to it sing, as a new kind of
 recreation: up to six at once, outdoors, in sight of the trunk. Listening leaves a memory (+3 mood for a day, scaled by
-psychic sensitivity, not stacking). While anyone listens the tree wears a pulsing psychic halo and sends a wave of light to
+psychic sensitivity, not stacking). While anyone listens the tree wears a soft teal glow and a pulsing psychic halo and sends a wave of light to
 each listener. Right-click the tree with a colonist selected to send them, or select the tree and use its toggle to forbid
 listening (the ring clears at once). With Vanilla Races Expanded - Phytokin the tree sings their recording and the toggle
 wears their icon; without it, Royalty's. Phytokin's own ability is not touched. Requires Royalty. RimWorld 1.6, English and

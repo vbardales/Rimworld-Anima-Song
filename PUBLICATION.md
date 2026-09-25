@@ -82,6 +82,20 @@ Two claims in it to keep true, rather than change:
   are read in the sources and the offline suite checks the gating; no pass has run without Royalty (a Pickle pass excludes
   only what the runner's mod list leaves out, and Royalty is in it).
 
+## To do before the publish: the new CI standards (CI/CD setup session, 2026-09-25; nothing forced, adopted at this publication)
+
+- **One source for the Workshop description.** Write it once, in Markdown, in a fenced block (```markdown, no code fence inside)
+  under `## Steam description` of this file; its last line is `[Source code on GitHub](URL)`. The CI converts it to Steam BBCode and
+  generates the plain-text `<description>` of `Mod/About/About.xml` from it, and every dry-run and publish stops if `About.xml`
+  differs. Regenerate the workflow: `generate-publish-workflow.sh <repo> ... --description-markdown PUBLICATION.md
+  --description-heading '^## Steam description$' --about-from-description --replace`, then `node .github/scripts/sync-about-description.mjs`
+  reports the drift and `--write` rewrites only the `<description>` element: **read the diff** (the first write changes the
+  text). Do not edit `.github/` by hand. It changes the SHA: a new dry-run, whose printed description is read by hand (the item
+  is private, so there is no diff against the page).
+- **The change note's first line carries the version**: `[b]1.0.0[/b]` or `[h3]1.0.0[/h3]`, or the CI refuses it. The block below
+  starts with "First release." and has to be given that first line.
+- `dispatch-publish.sh` now refuses without a reviewer and both secret names on `steam-production` (both are there).
+
 ## Release notes (the change note of each upload)
 
 The change note sent to Steam with an upload, under the heading of its version: the manual workflow reads the block under

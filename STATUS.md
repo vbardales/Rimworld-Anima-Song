@@ -20,10 +20,27 @@ remaining:
   - unverified: by a person on the Windows game: the sound heard, Phytokin's own ability soothing beside the mod (TESTING.md 11), baseChance (9), removing the mod from a live save (14); the whole suite ran green on c04edcc in English, French and with Phytokin (2026-09-24)
   - unverified: how the French reads on screen: the texts are read back and equal to the resource files in both languages (2026-09-24), but the French inspect pane clips the mod's own line, and no picture of it has been judged since
 session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
-updated:      2026-09-24, the three full passes on c04edcc (English, French, Phytokin), all 25 played; the memory scenario, a test fault, corrected
+updated:      2026-09-25, dry-run of 1.0.0 green on 7ef3894 (run 36127076178), fail-fast policy, rollback = back to private
 ---
 
 # Anima Song — status
+
+## Dry-run of 1.0.0 — 2026-09-25
+
+Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUBLISHING.md`); rollback target chosen with the owner:
+**switch the item back to private** (no earlier good version exists to republish).
+
+- **Dry-run green:** run `36127076178` (workflow `publish-tag.yml`, `mode=dry-run`, version `1.0.0`, all four options off),
+  **SHA `7ef38944124db04b1b6f4d09aca29925e2a0f4ca`**, 2026-09-25 11:00 UTC. Log read: 16 files, 0.63 MB staged from `Mod/`
+  (`About/` 4, `Assemblies/` 1, `Defs/` 1, `Languages/` 3, `Patches/` 1, `Royalty/` 2, `Textures/` 1, plus `ATTRIBUTION.md`,
+  `LICENSE`, `LoadFolders.xml`); `publish template: 683151266dd1`; `options: update_preview=false update_description=false
+  update_title=false update_tags=false`; the change note is the `### 1.0.0` block of `PUBLICATION.md`; the gallery folder is
+  absent, as expected; "public page not readable" because the item is private; the upload path was checked without contacting
+  Steam. An earlier dry-run of `614339863c78` was green too; the change note then lacked the teal glow, hence the second.
+- **The workflow's own tests** (`script-tests.yml`, 49) are green in CI on `6143398`.
+- **`publish` takes that SHA**, not `main`: `Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song
+  publish-tag.yml 7ef38944124db04b1b6f4d09aca29925e2a0f4ca 1.0.0`. Later commits (this one included) touch nothing under `Mod/`.
+  **Only Virginie approves `steam-production`.** The publish is not launched yet.
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

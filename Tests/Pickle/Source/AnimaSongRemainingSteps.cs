@@ -9,6 +9,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace AnimaSong.PickleSteps
 {
@@ -122,6 +123,36 @@ namespace AnimaSong.PickleSteps
             {
                 Find.WindowStack.TryRemove(open, false);
             }
+        }
+
+
+        // ------------------------------------------------------------------ the sound, in the game
+
+        /// <summary>
+        /// That the game itself is playing the tree's song: the one-shot the mod asks for when the first listener sits is among
+        /// <c>SampleOneShotManager.PlayingOneShots</c>, under the def this modlist calls for (Phytokin's recording when
+        /// Phytokin is active, Royalty's anima linking sound otherwise). It is what the game does when it is told to play a
+        /// sound, read from its own list, not the mod's word for it. It does not say that a loudspeaker renders it - the
+        /// recording step of PickleTools' SoundCapture is the one that measures a level - and a game with no audio output may
+        /// never create the sample at all, in which case the failure says what it did play, which is nothing.
+        /// </summary>
+        [Then("Anima Song: the game plays the tree's song, the sound this modlist calls for")]
+        public async Task GamePlaysTheSong(PickleContext ctx)
+        {
+            string want = ModsConfig.IsActive("vanillaracesexpanded.phytokin") ? "VRE_AnimaSongSound" : "AnimaTreeLink";
+            var seen = new HashSet<string>();
+            await AnimaSongSteps.WaitOrExplain(ctx, () =>
+            {
+                foreach (SampleOneShot sample in Current.Root.soundRoot.oneShotManager.PlayingOneShots)
+                {
+                    string name = sample.subDef?.parentDef?.defName;
+                    if (name == null) continue;
+                    seen.Add(name);
+                    if (name == want) return true;
+                }
+                return false;
+            }, 40f, () => $"the game never had \"{want}\" among its playing one-shots; it played: " +
+                          (seen.Count == 0 ? "nothing at all (no audio output in this game, perhaps)" : string.Join(", ", seen)));
         }
 
 

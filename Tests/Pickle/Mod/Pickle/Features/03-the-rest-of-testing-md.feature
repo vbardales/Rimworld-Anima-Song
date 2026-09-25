@@ -173,3 +173,15 @@ Feature: the rest of the manual scenarios
   Scenario: Phytokin's own anima song ability is left alone
     Then def "VRE_AnimaSong" exists
     And no def "VRE_AnimaSong" was patched
+
+  # TESTING.md 3 and 11, the sound, as far as the game can say it without a loudspeaker: when the first listener sits, the
+  # game itself has the tree's song among its playing one-shots, under the def this modlist calls for. Whether the audio
+  # output renders it is the next scenario's question (the recording); a game with no audio output may never create the
+  # sample, and the failure then says it played nothing.
+  @timeout:180
+  Scenario: the game plays the tree's song when the first listener sits
+    Given a colonist "Choir" exists
+    And "Choir" needs "Joy" is set to 10 percent
+    And game speed is ultrafast
+    When Anima Song: "Choir" is ordered to listen to the tree at x=70 z=132
+    Then Anima Song: the game plays the tree's song, the sound this modlist calls for

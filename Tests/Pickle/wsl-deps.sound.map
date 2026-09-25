@@ -1,0 +1,10 @@
+# Pass "sound": Anima Song with PickleTools' SoundCapture, the tool that records what the game plays and measures a level.
+#
+# Select it with -DepMap wsl-deps.sound.map. It is a named map, so it REPLACES wsl-deps.map for the pass instead of adding to it:
+# the film tool is repeated, because the film scenario runs in this pass too.
+#
+# Why a pass of its own: the scenario "the song is on the recording" is tagged @requires:nelim.pickletools.soundcapture and is
+# skipped everywhere else. The tool records the monitor of the audio sink with ffmpeg, so it needs ffmpeg and an audio
+# server on the test install, and it reaches the Windows speakers too (keep the recording short).
+nelim.pickletools.filmticks       path:PickleTools/FilmTicks/Mod
+nelim.pickletools.soundcapture    path:PickleTools/SoundCapture/Mod

@@ -26,13 +26,14 @@ therefore uploads a payload that differs from the one on the page: the DLL at le
   from a save, the French pane, a real click) **no longer hold the upload back**: they are known gaps, written down, and their
   verdict goes to `STATUS.md` and `docs/runs/` as a defect of the published version if one is red. The stage stays `done`
   until they are checked. The gates of the pipeline do not move: dry-run, full SHA, only Virginie approves.
-- **Rollback target, to choose before publishing.** There is no tagged good version: `v1.0.0` will be the first, and the
-  item holds only the 0.1.0 prepublication content (commit not recorded, and it predates the halo fixes). **Proposed target:
-  `c04edcc`**, the last commit on which the three full passes ran (English, French and Phytokin, 2026-09-24; the one
-  failure of the English pass was a test fault, corrected in `0746bba`, which changes no file under `Mod/`). A rollback would
-  be published as 1.0.1 with `ref` = the full SHA of `c04edcc` and the note "Rolls back to the build before the teal glow,
-  because <what failed>". **To confirm with the owner before the dry-run**; and once 1.0.0 is uploaded, its tag is the next
-  rollback target.
+- **Rollback target, chosen with the owner on 2026-09-25: switch the item back to private.** There is no earlier good
+  version to publish again (`v1.0.0` will be the first tag, and the item holds only the 0.1.0 prepublication content, which
+  predates the halo fixes), so a red result on the published 1.0.0 is answered by **hiding it, not by uploading an older
+  build**: the owner sets the item's visibility back to private by hand on the Steam page (RimWorld and the CI never call
+  `SetItemVisibility`, so neither can do it), a session records the red result as a defect of 1.0.0 in `STATUS.md` and
+  `docs/runs/`, and the fix is a later publication of its own, made public again only once its tests are green. Nothing
+  reaches players while the item is private, which is why this is enough for a first version. Once 1.0.0 is uploaded and
+  tagged, **its tag is the rollback target of the next update**, and this choice is made again then.
 - **Still open at publication time**, to run right after it in small tickets: a final full pass on the published commit
   (English, French, Phytokin; the last full runs predate the glow and the right-click scenario), and the owner's manual
   checks. Already green on the build with the glow: the halo scenarios (3 of 3, 2026-09-25), the tree's interface in French,

@@ -16,7 +16,7 @@ therefore uploads a payload that differs from the one on the page: the DLL at le
 
 - **Repository.** Working tree clean and pushed, and the distributed DLL matches the sources: rebuild
   `dotnet build Source/AnimaSong.csproj -c Release` and compare the SHA256 of `Mod/Assemblies/AnimaSong.dll` with the
-  committed one (at `c04edcc`: `E4389F8F…`). **TO DO** on the commit that will be dispatched.
+  committed one. Rebuilt on 2026-09-25 at `43f9092`: identical, SHA256 `4A61285D…65E4` (built from `Source/`, glow included).
 - **Publication policy: fail fast** (owner, 2026-09-25; `../PUBLISHING.md` "À chaque mise à jour", `../AUDIT.md` step
   `prepublished -> published`; the model is `../WorkStudio/PUBLICATION.md`). Publish after the dry-run of the exact commit and
   the owner's approval of `steam-production`, **then** let the tests still open speak; if one comes back red, publish a
@@ -38,22 +38,23 @@ therefore uploads a payload that differs from the one on the page: the DLL at le
   (English, French, Phytokin; the last full runs predate the glow and the right-click scenario), and the owner's manual
   checks. Already green on the build with the glow: the halo scenarios (3 of 3, 2026-09-25), the tree's interface in French,
   the ring and halo capture, the right-click menu in its three states.
-- **CHANGELOG.** `## [1.0.0] — unreleased` must be given its date before the upload: the release notes of the GitHub
-  release are that section. The tag `v1.0.0` and the release are created **by the CI after a successful upload**, on the
-  exact SHA it uploaded, never by hand.
-- **The workflow does not exist yet: TO DO.** There is no `.github/` in this repository. It is written by
-  `Rimworld-Release-Admin/scripts/generate-publish-workflow.sh` (the single source), from the mod repository:
+- **CHANGELOG.** `## [1.0.0] — 2026-09-25`, dated (the dry-run needs it): the release notes of the GitHub release are that
+  section. The tag `v1.0.0` and the release are created **by the CI after a successful upload**, on the exact SHA it
+  uploaded, never by hand.
+- **The workflow, written 2026-09-25, is what dispatches.** It comes from
+  `Rimworld-Release-Admin/scripts/generate-publish-workflow.sh` (the single source), run from the mod repository with
   `--workshop-id 3806709272 --package-id nelim.animasong --release-title "Anima Song {version}" --require Assemblies/AnimaSong.dll --gallery-dir Art/WorkshopScreenshots`
-  (the DLL sits at the root of `Mod/`, there is no `1.6/` folder; the gallery folder is optional and only lists images in the
-  dry-run as a reminder). It writes `.github/workflows/publish-tag.yml`, `script-tests.yml`, `.github/scripts`,
-  `.github/tests` and `publish.config.json`; read the diff, commit and push it (it must be on `main` to be dispatched), then
-  `dry-run` first, on the exact commit, its log read for the `publish template:` and `options:` lines; the run id and the SHA
-  go into `STATUS.md`. `publish` takes the full 40-character SHA
-  (`Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song publish-tag.yml <SHA> 1.0.0`, which
-  refuses without a green dry-run of that SHA); **only Virginie approves `steam-production`**. The dry-run also needs
+  (the DLL sits at the root of `Mod/`, no `1.6/` folder; the gallery folder does not exist yet and only lists images in the
+  dry-run as a reminder). It wrote `.github/workflows/publish-tag.yml`, `script-tests.yml`, `.github/scripts`,
+  `.github/tests` and `publish.config.json`; its 49 tests pass locally (`node --test .github/tests/*.test.mjs`). The GitHub
+  environment `steam-production` exists with a reviewer and the two secrets (`STEAM_USERNAME`, `STEAM_CONFIG_VDF_B64`),
+  read-only check of 2026-09-25. Once it is on `main`: `dry-run` first, on the exact commit, its log read for the
+  `publish template:` and `options:` lines; the run id and the SHA go into `STATUS.md`. `publish` takes the full
+  40-character SHA (`Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song publish-tag.yml <SHA> 1.0.0`,
+  which refuses without a green dry-run of that SHA); **only Virginie approves `steam-production`**. The dry-run also needs
   `## [1.0.0]` in `CHANGELOG.md` to be dated, the change note below to be a fenced block under `### 1.0.0`, and no tag
-  `v1.0.0`. **Any commit after the dry-run changes the SHA and needs a new one**, including the commit that dates the
-  CHANGELOG and the one that adds the workflow: do those first.
+  `v1.0.0`. **Any commit after the dry-run changes the SHA and needs a new one**: the workflow and the dated CHANGELOG are
+  in the commit that is dry-run, so nothing is left to add before it.
 - **The CI sends `Mod/`** (everything in it: `About`, `Assemblies`, `Defs`, `Languages`, `Patches`, `Royalty`,
   `LoadFolders.xml`, `ATTRIBUTION.md`, `LICENSE`; there is no `.steamignore` and nothing else to exclude). Its four opt-in
   inputs, `update_preview`, `update_description`, `update_title`, `update_tags`, are **off by default and left off unless

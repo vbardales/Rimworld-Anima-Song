@@ -1,0 +1,12 @@
+{
+  "templateStamp": "683151266dd1",
+  "workshopId": "3806709272",
+  "packageId": "nelim.animasong",
+  "releaseTitle": "Anima Song {version}",
+  "requirePaths": [
+    "Assemblies/AnimaSong.dll"
+  ],
+  "forbidPaths": [],
+  "previewFile": "About/Preview.png",
+  "galleryDir": "Art/WorkshopScreenshots"
+}

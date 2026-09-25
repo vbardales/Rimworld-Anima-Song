@@ -3,10 +3,9 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
-## [1.0.0] — unreleased
+## [1.0.0] — 2026-09-25
 
-On release: the CI creates the `v1.0.0` tag and the matching GitHub release after a successful upload (never by hand),
-and this heading gets its date first.
+The CI creates the `v1.0.0` tag and the matching GitHub release after a successful upload (never by hand).
 
 First version. RimWorld 1.6, Royalty required.
 

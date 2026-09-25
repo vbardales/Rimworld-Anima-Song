@@ -129,6 +129,33 @@ namespace AnimaSong.PickleSteps
             return options[0];
         }
 
+        /// <summary>
+        /// Why the seat search found nothing, cell by cell in the order the mod's own search asks: how many cells of the ring fail each
+        /// test, and where the colonist stands. A refusal that reads only "no free spot" cost two runs on 2026-09-25 (the song scenario)
+        /// and told nothing about which test emptied the ring.
+        /// </summary>
+        internal static string WhyNoSeat(Pawn pawn, Thing tree)
+        {
+            Map map = pawn.Map;
+            int ring = 0, forbidden = 0, notStandable = 0, cannotReserve = 0, noSight = 0, cannotReach = 0, ok = 0;
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(tree.Position, AnimaSongSeats.MaxRadius, true))
+            {
+                if ((cell - tree.Position).LengthHorizontal < AnimaSongSeats.MinRadius) continue;
+                if (!cell.InBounds(map)) continue;
+                ring++;
+                if (cell.IsForbidden(pawn)) { forbidden++; continue; }
+                if (!cell.Standable(map)) { notStandable++; continue; }
+                if (!pawn.CanReserveSittableOrSpot(cell)) { cannotReserve++; continue; }
+                if (!GenSight.LineOfSight(cell, tree.Position, map, true)) { noSight++; continue; }
+                if (!pawn.CanReach(cell, PathEndMode.OnCell, Danger.None)) { cannotReach++; continue; }
+                ok++;
+            }
+            return $"{pawn.LabelShort} stands at {pawn.Position} (spawned {pawn.Spawned}, downed {pawn.Downed}, drafted {pawn.Drafted}), " +
+                   $"the tree at {tree.Position}; ring cells {ring}: forbidden {forbidden}, not standable {notStandable}, " +
+                   $"cannot reserve {cannotReserve}, no line of sight {noSight}, cannot reach {cannotReach}, free {ok}";
+        }
+
+
         // ------------------------------------------------------------------ orders and clicks
 
         [When("Anima Song: {string} is ordered to listen to the tree at x={int} z={int}")]
@@ -137,7 +164,7 @@ namespace AnimaSong.PickleSteps
             Thing tree = TreeAt(ctx, x, z);
             Pawn pawn = Colonist(ctx, nickname);
             FloatMenuOption option = ListenOption(ctx, pawn, tree);
-            ctx.Assert(!option.Disabled, $"the order is greyed out for {nickname}: {option.Label}");
+            ctx.Assert(!option.Disabled, $"the order is greyed out for {nickname}: {option.Label}. " + WhyNoSeat(pawn, tree));
             // The click on the menu entry, the one the delegate the mod handed the menu.
             option.Chosen(true, null);
         }

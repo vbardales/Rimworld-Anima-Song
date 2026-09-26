@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -180,7 +181,8 @@ namespace AnimaSong.PickleSteps
 
         /// <summary>
         /// What the mod says it stores in a save, and nothing else: the toggle and the cooldown on the tree, the listening counter of
-        /// a job in progress and its driver, the three defs it names (job, joy kind, memory), and the mod's own id in the header that
+        /// a job in progress and its driver, the class name of the halo keeper (the game writes the name of every map component, this one
+        /// holds no data), the three defs it names (job, joy kind, memory), and the mod's own id in the header that
         /// lists the active mods. The check reads every word of the saved file that names the mod, and lists them, so that a
         /// forgotten field or a def saved by mistake shows in the report. What the game does with such a save when the mod is gone
         /// is the game's, not asserted here.
@@ -193,7 +195,7 @@ namespace AnimaSong.PickleSteps
             var words = new System.Text.RegularExpressions.Regex(@"[A-Za-z0-9_.]*[Aa]nima[ ]?[Ss]ong[A-Za-z0-9_.]*")
                 .Matches(text).Cast<System.Text.RegularExpressions.Match>().Select(m => m.Value).ToList();
             var allowed = new System.Text.RegularExpressions.Regex(
-                @"^(AnimaSong\.(listeningAllowed|lastSongTick|ticksListened)|AnimaSong\.JobDriver_ListenAnimaSong|AnimaSong_(Listen|Song|Heard)|nelim\.animasong(\.pickletests)?|Anima Song( - Pickle tests)?)$");
+                @"^(AnimaSong\.(listeningAllowed|lastSongTick|ticksListened)|AnimaSong\.JobDriver_ListenAnimaSong|AnimaSong\.HaloKeeper|AnimaSong_(Listen|Song|Heard)|nelim\.animasong(\.pickletests)?|Anima Song( - Pickle tests)?)$");
             var groups = words.GroupBy(w => w).OrderBy(g => g.Key).ToList();
             string listing = string.Join("; ", groups.Select(g => $"{g.Key} x{g.Count()}"));
             ctx.Attach("what the save says of the mod", listing);
@@ -231,11 +233,17 @@ namespace AnimaSong.PickleSteps
         {
             Thing tree = AnimaSongSteps.TreeAt(ctx, x, z);
             Map map = tree.Map;
+            // Motes are not in the map's thing lister (the first run saw 0 of them, the halo included): the game draws them from the
+            // dynamic draw manager's list.
+            var drawField = typeof(DynamicDrawManager).GetField("drawThings",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
+            ctx.Assert(drawField != null, "DynamicDrawManager.drawThings no longer exists: this step has to follow it");
+            Func<List<Thing>> drawn = () => (List<Thing>)drawField.GetValue(map.dynamicDrawManager);
             await AnimaSongSteps.WaitOrExplain(ctx,
-                () => map.listerThings.AllThings.Any(t => t.def.defName == "Mote_PsychicLinkPulse"),
+                () => drawn().Any(t => t.def.defName == "Mote_PsychicLinkPulse"),
                 20f,
-                () => "no Mote_PsychicLinkPulse on the map after 20 s of listening; the map holds " +
-                      map.listerThings.AllThings.Count(t => t.def.category == ThingCategory.Mote) + " mote(s) in its thing lister");
+                () => "no Mote_PsychicLinkPulse among the things the map draws after 20 s of listening; it draws " +
+                      drawn().Count(t => t.def.category == ThingCategory.Mote) + " mote(s)");
         }
 
         // ------------------------------------------------------------------ what else the game plays

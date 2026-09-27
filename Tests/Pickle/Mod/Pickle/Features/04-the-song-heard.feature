@@ -48,7 +48,7 @@ Feature: the song, heard
     And "Recorded" needs "Joy" is set to 10 percent
     And Anima Song: "Recorded" stands 6 cells from the tree at x=70 z=132
     And Nelim's Pickle Tools: the game volume is 80 percent
-    And Anima Song: the music and the ambience are muted
+    And Nelim's Pickle Tools: the game music and ambience are muted
     And I zoom all the way in
     And I move the camera to (70, 132)
     And I wait 120 ticks

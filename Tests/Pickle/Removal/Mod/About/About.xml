@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Anima Song - Pickle removal check</name>
+  <author>Nelim</author>
+  <packageId>nelim.animasong.pickleremoval</packageId>
+  <supportedVersions><li>1.6</li></supportedVersions>
+  <modVersion>0.1.0</modVersion>
+  <description>Development only, never published. It has no dependency on Anima Song on purpose: the launch that plays it runs with Anima Song and its test companion taken out of the mod list, and loads a game saved with Anima Song active.</description>
+  <modDependencies>
+    <li><packageId>rimworks.pickle</packageId><displayName>Pickle</displayName><steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl></li>
+  </modDependencies>
+  <loadAfter><li>rimworks.pickle</li></loadAfter>
+</ModMetaData>

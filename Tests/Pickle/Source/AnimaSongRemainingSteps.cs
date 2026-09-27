@@ -204,6 +204,23 @@ namespace AnimaSong.PickleSteps
             ctx.Assert(stray.Count == 0, $"the save names the mod in places it does not say it stores: {string.Join(", ", stray)}. All: {listing}");
         }
 
+        // Pickle finds a saved game as a fixture: a .rws in the Pickle/Fixtures folder of an active mod. A game saved in this
+        // launch is handed to the mod that the next launch (loaded without Anima Song) will load it with. Same mechanism as
+        // Housebroken's TF-18 (`../Housebroken/Tests/Pickle/Source/ExtraSteps.cs`).
+        [When("Anima Song: the saved file is handed to the mod {string}")]
+        public void HandSavedFile(PickleContext ctx, string packageId)
+        {
+            string path = ctx.Get<SavedFile>().Path;
+            ModContentPack target = LoadedModManager.RunningModsListForReading.FirstOrDefault(m =>
+                m.PackageIdPlayerFacing.ToLowerInvariant() == packageId.ToLowerInvariant());
+            ctx.Assert(target != null, $"no active mod has the packageId {packageId}");
+            string folder = Path.Combine(target.RootDir, "Pickle", "Fixtures");
+            Directory.CreateDirectory(folder);
+            string destination = Path.Combine(folder, Path.GetFileNameWithoutExtension(path) + ".rws");
+            File.Copy(path, destination, true);
+            ctx.Assert(File.Exists(destination), $"the saved game was not copied to {destination}");
+        }
+
         // ------------------------------------------------------------------ the inspect line, and the waves
 
         /// <summary>

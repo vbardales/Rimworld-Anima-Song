@@ -81,7 +81,7 @@ Two claims in it to keep true, rather than change:
   base class does not implement the toils. That is the game's own handling of any dropped mod's active job, not
   something this mod can guard against while it is still loaded. `About.xml` now says to stop a listener (draft or
   reassign) before removing the mod, the same as for any job a removed mod would leave stranded. The removal pass
-  (`Tests/Pickle/Removal/Mod`) now saves with nobody mid-job, and is green.
+  (`Tests/Pickle/Removal/Mod`) now saves with nobody mid-job, and is green (run `541a`, `docs/runs/2026-09-27.md`).
 - *"Royalty is required … Without it the mod loads and adds nothing."* The `MayRequire` gates and the `Royalty/` load folder
   are read in the sources and the offline suite checks the gating; no pass has run without Royalty (a Pickle pass excludes
   only what the runner's mod list leaves out, and Royalty is in it).

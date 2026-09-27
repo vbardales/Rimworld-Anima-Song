@@ -1,5 +1,5 @@
 # Pass "removal": TESTING.md scenario E, a -Then launch with -ThenWithout nelim.animasong,nelim.animasong.pickletests
 # (Rimworld-Ticket-Dispatcher/docs/SUBMIT.md). Select with -DepMap wsl-deps.removal.map, -Filter 06-removal-write -Then removal-check.
-# The removal companion is not staged from the Workshop: it lives in this repository and is loaded by path, same as the test
-# companion (Mod/) is loaded by the launcher itself.
-nelim.animasong.pickleremoval  path:Tests/Pickle/Removal/Mod
+# The removal companion is not staged from the Workshop: it lives in this repository and is loaded by path (relative to the
+# monorepo root, like every other path: line, hence the leading AnimaSong/), not by the mod's own repo root.
+nelim.animasong.pickleremoval  path:AnimaSong/Tests/Pickle/Removal/Mod

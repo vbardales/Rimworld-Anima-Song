@@ -75,9 +75,13 @@ it), and `About.xml` should say the same because it is what the mod list shows i
 
 Two claims in it to keep true, rather than change:
 
-- *"the mod can be added to or removed from an ongoing game"*: it is a design argument (no save data of its own beyond
-  a toggle and a cooldown stored on the tree), and the removal half has **not been played**. Soften it if the owner's manual
-  check does not confirm it.
+- *"the mod can be added to or removed from an ongoing game"*: **softened, 2026-09-27** (ticket `f0e3`,
+  `docs/runs/2026-09-27.md`). A save taken while a colonist is actively running the mod's `JobDriver` crashes on every
+  tick once the mod is removed: the game falls back to `Verse.AI.JobDriver` for a class it no longer knows, and that
+  base class does not implement the toils. That is the game's own handling of any dropped mod's active job, not
+  something this mod can guard against while it is still loaded. `About.xml` now says to stop a listener (draft or
+  reassign) before removing the mod, the same as for any job a removed mod would leave stranded. The removal pass
+  (`Tests/Pickle/Removal/Mod`) now saves with nobody mid-job, and is green.
 - *"Royalty is required … Without it the mod loads and adds nothing."* The `MayRequire` gates and the `Royalty/` load folder
   are read in the sources and the offline suite checks the gating; no pass has run without Royalty (a Pickle pass excludes
   only what the runner's mod list leaves out, and Royalty is in it).

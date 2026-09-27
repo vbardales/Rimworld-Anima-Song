@@ -4,6 +4,7 @@
 @requires:nelim.animasong.pickleremoval
 Feature: a save with Anima Song, prepared for removal
 
+  @timeout:120
   Scenario: a save with a listener, handed to the removal companion
     Given the save "test-colony" is loaded
     And a colonist "Handoff" exists

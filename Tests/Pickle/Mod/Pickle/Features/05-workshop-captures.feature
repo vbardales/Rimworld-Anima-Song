@@ -4,6 +4,10 @@
 #
 # The studio's colonists stand there without clothes, so each one that shows is dressed in a robe first.
 #
+# Owner's note on the first run (2026-09-26, images approved as they stood): "the tree singing" reads a little too wide -
+# the camera at (154, 98) is not exactly where the three listeners end up sitting. Zoom in closer next time this scenario
+# is redone.
+#
 # 1 the tree singing, with its glow and its listeners, no interface (the game's screenshot mode on)
 # 2 the right-click menu that offers the order, the interface kept
 # 3 the tree selected with its toggle, developer mode off, the interface kept

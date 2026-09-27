@@ -135,17 +135,22 @@ Checked in the sources on 2026-09-24, not from intention.
 
 ## Captures for the Workshop page
 
-Steam shows the first one large: put the most demonstrative there, not the prettiest. **TO DO: none taken yet.** The
-Pickle captures of 2026-09-21 were pruned (they were of a build without the halo fix and rendered in software) and the headless
-game cannot say whether the halo's distortion shader is drawn, so the first image, the one that shows the song, has to be
-taken on a game that draws it: the owner's photographic colony (`nelim-zen-meadow-studio`, package
-`nelim.pickletools.screenshotstudio`) with an anima tree and a ring of listeners, or her own game. Each image is opened before
-it is uploaded, against what it is meant to show. The page is English, so the English shots are the ones to use; they go
-under `Art/WorkshopScreenshots/`, named `01-…`, `02-…`, `03-…` in the order they go on the page, **and nothing else in that folder** (no earlier version, no raw capture, no subfolder; raw captures go elsewhere, ignored by git, and are deleted once cropped): the folder is uploaded as it is and is the `--gallery-dir` of the workflow (`../PUBLISHING.md`, "Images").
+Steam shows the first one large: put the most demonstrative there, not the prettiest. **Taken and approved, 2026-09-27.**
+The three come from the Pickle feature `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`, played on PickleTools'
+Nelim zen meadow studio (run `a32d`, pass `studio`, revision `12e7f67`): an anima tree grown at (154, 98), the studio's own
+colonists (Miel, Flore, Soleil), the game's screenshot mode on for the first image so that no interface shows. Each image
+was opened and qualified by the owner before being committed. They are PNG, not cropped: `Art/WorkshopScreenshots/`,
+named `01-…`, `02-…`, `03-…` in the order they go on the page, **and nothing else in that folder**: the folder is uploaded
+as it is and is the `--gallery-dir` of the workflow (`../PUBLISHING.md`, "Images").
 
-Proposed order: 1. the tree singing, its halo up, listeners seated in the ring with the waves of light; 2. the right-click
-order on the tree with a colonist selected (the menu entry, and one greyed out with its reason); 3. the tree selected with
-its **Allow listening** toggle in the gizmo bar.
+Owner's note on the first image: the camera at (154, 98) reads a little wide, not exactly where the three listeners end up
+seated. Zoom in closer next time this scenario is redone; kept as approved for this version.
+
+| # | File | Shows |
+| --- | --- | --- |
+| 1 | `01-the-tree-singing.png` | The tree singing, its halo up, three listeners nearby, no interface |
+| 2 | `02-the-right-click-menu.png` | The right-click order on the tree, offered to a selected colonist |
+| 3 | `03-the-tree-selected.png` | The tree selected, its **Allow listening** toggle in the gizmo bar, developer mode off |
 
 ## The preview image
 

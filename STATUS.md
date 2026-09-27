@@ -40,7 +40,10 @@ Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUB
 - **The workflow's own tests** (`script-tests.yml`, 49) are green in CI on `6143398`.
 - **`publish` takes that SHA**, not `main`: `Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song
   publish-tag.yml 7ef38944124db04b1b6f4d09aca29925e2a0f4ca 1.0.0`. Later commits (this one included) touch nothing under `Mod/`.
-  **Only Virginie approves `steam-production`.** The publish is not launched: **two prerequisites are open, and fail fast does not skip them** (owner, 2026-09-25) - the Workshop gallery (`Art/WorkshopScreenshots/` is empty) and the owner's manual validations (`TESTING.md`, "What a person still has to check").
+  **Only Virginie approves `steam-production`.** The publish is not launched: **one prerequisite is closed, one is still open**
+  (owner, 2026-09-25) - the Workshop gallery is done (`Art/WorkshopScreenshots/`, three images, taken 2026-09-27 and approved
+  by the owner, `PUBLICATION.md`) and the owner's manual validations are still open (`TESTING.md`, "What a person still has to
+  check").
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

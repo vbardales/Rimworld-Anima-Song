@@ -36,13 +36,14 @@ Feature: what the song looks like
     And Anima Song: "Shot-3" is ordered to listen to the tree at x=70 z=132
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=70 z=132
     And Anima Song: the halo of the tree at x=70 z=132 is alive
-    # Zoomed before it is aimed, and given real time to arrive. A wave of light leaves the trunk
-    # every 120 ticks, so the wait also buys the chance of catching one in flight.
+    # Zoomed before it is aimed. TESTING.md A noted the waves were not visible at this zoom: not a framing problem,
+    # a timing one — a blind wait of 200 ticks does not guarantee a wave is actually in flight at the moment of the
+    # shutter. Waiting on the mote itself (the same step 03 uses for a single listener) does.
     When I zoom all the way in
     And I move the camera to (70, 132)
-    And I wait 200 ticks
     Then the camera is looking at (70, 132)
     And Anima Song: the halo of the tree at x=70 z=132 is alive
+    And Anima Song: a wave of light is travelling from the tree at x=70 z=132
     Then I take a screenshot "the ring listening, halo and waves"
 
   # THE HALO FILMED ONE PICTURE PER TICK. The two tick-by-tick scenarios of 01-the-song.feature give the

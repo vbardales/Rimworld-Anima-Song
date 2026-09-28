@@ -258,15 +258,24 @@ namespace AnimaSong
         /// One tick AHEAD, not `Maintain()`: `Mote.TimeInterval` destroys the mote when TicksGame is greater than
         /// `lastMaintainTick`, with no slack, and the map ticks after the things do. A maintenance stamped with the
         /// current tick therefore arrives too late for the mote's own tick of the next one whenever the listener did
-        /// not ping in between. The field is not public; without it the plain call is all there is.
+        /// not ping in between. The field is not public; without it the plain call is all there is, and it is not
+        /// enough (a version that called `Maintain()` here changed nothing, see the field's own comment): logged
+        /// once, so a future RimWorld that renames the field does not bring the flicker back in silence.
         /// </summary>
         private static void StampAhead(Mote mote)
         {
             if (mote == null || mote.Destroyed) return;
             if (lastMaintainField != null)
+            {
                 lastMaintainField.SetValue(mote, Find.TickManager.TicksGame + 1);
+            }
             else
+            {
+                Log.ErrorOnce(
+                    "Anima Song: Mote.lastMaintainTick not found by reflection; the halo may flicker at higher game speeds.",
+                    "AnimaSong_StampAheadFieldMissing".GetHashCode());
                 mote.Maintain();
+            }
         }
 
         private static readonly System.Reflection.FieldInfo lastMaintainField = typeof(Mote).GetField(

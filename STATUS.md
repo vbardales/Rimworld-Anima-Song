@@ -96,7 +96,17 @@ Pickle Tools` 3806142401). No code change; `d822d44`.
 - **Dry-run green:** run `36494633806`, **SHA `d822d446160491666e08babfc8c02d06e0266dae`**, version `1.0.3`,
   `update_description=true`. Log read: description to send 4,487 bytes (limit 8000); the three `[url=...]` links are in it
   as written; change note starts with `[b]1.0.3[/b]`. `DRY RUN: nothing was sent to Steam`.
-- **Not published.** `publish` takes this SHA, version 1.0.3, `--description`, once the owner asks for it; only Virginie
+- **Never published, superseded by 1.0.4** before approval (owner asked for the Thanks-section fix next).
+
+## Dry-run of 1.0.4 — 2026-09-28
+
+Description-only release, owner's request: no AI tool credited in Thanks (AI use stays disclosed in its own AI-generated
+section). No code change; `f69a75a`.
+
+- **Dry-run green:** run `36495696714`, **SHA `f69a75ac83e7bbf3111ecb7653879a9d2dba3eba`**, version `1.0.4`,
+  `update_description=true`. Log read: description to send 4,461 bytes (limit 8000); "Claude Code (Anthropic)." is gone
+  from Thanks; change note starts with `[b]1.0.4[/b]`. `DRY RUN: nothing was sent to Steam`.
+- **Not published.** `publish` takes this SHA, version 1.0.4, `--description`, once the owner asks for it; only Virginie
   approves `steam-production`.
 
 ## The whole suite, three passes, on the final build — 2026-09-24

@@ -52,7 +52,7 @@ Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUB
   (https://github.com/vbardales/Rimworld-Anima-Song/releases/tag/v1.0.0, not a pre-release, 07:43:23 UTC); nothing was created by hand.
   **Not yet checked: the public page.** The item is private (Steam has no public details for it, as the dry-runs said), so the
   description and change note as shown on Steam are for the owner to look at on her page. **Still manual, the owner's:** upload the
-  three images of `Art/WorkshopScreenshots/` to the gallery in order `01-`, `02-`, `03-`; set the visibility to public when she chooses
+  three images of `Art/WorkshopScreenshots/` (JPEG since 2026-09-28, about 740 KB each: the Steam gallery refused the 4.6-4.9 MB PNGs, limit 2 MB) to the gallery in order `01-`, `02-`, `03-`; set the visibility to public when she chooses
   (the CI never sends it); the rollback target, decided 2026-09-25, is switching the item back to private. Still open after the
   publish, in small tickets: a final full pass on the published commit (English, French, Phytokin).
 

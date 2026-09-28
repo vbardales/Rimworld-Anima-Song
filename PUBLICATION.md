@@ -206,7 +206,7 @@ Steam shows the first one large: put the most demonstrative there, not the prett
 The three come from the Pickle feature `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`, played on PickleTools'
 Nelim zen meadow studio (run `a32d`, pass `studio`, revision `12e7f67`): an anima tree grown at (154, 98), the studio's own
 colonists (Miel, Flore, Soleil), the game's screenshot mode on for the first image so that no interface shows. Each image
-was opened and qualified by the owner before being committed. They are PNG, not cropped: `Art/WorkshopScreenshots/`,
+was opened and qualified by the owner before being committed. They are JPEG, 1920 x 1080, not cropped (converted from the PNG captures with ffmpeg `-q:v 3` on 2026-09-28: the PNGs were 4.6 to 4.9 MB and the Steam gallery refuses images over 2 MB; the JPEGs are about 740 KB, the interface text still sharp): `Art/WorkshopScreenshots/`,
 named `01-…`, `02-…`, `03-…` in the order they go on the page, **and nothing else in that folder**: the folder is uploaded
 as it is and is the `--gallery-dir` of the workflow (`../PUBLISHING.md`, "Images").
 
@@ -215,9 +215,9 @@ seated. Zoom in closer next time this scenario is redone; kept as approved for t
 
 | # | File | Shows |
 | --- | --- | --- |
-| 1 | `01-the-tree-singing.png` | The tree singing, its halo up, three listeners nearby, no interface |
-| 2 | `02-the-right-click-menu.png` | The right-click order on the tree, offered to a selected colonist |
-| 3 | `03-the-tree-selected.png` | The tree selected, its **Allow listening** toggle in the gizmo bar, developer mode off |
+| 1 | `01-the-tree-singing.jpg` | The tree singing, its halo up, three listeners nearby, no interface |
+| 2 | `02-the-right-click-menu.jpg` | The right-click order on the tree, offered to a selected colonist |
+| 3 | `03-the-tree-selected.jpg` | The tree selected, its **Allow listening** toggle in the gizmo bar, developer mode off |
 
 ## The preview image
 

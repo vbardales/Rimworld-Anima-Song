@@ -67,6 +67,10 @@ longer describe the current commit.
   **SHA `b518f5a7e181bd28f22d0e0259539a6e77ca6f6e`**, 2026-09-28. Log read: change note from `PUBLICATION.md` section 1.0.1,
   starts with `[b]1.0.1[/b]`; the gallery lists the three JPEGs of `Art/WorkshopScreenshots/`; public page not readable
   (item still private); `DRY RUN: nothing was sent to Steam`.
+- **Superseded, kept for history:** the run above, SHA `b518f5a` (template `828f845586bc`), stale since `b3baaa0` regenerated
+  the workflow.
+- **Dry-run green, current:** run `36489994290`, **SHA `bca2c3f7c145732884686fc714918f16ac5f0270`**, 2026-09-28, `publish
+  template: 82de20b8aa50`. Same change note, same gallery listing, same `DRY RUN: nothing was sent to Steam`.
 - **Not published.** `publish` takes this SHA and version 1.0.1 once the owner asks for it; only Virginie approves
   `steam-production`. The gallery upload and visibility are unchanged, still the owner's, still not done.
 

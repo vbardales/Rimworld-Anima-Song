@@ -57,6 +57,19 @@ Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUB
   (the CI never sends it); the rollback target, decided 2026-09-25, is switching the item back to private. Still open after the
   publish, in small tickets: a final full pass on the published commit (English, French, Phytokin).
 
+## Dry-run of 1.0.1 — 2026-09-28
+
+Fix-only release: `5967dd2` (`StampAhead` logs once instead of silently reproducing the halo flicker if the reflected
+`Mote.lastMaintainTick` field is ever gone). `Mod/` changed (`Assemblies/AnimaSong.dll`), so 1.0.0's dry-run and publish no
+longer describe the current commit.
+
+- **Dry-run green:** run `36489088990` (workflow `publish-tag.yml`, `mode=dry-run`, version `1.0.1`, all four options off),
+  **SHA `b518f5a7e181bd28f22d0e0259539a6e77ca6f6e`**, 2026-09-28. Log read: change note from `PUBLICATION.md` section 1.0.1,
+  starts with `[b]1.0.1[/b]`; the gallery lists the three JPEGs of `Art/WorkshopScreenshots/`; public page not readable
+  (item still private); `DRY RUN: nothing was sent to Steam`.
+- **Not published.** `publish` takes this SHA and version 1.0.1 once the owner asks for it; only Virginie approves
+  `steam-production`. The gallery upload and visibility are unchanged, still the owner's, still not done.
+
 ## The whole suite, three passes, on the final build — 2026-09-24
 
 Stage stays **`done`**. Run detail in [docs/runs/2026-09-23.md](docs/runs/2026-09-23.md); mod build `c04edcc`.

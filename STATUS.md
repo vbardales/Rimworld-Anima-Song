@@ -83,8 +83,9 @@ effect locked to one gifted colonist" — her own wording, "nerfé mais joli"). 
 - **Dry-run green:** run `36491525487`, **SHA `84d7fa8fcde4daa318e03794b58b97e33fa8c141`**, version `1.0.2`,
   `update_description=true`. Log read: description to send 4,131 bytes (limit 8000), the reframed paragraph is in it as
   written; change note starts with `[b]1.0.2[/b]`. `DRY RUN: nothing was sent to Steam`.
-- **Not published.** `publish` takes this SHA, version 1.0.2, `--description`, once the owner asks for it; only Virginie
-  approves `steam-production`.
+- **Published 2026-09-28** at the owner's approval: run `36492306477`, both jobs green. SteamCMD `Upload finished for
+  workshop item 3806709272 : OK`, ManifestID `4870569081021350798`. Tag `v1.0.2` on `84d7fa8`, GitHub release created by
+  the CI.
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

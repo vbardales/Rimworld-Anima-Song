@@ -44,12 +44,17 @@ Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUB
   2026-09-28. Log read: the description to send is 3,972 characters (3,984 bytes, limit 8000), sha256 `91fbfb84c1a2ee2e9f14cc3dd2ee77b7289fba71984042572710fe52aa4f2f52`,
   Markdown converted to BBCode (`[h2]` headings, `[url]` links); the item is private, so there is no diff against the page and the
   text was read by hand: it is the `About.xml` text, unchanged in substance. Nothing was sent to Steam.
-- **Publish launched 2026-09-28 at the owner's word** ("publish dans la foulee"), by `Rimworld-Release-Admin/scripts/dispatch-publish.sh
+- **Published 2026-09-28**, at the owner's word ("publish dans la foulee"), launched by `Rimworld-Release-Admin/scripts/dispatch-publish.sh
   vbardales/Rimworld-Anima-Song publish-tag.yml 0529c100fa7bf71b90e938a412d0f6d87f289b2d 1.0.0 --description`: run `36391654870`,
-  waiting for **Virginie's approval of `steam-production`** (Review deployments > Approve and deploy). No session approves it.
-  Options: `update_description=true` only (preview, title and tags off). After a successful upload the CI creates the tag `v1.0.0` and
-  the GitHub release; the gallery (three images of `Art/WorkshopScreenshots/`) is uploaded by hand on the Steam page; the item stays
-  private until the owner switches it. Then: read the public page and record it here.
+  approved by Virginie on `steam-production`, both jobs green (`publish`, `tag-and-release`). Log read: SteamCMD `Upload finished for
+  workshop item 3806709272 : OK`, ManifestID `6527602686281192937`, 2026-09-28 07:43 UTC. Options: `update_description=true` only
+  (preview, title and tags off). The CI created the tag `v1.0.0` on `0529c100...` and the GitHub release
+  (https://github.com/vbardales/Rimworld-Anima-Song/releases/tag/v1.0.0, not a pre-release, 07:43:23 UTC); nothing was created by hand.
+  **Not yet checked: the public page.** The item is private (Steam has no public details for it, as the dry-runs said), so the
+  description and change note as shown on Steam are for the owner to look at on her page. **Still manual, the owner's:** upload the
+  three images of `Art/WorkshopScreenshots/` to the gallery in order `01-`, `02-`, `03-`; set the visibility to public when she chooses
+  (the CI never sends it); the rollback target, decided 2026-09-25, is switching the item back to private. Still open after the
+  publish, in small tickets: a final full pass on the published commit (English, French, Phytokin).
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

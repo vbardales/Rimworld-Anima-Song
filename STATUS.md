@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-stage:        done
+stage:        published
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -21,7 +21,7 @@ remaining:
   - unverified: by a person on the Windows game: the sound heard, Phytokin's own ability soothing beside the mod (TESTING.md 11), baseChance (9), removing the mod from a live save (14); the whole suite ran green on c04edcc in English, French and with Phytokin (2026-09-24)
   - unverified: how the French reads on screen: the texts are read back and equal to the resource files in both languages (2026-09-24), but the French inspect pane clips the mod's own line, and no picture of it has been judged since
 session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
-updated:      2026-09-25, dry-run of 1.0.0 green on 7ef3894 (run 36127076178), fail-fast policy, rollback = back to private
+updated:      2026-09-29, stage corrected to published (1.0.0-1.0.3 all uploaded and tagged since 2026-09-28; the field had stayed at done through every publish)
 ---
 
 # Anima Song — status

@@ -3,6 +3,13 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
+## [1.0.3] — 2026-09-28
+
+### Changed
+
+- Workshop page wording only: added Workshop links for Phytokin, Pickle and Nelim's Pickle Tools where they are named
+  (the last two were named but not linked, and were missing entirely from the page's own text). No code change.
+
 ## [1.0.2] — 2026-09-28
 
 ### Changed

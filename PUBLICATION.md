@@ -151,11 +151,13 @@ This mod's code was written with Claude Code (Anthropic) and its preview image g
 
 ## Thanks
 
-Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for Vanilla Races Expanded - Phytokin, whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets were not called at all, say so and it stops.
+Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for [Vanilla Races Expanded - Phytokin](https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805), whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets were not called at all, say so and it stops.
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 
 Claude Code (Anthropic).
+
+[Pickle](https://steamcommunity.com/sharedfiles/filedetails/?id=3791648678) and [Nelim's Pickle Tools](https://steamcommunity.com/sharedfiles/filedetails/?id=3806142401) were used for development and testing only; neither is a dependency of the distributed mod.
 
 Full attribution, including what was studied and what is looked up at runtime: [ATTRIBUTION.md](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md). Released under the MIT licence: [LICENSE](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE).
 
@@ -167,6 +169,13 @@ Full attribution, including what was studied and what is looked up at runtime: [
 The change note sent to Steam with an upload, under the heading of its version: the manual workflow reads the block under
 `### <version>` (`../PUBLISHING.md`, "Publier par la CI"), and the `## [<version>]` section of `CHANGELOG.md` goes into the
 GitHub release. Limit 8000 bytes.
+
+### 1.0.3
+
+```
+[b]1.0.3[/b]
+Workshop page wording only: added Workshop links for Phytokin, Pickle and Nelim's Pickle Tools. No code change.
+```
 
 ### 1.0.2
 

@@ -13,19 +13,19 @@ Vanilla Races Expanded - Phytokin has a lovely ability called anima song: a gene
 
 This mod does not touch that ability. It adds a way to listen. Any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing — the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
 
-WHAT IT LOOKS LIKE
+What it looks like
 
 While someone is listening, the tree wears a soft teal glow and a pulsing psychic halo, and sends a wave of light out to each listener — you can see from across the map that it is singing.
 
 You do not have to wait for a colonist to decide on their own: select one, right-click the tree, and "Listen to the anima song" sends them out to sit. Select the tree instead and a toggle lets you allow or forbid listening entirely — turn it off to clear the ring before a psychic linking ritual, or when the tree grows somewhere you would rather your colonists did not sit. Anyone already listening gets up at once.
 
-WHY THIS IS WORTH A MOD
+Why this is worth a mod
 
 The base game has ten recreation types and only four of them come from a building. Expectations ask for up to six different types, and tolerance is counted per type, not per building — a colonist who has played chess all week is just as tired of poker. An eleventh type is therefore worth far more than a tenth building of a type you already had. This one costs nothing to build: you only need an anima tree, which quietly rewards a tribal start.
 
 Listening leaves a memory: +3 mood for a day, multiplied by psychic sensitivity, and it does not stack. That is deliberately weaker than Phytokin's own +8 over two days — theirs is a once-a-quadrum ability, this is repeatable.
 
-SOFT DEPENDENCIES
+Soft dependencies
 
 With Phytokin installed, the tree sings Phytokin's own recording, and the toggle wears their anima song icon. Without it, Royalty's anima linking sound and ritual icon are used instead. Nothing is copied from either mod, and no assembly is referenced: both are looked up by def name at runtime.
 
@@ -33,15 +33,15 @@ Royalty is required, since the anima tree is a Royalty plant. Without it the mod
 
 No save data of its own. The toggle and the song cooldown are stored on the tree, in the save; the mod can be added to an ongoing game freely, and removed from one too, as long as nobody is actively listening at the time — draft or reassign a listening colonist first, the same as you would stop any other job before dropping a mod that added it.
 
-IF I GO QUIET
+If I go quiet
 
 If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
 
-AI-GENERATED
+AI-generated
 
 This mod's code was written with Claude Code (Anthropic) and its preview image generated with an image model, under human direction and review. Stated openly: designing with these tools is my job.
 
-THANKS
+Thanks
 
 Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for Vanilla Races Expanded - Phytokin, whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets were not called at all, say so and it stops.
 
@@ -49,9 +49,9 @@ Ludeon Studios, for the anima tree and for the psychic effects this mod reuses u
 
 Claude Code (Anthropic).
 
-Full attribution, including what was studied and what is looked up at runtime: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md. Released under the MIT licence: https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE
+Full attribution, including what was studied and what is looked up at runtime: ATTRIBUTION.md (https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md). Released under the MIT licence: LICENSE (https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE).
 
-[url=https://github.com/vbardales/Rimworld-Anima-Song]Source code on GitHub[/url]</description>
+Source code on GitHub (https://github.com/vbardales/Rimworld-Anima-Song)</description>
   <modDependencies>
     <li>
       <packageId>Ludeon.RimWorld.Royalty</packageId>

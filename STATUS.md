@@ -46,7 +46,9 @@ Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUB
   manual checks" is now automated and green or not applicable (A and B closed 2026-09-28, E closed 2026-09-27). **But the dry-run
   SHA above is now stale**: `f9865ca` (2026-09-27) changed `Mod/About/About.xml` (the softened removal claim), so `7ef3894`'s
   dry-run no longer describes what `Mod/` holds. A fresh dry-run of the current commit is needed before `publish` can be
-  launched at all, regardless of Virginie's approval.
+  launched at all, regardless of Virginie's approval. **Prepared 2026-09-28, not yet run:** the CI description and change-note
+  standards are adopted in the working tree (`PUBLICATION.md`, "The new CI standards"), the workflow is regenerated (69 local tests
+  pass), and the commit waits for the owner's word to push, since a dry-run runs on GitHub against a pushed SHA.
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

@@ -1,5 +1,5 @@
 {
-  "templateStamp": "683151266dd1",
+  "templateStamp": "4e56bb5a2231",
   "workshopId": "3806709272",
   "packageId": "nelim.animasong",
   "releaseTitle": "Anima Song {version}",
@@ -8,5 +8,11 @@
   ],
   "forbidPaths": [],
   "previewFile": "About/Preview.png",
-  "galleryDir": "Art/WorkshopScreenshots"
+  "galleryDir": "Art/WorkshopScreenshots",
+  "aboutFromDescription": true,
+  "description": {
+    "file": "PUBLICATION.md",
+    "format": "markdown",
+    "heading": "^## Steam description$"
+  }
 }

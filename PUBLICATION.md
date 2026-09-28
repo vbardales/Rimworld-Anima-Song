@@ -86,7 +86,13 @@ Two claims in it to keep true, rather than change:
   are read in the sources and the offline suite checks the gating; no pass has run without Royalty (a Pickle pass excludes
   only what the runner's mod list leaves out, and Royalty is in it).
 
-## To do before the publish: the new CI standards (CI/CD setup session, 2026-09-25; nothing forced, adopted at this publication)
+## The new CI standards: adopted 2026-09-28 (CI/CD setup session, 2026-09-25); the new dry-run is still to run
+
+Adopted in the working tree on 2026-09-28, not yet pushed: the `## Steam description` block below, `About.xml`'s `<description>`
+generated from it (`sync-about-description.mjs --write`, diff read: headings in normal case, links as Markdown links, nothing
+else), the change note's first line `[b]1.0.0[/b]`, and the workflow regenerated from the current template `4e56bb5a2231`
+(`generate-publish-workflow.sh --check`: up to date; its 69 tests pass locally). What is left is the dry-run of the commit that
+carries all this, once it is on GitHub.
 
 - **One source for the Workshop description.** Write it once, in Markdown, in a fenced block (```markdown, no code fence inside)
   under `## Steam description` of this file; its last line is `[Source code on GitHub](URL)`. The CI converts it to Steam BBCode and
@@ -100,6 +106,61 @@ Two claims in it to keep true, rather than change:
   starts with "First release." and has to be given that first line.
 - `dispatch-publish.sh` now refuses without a reviewer and both secret names on `steam-production` (both are there).
 
+## Steam description
+
+The one source of the Workshop description (owner, 2026-09-25): the CI converts this block to Steam BBCode and generates the
+plain-text `<description>` of `Mod/About/About.xml` from it, and every dry-run and publish stops if they differ. Written from the
+`About.xml` text of 2026-09-27 with headings instead of capital lines and the links as Markdown links. No code fence inside;
+the last line is the source link. 3.9 KB against Steam's 8000-byte limit.
+
+```markdown
+Colonists can go and listen to an anima tree sing, as recreation.
+
+Vanilla Races Expanded - Phytokin has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and makes it sing a psychic orchestra. It fires once a quadrum, and only for them.
+
+This mod does not touch that ability. It adds a way to listen. Any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing — the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
+
+## What it looks like
+
+While someone is listening, the tree wears a soft teal glow and a pulsing psychic halo, and sends a wave of light out to each listener — you can see from across the map that it is singing.
+
+You do not have to wait for a colonist to decide on their own: select one, right-click the tree, and "Listen to the anima song" sends them out to sit. Select the tree instead and a toggle lets you allow or forbid listening entirely — turn it off to clear the ring before a psychic linking ritual, or when the tree grows somewhere you would rather your colonists did not sit. Anyone already listening gets up at once.
+
+## Why this is worth a mod
+
+The base game has ten recreation types and only four of them come from a building. Expectations ask for up to six different types, and tolerance is counted per type, not per building — a colonist who has played chess all week is just as tired of poker. An eleventh type is therefore worth far more than a tenth building of a type you already had. This one costs nothing to build: you only need an anima tree, which quietly rewards a tribal start.
+
+Listening leaves a memory: +3 mood for a day, multiplied by psychic sensitivity, and it does not stack. That is deliberately weaker than Phytokin's own +8 over two days — theirs is a once-a-quadrum ability, this is repeatable.
+
+## Soft dependencies
+
+With Phytokin installed, the tree sings Phytokin's own recording, and the toggle wears their anima song icon. Without it, Royalty's anima linking sound and ritual icon are used instead. Nothing is copied from either mod, and no assembly is referenced: both are looked up by def name at runtime.
+
+Royalty is required, since the anima tree is a Royalty plant. Without it the mod loads and adds nothing.
+
+No save data of its own. The toggle and the song cooldown are stored on the tree, in the save; the mod can be added to an ongoing game freely, and removed from one too, as long as nobody is actively listening at the time — draft or reassign a listening colonist first, the same as you would stop any other job before dropping a mod that added it.
+
+## If I go quiet
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+## AI-generated
+
+This mod's code was written with Claude Code (Anthropic) and its preview image generated with an image model, under human direction and review. Stated openly: designing with these tools is my job.
+
+## Thanks
+
+Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for Vanilla Races Expanded - Phytokin, whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets were not called at all, say so and it stops.
+
+Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
+
+Claude Code (Anthropic).
+
+Full attribution, including what was studied and what is looked up at runtime: [ATTRIBUTION.md](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md). Released under the MIT licence: [LICENSE](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE).
+
+[Source code on GitHub](https://github.com/vbardales/Rimworld-Anima-Song)
+```
+
 ## Release notes (the change note of each upload)
 
 The change note sent to Steam with an upload, under the heading of its version: the manual workflow reads the block under
@@ -109,6 +170,7 @@ GitHub release. Limit 8000 bytes.
 ### 1.0.0
 
 ```
+[b]1.0.0[/b]
 First release. Colonists can walk out to an anima tree, sit in a ring around it and listen to it sing, as a new kind of
 recreation: up to six at once, outdoors, in sight of the trunk. Listening leaves a memory (+3 mood for a day, scaled by
 psychic sensitivity, not stacking). While anyone listens the tree wears a soft teal glow and a pulsing psychic halo and sends a wave of light to

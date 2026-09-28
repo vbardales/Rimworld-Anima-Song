@@ -3,6 +3,14 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
+## [1.0.2] — 2026-09-28
+
+### Changed
+
+- Workshop page wording only: rewrote the line on Phytokin's own anima song ability to be clearer about why this mod
+  exists (the toned-down, repeatable version of an effect that felt like a shame to leave locked to one gifted
+  colonist once a quadrum). No code change.
+
 ## [1.0.1] — 2026-09-28
 
 ### Fixed

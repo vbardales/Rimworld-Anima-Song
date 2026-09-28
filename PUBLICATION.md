@@ -168,6 +168,13 @@ The change note sent to Steam with an upload, under the heading of its version: 
 `### <version>` (`../PUBLISHING.md`, "Publier par la CI"), and the `## [<version>]` section of `CHANGELOG.md` goes into the
 GitHub release. Limit 8000 bytes.
 
+### 1.0.2
+
+```
+[b]1.0.2[/b]
+Workshop page wording only: rewrote the line on Phytokin's own anima song ability. No code change.
+```
+
 ### 1.0.1
 
 ```

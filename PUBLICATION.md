@@ -168,6 +168,15 @@ The change note sent to Steam with an upload, under the heading of its version: 
 `### <version>` (`../PUBLISHING.md`, "Publier par la CI"), and the `## [<version>]` section of `CHANGELOG.md` goes into the
 GitHub release. Limit 8000 bytes.
 
+### 1.0.1
+
+```
+[b]1.0.1[/b]
+Fix: the tree's halo could flicker at high game speed if a future game update ever renamed the internal field this mod
+reads to keep it lit between pings; that failure now logs an error instead of silently reappearing. No player-facing
+change otherwise.
+```
+
 ### 1.0.0
 
 ```

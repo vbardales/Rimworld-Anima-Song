@@ -3,6 +3,14 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
+## [1.0.1] — 2026-09-28
+
+### Fixed
+
+- The internal reflection lookup that keeps the halo's tick-by-tick maintenance ahead of the game's own tick now logs an
+  error once instead of failing silently if a future RimWorld version renames the field it reads. No behaviour change
+  when the field is present, which it is on 1.6.
+
 ## [1.0.0] — 2026-09-25
 
 The CI creates the `v1.0.0` tag and the matching GitHub release after a successful upload (never by hand).

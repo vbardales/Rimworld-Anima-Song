@@ -71,8 +71,20 @@ longer describe the current commit.
   the workflow.
 - **Dry-run green, current:** run `36489994290`, **SHA `bca2c3f7c145732884686fc714918f16ac5f0270`**, 2026-09-28, `publish
   template: 82de20b8aa50`. Same change note, same gallery listing, same `DRY RUN: nothing was sent to Steam`.
-- **Not published.** `publish` takes this SHA and version 1.0.1 once the owner asks for it; only Virginie approves
-  `steam-production`. The gallery upload and visibility are unchanged, still the owner's, still not done.
+- **Published 2026-09-28** at the owner's approval: run `36490371898`, both jobs green. SteamCMD `Upload finished for
+  workshop item 3806709272 : OK`, ManifestID `9109123286002546468`. Tag `v1.0.1` on `bca2c3f`, GitHub release created by
+  the CI.
+
+## Dry-run of 1.0.2 — 2026-09-28
+
+Description-only release, owner's request: the Phytokin origin paragraph reframed ("it felt like a shame to leave that
+effect locked to one gifted colonist" — her own wording, "nerfé mais joli"). No code change; `84d7fa8`.
+
+- **Dry-run green:** run `36491525487`, **SHA `84d7fa8fcde4daa318e03794b58b97e33fa8c141`**, version `1.0.2`,
+  `update_description=true`. Log read: description to send 4,131 bytes (limit 8000), the reframed paragraph is in it as
+  written; change note starts with `[b]1.0.2[/b]`. `DRY RUN: nothing was sent to Steam`.
+- **Not published.** `publish` takes this SHA, version 1.0.2, `--description`, once the owner asks for it; only Virginie
+  approves `steam-production`.
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

@@ -30,25 +30,24 @@ updated:      2026-09-25, dry-run of 1.0.0 green on 7ef3894 (run 36127076178), f
 Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUBLISHING.md`); rollback target chosen with the owner:
 **switch the item back to private** (no earlier good version exists to republish).
 
-- **Dry-run green:** run `36127076178` (workflow `publish-tag.yml`, `mode=dry-run`, version `1.0.0`, all four options off),
-  **SHA `7ef38944124db04b1b6f4d09aca29925e2a0f4ca`**, 2026-09-25 11:00 UTC. Log read: 16 files, 0.63 MB staged from `Mod/`
-  (`About/` 4, `Assemblies/` 1, `Defs/` 1, `Languages/` 3, `Patches/` 1, `Royalty/` 2, `Textures/` 1, plus `ATTRIBUTION.md`,
-  `LICENSE`, `LoadFolders.xml`); `publish template: 683151266dd1`; `options: update_preview=false update_description=false
-  update_title=false update_tags=false`; the change note is the `### 1.0.0` block of `PUBLICATION.md`; the gallery folder is
-  absent, as expected; "public page not readable" because the item is private; the upload path was checked without contacting
-  Steam. An earlier dry-run of `614339863c78` was green too; the change note then lacked the teal glow, hence the second.
-- **The workflow's own tests** (`script-tests.yml`, 49) are green in CI on `6143398`.
-- **`publish` takes that SHA**, not `main`: `Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song
-  publish-tag.yml 7ef38944124db04b1b6f4d09aca29925e2a0f4ca 1.0.0`. Later commits (this one included) touch nothing under `Mod/`.
-  **Only Virginie approves `steam-production`.** The publish is not launched, and **not only for the two prerequisites now**:
-  **both are closed** (owner, 2026-09-25 through 2026-09-28) - the Workshop gallery is done (`Art/WorkshopScreenshots/`, three
-  images, taken 2026-09-27 and approved by the owner, `PUBLICATION.md`) and every row of `TESTING.md`'s "What is left of the
-  manual checks" is now automated and green or not applicable (A and B closed 2026-09-28, E closed 2026-09-27). **But the dry-run
-  SHA above is now stale**: `f9865ca` (2026-09-27) changed `Mod/About/About.xml` (the softened removal claim), so `7ef3894`'s
-  dry-run no longer describes what `Mod/` holds. A fresh dry-run of the current commit is needed before `publish` can be
-  launched at all, regardless of Virginie's approval. **Prepared 2026-09-28, not yet run:** the CI description and change-note
-  standards are adopted in the working tree (`PUBLICATION.md`, "The new CI standards"), the workflow is regenerated (69 local tests
-  pass), and the commit waits for the owner's word to push, since a dry-run runs on GitHub against a pushed SHA.
+- **Dry-run green, current:** run `36390961443` (workflow `publish-tag.yml`, `mode=dry-run`, version `1.0.0`, all four options off),
+  **SHA `0529c100fa7bf71b90e938a412d0f6d87f289b2d`**, 2026-09-28 07:18 UTC. Log read, not only the tick: `Publishing 0529c10... as
+  version 1.0.0`; `About.xml: its description is the plain text of PUBLICATION.md`; `version 1.0.0: no earlier version tag`; 16 files,
+  0.63 MB staged from `Mod/` (`About/` 4, `Assemblies/` 1, `Defs/` 1, `Languages/` 3, `Patches/` 1, `Royalty/` 2, `Textures/` 1, plus
+  `ATTRIBUTION.md`, `LICENSE`, `LoadFolders.xml`); `publish template: 4e56bb5a2231`; `options: update_preview=false
+  update_description=false update_title=false update_tags=false`; the change note starts with `[b]1.0.0[/b]`; the gallery lists the
+  three images of `Art/WorkshopScreenshots/` as a reminder of the manual upload; "public page not readable" because the item is
+  private; `DRY RUN: nothing was sent to Steam`. The rebuild step is optional and not configured for this mod. The workflow's own
+  tests (69) pass locally. **Superseded, kept for history:** run `36127076178`, SHA `7ef3894`, 2026-09-25 (old template
+  `683151266dd1`; stale since `f9865ca` changed `Mod/About/About.xml`).
+- **`publish` takes the new SHA**, not `main`: `Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song
+  publish-tag.yml 0529c100fa7bf71b90e938a412d0f6d87f289b2d 1.0.0`. **Only Virginie approves `steam-production`**; no session approves
+  or launches the publish without her explicit word. Both prerequisites are closed (owner, 2026-09-25 through 2026-09-28): the
+  Workshop gallery is done (`Art/WorkshopScreenshots/`, three images approved 2026-09-27), and every row of `TESTING.md`'s "What is
+  left of the manual checks" is automated and green or not applicable. **One open question for the owner:** the dry-run above
+  sends the change note but not the description (`update_description=false`), so the page would keep the 0.1.0 prepublication
+  description; sending the new one needs `--description` on the publish and a dry-run with `update_description=true` first, whose
+  printed BBCode is read by hand.
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

@@ -86,13 +86,14 @@ Two claims in it to keep true, rather than change:
   are read in the sources and the offline suite checks the gating; no pass has run without Royalty (a Pickle pass excludes
   only what the runner's mod list leaves out, and Royalty is in it).
 
-## The new CI standards: adopted 2026-09-28 (CI/CD setup session, 2026-09-25); the new dry-run is still to run
+## The new CI standards: adopted 2026-09-28 (CI/CD setup session, 2026-09-25), dry-run green
 
-Adopted in the working tree on 2026-09-28, not yet pushed: the `## Steam description` block below, `About.xml`'s `<description>`
-generated from it (`sync-about-description.mjs --write`, diff read: headings in normal case, links as Markdown links, nothing
-else), the change note's first line `[b]1.0.0[/b]`, and the workflow regenerated from the current template `4e56bb5a2231`
-(`generate-publish-workflow.sh --check`: up to date; its 69 tests pass locally). What is left is the dry-run of the commit that
-carries all this, once it is on GitHub.
+Adopted and pushed on 2026-09-28 (`0529c10`): the `## Steam description` block below, `About.xml`'s `<description>` generated
+from it (`sync-about-description.mjs --write`, diff read: headings in normal case, links as Markdown links, nothing else), the
+change note's first line `[b]1.0.0[/b]`, and the workflow regenerated from the current template `4e56bb5a2231` (69 tests pass).
+Dry-run of that exact commit: run `36390961443`, green, log read (`STATUS.md`).
+
+As it was written to do, kept for reference:
 
 - **One source for the Workshop description.** Write it once, in Markdown, in a fenced block (```markdown, no code fence inside)
   under `## Steam description` of this file; its last line is `[Source code on GitHub](URL)`. The CI converts it to Steam BBCode and

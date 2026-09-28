@@ -40,14 +40,16 @@ Stage stays **`done`**. Publication policy: fail fast (`PUBLICATION.md`, `../PUB
   private; `DRY RUN: nothing was sent to Steam`. The rebuild step is optional and not configured for this mod. The workflow's own
   tests (69) pass locally. **Superseded, kept for history:** run `36127076178`, SHA `7ef3894`, 2026-09-25 (old template
   `683151266dd1`; stale since `f9865ca` changed `Mod/About/About.xml`).
-- **`publish` takes the new SHA**, not `main`: `Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song
-  publish-tag.yml 0529c100fa7bf71b90e938a412d0f6d87f289b2d 1.0.0`. **Only Virginie approves `steam-production`**; no session approves
-  or launches the publish without her explicit word. Both prerequisites are closed (owner, 2026-09-25 through 2026-09-28): the
-  Workshop gallery is done (`Art/WorkshopScreenshots/`, three images approved 2026-09-27), and every row of `TESTING.md`'s "What is
-  left of the manual checks" is automated and green or not applicable. **One open question for the owner:** the dry-run above
-  sends the change note but not the description (`update_description=false`), so the page would keep the 0.1.0 prepublication
-  description; sending the new one needs `--description` on the publish and a dry-run with `update_description=true` first, whose
-  printed BBCode is read by hand.
+- **Second dry-run, with the description:** run `36391578811`, same SHA `0529c10`, version `1.0.0`, `update_description=true`, green,
+  2026-09-28. Log read: the description to send is 3,972 characters (3,984 bytes, limit 8000), sha256 `91fbfb84c1a2ee2e9f14cc3dd2ee77b7289fba71984042572710fe52aa4f2f52`,
+  Markdown converted to BBCode (`[h2]` headings, `[url]` links); the item is private, so there is no diff against the page and the
+  text was read by hand: it is the `About.xml` text, unchanged in substance. Nothing was sent to Steam.
+- **Publish launched 2026-09-28 at the owner's word** ("publish dans la foulee"), by `Rimworld-Release-Admin/scripts/dispatch-publish.sh
+  vbardales/Rimworld-Anima-Song publish-tag.yml 0529c100fa7bf71b90e938a412d0f6d87f289b2d 1.0.0 --description`: run `36391654870`,
+  waiting for **Virginie's approval of `steam-production`** (Review deployments > Approve and deploy). No session approves it.
+  Options: `update_description=true` only (preview, title and tags off). After a successful upload the CI creates the tag `v1.0.0` and
+  the GitHub release; the gallery (three images of `Art/WorkshopScreenshots/`) is uploaded by hand on the Steam page; the item stays
+  private until the owner switches it. Then: read the public page and record it here.
 
 ## The whole suite, three passes, on the final build — 2026-09-24
 

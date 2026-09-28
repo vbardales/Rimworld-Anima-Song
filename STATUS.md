@@ -11,6 +11,7 @@ detached:     yes
 stage:        done
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
+upstream_mod_remotes: N/A
 dependencies: declared
 showcase:     complete
 tested_on:

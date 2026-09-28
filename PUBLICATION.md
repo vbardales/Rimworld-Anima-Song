@@ -267,15 +267,11 @@ Ludeon Studios have no page on which a comment can be left for a DLC: `not_appli
 not a recipient. The item link is `https://steamcommunity.com/sharedfiles/filedetails/?id=3806709272`.
 
 **Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, on Vanilla Races Expanded - Phytokin**
-(`https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805`), comment page (705 characters):
+(`https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805`), comment page, rewritten 2026-09-29 in the owner's
+own voice (`../WORKSHOP_COMMENTS.md`, "Voice" — short, dry, playful, one emoticon), 331 characters:
 
 ```
-Thank you so much for Phytokin ✨ Your anima song ability, a Phytokin pointing at an anima tree and the whole tree singing a
-psychic orchestra, is the reason I made Anima Song 💛 It adds a way for anyone to sit down and *listen* to a tree: a ring of
-colonists, a glowing halo, a small memory at the end, deliberately much weaker than yours. Your ability is not touched,
-patched or altered, and with Phytokin loaded the tree borrows your recording and your icon, looked up by def name at run
-time, nothing copied or shipped. Credited in its attribution file. If you would rather your assets were not called at all,
-tell me and it stops. https://steamcommunity.com/sharedfiles/filedetails/?id=3806709272
+Your anima song ability gave me the idea for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3806709272]Anima Song[/url] :) same effect, any colonist, way weaker reward. Your ability itself untouched — with Phytokin loaded I just borrow its sound and icon by def name, nothing copied. Say the word and that stops too.
 ```
 
 The message is not posted; posting to another author's page is the owner's act. When it is, the registry row goes to `posted`

@@ -87,6 +87,18 @@ effect locked to one gifted colonist" — her own wording, "nerfé mais joli"). 
   workshop item 3806709272 : OK`, ManifestID `4870569081021350798`. Tag `v1.0.2` on `84d7fa8`, GitHub release created by
   the CI.
 
+## Dry-run of 1.0.3 — 2026-09-28
+
+Description-only release, owner's request: the page named Pickle and Nelim's Pickle Tools without linking them, and named
+Phytokin without a link either. Added Workshop links for all three (`Phytokin` 2927323805, `Pickle` 3791648678, `Nelim's
+Pickle Tools` 3806142401). No code change; `d822d44`.
+
+- **Dry-run green:** run `36494633806`, **SHA `d822d446160491666e08babfc8c02d06e0266dae`**, version `1.0.3`,
+  `update_description=true`. Log read: description to send 4,487 bytes (limit 8000); the three `[url=...]` links are in it
+  as written; change note starts with `[b]1.0.3[/b]`. `DRY RUN: nothing was sent to Steam`.
+- **Not published.** `publish` takes this SHA, version 1.0.3, `--description`, once the owner asks for it; only Virginie
+  approves `steam-production`.
+
 ## The whole suite, three passes, on the final build — 2026-09-24
 
 Stage stays **`done`**. Run detail in [docs/runs/2026-09-23.md](docs/runs/2026-09-23.md); mod build `c04edcc`.

@@ -155,8 +155,6 @@ Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for [Vanilla Races E
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 
-Claude Code (Anthropic).
-
 [Pickle](https://steamcommunity.com/sharedfiles/filedetails/?id=3791648678) and [Nelim's Pickle Tools](https://steamcommunity.com/sharedfiles/filedetails/?id=3806142401) were used for development and testing only; neither is a dependency of the distributed mod.
 
 Full attribution, including what was studied and what is looked up at runtime: [ATTRIBUTION.md](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md). Released under the MIT licence: [LICENSE](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE).
@@ -169,6 +167,13 @@ Full attribution, including what was studied and what is looked up at runtime: [
 The change note sent to Steam with an upload, under the heading of its version: the manual workflow reads the block under
 `### <version>` (`../PUBLISHING.md`, "Publier par la CI"), and the `## [<version>]` section of `CHANGELOG.md` goes into the
 GitHub release. Limit 8000 bytes.
+
+### 1.0.4
+
+```
+[b]1.0.4[/b]
+Workshop page wording only: removed Claude Code from the Thanks section. No code change.
+```
 
 ### 1.0.3
 

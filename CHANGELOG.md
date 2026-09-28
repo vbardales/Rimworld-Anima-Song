@@ -3,6 +3,13 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
+## [1.0.4] — 2026-09-29
+
+### Changed
+
+- Workshop page wording only: removed Claude Code from the Thanks section (AI tool use stays disclosed in its own
+  AI-generated section). No code change.
+
 ## [1.0.3] — 2026-09-28
 
 ### Changed

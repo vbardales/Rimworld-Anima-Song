@@ -17,7 +17,7 @@ showcase:     complete
 tested_on:    2026-09-24, and every published revision through 1.0.2 (git log, GitHub releases)
 workshop:     3806709272
 remaining:
-  - open: read the results of the final regression pass filed 2026-09-29 (tickets 9e8d English, d20b French, a0ab Phytokin, on 9824ce7) and record them
+  - open: read the results of tickets d20b (French) and a0ab (Phytokin), final regression pass filed 2026-09-29 on 9824ce7; 9e8d (English) done, 26/34 passed, 0 failed, 8 skipped (Phytokin/sound/studio/removal scenarios, need their own staged passes, not a regression)
 session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
 updated:      2026-09-29, no minor version for a description-only edit; 1.0.3/1.0.4 folded into the hand-edited text, no tag/release for either
 ---

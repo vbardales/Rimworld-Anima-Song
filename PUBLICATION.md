@@ -139,21 +139,11 @@ The `Preview.png` and the `ModIcon.png` were opened on 2026-09-24. Neither shows
 figures in dark clothing in the first, a stylised smiling face in the second. Answer **no adult content**. Re-answer only after
 opening any image added later, because the boxes commit the page.
 
-## Thanks to post, after the item is public
-
-A link to a private item opens for nobody, so post only once it is public. One recipient, under 1000 characters, BBCode
-allowed. The registry (`../WORKSHOP_COMMENTS.md`) is the source of truth for whether a recipient already has a main comment:
-**Phytokin (`2927323805`) was absent, and a `drafted` row was added there on 2026-09-24** that covers this mod. Royalty and
-Ludeon Studios have no page on which a comment can be left for a DLC: `not_applicable`. Claude Code (Anthropic) is a tool,
-not a recipient. The item link is `https://steamcommunity.com/sharedfiles/filedetails/?id=3806709272`.
+## Thanks, posted
 
 **Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, on Vanilla Races Expanded - Phytokin**
-(`https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805`), comment page, rewritten 2026-09-29 in the owner's
-own voice (`../WORKSHOP_COMMENTS.md`, "Voice" — short, dry, playful, one emoticon), 331 characters:
-
-```
-Your anima song ability gave me the idea for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3806709272]Anima Song[/url] :) same effect, any colonist, way weaker reward. Your ability itself untouched — with Phytokin loaded I just borrow its sound and icon by def name, nothing copied. Say the word and that stops too.
-```
+(`https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805`), posted 2026-09-29 (`../WORKSHOP_COMMENTS.md`,
+row now `posted`). Royalty and Ludeon Studios have no page on which a comment can be left for a DLC: `not_applicable`.
 
 The message is not posted; posting to another author's page is the owner's act. When it is, the registry row goes to `posted`
 with the date.

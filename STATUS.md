@@ -18,7 +18,6 @@ tested_on:    2026-09-24, and every published revision through 1.0.2 (git log, G
 workshop:     3806709272
 remaining:
   - open: read the results of the final regression pass filed 2026-09-29 (tickets 9e8d English, d20b French, a0ab Phytokin, on 9824ce7) and record them
-  - open: post the Phytokin thank-you comment (PUBLICATION.md, "Thanks to post") now that the item is public
 session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
 updated:      2026-09-29, no minor version for a description-only edit; 1.0.3/1.0.4 folded into the hand-edited text, no tag/release for either
 ---
@@ -53,4 +52,3 @@ upload; visibility and the gallery stay manual, the owner's.
 ## Still open
 
 - The final regression pass (`9e8d`, `d20b`, `a0ab`).
-- The Phytokin thank-you comment, now that the item is public.

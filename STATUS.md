@@ -14,7 +14,7 @@ licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyri
 upstream_mod_remotes: N/A
 dependencies: declared
 showcase:     complete
-tested_on:    2026-09-24, and every published revision through 1.0.4 (docs/runs/2026-09-27.md, docs/runs/2026-09-29.md)
+tested_on:    2026-09-24, and every published revision through 1.0.4 (git log, GitHub releases)
 workshop:     3806709272
 remaining:
   - open: dispatch the 1.0.4 publish (dry-run green, run 36495696714, SHA f69a75a) so the tag v1.0.4 and GitHub release exist for the description text already live on the Steam page since 2026-09-29
@@ -27,8 +27,8 @@ updated:      2026-09-29, STATUS.md/TESTING.md/PUBLICATION.md trimmed to current
 # Anima Song — status
 
 Every former manual check of `TESTING.md` is now automated and green, or not applicable (table there, "What is
-left of the manual checks"). Full run-by-run history: `docs/runs/2026-09-13.md`, `2026-09-21.md`, `2026-09-23.md`,
-`2026-09-25.md`, `2026-09-26.md`, `2026-09-27.md`, `2026-09-29.md`.
+left of the manual checks"). Run-by-run history through 1.0.4 is in `git log` and the GitHub releases
+(`docs/runs/README.md`); `docs/runs/` starts fresh from here.
 
 ## Publications
 

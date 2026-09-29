@@ -24,8 +24,8 @@ which scenarios below it covers, which it deliberately leaves alone, and why. **
 fourteen scenarios here stay the reference, and the judgements — whether the halo reads, whether the
 French comes out in French — remain a person's.
 
-**What the Pickle suite has played, by scenario, on the c04edcc build (2026-09-23/24):** `docs/runs/2026-09-23.md`.
-Superseded by the table below, current through 2026-09-29. **No pass has run on a new colony**: the fixture is an
+**What the Pickle suite has played, by scenario, on the c04edcc build (2026-09-23/24):** superseded by the table
+below, current through 2026-09-29; the build's own commit history has the detail. **No pass has run on a new colony**: the fixture is an
 existing save.
 
 ## What is left of the manual checks, current through 2026-09-29
@@ -36,12 +36,12 @@ requirement before the `publish` (owner, 2026-09-25). Each former manual check, 
 
 | # | Check | State | Reason or what is left |
 | --- | --- | --- | --- |
-| A | The halo is drawn | **Validated by reading the pictures** | The teal glow shows in the software-rendered game (`docs/runs/`: interface in French, ring and halo capture) and the owner saw it and approved its colour and size (2026-09-25). The mote is alive on every sample at 1x, 3x and 15x, with the glow. The waves of light are visible too, once the capture waits on a mote in flight instead of a blind tick count (run `990d`, `docs/runs/2026-09-27.md`) |
-| B | The song is heard | **Automated, green; owner approved both videos** | The game holds the tree's song among its playing one-shots, under the def the modlist calls for: Royalty's `AnimaTreeLink` (run `1431`) and Phytokin's `VRE_AnimaSongSound` (run `21c9`), each in its own pass (`04-the-song-heard.feature`). That the audio output renders it: `PickleTools/SoundCapture`, in the WSL, both passes, peak -30.8/-30.9 dB against a -60 dB threshold. Both `film-sound.mp4` (Royalty's and Phytokin's) were sent to the owner and approved 2026-09-28 (`docs/runs/2026-09-27.md`) |
+| A | The halo is drawn | **Validated by reading the pictures** | The teal glow shows in the software-rendered game (interface in French, ring and halo capture) and the owner saw it and approved its colour and size (2026-09-25). The mote is alive on every sample at 1x, 3x and 15x, with the glow. The waves of light are visible too, once the capture waits on a mote in flight instead of a blind tick count (`8b4879b`) |
+| B | The song is heard | **Automated, green; owner approved both videos** | The game holds the tree's song among its playing one-shots, under the def the modlist calls for: Royalty's `AnimaTreeLink` and Phytokin's `VRE_AnimaSongSound`, each in its own pass (`04-the-song-heard.feature`). That the audio output renders it: `PickleTools/SoundCapture`, in the WSL, both passes, peak -30.8/-30.9 dB against a -60 dB threshold. Both `film-sound.mp4` (Royalty's and Phytokin's) were sent to the owner and approved 2026-09-28 |
 | C | Phytokin's own ability soothes beside the mod | **Not applicable** | The ability is the Vanilla Expanded team's and this mod patches nothing of it (the def is asserted unpatched, the Phytokin pass is green). What it does when cast is their code, not a claim of this mod |
 | D | Colonists go on their own (`baseChance`) | **Not applicable** | `baseChance` is a die roll of the base game's recreation choice. What is the mod's is automated and green: the recreation giver offers the tree, refuses it when forbidden or roofed, and a sitting builds tolerance |
-| E | Removing the mod from an existing save | **Automated, green** (with the mod's own condition, see 14) | What a save holds of the mod is what it says it stores (run `33c5`, `docs/runs/2026-09-26.md`). The removal itself, run `541a` (`docs/runs/2026-09-27.md`): a `-Filter 06-removal-write -Then removal-check -ThenWithout nelim.animasong,nelim.animasong.pickletests` pass, a removal companion in `Tests/Pickle/Removal/Mod` with no dependency on the mod, only on `rimworks.pickle`, that loads the saved game as a fixture. First try (`f0e3`) crashed on every tick because the save held an active listener; the save now drafts the listener first (memory kept, nobody mid-job), and `About.xml` now asks the same of a player. See 14 |
-| F | The French reads well | **Automated, green; capture read** | The texts read back in French equal the resource files, and the inspect text of the tree carries the mod's line (run `f267`, `docs/runs/2026-09-26.md`). The capture shows the French pane, the glow and the listener; the pane still clips the mod's own line below its fold, so the line is asserted from the text, not from the picture |
+| E | Removing the mod from an existing save | **Automated, green** (with the mod's own condition, see 14) | What a save holds of the mod is what it says it stores. The removal itself: a `-Filter 06-removal-write -Then removal-check -ThenWithout nelim.animasong,nelim.animasong.pickletests` pass, a removal companion in `Tests/Pickle/Removal/Mod` with no dependency on the mod, only on `rimworks.pickle`, that loads the saved game as a fixture. First try crashed on every tick because the save held an active listener; the save now drafts the listener first (memory kept, nobody mid-job), and `About.xml` now asks the same of a player (`f9865ca`). See 14 |
+| F | The French reads well | **Automated, green; capture read** | The texts read back in French equal the resource files, and the inspect text of the tree carries the mod's line. The capture shows the French pane, the glow and the listener; the pane still clips the mod's own line below its fold, so the line is asserted from the text, not from the picture |
 | G | A real mouse click | **Not applicable for the click; automated for its result** | A mouse click is the engine's input layer, not the mod's. What the click produces is asked of the game's own menu builder and photographed in its three states (offered, "(cannot hear)", "(listening not allowed here)", `docs/runs/`). The "six already listen" refusal is asserted, not photographed |
 
 **Not a defect, seen in the captures: the anima grass stays at 0 %.** The tree's grass only advances when someone
@@ -290,7 +290,7 @@ screen is the only symptom.
 ## 14. Adding and removing on a live colony
 
 The description promises the mod can be added to an ongoing game freely, and removed from one too as long as nobody
-is actively listening at the time (softened 2026-09-27, `docs/runs/2026-09-27.md`: a save taken mid-job crashes on
+is actively listening at the time (softened 2026-09-27, `f9865ca`: a save taken mid-job crashes on
 every tick once the mod is gone, the game falling back to a base class that does not implement this mod's toils).
 
 1. Add it to a save that never had it. **Pass:** the tree gains its toggle, nothing else changes.

@@ -5,7 +5,7 @@
 #
 # Handoff is DRAFTED before the save, not saved mid-listen: a save taken while a colonist is running the mod's own
 # JobDriver crashes on every tick once the mod (and its JobDriver class) are gone, the base game falling back to
-# Verse.AI.JobDriver for a class it no longer knows (read on 2026-09-27, `docs/runs/2026-09-27.md`). That is the game's
+# Verse.AI.JobDriver for a class it no longer knows (read on 2026-09-27, `f9865ca`). That is the game's
 # own handling of any dropped mod's active job, not something this mod can guard against from outside its own code
 # while it is still loaded; the mod's About.xml says as much: stop a listener before removing the mod, as for any job
 # a removed mod would leave stranded. This scenario tests what the mod answers for: what it leaves in a save once

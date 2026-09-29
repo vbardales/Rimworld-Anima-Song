@@ -2,7 +2,7 @@
 
 This mod is **published** (`STATUS.md`: 1.0.0 through 1.0.4, item public since 2026-09-29). This sheet holds what the
 Workshop page asks for and the repository holds nowhere else, so it can be used at the next update. Full history of how
-it got here: `docs/runs/2026-09-25.md` through `2026-09-29.md`.
+it got here: `git log` and the GitHub releases (`docs/runs/README.md`).
 
 ## How to publish an update
 
@@ -83,7 +83,7 @@ The change note sent to Steam with an upload, under the heading of its version: 
 `### <version>` (`../PUBLISHING.md`, "Publier par la CI"), and the `## [<version>]` section of `CHANGELOG.md` goes into the
 GitHub release. Limit 8000 bytes.
 
-Earlier sent notes (1.0.0–1.0.3): `docs/runs/2026-09-29.md`.
+Earlier sent notes (1.0.0–1.0.3): the tagged commits `v1.0.0`–`v1.0.3` and their GitHub releases.
 
 ### 1.0.4 (dry-run green, not yet dispatched)
 

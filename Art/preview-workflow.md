@@ -5,8 +5,12 @@ available to Node.js and Google Chrome installed. The script starts a temporary 
 server, captures at 896 × 504 after the image and fonts load, verifies platform fonts and
 contrast, saves the final PNG and QA artifacts, then closes the browser and server.
 
-- `Preview.png`: retained illustration without text, copied unchanged from `Preview-source.png`.
+- `Preview.png`: retained illustration without text, copied unchanged from `Preview-source.png`, with the
+  cut-out ModIcon composited into the bottom-left corner (see below). After any regeneration, recopy it to
+  `Art/WorkshopScreenshots/00-preview.png` — the two must stay identical.
 - `preview.html`: HTML/CSS composition; load via a local HTTP server for interactive inspection.
+- `ModIcon-cutout.png` (`cutout-icon.cjs`): `ModIcon-source.png` with its near-black background flood-filled
+  transparent from the border inward. One-off, re-run only if the source icon changes; the output is committed.
 - `preview-layout.json`: exact existing wording, version and composition parameters.
 - `preview-palette.json`: the only source of overlay colours.
 - `preview-qa.json`: fonts, coordinates, byte count and measured contrast results.

@@ -113,14 +113,16 @@ The three come from the Pickle feature `Tests/Pickle/Mod/Pickle/Features/05-work
 Nelim zen meadow studio (run `a32d`, pass `studio`, revision `12e7f67`): an anima tree grown at (154, 98), the studio's own
 colonists (Miel, Flore, Soleil), the game's screenshot mode on for the first image so that no interface shows. Each image
 was opened and qualified by the owner before being committed. They are JPEG, 1920 x 1080, not cropped (converted from the PNG captures with ffmpeg `-q:v 3` on 2026-09-28: the PNGs were 4.6 to 4.9 MB and the Steam gallery refuses images over 2 MB; the JPEGs are about 740 KB, the interface text still sharp): `Art/WorkshopScreenshots/`,
-named `01-…`, `02-…`, `03-…` in the order they go on the page, **and nothing else in that folder**: the folder is uploaded
-as it is and is the `--gallery-dir` of the workflow (`../PUBLISHING.md`, "Images").
+named `01-…`, `02-…`, `03-…` in the order they go on the page after `00-preview.png` (see "The preview image"),
+**and nothing else in that folder**: the folder is uploaded as it is and is the `--gallery-dir` of the workflow
+(`../PUBLISHING.md`, "Images").
 
 Owner's note on the first image: the camera at (154, 98) reads a little wide, not exactly where the three listeners end up
 seated. Zoom in closer next time this scenario is redone; kept as approved for this version.
 
 | # | File | Shows |
 | --- | --- | --- |
+| 0 | `00-preview.png` | Copy of `Preview.png` (`../PUBLISHING.md`, "Images") |
 | 1 | `01-the-tree-singing.jpg` | The tree singing, its halo up, three listeners nearby, no interface |
 | 2 | `02-the-right-click-menu.jpg` | The right-click order on the tree, offered to a selected colonist |
 | 3 | `03-the-tree-selected.jpg` | The tree selected, its **Allow listening** toggle in the gizmo bar, developer mode off |
@@ -132,6 +134,13 @@ colonists seated in a ring and a thin line of light from the trunk to each. It i
 direction, and says so in `AI-GENERATED`. The CI does not send it unless `update_preview` is turned on: **either Virginie turns
 it on for the dispatch, or the image is set by hand on the Steam page.** `Mod/About/ModIcon.png` (the mod list's own icon)
 was opened too.
+
+**The ModIcon rides in the bottom-left corner, tilted +15deg** (owner's rule, 2026-09-29, `../PUBLISHING.md` "Images"):
+`Art/ModIcon-cutout.png` (`Art/cutout-icon.cjs`, flood-filled from the border so only the near-black background goes
+transparent, the mascot's own outline untouched), composited by `Art/preview.html`'s `.icon`, bleeding off the left
+and bottom edges. Bottom-left chosen as the scene's emptiest corner (no listener silhouette there). `cutout-icon.cjs`
+is a one-off, re-run by hand only if the source icon changes; its output is committed. `Art/WorkshopScreenshots/00-preview.png`
+recopied whenever `Preview.png` is regenerated, or the two diverge silently.
 
 ## Content boxes (adult content, violence)
 

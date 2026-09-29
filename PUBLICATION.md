@@ -1,111 +1,26 @@
 # Publication sheet
 
-**Written 2026-09-24, fail-fast policy added 2026-09-25. The mod is at `done`; the stage is not `tested` yet (`STATUS.md`). The Workshop item exists
-(`3806709272`, created by the 0.1.0 prepublication of 2026-09-23, private as Steam creates them) and
-`Mod/About/PublishedFileId.txt` is committed (`25751bc`). What is still ahead: the items below marked TO DO, the manual
-checks that lead to `tested`, the upload of 1.0.0 by the CI, the switch to public, and the one thanks.**
-This sheet holds what the Workshop page asks for and the repository holds nowhere else, so that it can be used again at
-the next update and by whoever picks the mod up.
+This mod is **published** (`STATUS.md`: 1.0.0 through 1.0.4, item public since 2026-09-29). This sheet holds what the
+Workshop page asks for and the repository holds nowhere else, so it can be used at the next update. Full history of how
+it got here: `docs/runs/2026-09-25.md` through `2026-09-29.md`.
 
-This is an **update of an existing item**, not a first creation (`../PUBLISHING.md`, "Publier par la CI", and
-`Rimworld-Release-Admin/docs/OPERATIONS.md`). Steam holds what the in-game prepublication sent on 2026-09-23; which commit
-of `Mod/` that was is not recorded, and it certainly predates the halo's last fix (`c04edcc`, 2026-09-24). Version 1.0.0
-therefore uploads a payload that differs from the one on the page: the DLL at least.
+## How to publish an update
 
-## Before the upload
+1. Rebuild (`dotnet build Source/AnimaSong.csproj -c Release`), commit, push. Any `Mod/` change (including the
+   generated `<description>`, via `node .github/scripts/sync-about-description.mjs --write`) needs a fresh dry-run.
+2. `gh workflow run publish-tag.yml -f mode=dry-run -f ref=<SHA> -f version=<x.y.z> [-f update_description=true]`; read
+   the log, not only the tick (staged files, change note, description if sent, `DRY RUN: nothing was sent to Steam`).
+3. `Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song publish-tag.yml <SHA> <version>
+   [--description]`; refuses without a green dry-run of that exact SHA. **Only Virginie approves `steam-production`.**
+4. After a successful upload the CI creates the tag and GitHub release; the gallery and visibility stay manual, hers.
+5. Record the run ids, SHA and what SteamCMD said in `STATUS.md`.
 
-- **Repository.** Working tree clean and pushed, and the distributed DLL matches the sources: rebuild
-  `dotnet build Source/AnimaSong.csproj -c Release` and compare the SHA256 of `Mod/Assemblies/AnimaSong.dll` with the
-  committed one. Rebuilt on 2026-09-25 at `43f9092`: identical, SHA256 `4A61285D…65E4` (built from `Source/`, glow included).
-- **Publication policy: fail fast** (owner, 2026-09-25; `../PUBLISHING.md` "À chaque mise à jour", `../AUDIT.md` step
-  `prepublished -> published`; the model is `../WorkStudio/PUBLICATION.md`). Publish after the dry-run of the exact commit and
-  the owner's approval of `steam-production`, **then** let the Pickle tests still open speak; if one comes back red, roll
-  back and, later, fix. **What fail fast skips is only the wait for the game runs still queued behind other sessions.** It
-  does **not** skip, and both are **indispensable before the publish is launched** (owner, 2026-09-25):
-  1. **the Workshop gallery**: the images of the page are taken, opened and put in `Art/WorkshopScreenshots/` first;
-  2. **the owner's manual validations** of `TESTING.md` (the halo drawn on screen, the song heard, Phytokin's own ability
-     soothing, `baseChance`, removing the mod from a save, the French pane, a real click), their results written in the table
-     of that file and in `STATUS.md`.
-  The item stays private after the upload until the owner switches it to public herself; the gates of the pipeline do not
-  move: dry-run, full SHA, only Virginie approves. **Both are open on 2026-09-25**, so the `publish` of the dry-run of
-  `7ef3894` is not launched.
-- **Rollback target, chosen with the owner on 2026-09-25: switch the item back to private.** There is no earlier good
-  version to publish again (`v1.0.0` will be the first tag, and the item holds only the 0.1.0 prepublication content, which
-  predates the halo fixes), so a red result on the published 1.0.0 is answered by **hiding it, not by uploading an older
-  build**: the owner sets the item's visibility back to private by hand on the Steam page (RimWorld and the CI never call
-  `SetItemVisibility`, so neither can do it), a session records the red result as a defect of 1.0.0 in `STATUS.md` and
-  `docs/runs/`, and the fix is a later publication of its own, made public again only once its tests are green. Nothing
-  reaches players while the item is private, which is why this is enough for a first version. Once 1.0.0 is uploaded and
-  tagged, **its tag is the rollback target of the next update**, and this choice is made again then.
-- **Still open after the publication**, to run right after it in small tickets (the only part fail fast lets wait): a final
-  full pass on the published commit (English, French, Phytokin; the last full runs predate the glow and the right-click
-  scenario). Already green on the build with the glow: the halo scenarios (3 of 3, 2026-09-25), the tree's interface in
-  French, the ring and halo capture, the right-click menu in its three states.
-- **CHANGELOG.** `## [1.0.0] — 2026-09-25`, dated (the dry-run needs it): the release notes of the GitHub release are that
-  section. The tag `v1.0.0` and the release are created **by the CI after a successful upload**, on the exact SHA it
-  uploaded, never by hand.
-- **The workflow, written 2026-09-25, is what dispatches.** It comes from
-  `Rimworld-Release-Admin/scripts/generate-publish-workflow.sh` (the single source), run from the mod repository with
-  `--workshop-id 3806709272 --package-id nelim.animasong --release-title "Anima Song {version}" --require Assemblies/AnimaSong.dll --gallery-dir Art/WorkshopScreenshots`
-  (the DLL sits at the root of `Mod/`, no `1.6/` folder; the gallery folder does not exist yet and only lists images in the
-  dry-run as a reminder). It wrote `.github/workflows/publish-tag.yml`, `script-tests.yml`, `.github/scripts`,
-  `.github/tests` and `publish.config.json`; its 49 tests pass locally (`node --test .github/tests/*.test.mjs`). The GitHub
-  environment `steam-production` exists with a reviewer and the two secrets (`STEAM_USERNAME`, `STEAM_CONFIG_VDF_B64`),
-  read-only check of 2026-09-25. Once it is on `main`: `dry-run` first, on the exact commit, its log read for the
-  `publish template:` and `options:` lines; the run id and the SHA go into `STATUS.md`. `publish` takes the full
-  40-character SHA (`Rimworld-Release-Admin/scripts/dispatch-publish.sh vbardales/Rimworld-Anima-Song publish-tag.yml <SHA> 1.0.0`,
-  which refuses without a green dry-run of that SHA); **only Virginie approves `steam-production`**. The dry-run also needs
-  `## [1.0.0]` in `CHANGELOG.md` to be dated, the change note below to be a fenced block under `### 1.0.0`, and no tag
-  `v1.0.0`. **Any commit after the dry-run changes the SHA and needs a new one**: the workflow and the dated CHANGELOG are
-  in the commit that is dry-run, so nothing is left to add before it.
-- **The CI sends `Mod/`** (everything in it: `About`, `Assemblies`, `Defs`, `Languages`, `Patches`, `Royalty`,
-  `LoadFolders.xml`, `ATTRIBUTION.md`, `LICENSE`; there is no `.steamignore` and nothing else to exclude). Its four opt-in
-  inputs, `update_preview`, `update_description`, `update_title`, `update_tags`, are **off by default and left off unless
-  Virginie asks**; visibility is never sent. So the description and the images below stay hand work on the Steam page,
-  unless she turns `update_preview` (the current `Preview.png`) or `update_description` on for that dispatch.
+**The CI sends all of `Mod/`** (`About`, `Assemblies`, `Defs`, `Languages`, `Patches`, `Royalty`, `LoadFolders.xml`,
+`ATTRIBUTION.md`, `LICENSE`; no `.steamignore`). Its four opt-in inputs (`update_preview`, `update_description`,
+`update_title`, `update_tags`) are off by default; visibility is never sent.
 
-## The description: sent once, current text unverified
-
-`SetItemDescription` ran once, with the 0.1.0 prepublication, so what is in `Mod/About/About.xml` is what the page says
-until someone edits it by hand, **if** the page received the layout of today. It was reordered before the prepublication to the
-prepublished layout: the body, `IF I GO QUIET` with the adoption clause verbatim, `AI-GENERATED`, `THANKS`, the pointer to
-`ATTRIBUTION.md` with the licence, and `[url=…]Source code on GitHub[/url]` last. **TO DO: open the public page once the item
-is public and compare it with `About.xml`**; a difference is fixed by hand on the page (an edit of `About.xml` does not reach
-it), and `About.xml` should say the same because it is what the mod list shows in game.
-
-Two claims in it to keep true, rather than change:
-
-- *"the mod can be added to or removed from an ongoing game"*: **softened, 2026-09-27** (ticket `f0e3`,
-  `docs/runs/2026-09-27.md`). A save taken while a colonist is actively running the mod's `JobDriver` crashes on every
-  tick once the mod is removed: the game falls back to `Verse.AI.JobDriver` for a class it no longer knows, and that
-  base class does not implement the toils. That is the game's own handling of any dropped mod's active job, not
-  something this mod can guard against while it is still loaded. `About.xml` now says to stop a listener (draft or
-  reassign) before removing the mod, the same as for any job a removed mod would leave stranded. The removal pass
-  (`Tests/Pickle/Removal/Mod`) now saves with nobody mid-job, and is green (run `541a`, `docs/runs/2026-09-27.md`).
-- *"Royalty is required … Without it the mod loads and adds nothing."* The `MayRequire` gates and the `Royalty/` load folder
-  are read in the sources and the offline suite checks the gating; no pass has run without Royalty (a Pickle pass excludes
-  only what the runner's mod list leaves out, and Royalty is in it).
-
-## The new CI standards: adopted 2026-09-28 (CI/CD setup session, 2026-09-25), dry-run green
-
-Adopted and pushed on 2026-09-28 (`0529c10`): the `## Steam description` block below, `About.xml`'s `<description>` generated
-from it (`sync-about-description.mjs --write`, diff read: headings in normal case, links as Markdown links, nothing else), the
-change note's first line `[b]1.0.0[/b]`, and the workflow regenerated from the current template `4e56bb5a2231` (69 tests pass).
-Dry-run of that exact commit: run `36390961443`, green, log read (`STATUS.md`).
-
-As it was written to do, kept for reference:
-
-- **One source for the Workshop description.** Write it once, in Markdown, in a fenced block (```markdown, no code fence inside)
-  under `## Steam description` of this file; its last line is `[Source code on GitHub](URL)`. The CI converts it to Steam BBCode and
-  generates the plain-text `<description>` of `Mod/About/About.xml` from it, and every dry-run and publish stops if `About.xml`
-  differs. Regenerate the workflow: `generate-publish-workflow.sh <repo> ... --description-markdown PUBLICATION.md
-  --description-heading '^## Steam description$' --about-from-description --replace`, then `node .github/scripts/sync-about-description.mjs`
-  reports the drift and `--write` rewrites only the `<description>` element: **read the diff** (the first write changes the
-  text). Do not edit `.github/` by hand. It changes the SHA: a new dry-run, whose printed description is read by hand (the item
-  is private, so there is no diff against the page).
-- **The change note's first line carries the version**: `[b]1.0.0[/b]` or `[h3]1.0.0[/h3]`, or the CI refuses it. The block below
-  starts with "First release." and has to be given that first line.
-- `dispatch-publish.sh` now refuses without a reviewer and both secret names on `steam-production` (both are there).
+**Rollback target:** switch the item back to private by hand (owner, 2026-09-25); no earlier good version exists to
+republish instead. Once a version is tagged, that tag becomes the rollback target of the next one.
 
 ## Steam description
 
@@ -168,47 +83,13 @@ The change note sent to Steam with an upload, under the heading of its version: 
 `### <version>` (`../PUBLISHING.md`, "Publier par la CI"), and the `## [<version>]` section of `CHANGELOG.md` goes into the
 GitHub release. Limit 8000 bytes.
 
-### 1.0.4
+Earlier sent notes (1.0.0–1.0.3): `docs/runs/2026-09-29.md`.
+
+### 1.0.4 (dry-run green, not yet dispatched)
 
 ```
 [b]1.0.4[/b]
 Workshop page wording only: removed Claude Code from the Thanks section. No code change.
-```
-
-### 1.0.3
-
-```
-[b]1.0.3[/b]
-Workshop page wording only: added Workshop links for Phytokin, Pickle and Nelim's Pickle Tools. No code change.
-```
-
-### 1.0.2
-
-```
-[b]1.0.2[/b]
-Workshop page wording only: rewrote the line on Phytokin's own anima song ability. No code change.
-```
-
-### 1.0.1
-
-```
-[b]1.0.1[/b]
-Fix: the tree's halo could flicker at high game speed if a future game update ever renamed the internal field this mod
-reads to keep it lit between pings; that failure now logs an error instead of silently reappearing. No player-facing
-change otherwise.
-```
-
-### 1.0.0
-
-```
-[b]1.0.0[/b]
-First release. Colonists can walk out to an anima tree, sit in a ring around it and listen to it sing, as a new kind of
-recreation: up to six at once, outdoors, in sight of the trunk. Listening leaves a memory (+3 mood for a day, scaled by
-psychic sensitivity, not stacking). While anyone listens the tree wears a soft teal glow and a pulsing psychic halo and sends a wave of light to
-each listener. Right-click the tree with a colonist selected to send them, or select the tree and use its toggle to forbid
-listening (the ring clears at once). With Vanilla Races Expanded - Phytokin the tree sings their recording and the toggle
-wears their icon; without it, Royalty's. Phytokin's own ability is not touched. Requires Royalty. RimWorld 1.6, English and
-French.
 ```
 
 ## Dependencies and DLC
@@ -282,26 +163,14 @@ Your anima song ability gave me the idea for [url=https://steamcommunity.com/sha
 The message is not posted; posting to another author's page is the owner's act. When it is, the registry row goes to `posted`
 with the date.
 
-## The 1.0.0 goes to production: by the owner, by hand
+## Going to production: done, kept as a checklist for the next mod
 
-Neither the CI nor a session does these (`../PUBLISHING.md`, "Mise en production d'une 1.0.0"), and they are recorded in
-`STATUS.md` (date, and the three points) before the stage is marked `published`:
+By the owner, by hand, neither the CI nor a session (`../PUBLISHING.md`, "Mise en production d'une 1.0.0"): switch
+visibility private → public after subscribing and testing the content received; subscribe to the item's comments;
+"Watch all activity" of the mod and of its parent mods (Phytokin `2927323805`; Royalty has no Workshop page). For the
+GitHub repository: topics `rimworld`, `rimworld-mod`, `mod`, and the social preview image set by hand on the
+repository's Settings page (no API for it). **Done 2026-09-25/29** for this mod; `PublishedFileId.txt` committed
+(`25751bc`), topics set, item public.
 
-1. change the item's visibility, private to public, after subscribing to it and testing the content she receives;
-2. subscribe to the item's comments;
-3. "Watch all activity" of the mod **and of its parent mods**: Vanilla Races Expanded - Phytokin (`2927323805`) and the
-   Royalty page's owner is Ludeon (no Workshop page), so Phytokin.
-
-The same day, for a public repository (`../PUBLISHING.md`, "Topics et image de partage GitHub"): the topics `rimworld`,
-`rimworld-mod` and `mod` (`gh repo edit vbardales/Rimworld-Anima-Song --add-topic rimworld --add-topic rimworld-mod
---add-topic mod`) and the social preview image (`Mod/About/Preview.png`, set on the repository's Settings page: no API
-sets it). **Checked 2026-09-25: the three topics are set, and the page carries a custom `og:image` on `repository-images.githubusercontent.com`; whether it is the current `Preview.png` was not compared.** Then the Phytokin thanks above.
-
-## After the upload, and it cannot be undone
-
-- **`Mod/About/PublishedFileId.txt` is committed and pushed** (done, `25751bc`): lost, the next upload creates a second item.
-- **The item is private** until the owner switches it to public by hand, after subscribing to it and testing the content she
-  receives. RimWorld and the CI never call `SetItemVisibility`.
-- Check the public page (description, change note, images) and record the evidence in `STATUS.md`: a green GitHub release does
-  not prove that Steam is up to date.
-- Record the run ids and SHAs of the dry-run and of the publish in `STATUS.md`, then post the message above.
+**After any upload:** check the public page (description, change note, images) and record it in `STATUS.md` — a
+green GitHub release does not prove Steam is up to date.

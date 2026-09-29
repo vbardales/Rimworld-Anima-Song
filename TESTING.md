@@ -24,34 +24,11 @@ which scenarios below it covers, which it deliberately leaves alone, and why. **
 fourteen scenarios here stay the reference, and the judgements — whether the halo reads, whether the
 French comes out in French — remain a person's.
 
-## What the Pickle suite has played, 2026-09-23 and 09-24
+**What the Pickle suite has played, by scenario, on the c04edcc build (2026-09-23/24):** `docs/runs/2026-09-23.md`.
+Superseded by the table below, current through 2026-09-29. **No pass has run on a new colony**: the fixture is an
+existing save.
 
-Read this before playing anything by hand: it says which of the fourteen scenarios a machine has watched and which
-are still yours. "Played" means the scenario ran in the headless WSL game on the fixture's anima tree and passed, on
-build `c04edcc` (2026-09-24): pass A in English (25 written, 23 passed, 1 skipped, and the memory scenario, a test fault,
-corrected and rerun green), pass A in French (24 passed, 1 skipped) and pass B with Phytokin (25 of 25). It does not mean
-the whole scenario as written below was covered. Details in `docs/runs/`.
-
-| # | Scenario | Pickle | What is left for a person |
-| --- | --- | --- | --- |
-| 1 | The mod loads, and the patch bites | **Played, passed.** The comp is on the spawned tree, its toggle is on the selection, no error logged | A look at the log of a real session |
-| 2 | The right-click order | **Played, passed.** The float menu asked at the tree with the colonist selected offers the order, a drafted colonist gets none, the colonist walks and sits 2 to 5 cells out. Not a real mouse click | The real click; the inspect line by eye |
-| 3 | The song fires once, then holds its tongue | **Played, passed.** The tree's `lastSongTick` stays put for a second listener and moves after 5200 ticks | That the sound is heard (no speakers) |
-| 4 | The song is visible | **Played, passed on build `c04edcc`.** The halo mote is alive on every sample at 1x (150 of 150), 3x (50 of 50) and ultrafast (52 of 52 over 1518 game ticks). Two faults were found and fixed on the way | That the halo is **drawn** on screen: the Linux game renders in software and cannot say |
-| 5 | The ring, and the seventh colonist | **Played, passed:** six on six distinct cells, the seventh refused before walking | Nothing beyond the log |
-| 6 | The toggle | **Played, passed.** Off stands the listeners up at once, refuses the order, shuts the recreation giver too, survives a save and reload | The inspect line by eye |
-| 7 | Who may listen | **Played, passed.** A deaf colonist is refused, a blind one listens | Nothing |
-| 8 | The memory | **Played, passed.** A full sitting leaves it, a short one none, two in a row leave one. The psychic sensitivity scaling is checked offline (test 21) | Nothing |
-| 9 | The colonist who decides on their own | **Played, passed.** The recreation giver finds the tree, gives nothing when forbidden or roofed, a sitting builds tolerance | `baseChance`, how often the base game picks the giver: a die roll, not measured |
-| 10 | Walls and roofs | **Played, passed.** A wall to the north: every listener has the trunk in sight; a roofed tree is not offered | Nothing |
-| 11 | The two soft dependencies | **Played, passed.** Royalty's sound and icon (pass A), Phytokin's (pass B: `VRE_AnimaSongSound` and `UI/Abilities/AnimaSong` resolved), and the scenario that this mod patches nothing of Phytokin's own ability ran green with Phytokin | That the sound is heard; that Phytokin's `VRE_AnimaSong` **soothes** when cast beside the mod |
-| 12 | Saving in the middle | **Played, passed.** A save with three listeners loads clean, the cooldown comes back, the tree sings again | Nothing |
-| 13 | English and French translation | **Played, passed in both:** the ten Keyed entries and the four Def fields read back from the game and compared with the resource files, and all four refusal reasons | The look of the French pane, which clips the mod's own line |
-| 14 | Adding and removing on a live colony | **First half only:** a save that never had the mod gains the toggle, in every run. Removing the mod from a save is a modlist change between two games | The second half |
-
-**No pass was run on a new colony.** The fixture is an existing save.
-
-## What is left of the manual checks, 2026-09-25
+## What is left of the manual checks, current through 2026-09-29
 
 `AUDIT.md` (step 9): no manual test is left to validate when what used to be ticked by hand is **automated and green**, or
 **listed as not applicable with its reason**; reading a `@review` picture is not a manual test. Fail fast keeps this

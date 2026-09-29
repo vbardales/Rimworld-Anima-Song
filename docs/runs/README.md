@@ -29,4 +29,4 @@ Rules kept here:
 
 | File | Covers |
 | --- | --- |
-| — | 2026-09-13 through 2026-09-29: dev, tests, and publishes 1.0.0–1.0.4, all in `git log` and the GitHub releases; item public 2026-09-29. Next dated file starts the next work. |
+| — | 2026-09-13 through 2026-09-29: dev, tests, and publishes 1.0.0–1.0.2, all in `git log` and the GitHub releases; a description-only wording pass went straight onto the Steam page by hand (`CHANGELOG.md`), no version for it; item public 2026-09-29. Next dated file starts the next work. |

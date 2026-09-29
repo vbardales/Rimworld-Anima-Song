@@ -3,19 +3,13 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
-## [1.0.4] — 2026-09-29
+## Workshop page text, 2026-09-29 (no version)
 
-### Changed
+Edited directly on the Steam page, not through the CI: a description-only change is not a minor bump.
 
-- Workshop page wording only: removed Claude Code from the Thanks section (AI tool use stays disclosed in its own
-  AI-generated section). No code change.
-
-## [1.0.3] — 2026-09-28
-
-### Changed
-
-- Workshop page wording only: added Workshop links for Phytokin, Pickle and Nelim's Pickle Tools where they are named
-  (the last two were named but not linked, and were missing entirely from the page's own text). No code change.
+- Added Workshop links for Phytokin, Pickle and Nelim's Pickle Tools where they are named (the last two were named
+  but not linked, and were missing entirely from the page's own text).
+- Removed Claude Code from the Thanks section (AI tool use stays disclosed in its own AI-generated section).
 
 ## [1.0.2] — 2026-09-28
 

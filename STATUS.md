@@ -16,10 +16,9 @@ dependencies: declared
 showcase:     complete
 tested_on:    2026-09-24, and every published revision through 1.0.2 (git log, GitHub releases)
 workshop:     3806709272
-remaining:
-  - open: read the results of ticket a0ab (Phytokin), final regression pass filed 2026-09-29 on 9824ce7; 9e8d (English) and d20b (French) done, both 26/34 passed, 0 failed, 8 skipped (Phytokin/sound/studio/removal scenarios, need their own staged passes, not a regression)
+remaining:    none
 session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
-updated:      2026-09-29, no minor version for a description-only edit; 1.0.3/1.0.4 folded into the hand-edited text, no tag/release for either
+updated:      2026-09-29, final regression pass (9e8d, d20b, a0ab) all green, nothing left open
 ---
 
 # Anima Song — status
@@ -51,4 +50,6 @@ upload; visibility and the gallery stay manual, the owner's.
 
 ## Still open
 
-- The final regression pass (`9e8d`, `d20b`, `a0ab`).
+Nothing. Final regression pass (`9e8d` English, `d20b` French, `a0ab` Phytokin) all green: 26–27/34 passed each,
+0 failed; the 7–8 skips per run are Phytokin/sound/studio/removal scenarios needing their own staged pass, not
+this one, and not a regression.

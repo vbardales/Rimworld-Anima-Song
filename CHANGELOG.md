@@ -3,6 +3,14 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
+## Unreleased
+
+### Fixed
+
+- French: the listening memory's description used "je me suis assis" (masculine only, no gender switch); reworded
+  to "j'ai pris le temps de l'écouter" (TRANSLATIONS.md, "French gender agreement"). Pending Virginie's French
+  review before a version and a dispatch.
+
 ## Workshop page text, 2026-09-29 (no version)
 
 Edited directly on the Steam page, not through the CI: a description-only change is not a minor bump.

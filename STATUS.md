@@ -2,7 +2,7 @@
 localization: complete
 settings_audit: not_applicable
 translation_en: complete
-translation_fr: complete
+translation_fr: partial
 mod:          Anima Song
 packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
@@ -16,9 +16,10 @@ dependencies: declared
 showcase:     complete
 tested_on:    2026-09-24, and every published revision through 1.0.2 (git log, GitHub releases)
 workshop:     3806709272
-remaining:    none
+remaining:
+  - unverified: French review by Virginie (TRANSLATIONS.md, "Systematic French review by Virginie")
 session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
-updated:      2026-09-29, final regression pass (9e8d, d20b, a0ab) all green, nothing left open
+updated:      2026-09-30, French gender-agreement pass redone (TRANSLATIONS.md section 3, new rule); one defect fixed, see Translation audit
 ---
 
 # Anima Song — status
@@ -50,6 +51,23 @@ upload; visibility and the gallery stay manual, the owner's.
 
 ## Still open
 
-Nothing. Final regression pass (`9e8d` English, `d20b` French, `a0ab` Phytokin) all green: 26–27/34 passed each,
-0 failed; the 7–8 skips per run are Phytokin/sound/studio/removal scenarios needing their own staged pass, not
-this one, and not a regression.
+The French review by Virginie (see Translation audit); the regression pass otherwise stands: `9e8d` English,
+`d20b` French, `a0ab` Phytokin, all green, 26–27/34 passed each, 0 failed; the 7–8 skips per run are Phytokin/
+sound/studio/removal scenarios needing their own staged pass, not this one, and not a regression.
+
+## Translation audit
+
+French lives in two files: `Mod/Languages/French/Keyed/AnimaSong.xml` (gizmo, right-click order, its disabled
+reasons, inspect lines) and `Mod/Languages/French/DefInjected/ThoughtDef/AnimaSong.xml` (the listening memory's
+label and description). No grammar/Rules files.
+
+**2026-09-30, session pass (TRANSLATIONS.md section 3, French gender agreement):** every French text read for a
+past participle or adjective agreeing with the pawn. One defect found: the memory description used "je me suis
+assis", masculine only, with no switch. Reworded to "j'ai pris le temps de l'écouter" — no agreement needed,
+reads naturally, meaning kept (English: "I sat and listened"). Everything else is either non-agreeing
+(infinitives, "n'entend pas", "Chante.") or a generic plural ("les colons", "Ceux qui écoutent"), not a
+single-pawn gendered form, so no switch is owed there. `translation_fr` stays `partial`: this session's own
+reading is not the review TRANSLATIONS.md requires.
+
+**Owed:** Virginie's own reading of the two files above, dated line here once done (`translation_fr` moves to
+`complete` only then; a session cannot mark it).

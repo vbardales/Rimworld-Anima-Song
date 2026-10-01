@@ -2,7 +2,7 @@
 localization: complete
 settings_audit: not_applicable
 translation_en: complete
-translation_fr: partial
+translation_fr: complete
 mod:          Anima Song
 packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
@@ -18,12 +18,11 @@ showcase:     complete
 tested_on:    2026-09-29, whole suite in English, French and with Phytokin on the published code (last code change 5967dd2); sound, studio and removal passes 2026-09-26..28, on the build before it
 workshop:     3806709272
 remaining:
-  - unverified: French review by Virginie (TRANSLATIONS.md, "Systematic French review by Virginie")
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
   - defect: `Art/Preview.ico` is missing while `Mod/desktop.ini` points to `..\Art\Preview.ico` (AUDIT.md, local folder icons); a derived local file, the owner regenerates or removes the reference
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
-updated:      2026-10-01, audit pass: AUDIT.md re-applied, evidence trimmed, 0.1.0 entry in CHANGELOG, protocols-read refreshed
+updated:      2026-10-01, French review validated by Virginie (translation_fr complete)
 ---
 
 # Anima Song — status
@@ -73,8 +72,7 @@ reads naturally, meaning kept (English: "I sat and listened"). Everything else i
 single-pawn gendered form, so no switch is owed there. `translation_fr` stays `partial`: this session's own
 reading is not the review TRANSLATIONS.md requires.
 
-**Owed:** Virginie's own reading of the two files above, dated line here once done (`translation_fr` moves to
-`complete` only then; a session cannot mark it).
+**Done 2026-10-01:** Virginie read and validated the two French files (after rewording `AnimaSong_AllowListeningDesc`); `translation_fr` is `complete`.
 
 ## Audit, 2026-10-01 (revision `3cf4884`, working tree: `TRANSLATIONS_REVIEW.md` untracked, now committed)
 

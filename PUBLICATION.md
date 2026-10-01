@@ -168,3 +168,12 @@ repository's Settings page (no API for it). **Done 2026-09-25/29** for this mod;
 
 **After any upload:** check the public page (description, change note, images) and record it in `STATUS.md` — a
 green GitHub release does not prove Steam is up to date.
+
+## Next time the gallery is redone: dress the listeners (owner, 2026-10-01)
+
+The captures show pawns, so `PUBLISHING.md`'s rule on gallery pawn captures applies here too, in this mod's own terms. This mod adds no
+apparel, hair or tattoo, so there is nothing of the mod to make stand out on the pawns themselves. What the pawns do is the **ring**: they
+are what shows that the song draws listeners. Dress and style them in colours that contrast with the tree's teal glow and the green
+meadow (warm or dark clothes, not the default pale ones that sink into the halo), so each of the six seats reads as a person from the
+Workshop thumbnail. Set it in the scenario (`05-workshop-captures.feature`), not by hand, so it survives a redo. Not done for the
+current images, which stay approved as they are (2026-09-28).

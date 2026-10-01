@@ -30,3 +30,10 @@ evidence/
 
 # Textures the game and the tools write; not sources of this mod.
 *.dds
+
+# Pickle evidence kept on disk (AGENTS.md, "Test evidence"); explicit, not only through the lowercase pattern above.
+Tests/Pickle/Evidence/
+
+# Explorer artefacts: Steam uploads Mod/ as-is, so no icon or desktop.ini may live there (Art/*.ico stay outside Mod/).
+Mod/**/*.ico
+Mod/**/desktop.ini

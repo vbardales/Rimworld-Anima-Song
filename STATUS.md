@@ -9,17 +9,21 @@ repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
 stage:        published
+workflow_stage: published
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
 dependencies: declared
 showcase:     complete
-tested_on:    2026-09-24, and every published revision through 1.0.2 (git log, GitHub releases)
+tested_on:    2026-09-29, whole suite in English, French and with Phytokin on the published code (last code change 5967dd2); sound, studio and removal passes 2026-09-26..28, on the build before it
 workshop:     3806709272
 remaining:
   - unverified: French review by Virginie (TRANSLATIONS.md, "Systematic French review by Virginie")
-session:      local_eac16dff-a498-49b5-9ce4-f8e38ba872ef
-updated:      2026-09-30, French gender-agreement pass redone (TRANSLATIONS.md section 3, new rule); one defect fixed, see Translation audit
+  - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
+  - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
+  - defect: `Art/Preview.ico` is missing while `Mod/desktop.ini` points to `..\Art\Preview.ico` (AUDIT.md, local folder icons); a derived local file, the owner regenerates or removes the reference
+session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
+updated:      2026-10-01, audit pass: AUDIT.md re-applied, evidence trimmed, 0.1.0 entry in CHANGELOG, protocols-read refreshed
 ---
 
 # Anima Song — status
@@ -71,3 +75,21 @@ reading is not the review TRANSLATIONS.md requires.
 
 **Owed:** Virginie's own reading of the two files above, dated line here once done (`translation_fr` moves to
 `complete` only then; a session cannot mark it).
+
+## Audit, 2026-10-01 (revision `3cf4884`, working tree: `TRANSLATIONS_REVIEW.md` untracked, now committed)
+
+`published` stands: nothing before it fails. Checked, not taken from the old status:
+
+- **No `@wip`** in `Tests/Pickle/Mod` (the one hit is a comment). **All `@requires` scenarios have run**: Phytokin in the 09-29 Phytokin pass
+  (27/34, its scenario passed); sound (3) 09-27, studio (3) 09-26, removal (1) 09-28, each in its own pass. No manual test left
+  (`TESTING.md`, "What is left of the manual checks"). Two reservations, in `remaining`: those passes predate `5967dd2`, and each sound
+  report holds one expected red.
+- **`.dds`**: none tracked, none ever committed (`git log --all -- '*.dds'` empty), none on disk; `*.dds` already ignored.
+- **Evidence**: none tracked; `Tests/Pickle/Evidence/` ignored explicitly; trimmed from 147 MB to 2 MB, list in `docs/runs/README.md`.
+  No field of this file points to a deleted report.
+- **Upstream**: original mod, no source mod, `upstream_mod_remotes: N/A` stands (no repository to base code on or send PRs to).
+- **Publish id**: `Mod/About/PublishedFileId.txt` = `3806709272`; `CHANGELOG.md` now carries the `[0.1.0]` entry (creation of the publishIdFile,
+  `25751bc`) under 1.0.0.
+- **Local folder icons**: `Art/ModIcon.ico` exists; `Art/Preview.ico` does not while `Mod/desktop.ini` references it (defect above). `Mod/` holds
+  `desktop.ini` untracked and ignored (`Mod/**/desktop.ini`, `Mod/**/*.ico` added), so Steam does not receive it.
+- **Rerun**: `_tools/Run-Functional-Tests.ps1`, 22 passed, 0 failed. **Not rerun**: the game (never launched by this session).

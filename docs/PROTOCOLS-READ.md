@@ -1,46 +1,43 @@
 # Protocols read, and in which version
 
-Written 2026-09-25 by the Anima Song session, on the owner's request, so that a document that has not moved is not read
-again and one that has can be spotted. Version = the last commit that touched the file in its own repository
-(`git log -1 --format='%h %ad' -- <file>`), and whether it had uncommitted changes when read (`git status --short`).
-Read in full unless said otherwise. Re-read a file when its last commit is no longer the one below.
+Refreshed 2026-10-01 (audit pass) by the Anima Song session. Version = last commit that touched the file in its own
+repository (`git log -1 --format='%h %ad' -- <file>`), plus `modified, not committed` when `git status --short -- <file>`
+shows `M`. A file whose version below is unchanged is not read again; one whose last commit differs is.
+
+"Read" means in full, "diff" means only what moved since the version of 2026-09-25 (`git diff <old> <new>`), "skimmed"
+means searched for the rules that touch a published, tested mod.
 
 ## Read, and useful
 
-| File | Version read | What this mod's work took from it |
-| --- | --- | --- |
-| `AGENTS.md` | `90d51374` 2026-09-25, clean | Evidence rules (keep the latest report per scenario for the current revision, `docs/runs/` as one text line per run, never as folders); publish by CI, dry-run of the exact SHA, only the owner approves, tag and release by the CI |
-| `AUDIT.md` | `90d51374` 2026-09-25, clean | The whole chain. Rules that changed what I did: **"test manuel" = what is left to tick by hand must be automated and green, or listed non applicable with its reason** (step 9), not "things the owner plays"; **fail fast**: no red without a green replay, the gallery and the owner's manual validations before the `publish`, the rollback target chosen beforehand; **SoundCapture tests run in the WSL like the others** (the "alone, on Windows" rule was withdrawn the same day, 2026-09-25; I had read it before that and cancelled a request for nothing); **a request carries no SHA, so the mod tree stays frozen until `RUN_DONE` and the SHA goes in `-Label`**; no watcher, no `Monitor`, no cron; session title `<mod> / <stage>` |
-| `PUBLISHING.md` | `90d51374` 2026-09-25, clean | The gallery folder holds only the images to upload, named `01-`, `02-`, ... (and is the `--gallery-dir`); the one-shot items (description, packageId, `PublishedFileId.txt`); the 1.0.0 production steps done by the owner by hand (visibility, comments, "Watch all activity" of the mod and its parents); GitHub topics `rimworld rimworld-mod mod` for a public repository; the `ATTRIBUTION.md` copy in `Mod/` compared by hash; commit messages and comments in English |
-| `TRANSLATIONS.md` | `90d51374` 2026-09-25, clean | The l10n gate and `localization`, `translation_en`, `translation_fr` in `STATUS.md`; the new glow mote adds no text, so nothing to inventory |
-| `STYLE_RIMWORLD.md` | `90d51374` 2026-09-25, clean | Read for the Preview rules; **it says `AnimaSong/About/Preview.png` "a dérivé" (anime-like tree and colonists)**. Not acted on: a Preview is the owner's to regenerate. Also: captures for the Workshop page must be assembled by the scenario, with no dev tools, no debug overlay, no Pickle panel |
-| `PickleTools/docs/steps.md` | `7268217` 2026-09-25 | The tools' step catalogue: SoundCapture (`the game is playing the sound {string}`, `I film with sound as`, `the game volume is {int} percent`), ScreenshotMode (`developer mode is turned off for the capture`), ScreenshotStudio (`I frame the studio`), FilmTicks, InspectTabs |
-| `PickleTools/SoundCapture/README.md` | `1ffef12` 2026-09-25 17:22 | Eleven steps: record the sink, film with sound (`film-sound.mp4`), set the game volume (the WSL profile mutes it), and three that assert what the game itself holds as playing (`the game is playing the sound {string}`); runs in the WSL |
-| `PickleTools/README.md` | `d20db95` 2026-09-25, clean | The table of tools (SoundCapture, ScreenshotStudio, FilmTicks, InspectTabs, ScreenshotMode...); pass maps name a tool with `path:PickleTools/<Tool>/Mod` |
-| `PickleTools/Headless/README.md` | `b2712fc` 2026-09-25, clean | Filter terms, `-DepMap`, `-Then` and **`-ThenWithout`** (a launch that loads a save without the mod that made it: the way to automate "removing the mod from a save", written and not yet seen running), evidence, "nothing is edited while a run is going" |
-| `Rimworld-Release-Admin/docs/OPERATIONS.md` | `2ce34a3` 2026-09-25, clean | Dry-run: read the log, the private item's page is not readable so the description is read by hand; `--gallery-dir`; the environment needs a reviewer and the two secrets; the gallery is manual |
-| `Rimworld-Ticket-Dispatcher/docs/WELCOME.md` | `4130d70` 2026-09-25, **modified, not committed** | One test for a fix, everything for an initial or final pass; the dispatcher wakes the session |
-| `Rimworld-Ticket-Dispatcher/docs/SUBMIT.md` | **no git history** (untracked, `??`) | Every option of `Submit-PickleRun.ps1`, the exit codes (139 is not in the table: the game's own SIGSEGV), `-EvidenceDir` under the mod, no `report.html`/`messages.ndjson` kept |
+| File | Version | How | What it changed for this mod |
+| --- | --- | --- | --- |
+| `AGENTS.md` | `90d51374` 2026-09-25 | read (unchanged since 09-25) | Evidence: keep the latest report per scenario of the current revision; history = one line per run in `docs/runs/`; never delete a report a `STATUS.md` field points to |
+| `AUDIT.md` | `90d51374` 2026-09-25 | read in full | Step 9 `tested` conditions (no `@wip`, every `@requires` scenario ran, no manual test left); step 11 prepublication `0.1.0` and `CHANGELOG`; session title `<packageId sans nelim.> / <workflow_stage>`; evidence on disk, never in git |
+| `PUBLISHING.md` | `90d51374` 2026-09-25 | read (unchanged) | One-shot items, gallery, `PublishedFileId.txt`, topics; commit messages in English |
+| `TRANSLATIONS.md` | `90d51374` 2026-09-25 | read (unchanged) | l10n gate, French gender agreement (section 3), systematic French review by the owner |
+| `MOD_SETTINGS.md` | `90d51374` 2026-09-25 | read (unchanged) | `settings_audit: not_applicable`: no setting, no page, no MainButtons shortcut |
+| `STYLE_RIMWORLD.md` | `90d51374` 2026-09-25 | read (unchanged) | Preview and ModIcon are the owner's to generate; captures for the Workshop page |
+| `WORKSHOP_COMMENTS.md` | `08878789` 2026-09-29 | skimmed (post-publication thank-you comments, already posted 2026-09-29) | Nothing new to write; one comment per recipient, under 1000 characters |
+| `PickleTools/README.md` | `ff20d89` 2026-09-29, **modified, not committed** | skimmed | The tools table (SoundCapture, ScreenshotStudio) already used by the suite |
+| `PickleTools/Headless/README.md` | `ed4e73a` 2026-09-26 | diff from `b2712fc` | Exit 139 is the game's own SIGSEGV; a run's settings stay for the next run of the same mod; **a pass map must end with a newline** (the last line is silently lost otherwise): checked below |
+| `PickleTools/docs/steps.md` | `da7c3b0` 2026-09-28, **modified, not committed** | skimmed | Step catalogue; SoundCapture steps used by `04-the-song-heard.feature` |
+| `Rimworld-Release-Admin/docs/OPERATIONS.md` | `3c03f51` 2026-09-26 | diff from `2ce34a3` | Rewritten around "Rules that never bend": dry-run of the exact SHA, `publish` takes the 40-character SHA, only the owner approves `steam-production`, the CI makes tag and release, `dispatch-publish.sh` refuses without a green dry-run. Nothing to publish this pass |
+| `Rimworld-Ticket-Dispatcher/docs/WELCOME.md` | `77ca9d7` 2026-09-27 | diff from `4130d70` | `path:` of a local mod is the folder holding `About/About.xml`; load order is the staging order; **no `desktop.ini` or `.ico` in `Mod/`** (done in `.gitignore`); a gallery pass must zoom enough; sessions file moved to `.pickle-state\` |
+| `Rimworld-Ticket-Dispatcher/docs/SUBMIT.md` | `d07b2b8` 2026-09-26 | skimmed | Options of `Submit-PickleRun.ps1`, exit codes; no run submitted this pass |
 
 ## Read, not useful for this mod
 
-| File | Version read | Why |
+| File | Version | Why |
 | --- | --- | --- |
-| `scripts/SEARCHING.md` | `90d51374` 2026-09-25, clean | Searching the ten thousand mods of the Workshop corpus: this mod never needed it |
+| `scripts/SEARCHING.md` | `90d51374` 2026-09-25 | Searching the Workshop corpus: this mod never needed it |
 
-## Not found
+## Not applicable to this mod
 
-| File | Note |
-| --- | --- |
-| `Docs/steps.md` | Pickle's own catalogue lives in its repository (GitHub), not here. **PickleTools has its own: `PickleTools/docs/steps.md`** (generated, `7268217` 2026-09-25, 80 steps, one table per tool): read it before writing a step. It shows that my `Anima Song: the game plays the tree's song...` duplicates part of `the game is playing the sound {string}` (SoundCapture); the tool's step is to be used instead (owner, 2026-09-25: "ne réécris pas, utilise l'outil") |
-| `BACKLOG.md`, `NOTES.md`, `BUGS.md` | This mod has none |
+`BACKLOG.md`, `NOTES.md`, `BUGS.md`: this mod has none. `README.md`, `ATTRIBUTION.md` (root and `Mod/` copy, identical by hash),
+`LICENSE` (MIT), `Mod/About/About.xml`, `PUBLICATION.md`, `TESTING.md`, `CHANGELOG.md`, `STATUS.md`, `docs/runs/`, `Tests/Pickle/`: this
+mod's own files, read or written in this audit (see `STATUS.md`, "Audit, 2026-10-01").
 
-## This mod's own files
+## Checked from the diffs
 
-| File | Version | Note |
-| --- | --- | --- |
-| `STATUS.md`, `PUBLICATION.md`, `TESTING.md`, `CHANGELOG.md`, `docs/runs/`, `Tests/Pickle/` | written by this session; last commit of `PUBLICATION.md` and `STATUS.md` `6143398`..`dbb8a16`, then edited on 2026-09-25 (see `git log`) | Not read again: written and re-read during the work |
-| `README.md` | `a1c3a79`-era, read 2026-09-25 | **Was stale** (never run in game, twenty checks, six defs, the halo maintained by the job alone): corrected on 2026-09-25 |
-| `ATTRIBUTION.md` (root and `Mod/`) | `c2271f8` | Both copies identical, compared by hash |
-| `LICENSE` | `6143398` | MIT |
-| `Mod/About/About.xml` | `6143398` | Description sent once, to compare with the public page once the item is public |
+- Pass maps end with a newline: see the last byte of each of the six `Tests/Pickle/wsl-deps*.map` is `0a` (checked 2026-10-01).
+- `Mod/` tracks no `desktop.ini` or `.ico` (the local `Mod/desktop.ini` is ignored).

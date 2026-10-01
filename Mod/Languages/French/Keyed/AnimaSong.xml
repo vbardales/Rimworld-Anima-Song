@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <AnimaSong_AllowListening>Autoriser l'écoute</AnimaSong_AllowListening>
-  <AnimaSong_AllowListeningDesc>Autorise les colons à s'asseoir en cercle autour de cet arbre anima pour l'entendre chanter, en loisir.\n\nÀ couper pour les tenir à l'écart — avant un rituel de lien psychique, par exemple, ou si l'arbre pousse dans un endroit dangereux. Ceux qui écoutent déjà s'en vont aussitôt.</AnimaSong_AllowListeningDesc>
+  <AnimaSong_AllowListeningDesc>Autorise les colons à s'asseoir en cercle autour de cet arbre anima et à écouter son chant pour se divertir.\n\nDésactivez cette option pour les tenir à l'écart — avant un rituel de lien psychique, par exemple, ou si l'arbre pousse dans un endroit dangereux. Ceux qui écoutent déjà s'en vont aussitôt.</AnimaSong_AllowListeningDesc>
 
   <AnimaSong_ListenOrder>Écouter le chant de l'arbre anima</AnimaSong_ListenOrder>
   <!-- {0}: the localized reason listening is unavailable. -->

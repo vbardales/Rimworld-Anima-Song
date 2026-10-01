@@ -69,7 +69,7 @@ past participle or adjective agreeing with the pawn. One defect found: the memor
 assis", masculine only, with no switch. Reworded to "j'ai pris le temps de l'écouter" — no agreement needed,
 reads naturally, meaning kept (English: "I sat and listened"). Everything else is either non-agreeing
 (infinitives, "n'entend pas", "Chante.") or a generic plural ("les colons", "Ceux qui écoutent"), not a
-single-pawn gendered form, so no switch is owed there. `translation_fr` stays `partial`: this session's own
+single-pawn gendered form, so no switch is owed there. `translation_fr` stayed `partial` then: this session's own
 reading is not the review TRANSLATIONS.md requires.
 
 **Done 2026-10-01:** Virginie read and validated the two French files (after rewording `AnimaSong_AllowListeningDesc`); `translation_fr` is `complete`.

@@ -2,7 +2,10 @@
 # screenshot fixture, the Nelim zen meadow studio, frames its open glade, grows an anima tree at (154, 98), and takes the picture.
 # Nothing asserts about an image: a person opens each one, and a passing scenario says only that the route ran.
 #
-# The studio's colonists stand there without clothes, so each one that shows is dressed in a robe first.
+# The studio's colonists stand there without clothes, so each one that shows is dressed in a robe first. The robes are made of
+# materials whose colours stand out from the teal glow and the green meadow (Devilstrand deep red, plain leather brown,
+# Synthread), so each listener reads as a person on the thumbnail (owner, 2026-10-01; PUBLICATION.md). Not played yet: the
+# pictures are to be opened and judged after the next `studio` pass.
 #
 # Owner's note on the first run (2026-09-26, images approved as they stood): "the tree singing" reads a little too wide -
 # the camera at (154, 98) is not exactly where the three listeners end up sitting. Zoom in closer next time this scenario
@@ -25,11 +28,11 @@ Feature: the pictures of the Workshop page
     And Anima Song: an anima tree grows at x=154 z=98
     And game speed is ultrafast
     And I destroy the gear of "Miel"
-    And I dress "Miel" in "Apparel_Robe"
+    And I dress "Miel" in "Apparel_Robe" made of "Devilstrand"
     And I destroy the gear of "Flore"
-    And I dress "Flore" in "Apparel_Robe"
+    And I dress "Flore" in "Apparel_Robe" made of "Leather_Plain"
     And I destroy the gear of "Soleil"
-    And I dress "Soleil" in "Apparel_Robe"
+    And I dress "Soleil" in "Apparel_Robe" made of "Synthread"
     And "Miel" needs "Joy" is set to 10 percent
     And "Flore" needs "Joy" is set to 10 percent
     And "Soleil" needs "Joy" is set to 10 percent
@@ -52,7 +55,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I frame the studio "flowers"
     And Anima Song: an anima tree grows at x=154 z=98
     And I destroy the gear of "Miel"
-    And I dress "Miel" in "Apparel_Robe"
+    And I dress "Miel" in "Apparel_Robe" made of "Devilstrand"
     When I zoom all the way in
     And I move the camera to (154, 98)
     And I wait 60 ticks

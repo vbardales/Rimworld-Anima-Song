@@ -176,4 +176,4 @@ apparel, hair or tattoo, so there is nothing of the mod to make stand out on the
 are what shows that the song draws listeners. Dress and style them in colours that contrast with the tree's teal glow and the green
 meadow (warm or dark clothes, not the default pale ones that sink into the halo), so each of the six seats reads as a person from the
 Workshop thumbnail. Set it in the scenario (`05-workshop-captures.feature`), not by hand, so it survives a redo. Not done for the
-current images, which stay approved as they are (2026-09-28).
+current images, which stay approved as they are (2026-09-28). **Written 2026-10-01, not yet played:** the three robes in `05-workshop-captures.feature` are made of Devilstrand, plain leather and Synthread; no step dyes a garment, so the material gives the colour. Play the `studio` pass, open the pictures, and judge whether the colours hold.

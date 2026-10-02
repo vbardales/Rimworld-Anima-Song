@@ -11,6 +11,14 @@
 # the camera at (154, 98) is not exactly where the three listeners end up sitting. Zoom in closer next time this scenario
 # is redone.
 #
+# The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet evening in the
+# meadow, three friends have come out to the anima tree after work, a torch lamp lit beside them and daylilies at their feet. One
+# common set (the studio meadow, the tree, the lamp); the subjects are chosen, not random: three different bodies, robes of three
+# materials that stand out from the teal glow and the green (Devilstrand, leather, Synthread). Each scenario loads the fixture again,
+# so the set is laid down, photographed and gone before the next picture. Hair is left alone: this mod adds no hairstyle, and no
+# step sets a hair colour. No tattoo: none would mean anything here. Pictures 2 and 3 are menus and a selected tree with its
+# interface: screenshots of what they are, not staged.
+#
 # 1 the tree singing, with its glow and its listeners, no interface (the game's screenshot mode on)
 # 2 the right-click menu that offers the order, the interface kept
 # 3 the tree selected with its toggle, developer mode off, the interface kept
@@ -26,6 +34,12 @@ Feature: the pictures of the Workshop page
     Given the save "nelim-zen-meadow-studio" is loaded
     And Nelim's Pickle Tools: I frame the studio "flowers"
     And Anima Song: an anima tree grows at x=154 z=98
+    And I spawn a "TorchLamp" at (151, 100)
+    And I spawn a "Plant_Daylily" at (153, 96)
+    And I spawn a "Plant_Daylily" at (156, 96)
+    And Nelim's Pickle Tools: "Miel" body type is Female
+    And Nelim's Pickle Tools: "Flore" body type is Thin
+    And Nelim's Pickle Tools: "Soleil" body type is Male
     And game speed is ultrafast
     And I destroy the gear of "Miel"
     And I dress "Miel" in "Apparel_Robe" made of "Devilstrand"

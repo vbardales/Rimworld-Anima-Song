@@ -6,7 +6,8 @@ plus its HTML and QA artifacts.
 
 - `Preview.png`: retained illustration without text, copied unchanged from `Preview-source.png`.
 - `preview-copy.json`: exact wording, title hierarchy, panel, line-art and ModIcon placement.
-- `echo.png`: final transparent line-art mask, already sized for direct use; no renderer cleanup or fade.
+- `echo.png`: final transparent line-art mask, redrawn from the selected anima tree in
+  `Gallery/3-the-tree-selected.jpg` and already sized for direct use; no renderer cleanup or fade.
 - `ModIcon-cutout.png` (`cutout-icon.cjs`): `ModIcon-source.png` with its near-black background flood-filled
   transparent from the border inward. One-off, re-run only if the source icon changes; the output is committed.
 - `preview-palette.json`: the only source of overlay colours.

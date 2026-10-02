@@ -37,3 +37,6 @@ Tests/Pickle/Evidence/
 # Explorer artefacts: Steam uploads Mod/ as-is, so no icon or desktop.ini may live there (Art/*.ico stay outside Mod/).
 Mod/**/*.ico
 Mod/**/desktop.ini
+
+# Reproducible Preview diagnostics generated locally by the shared renderer.
+Art/.render/

@@ -2,14 +2,19 @@
   "title": "Anima Song",
   "titleSize": 46,
   "titleParts": [
-    { "text": "Anima Song", "scale": 1 }
+    {
+      "text": "Anima Song",
+      "scale": 1
+    }
   ],
   "suffix": "",
   "tag": "",
-  "copyLines": ["Colonists listen to the anima tree sing, as recreation."],
+  "copyLines": [
+    "Colonists listen to the anima tree sing, as recreation."
+  ],
   "layout": "panel",
   "panelAnchor": "top-left",
-  "backgroundFile": "Preview.png",
+  "backgroundFile": "Preview-source.png",
   "backgroundPosition": "center",
   "backgroundSize": "cover",
   "echo": {
@@ -26,7 +31,7 @@
     "flipX": true
   },
   "iconBadge": {
-    "file": "ModIcon-cutout.png",
+    "file": "ModIcon-source.png",
     "corner": "bottom-left",
     "width": 220,
     "outline": false,
@@ -34,5 +39,12 @@
     "veilSize": 275,
     "veilLeft": -55,
     "veilBottom": -61
+  },
+  "palette": {
+    "veil": "#171C26",
+    "inkPrimary": "#F2ECE1",
+    "inkSecondary": "#9BBBEF",
+    "accent": "#AD78FF",
+    "badgeInk": "#17120E"
   }
 }

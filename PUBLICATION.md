@@ -112,7 +112,7 @@ Steam shows the first one large: put the most demonstrative there, not the prett
 The three come from the Pickle feature `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`, played on PickleTools'
 Nelim zen meadow studio (run `a32d`, pass `studio`, revision `12e7f67`): an anima tree grown at (154, 98), the studio's own
 colonists (Miel, Flore, Soleil), the game's screenshot mode on for the first image so that no interface shows. Each image
-was opened and qualified by the owner before being committed. They are JPEG, 1920 x 1080, not cropped (converted from the PNG captures with ffmpeg `-q:v 3` on 2026-09-28: the PNGs were 4.6 to 4.9 MB and the Steam gallery refuses images over 2 MB; the JPEGs are about 740 KB, the interface text still sharp): `Art/WorkshopScreenshots/`,
+was opened and qualified by the owner before being committed. They are JPEG, 1920 x 1080, not cropped (converted from the PNG captures with ffmpeg `-q:v 3` on 2026-09-28: the PNGs were 4.6 to 4.9 MB and the Steam gallery refuses images over 2 MB; the JPEGs are about 740 KB, the interface text still sharp): `Art/Gallery/`,
 named `1-…`, `2-…`, `3-…` in the order they go on the page after `0-preview.png` (see "The preview image"),
 **and nothing else in that folder**: the folder is uploaded as it is and is the `--gallery-dir` of the workflow
 (`../PUBLISHING.md`, "Images").
@@ -135,12 +135,7 @@ direction, and says so in `AI-GENERATED`. The CI does not send it unless `update
 it on for the dispatch, or the image is set by hand on the Steam page.** `Mod/About/ModIcon.png` (the mod list's own icon)
 was opened too.
 
-**The ModIcon rides in the bottom-left corner, tilted +15deg** (owner's rule, 2026-09-29, `../PUBLISHING.md` "Images"):
-`Art/ModIcon-cutout.png` (`Art/cutout-icon.cjs`, flood-filled from the border so only the near-black background goes
-transparent, the mascot's own outline untouched), composited by `Art/preview.html`'s `.icon`, bleeding off the left
-and bottom edges. Bottom-left chosen as the scene's emptiest corner (no listener silhouette there). `cutout-icon.cjs`
-is a one-off, re-run by hand only if the source icon changes; its output is committed. `Art/Gallery/0-preview.png`
-recopied whenever `Preview.png` is regenerated, or the two diverge silently.
+**The ModIcon rides in the bottom-left corner** (owner's rule, 2026-09-29, `../PUBLISHING.md` "Images"): the `iconBadge` of `Art/Preview.config.json`, drawn by the shared renderer from `Art/ModIcon-source.png` (see `Art/preview-workflow.md`). Bottom-left was chosen as the scene's emptiest corner (no listener silhouette there). `Art/Gallery/0-preview.png` is recopied whenever `Preview.png` is regenerated, or the two diverge silently.
 
 ## Content boxes (adult content, violence)
 

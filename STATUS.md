@@ -20,7 +20,6 @@ workshop:     3806709272
 remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
-  - defect: `Art/Preview.ico` is missing while `Mod/desktop.ini` points to `..\Art\Preview.ico` (AUDIT.md, local folder icons); a derived local file, the owner regenerates or removes the reference
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
 updated:      2026-10-01, French review validated by Virginie (translation_fr complete)
 ---
@@ -88,7 +87,7 @@ reading is not the review TRANSLATIONS.md requires.
 - **Upstream**: original mod, no source mod, `upstream_mod_remotes: N/A` stands (no repository to base code on or send PRs to).
 - **Publish id**: `Mod/About/PublishedFileId.txt` = `3806709272`; `CHANGELOG.md` now carries the `[0.1.0]` entry (creation of the publishIdFile,
   `25751bc`) under 1.0.0.
-- **Local folder icons**: `Art/ModIcon.ico` exists; `Art/Preview.ico` does not while `Mod/desktop.ini` references it (defect above). `Mod/` holds
+- **Local folder icons**: `Art/ModIcon.ico` exists; `Art/Preview.ico` was missing on 2026-10-01 and was added by the owner on 2026-10-02, so the reference in `Mod/desktop.ini` now resolves. `Mod/` holds
   `desktop.ini` untracked and ignored (`Mod/**/desktop.ini`, `Mod/**/*.ico` added), so Steam does not receive it.
 - **Rerun**: `_tools/Run-Functional-Tests.ps1`, 22 passed, 0 failed. **Not rerun**: the game (never launched by this session).
 

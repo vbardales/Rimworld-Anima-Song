@@ -1,0 +1,11 @@
+# The Workshop gallery pass: the Sanctuaire de Nelim (copy of PickleTools' wsl-deps.sanctuary.map, as AnimalArk keeps it), for
+# `05-workshop-captures.feature` (PickleTools/docs/GALERIE.md). Anima Song is the mod under test; the Sanctuaire carries no content mod.
+#
+#   Submit-PickleRun.ps1 -Mod AnimaSong -DepMap wsl-deps.sanctuary.map -Filter 05-workshop-captures
+#
+# NOT before the "fixture prête" message of the Pickle Tools session (the final fixture is not installed yet, 2026-10-05).
+nelim.pickletools.screenshotstudio path:PickleTools/ScreenshotStudio/Mod
+nelim.pickletools.camerazoom path:PickleTools/CameraZoom/Mod
+nelim.pickletools.stagedecor path:PickleTools/StageDecor/Mod
+nelim.pickletools.clearscreen path:PickleTools/ClearScreen/Mod
+nelim.pickletools.screenshotmode path:PickleTools/ScreenshotMode/Mod

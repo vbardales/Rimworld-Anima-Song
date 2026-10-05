@@ -99,3 +99,7 @@ Copy, typography, layout and palette are consolidated in `Art/Preview.config.jso
 ## Code review, 2026-10-05
 
 `/code-review` (low effort, one diff pass, no verification) of `Mod/` and `Source/` from `25751bc` (0.1.0) to `1314c4c`: no finding. Diff only, nothing played in game; the Pickle runs of 2026-09-29 remain the in-game proof.
+
+## Art regenerated, 2026-10-05
+
+On the owner's request, after her new `Art/ModIcon-source.png`: `Art/Preview.config.json` gained `"modIconSource"`, `Render-Preview.cjs` wrote `Mod/About/ModIcon.png` (128 x 128, 35 KB) and `Mod/About/Preview.png` (747 KB), `Art/Gallery/0-preview.png` recopied byte for byte, `Art/ModIcon.ico` and `Art/Preview.ico` rebuilt as four-entry PNG icons (16, 32, 48, 256) with the recipe of `STYLE_RIMWORLD.md`. The 35 KB of the ModIcon is above the 20-30 KB the style guide gives; not checked at 32 px by a person. `Mod/` changed (two images), so the next publish needs its own dry-run. `.build/` (old intermediates and run folders, all ignored) deleted from the root.

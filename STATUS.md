@@ -95,3 +95,7 @@ reading is not the review TRANSLATIONS.md requires.
 ## Preview source migration — 2026-10-02
 
 Copy, typography, layout and palette are consolidated in `Art/Preview.config.json`. The canonical inputs are `Art/Preview-source.png`, `Art/echo.png` and `Art/ModIcon-source.png`; the shared renderer writes temporary diagnostics under ignored `Art/.render/`. Existing distributed Preview, gallery and ICO outputs were preserved because they were present and coherent; no render was run for this migration. Superseded JSON files and generated QA intermediates were removed. Nothing published.
+
+## Code review, 2026-10-05
+
+`/code-review` (low effort, one diff pass, no verification) of `Mod/` and `Source/` from `25751bc` (0.1.0) to `1314c4c`: no finding. Diff only, nothing played in game; the Pickle runs of 2026-09-29 remain the in-game proof.

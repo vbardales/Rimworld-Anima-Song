@@ -1,10 +1,10 @@
 # The pictures of the Workshop page, PUBLICATION.md. Played on the shared gallery scene, the Sanctuaire de Nelim (PickleTools/docs/GALERIE.md,
-# docs/SANCTUAIRE-LIEUX.md): `the save "Nelims-tribe" is loaded`, then `I am at the sanctuary "podium"`, the 14 x 14 bare square the mods stage on.
+# docs/SANCTUAIRE-LIEUX.md): `the save "Nelims-tribe" is loaded`, then `I am at the sanctuary "emerald-clearing"`, the 14 x 14 bare square the mods stage on (alias `podium`, `clearing-a`; midday, so no lamp is needed but one is lit for the story).
 # The Sanctuaire has a single colonist, Nelim (the owner); the people of the pictures are made by the scenario. Nothing asserts about an
 # image: a person opens each one, and a passing scenario says only that the route ran.
 #
-# The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon at the podium,
-# three friends have come out to the anima tree, a torch lamp lit beside them and daylilies at their feet. One common set (the podium, the
+# The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon in the emerald clearing,
+# three friends have come out to the anima tree, a torch lamp lit beside them and daylilies at their feet. One common set (the clearing, the
 # tree, the lamp, the lilies, set down by StageDecor and taken away again); the subjects are chosen, not random: three different bodies,
 # robes of three materials that stand out from the teal glow and the bare earth (Devilstrand deep red, plain leather brown, Synthread). Hair is
 # left alone: this mod adds no hairstyle, and no step sets a hair colour. No tattoo: none would mean anything here. Pictures 2 and 3 are
@@ -18,8 +18,8 @@
 #
 # `@requires:nelim.pickletools.screenshotstudio`: only the pass of `-DepMap wsl-deps.sanctuary.map`, in English, plays this feature;
 # every other pass skips it. Aim at it with `-Filter '05-workshop-captures'`. NOT played yet: written 2026-10-05 for the Sanctuaire, whose
-# final fixture was not installed (wait for the Pickle Tools session's "fixture prête"). Positions: the tree at (196, 152), the middle of the podium; the
-# listeners 4 cells out, the lamp and the lilies 7 cells out at the corners, outside the ring (2 to 5 cells) so that they take no seat; the podium is bare
+# final fixture was not installed (wait for the Pickle Tools session's "fixture prête"). Positions: the tree at (196, 152), the middle of the clearing; the
+# listeners 4 cells out, the lamp and the lilies 7 cells out at the corners, outside the ring (2 to 5 cells) so that they take no seat; the clearing is bare
 # earth, not a green meadow. Unchecked until the first run: that the cells 4 out are free, and the def names of the decor.
 @requires:nelim.pickletools.screenshotstudio
 @workshop @review
@@ -28,7 +28,7 @@ Feature: the pictures of the Workshop page
   @timeout:240
   Scenario: the tree singing, with its glow and its listeners
     Given the save "Nelims-tribe" is loaded
-    And Nelim's Pickle Tools: I am at the sanctuary "podium"
+    And Nelim's Pickle Tools: I am at the sanctuary "emerald-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
     And Anima Song: an anima tree grows at x=196 z=152
@@ -72,7 +72,7 @@ Feature: the pictures of the Workshop page
   @timeout:120
   Scenario: the right-click menu that offers the order
     Given the save "Nelims-tribe" is loaded
-    And Nelim's Pickle Tools: I am at the sanctuary "podium"
+    And Nelim's Pickle Tools: I am at the sanctuary "emerald-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
     And Anima Song: an anima tree grows at x=196 z=152
@@ -91,7 +91,7 @@ Feature: the pictures of the Workshop page
   @timeout:120
   Scenario: the tree selected with its toggle
     Given the save "Nelims-tribe" is loaded
-    And Nelim's Pickle Tools: I am at the sanctuary "podium"
+    And Nelim's Pickle Tools: I am at the sanctuary "emerald-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
     And Anima Song: an anima tree grows at x=196 z=152

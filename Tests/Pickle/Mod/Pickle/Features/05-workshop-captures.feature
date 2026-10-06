@@ -6,7 +6,7 @@
 # The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon in the emerald clearing,
 # three friends have come out to the anima tree, a torch lamp lit beside them and daylilies at their feet. One common set (the clearing, the
 # tree, the lamp, the lilies, set down by StageDecor and taken away again); the subjects are chosen, not random: three different bodies,
-# robes of three materials that stand out from the teal glow and the bare earth (Devilstrand deep red, plain leather brown, Synthread). Hair is
+# robes of three materials that stand out from the teal glow and the bare earth (DevilstrandCloth deep red, plain leather brown, Synthread). Hair is
 # left alone: this mod adds no hairstyle, and no step sets a hair colour. No tattoo: none would mean anything here. Pictures 2 and 3 are
 # menus and a selected tree with its interface: screenshots of what they are, not staged.
 #
@@ -47,7 +47,7 @@ Feature: the pictures of the Workshop page
     And Anima Song: "Soleil" stands 4 cells from the tree at x=196 z=152
     And game speed is ultrafast
     And I destroy the gear of "Miel"
-    And I dress "Miel" in "Apparel_Robe" made of "Devilstrand"
+    And I dress "Miel" in "Apparel_Robe" made of "DevilstrandCloth"
     And I destroy the gear of "Flore"
     And I dress "Flore" in "Apparel_Robe" made of "Leather_Plain"
     And I destroy the gear of "Soleil"
@@ -79,7 +79,7 @@ Feature: the pictures of the Workshop page
     And a colonist "Miel" exists
     And Anima Song: "Miel" stands 4 cells from the tree at x=196 z=152
     And I destroy the gear of "Miel"
-    And I dress "Miel" in "Apparel_Robe" made of "Devilstrand"
+    And I dress "Miel" in "Apparel_Robe" made of "DevilstrandCloth"
     When I zoom all the way in
     And I move the camera to (196, 152)
     And I wait 60 ticks

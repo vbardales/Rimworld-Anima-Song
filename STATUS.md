@@ -111,3 +111,7 @@ The gallery scenario (`05-workshop-captures.feature`) is rewritten for the share
 ## Gallery place changed, 2026-10-06
 
 First sanctuary runs (`3b38` red on two undefined things, fixed; `bfe0` green): the pictures were read and judged poor, because `emerald-clearing` is a vivid green rug (the teal halo drowns in it) and the camera floor kept the pawns tiny. The scenario now plays on `calm-zone` (cream, about 9 x 9 usable) framed at zoom 7 on the tree, lifted by `I am at the sanctuary`. Written, not played.
+
+## Gallery scene agreed with Pickle Tools, 2026-10-06
+
+`calm-zone` was my own pick and not a scene agreed with them; the scene was defined with the Pickle Tools session: `bare-clearing` (the podium square without its green rug, centre (195, 152), brown earth, no smiley, animals removed by a step). The scenario now plays there at zoom 5, tree at (195, 152). Written, not played on it; coordinates were estimated by them on a capture.

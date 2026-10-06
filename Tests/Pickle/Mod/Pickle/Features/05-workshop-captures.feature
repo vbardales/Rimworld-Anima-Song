@@ -6,7 +6,7 @@
 # The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon at the podium,
 # three friends have come out to the anima tree, a torch lamp lit beside them and daylilies at their feet. One common set (the podium, the
 # tree, the lamp, the lilies, set down by StageDecor and taken away again); the subjects are chosen, not random: three different bodies,
-# robes of three materials that stand out from the teal glow and the green (Devilstrand deep red, plain leather brown, Synthread). Hair is
+# robes of three materials that stand out from the teal glow and the bare earth (Devilstrand deep red, plain leather brown, Synthread). Hair is
 # left alone: this mod adds no hairstyle, and no step sets a hair colour. No tattoo: none would mean anything here. Pictures 2 and 3 are
 # menus and a selected tree with its interface: screenshots of what they are, not staged.
 #
@@ -18,8 +18,9 @@
 #
 # `@requires:nelim.pickletools.screenshotstudio`: only the pass of `-DepMap wsl-deps.sanctuary.map`, in English, plays this feature;
 # every other pass skips it. Aim at it with `-Filter '05-workshop-captures'`. NOT played yet: written 2026-10-05 for the Sanctuaire, whose
-# final fixture was not installed (wait for the Pickle Tools session's "fixture prête"). Positions (the tree at 196, 152; the listeners
-# within the podium x 191-204, z 146-159) and the def names of the decor are unchecked until the first run.
+# final fixture was not installed (wait for the Pickle Tools session's "fixture prête"). Positions: the tree at (196, 152), the middle of the podium; the
+# listeners 4 cells out, the lamp and the lilies 7 cells out at the corners, outside the ring (2 to 5 cells) so that they take no seat; the podium is bare
+# earth, not a green meadow. Unchecked until the first run: that the cells 4 out are free, and the def names of the decor.
 @requires:nelim.pickletools.screenshotstudio
 @workshop @review
 Feature: the pictures of the Workshop page
@@ -31,19 +32,19 @@ Feature: the pictures of the Workshop page
     And I set the hour to 12
     And I set the weather to "Clear"
     And Anima Song: an anima tree grows at x=196 z=152
-    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (193, 149)
-    And Nelim's Pickle Tools: the decor "TorchLamp" at (193, 149) is lit
-    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (194, 154)
-    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (199, 154)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (202, 156)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (202, 156) is lit
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (191, 157)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (201, 147)
     And a colonist "Miel" exists
     And a colonist "Flore" exists
     And a colonist "Soleil" exists
     And Nelim's Pickle Tools: "Miel" body type is Female
     And Nelim's Pickle Tools: "Flore" body type is Thin
     And Nelim's Pickle Tools: "Soleil" body type is Male
-    And Anima Song: "Miel" stands 6 cells from the tree at x=196 z=152
-    And Anima Song: "Flore" stands 6 cells from the tree at x=196 z=152
-    And Anima Song: "Soleil" stands 6 cells from the tree at x=196 z=152
+    And Anima Song: "Miel" stands 4 cells from the tree at x=196 z=152
+    And Anima Song: "Flore" stands 4 cells from the tree at x=196 z=152
+    And Anima Song: "Soleil" stands 4 cells from the tree at x=196 z=152
     And game speed is ultrafast
     And I destroy the gear of "Miel"
     And I dress "Miel" in "Apparel_Robe" made of "Devilstrand"

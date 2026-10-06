@@ -115,3 +115,5 @@ First sanctuary runs (`3b38` red on two undefined things, fixed; `bfe0` green): 
 ## Gallery scene agreed with Pickle Tools, 2026-10-06
 
 `calm-zone` was my own pick and not a scene agreed with them; the scene was defined with the Pickle Tools session: `bare-clearing` (the podium square without its green rug, centre (195, 152), brown earth, no smiley, animals removed by a step). The scenario now plays there at zoom 5, tree at (195, 152). Written, not played on it; coordinates were estimated by them on a capture.
+
+Run `1993` on `bare-clearing` (3 of 3 passed), pictures read 2026-10-06: the halo reads clearly on the brown earth, the torch is lit, the three robes stand out (red, orange, pale blue). Not good yet: the pawns are not seated in a ring (one is about seven cells out), the lilies are not visible, and pictures 2 and 3 carry the whole interface, a "The psychic soothe is ending" message and, on 3, red anima-link lines. Owner paused pawn generations; nothing replayed.

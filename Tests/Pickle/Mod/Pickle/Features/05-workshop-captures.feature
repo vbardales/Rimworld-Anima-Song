@@ -1,5 +1,6 @@
 # Steps of two origins, told apart by their prefix: `Nelim's Sanctuary:` (SanctuaryBacklot: the named places, animals, bare floor, genes) and `Nelim's Pickle Tools:` (PickleTools: decor, camera framing, hair, dyed clothes, body type, hidden overlays, presentation mode); `Anima Song:` steps are this mod's own (Tests/Pickle/Source).
 # The pictures of the Workshop page, PUBLICATION.md. Played on the shared gallery scene, the Sanctuaire de Nelim (SanctuaryBacklot/docs/GALERIE.md,
+# Eyes: Nelim has the brown eyes of EyeGenes3 by default in the fixture (nothing to set); the companions get their own with `has the gene "Eyes_<colour>"`. Faces: no step sets an expression; Facial Animation draws a face from the pawn's current JOB, and it maps none to the listening job, so the faces stay neutral (to be read on the picture).
 # SanctuaryBacklot/docs/SANCTUAIRE-LIEUX.md): `the save "Nelims-tribe" is loaded`, then `I am at the sanctuary "bare-clearing"`, a scene made with the Pickle Tools session for this mod (2026-10-06): the podium square of `emerald-clearing` without its green rug (the floor is bared by the step itself), centre (195, 152), x 191-204, z 147-157 free, brown earth, no roof, no smiley, no black edge; the vanometric pile at x 205 is out of frame at zoom 5. Earlier tries: `emerald-clearing` (the teal halo drowned in the green rug) and `calm-zone` (not a scene agreed with them).
 # The Sanctuaire has a single colonist, Nelim (the owner, the protagonist of the series): she is the first listener of picture 1, with two companions made by the scenario (Flore, Soleil). Her hairstyle, hair colour and robe are set for the picture (the owner agreed, 2026-10-07); her body is left alone. Nothing asserts about an
 # image: a person opens each one, and a passing scenario says only that the route ran.
@@ -44,13 +45,14 @@ Feature: the pictures of the Workshop page
     And Anima Song: "Flore" stands 4 cells from the tree at x=195 z=152
     And Anima Song: "Soleil" stands 4 cells from the tree at x=195 z=152
     And game speed is ultrafast
-    And Nelim's Sanctuary: "Nelim" has the gene "Eyes_Brown"
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Nelim's Sanctuary: "Flore" has the gene "Eyes_Blue"
     And Nelim's Pickle Tools: "Flore" hairstyle is "Mop"
     And Nelim's Pickle Tools: "Flore" hair colour is rgb (235, 235, 230)
     And Nelim's Pickle Tools: "Flore" wears "Apparel_Robe" dyed rgb (235, 180, 50)
+    And Nelim's Sanctuary: "Soleil" has the gene "Eyes_Green"
     And Nelim's Pickle Tools: "Soleil" hairstyle is "Afro"
     And Nelim's Pickle Tools: "Soleil" hair colour is rgb (200, 150, 60)
     And Nelim's Pickle Tools: "Soleil" wears "Apparel_Robe" dyed rgb (240, 235, 215)
@@ -80,7 +82,6 @@ Feature: the pictures of the Workshop page
     And I set the weather to "Clear"
     And Anima Song: an anima tree grows at x=195 z=152
     And Anima Song: "Nelim" stands 4 cells from the tree at x=195 z=152
-    And Nelim's Sanctuary: "Nelim" has the gene "Eyes_Brown"
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)

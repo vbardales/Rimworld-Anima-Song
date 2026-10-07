@@ -6,6 +6,8 @@ it got here: `git log` and the GitHub releases (`docs/runs/README.md`).
 
 ## How to publish an update
 
+**Mode: the CI** (public mod; `../PUBLISHING.md`, "Deux modes de publication"): `publish-tag.yml`, a dry-run of the exact commit, `publish` with the 40-character SHA, `steam-production` approved by Virginie alone.
+
 1. Rebuild (`dotnet build Source/AnimaSong.csproj -c Release`), commit, push. Any `Mod/` change (including the
    generated `<description>`, via `node .github/scripts/sync-about-description.mjs --write`) needs a fresh dry-run.
 2. `gh workflow run publish-tag.yml -f mode=dry-run -f ref=<SHA> -f version=<x.y.z> [-f update_description=true]`; read
@@ -87,6 +89,21 @@ Earlier sent notes (1.0.0–1.0.2): the tagged commits `v1.0.0`–`v1.0.2` and t
 change is not a minor bump**: 2026-09-29's Workshop-link and Thanks-wording edits went straight onto the Steam page
 by hand, no note, no tag (`CHANGELOG.md`, "Workshop page text, 2026-09-29").
 
+Draft for the next upload, `1.0.3` (above the tag `v1.0.2`; `1.0.3` was never published). Not sent: `Mod/` changed (two images and two French
+texts), so a fresh dry-run of the exact commit comes first, and the `## Unreleased` section of `CHANGELOG.md` becomes `## [1.0.3]` when the
+version is chosen.
+
+### 1.0.3
+
+```
+[b]1.0.3[/b]
+
+[list]
+[*] French: the listening memory no longer assumes the colonist is a man, and the "Allow listening" tooltip reads more naturally.
+[*] New ModIcon and a refreshed header image.
+[/list]
+```
+
 ## Dependencies and DLC
 
 Checked in the sources on 2026-09-24, not from intention.
@@ -108,7 +125,7 @@ Checked in the sources on 2026-09-24, not from intention.
 
 ## Captures for the Workshop page
 
-Steam shows the first one large: put the most demonstrative there, not the prettiest. **Taken and approved, 2026-09-27.**
+Steam shows the first one large: put the most demonstrative there, not the prettiest. **The images in `Art/Gallery/` are the ones taken and approved on 2026-09-27; a staged redo is under way (last section), nothing replaced yet.**
 The three come from the Pickle feature `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`, played on PickleTools'
 Nelim zen meadow studio (run `a32d`, pass `studio`, revision `12e7f67`): an anima tree grown at (154, 98), the studio's own
 colonists (Miel, Flore, Soleil), the game's screenshot mode on for the first image so that no interface shows. Each image
@@ -129,18 +146,18 @@ seated. Zoom in closer next time this scenario is redone; kept as approved for t
 
 ## The preview image
 
-`Mod/About/Preview.png` (896 × 504, opened 2026-09-24): the title, its summary, a glowing anima tree at night with six
-colonists seated in a ring and a thin line of light from the trunk to each. It is an image-model illustration under human
-direction, and says so in `AI-GENERATED`. The CI does not send it unless `update_preview` is turned on: **either Virginie turns
-it on for the dispatch, or the image is set by hand on the Steam page.** `Mod/About/ModIcon.png` (the mod list's own icon)
-was opened too.
+`Mod/About/Preview.png` (896 × 504, regenerated 2026-10-05, opened 2026-10-07): the title, its summary, a glowing anima tree at night
+with five colonists seated in a ring and a thin line of light from the trunk to each, and the ModIcon (a winking orange face) in the
+bottom-left corner. It is an image-model illustration under human direction, and says so in `AI-GENERATED`. The CI does not send it
+unless `update_preview` is turned on: **either Virginie turns it on for the dispatch, or the image is set by hand on the Steam page.**
+`Mod/About/ModIcon.png` (128 × 128, the mod list's own icon, regenerated from the owner's new `Art/ModIcon-source.png`) was opened too.
 
 **The ModIcon rides in the bottom-left corner** (owner's rule, 2026-09-29, `../PUBLISHING.md` "Images"): the `iconBadge` of `Art/Preview.config.json`, drawn by the shared renderer from `Art/ModIcon-source.png` (see `Art/preview-workflow.md`). Bottom-left was chosen as the scene's emptiest corner (no listener silhouette there). `Art/Gallery/0-preview.png` is recopied whenever `Preview.png` is regenerated, or the two diverge silently.
 
 ## Content boxes (adult content, violence)
 
-The `Preview.png` and the `ModIcon.png` were opened on 2026-09-24. Neither shows nudity, gore or anything sexual: seated
-figures in dark clothing in the first, a stylised smiling face in the second. Answer **no adult content**. Re-answer only after
+The `Preview.png` and the `ModIcon.png` were opened again on 2026-10-07 (both regenerated 2026-10-05). Neither shows nudity, gore or anything sexual: seated
+figures in dark silhouette in the first, a stylised winking face in the second. Answer **no adult content**. Re-answer only after
 opening any image added later, because the boxes commit the page.
 
 ## Thanks, posted
@@ -148,9 +165,6 @@ opening any image added later, because the boxes commit the page.
 **Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, on Vanilla Races Expanded - Phytokin**
 (`https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805`), posted 2026-09-29 (`../WORKSHOP_COMMENTS.md`,
 row now `posted`). Royalty and Ludeon Studios have no page on which a comment can be left for a DLC: `not_applicable`.
-
-The message is not posted; posting to another author's page is the owner's act. When it is, the registry row goes to `posted`
-with the date.
 
 ## Going to production: done, kept as a checklist for the next mod
 
@@ -164,11 +178,20 @@ repository's Settings page (no API for it). **Done 2026-09-25/29** for this mod;
 **After any upload:** check the public page (description, change note, images) and record it in `STATUS.md` — a
 green GitHub release does not prove Steam is up to date.
 
-## Next time the gallery is redone: dress the listeners (owner, 2026-10-01)
+## The gallery, redone as staged photographs (owner, 2026-10-01/02, in progress)
 
-The captures show pawns, so `PUBLISHING.md`'s rule on gallery pawn captures applies here too, in this mod's own terms. This mod adds no
-apparel, hair or tattoo, so there is nothing of the mod to make stand out on the pawns themselves. What the pawns do is the **ring**: they
-are what shows that the song draws listeners. Dress and style them in colours that contrast with the tree's teal glow and the green
-meadow (warm or dark clothes, not the default pale ones that sink into the halo), so each of the six seats reads as a person from the
-Workshop thumbnail. Set it in the scenario (`05-workshop-captures.feature`), not by hand, so it survives a redo. Not done for the
-current images, which stay approved as they are (2026-09-28). **Written 2026-10-01, not yet played:** the three robes in `05-workshop-captures.feature` are made of Devilstrand, plain leather and Synthread; no step dyes a garment, so the material gives the colour. **Rule of 2026-10-02 (`PUBLISHING.md`): a gallery picture is a staged photograph, menus excepted.** Picture 1 now has a story (a quiet evening, three friends at the tree), a common set (a torch lamp, two daylilies) and chosen subjects (three body types). Hair and tattoos stay untouched: the mod adds none and no step sets a hair colour. Pictures 2 and 3 are menus/interface, left as screenshots. The spawn and body-type steps are from Pickle and `PickleTools/ColonistRace`, not yet seen running here: a wrong def name (`TorchLamp`, `Plant_Daylily`) would show in the first run. Play the `studio` pass, open the pictures, and judge them.
+`../PUBLISHING.md` (rule of 2026-10-02): every gallery picture is a staged photograph, **except the menus**; no default settings, a story for the
+series, a common set, chosen subjects. For this mod:
+
+- **Picture 1** (the tree singing) is staged; pictures 2 (the right-click menu) and 3 (the tree selected, with its gizmo) are interface
+  screenshots, not staged.
+- **The scene** is `bare-clearing` of the Sanctuaire de Nelim, defined with the Pickle Tools session on 2026-10-06 (the podium square without its
+  green rug, brown earth, nothing around), after two places tried and dropped: `emerald-clearing` (the teal halo drowned in the green rug) and
+  `calm-zone` (not a scene agreed with them). `-DepMap wsl-deps.sanctuary.map`; the camera is framed on the tree at zoom 5.
+- **The subjects**: the owner's own colonist, Nelim, is the protagonist of the Sanctuaire and the only colonist of the fixture. The scenario
+  still makes three invented pawns (Miel, Flore, Soleil: body type, hairstyle, hair colour, dyed robe, a lit torch and daylilies as set).
+  **Open question to the owner, 2026-10-07:** is Nelim alone or accompanied in picture 1, and may her look (hairstyle, robe) be changed?
+  Until she answers the scenario is not rewritten.
+- **Results so far:** run `1993` (`bare-clearing`, 3 of 3 passed): the halo reads well on the earth; pawns were not seated in a ring and the
+  lilies were not visible. A run with hair and dyed robes (ticket `3f03`) was filed; its pictures are not read.
+- **Nothing is replaced yet**: `Art/Gallery/1-…3-` are the images of 2026-09-27 until the redo is approved by the owner.

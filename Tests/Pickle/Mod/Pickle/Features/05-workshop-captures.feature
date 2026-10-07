@@ -59,11 +59,11 @@ Feature: the pictures of the Workshop page
     And Anima Song: "Soleil" is ordered to listen to the tree at x=195 z=152
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
-    When game speed is normal
     And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    And I wait 120 ticks
+    And I wait 30 ticks
     Then Anima Song: the halo of the tree at x=195 z=152 is alive
+    And Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And I take a screenshot "workshop 1 - the tree singing"
     When Nelim's Pickle Tools: the decor is removed
 
@@ -80,6 +80,9 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
+    And Nelim's Pickle Tools: the alerts are hidden
     And I wait 5 ticks
     And Anima Song: the right-click menu of the tree at x=195 z=152 is open for "Nelim"
     And I wait 30 ticks
@@ -96,6 +99,8 @@ Feature: the pictures of the Workshop page
     And Anima Song: an anima tree grows at x=195 z=152
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Anima Song: I select the tree at x=195 z=152
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
     And Nelim's Pickle Tools: developer mode is turned off for the capture
     And I wait 60 ticks
     Then I take a screenshot "workshop 3 - the tree selected"

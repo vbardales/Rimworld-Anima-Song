@@ -41,3 +41,4 @@ mod's own files, read or written in this audit (see `STATUS.md`, "Audit, 2026-10
 
 - Pass maps end with a newline: see the last byte of each of the six `Tests/Pickle/wsl-deps*.map` is `0a` (checked 2026-10-01).
 - `Mod/` tracks no `desktop.ini` or `.ico` (the local `Mod/desktop.ini` is ignored).
+| `SanctuaryBacklot/docs/GALERIE.md`, `SANCTUAIRE-LIEUX.md`, `steps.md` | `540467e` (repo of 2026-10-07) | read for the gallery scene: prefix `Nelim's Sanctuary:`, places, animals, genes, Nelim has brown eyes (EyeGenes) |

@@ -190,5 +190,5 @@ series, a common set, chosen subjects. For this mod:
   `calm-zone` (not a scene agreed with them). `-DepMap wsl-deps.sanctuary.map`; the camera is framed on the tree at zoom 5.
 - **The subjects** (owner, 2026-10-07: "oui"): Nelim, the owner's own colonist and the protagonist of the Sanctuaire, is the first listener of picture 1, with two invented companions (Flore, Soleil: body type, hairstyle, hair colour, dyed robe), a lit torch and daylilies as set. Nelim's hairstyle, hair colour and robe are set for the picture; her body is left alone. The same Nelim, same look, is the colonist of picture 2.
 - **Results so far:** run `1993` (`bare-clearing`, 3 of 3 passed): the halo reads well on the earth; pawns were not seated in a ring and the
-  lilies were not visible. A run with hair and dyed robes (ticket `3f03`) was filed; its pictures are not read.
+  lilies were not visible. A run with hair and dyed robes (ticket `3f03`, still queued when Nelim became the protagonist: it plays the tree as it is when its turn comes, so it shows Nelim) was filed; its pictures are not read.
 - **Nothing is replaced yet**: `Art/Gallery/1-…3-` are the images of 2026-09-27 until the redo is approved by the owner.

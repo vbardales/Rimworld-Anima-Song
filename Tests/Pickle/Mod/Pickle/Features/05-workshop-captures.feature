@@ -6,8 +6,8 @@
 # The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon in the emerald clearing,
 # three friends have come out to the anima tree, a torch lamp lit beside them and daylilies at their feet. One common set (the clearing, the
 # tree, the lamp, the lilies, set down by StageDecor and taken away again); the subjects are chosen, not random: three different bodies,
-# robes of three materials that stand out from the teal glow and the bare earth (DevilstrandCloth deep red, plain leather brown, Synthread). Hair is
-# left alone: this mod adds no hairstyle, and no step sets a hair colour. No tattoo: none would mean anything here. Pictures 2 and 3 are
+# robes dyed in three colours that stand out from the teal glow and the brown earth (plum, saffron, ivory), each with its own hairstyle and hair colour. Pawns are set with the steps of PickleTools ColonistRace (hairstyle, hair colour, dyed clothes, body type, TMW 2026-10-07). No tattoo: none would mean anything here.
+# Pictures 2 and 3 are
 # menus and a selected tree with its interface: screenshots of what they are, not staged.
 #
 # 1 the tree singing, with its glow and its listeners, no interface (the game's screenshot mode on)
@@ -44,12 +44,15 @@ Feature: the pictures of the Workshop page
     And Anima Song: "Flore" stands 4 cells from the tree at x=195 z=152
     And Anima Song: "Soleil" stands 4 cells from the tree at x=195 z=152
     And game speed is ultrafast
-    And I destroy the gear of "Miel"
-    And I dress "Miel" in "Apparel_Robe" made of "DevilstrandCloth"
-    And I destroy the gear of "Flore"
-    And I dress "Flore" in "Apparel_Robe" made of "Leather_Plain"
-    And I destroy the gear of "Soleil"
-    And I dress "Soleil" in "Apparel_Robe" made of "Synthread"
+    And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
+    And Nelim's Pickle Tools: "Miel" hair colour is rgb (120, 40, 30)
+    And Nelim's Pickle Tools: "Miel" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Flore" hairstyle is "Mop"
+    And Nelim's Pickle Tools: "Flore" hair colour is rgb (235, 235, 230)
+    And Nelim's Pickle Tools: "Flore" wears "Apparel_Robe" dyed rgb (235, 180, 50)
+    And Nelim's Pickle Tools: "Soleil" hairstyle is "Afro"
+    And Nelim's Pickle Tools: "Soleil" hair colour is rgb (200, 150, 60)
+    And Nelim's Pickle Tools: "Soleil" wears "Apparel_Robe" dyed rgb (240, 235, 215)
     And "Miel" needs "Joy" is set to 10 percent
     And "Flore" needs "Joy" is set to 10 percent
     And "Soleil" needs "Joy" is set to 10 percent
@@ -76,8 +79,9 @@ Feature: the pictures of the Workshop page
     And Anima Song: an anima tree grows at x=195 z=152
     And a colonist "Miel" exists
     And Anima Song: "Miel" stands 4 cells from the tree at x=195 z=152
-    And I destroy the gear of "Miel"
-    And I dress "Miel" in "Apparel_Robe" made of "DevilstrandCloth"
+    And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
+    And Nelim's Pickle Tools: "Miel" hair colour is rgb (120, 40, 30)
+    And Nelim's Pickle Tools: "Miel" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And I wait 5 ticks
     And Anima Song: the right-click menu of the tree at x=195 z=152 is open for "Miel"

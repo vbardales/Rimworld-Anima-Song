@@ -44,4 +44,4 @@ Dropped, each replaced by a later run of the same scenarios: `2026-09-25-song-pl
 `2026-09-26-interface-fr` and `-save-content` (now in `full-fr` and `full-en`), `2026-09-27-removal` (red first tries,
 replaced by 09-28), `2026-09-28-waves` (now in the full runs).
 
-2026-10-06: `pickle-run-2026-10-06-bare-clearing` (ticket 1993, 3 of 3 passed, JPEG 1280 px) replaces the two earlier sanctuary runs, deleted (the first two red on undefined steps, then green on `emerald-clearing` with poor pictures). It is the only proof of the gallery scene agreed with Pickle Tools; the pictures are not yet approved.
+2026-10-06: `pickle-run-2026-10-07-ring` (ticket 1993, 3 of 3 passed, JPEG 1280 px) replaces the two earlier sanctuary runs, deleted (the first two red on undefined steps, then green on `emerald-clearing` with poor pictures). It is the only proof of the gallery scene agreed with Pickle Tools; the pictures are not yet approved.

@@ -1,10 +1,10 @@
 # The pictures of the Workshop page, PUBLICATION.md. Played on the shared gallery scene, the Sanctuaire de Nelim (PickleTools/docs/GALERIE.md,
 # docs/SANCTUAIRE-LIEUX.md): `the save "Nelims-tribe" is loaded`, then `I am at the sanctuary "bare-clearing"`, a scene made with the Pickle Tools session for this mod (2026-10-06): the podium square of `emerald-clearing` without its green rug (the floor is bared by the step itself), centre (195, 152), x 191-204, z 147-157 free, brown earth, no roof, no smiley, no black edge; the vanometric pile at x 205 is out of frame at zoom 5. Earlier tries: `emerald-clearing` (the teal halo drowned in the green rug) and `calm-zone` (not a scene agreed with them).
-# The Sanctuaire has a single colonist, Nelim (the owner); the people of the pictures are made by the scenario. Nothing asserts about an
+# The Sanctuaire has a single colonist, Nelim (the owner, the protagonist of the series): she is the first listener of picture 1, with two companions made by the scenario (Flore, Soleil). Her hairstyle, hair colour and robe are set for the picture (the owner agreed, 2026-10-07); her body is left alone. Nothing asserts about an
 # image: a person opens each one, and a passing scenario says only that the route ran.
 #
-# The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon in the emerald clearing,
-# three friends have come out to the anima tree, a torch lamp lit beside them and daylilies at their feet. One common set (the clearing, the
+# The series is a staged photograph, except the menus (PUBLISHING.md, rule of 2026-10-02). Its little story: a quiet noon in the clearing,
+# Nelim has come out to the anima tree with two friends, a torch lamp lit beside them and daylilies at their feet. One common set (the clearing, the
 # tree, the lamp, the lilies, set down by StageDecor and taken away again); the subjects are chosen, not random: three different bodies,
 # robes dyed in three colours that stand out from the teal glow and the brown earth (plum, saffron, ivory), each with its own hairstyle and hair colour. Pawns are set with the steps of PickleTools ColonistRace (hairstyle, hair colour, dyed clothes, body type, TMW 2026-10-07). No tattoo: none would mean anything here.
 # Pictures 2 and 3 are
@@ -34,29 +34,27 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (191, 156)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 148)
-    And a colonist "Miel" exists
     And a colonist "Flore" exists
     And a colonist "Soleil" exists
-    And Nelim's Pickle Tools: "Miel" body type is Female
     And Nelim's Pickle Tools: "Flore" body type is Thin
     And Nelim's Pickle Tools: "Soleil" body type is Male
-    And Anima Song: "Miel" stands 4 cells from the tree at x=195 z=152
+    And Anima Song: "Nelim" stands 4 cells from the tree at x=195 z=152
     And Anima Song: "Flore" stands 4 cells from the tree at x=195 z=152
     And Anima Song: "Soleil" stands 4 cells from the tree at x=195 z=152
     And game speed is ultrafast
-    And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Miel" hair colour is rgb (120, 40, 30)
-    And Nelim's Pickle Tools: "Miel" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Flore" hairstyle is "Mop"
     And Nelim's Pickle Tools: "Flore" hair colour is rgb (235, 235, 230)
     And Nelim's Pickle Tools: "Flore" wears "Apparel_Robe" dyed rgb (235, 180, 50)
     And Nelim's Pickle Tools: "Soleil" hairstyle is "Afro"
     And Nelim's Pickle Tools: "Soleil" hair colour is rgb (200, 150, 60)
     And Nelim's Pickle Tools: "Soleil" wears "Apparel_Robe" dyed rgb (240, 235, 215)
-    And "Miel" needs "Joy" is set to 10 percent
+    And "Nelim" needs "Joy" is set to 10 percent
     And "Flore" needs "Joy" is set to 10 percent
     And "Soleil" needs "Joy" is set to 10 percent
-    When Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152
+    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152
     And Anima Song: "Flore" is ordered to listen to the tree at x=195 z=152
     And Anima Song: "Soleil" is ordered to listen to the tree at x=195 z=152
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
@@ -77,14 +75,13 @@ Feature: the pictures of the Workshop page
     And I set the hour to 12
     And I set the weather to "Clear"
     And Anima Song: an anima tree grows at x=195 z=152
-    And a colonist "Miel" exists
-    And Anima Song: "Miel" stands 4 cells from the tree at x=195 z=152
-    And Nelim's Pickle Tools: "Miel" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Miel" hair colour is rgb (120, 40, 30)
-    And Nelim's Pickle Tools: "Miel" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Anima Song: "Nelim" stands 4 cells from the tree at x=195 z=152
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And I wait 5 ticks
-    And Anima Song: the right-click menu of the tree at x=195 z=152 is open for "Miel"
+    And Anima Song: the right-click menu of the tree at x=195 z=152 is open for "Nelim"
     And I wait 30 ticks
     Then I take a screenshot "workshop 2 - the right-click menu"
     When Anima Song: the right-click menu is closed

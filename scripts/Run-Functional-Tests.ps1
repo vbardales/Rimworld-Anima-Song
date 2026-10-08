@@ -27,7 +27,7 @@
   colonist sits down, no sound plays. TESTING.md holds those, and this file does not replace it.
 
 .EXAMPLE
-  powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1
 #>
 param(
     [string]$Managed  = 'C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed',

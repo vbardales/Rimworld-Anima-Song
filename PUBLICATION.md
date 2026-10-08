@@ -192,3 +192,9 @@ series, a common set, chosen subjects. For this mod:
 - **Results so far:** run `1993` (`bare-clearing`, 3 of 3 passed): the halo reads well on the earth; pawns were not seated in a ring and the
   lilies were not visible. A run with hair and dyed robes (ticket `3f03`, still queued when Nelim became the protagonist: it plays the tree as it is when its turn comes, so it shows Nelim) was filed; its pictures are not read.
 - **Nothing is replaced yet**: `Art/Gallery/1-…3-` are the images of 2026-09-27 until the redo is approved by the owner.
+- **Candidates in the gallery folder (2026-10-08, owner's rule):** `Art/Gallery/1-candidate-the-tree-singing.jpg`, `2-candidate-the-right-click-menu.jpg`
+  and `3-candidate-the-tree-selected.jpg`, taken from run `fc87` (1280 px JPEG, 116 to 133 KB each; the folder weighs 3.3 MB for a limit of 8 MB,
+  each image under the 2 MB limit). They sit beside the approved `1-`, `2-`, `3-` of 2026-09-27 and take their place only when the owner accepts them:
+  an accepted image loses the word `candidate` and replaces the old one, a refused image is deleted. They predate the eye colours, the faces
+  and the Sanctuary minimum list, so a later run replaces them. **The folder is uploaded as it is: no candidate goes to Steam by mistake, so
+  the owner decides before any upload.**

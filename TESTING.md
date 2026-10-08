@@ -7,7 +7,7 @@ as a pass.
 
 It is not shipped: it lives beside `Mod/`, never inside it, so Steam never receives it.
 
-Some of what these scenarios would catch is now caught earlier, without the game. `_tools/Run-Functional-Tests.ps1`
+Some of what these scenarios would catch is now caught earlier, without the game. `scripts/Run-Functional-Tests.ps1`
 checks the hand-offs against the installed game's assembly and def files: the overrides, the patch's
 xpath on the real anima tree def, the six defs looked up by name, the French memory key. Run it
 first — a red line there explains a scenario that would have failed below, and costs seconds rather

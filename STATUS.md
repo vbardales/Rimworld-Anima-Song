@@ -89,7 +89,7 @@ reading is not the review TRANSLATIONS.md requires.
   `25751bc`) under 1.0.0.
 - **Local folder icons**: `Art/ModIcon.ico` exists; `Art/Preview.ico` was missing on 2026-10-01 and was added by the owner on 2026-10-02, so the reference in `Mod/desktop.ini` now resolves. `Mod/` holds
   `desktop.ini` untracked and ignored (`Mod/**/desktop.ini`, `Mod/**/*.ico` added), so Steam does not receive it.
-- **Rerun**: `_tools/Run-Functional-Tests.ps1`, 22 passed, 0 failed. **Not rerun**: the game (never launched by this session).
+- **Rerun**: `scripts/Run-Functional-Tests.ps1`, 22 passed, 0 failed. **Not rerun**: the game (never launched by this session).
 
 
 ## Preview source migration — 2026-10-02
@@ -125,3 +125,7 @@ Run `fc87` (3 of 3 passed), pictures read 2026-10-07, replaces the two earlier g
 ## Sanctuary moved to SanctuaryBacklot, 2026-10-08
 
 The Sanctuaire has its own repository, `SanctuaryBacklot` (`nelim.sanctuarybacklot`, steps prefixed `Nelim's Sanctuary:`). The gallery scenario now takes its places, animal clean-up and genes from it, and its decor, camera, hair, clothes and overlay steps from Nelim's Pickle Tools (`Nelim's Pickle Tools:`); the header of `05-workshop-captures.feature` tells the two apart. `Tests/Pickle/wsl-deps.sanctuary.map` is the Backlot's minimum list (body, trouser and face mods, EyeGenes3) plus `nelim.sanctuarybacklot` and the screenshot mode, with its seeds in `Tests/Pickle/config/sanctuary/`; docs links point to `SanctuaryBacklot/docs/`. Nelim gets her brown eyes with `has the gene "Eyes_Brown"`. `SanctuaryBacklot/Check-Steps.ps1`: all patterns compile, none ambiguous, every Sanctuary line of this feature resolves. Written, not played: the heavier mod list has not been staged for this mod yet.
+
+## Housekeeping, 2026-10-08
+
+`_tools/` moved to `scripts/` (`Run-Functional-Tests.ps1`, 22 passed, 0 failed after the move; README, TESTING and Tests/Pickle/README follow). Root now holds only `.git`, `.gitattributes`, `.github`, `.gitignore`. `Art/.render/` is ignored. Last code review: `1314c4c` (no finding); `Mod/` and `Source/` have changed since only by `Mod/About/ModIcon.png` and `Preview.png`, no code. Three gallery candidates are in `Art/Gallery/` (see PUBLICATION.md).

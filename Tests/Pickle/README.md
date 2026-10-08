@@ -4,7 +4,7 @@ The scenarios of [TESTING.md](../../TESTING.md) that a running game is needed fo
 `Mod/` is a companion mod, **Anima Song - Pickle tests**, never published: it lives beside `Mod/`,
 outside the folder Steam receives.
 
-**Read `_tools/Run-Functional-Tests.ps1` first.** Twenty-one checks against the installed game's own
+**Read `scripts/Run-Functional-Tests.ps1` first.** Twenty-one checks against the installed game's own
 assembly and def files, in a couple of seconds, needing no RimWorld: the overrides, the three claims
 about the base game this design rests on, the patch's xpath run on the real anima tree def, the six
 defs looked up by name, the French memory handle, the Keyed parity. A Pickle run confiscates the
@@ -39,7 +39,7 @@ the mood scaling were left to a person, with reasons that read well. The owner t
 no manual test left to validate - and each of them turned out to have a deterministic form, written in
 `03-the-rest-of-testing-md.feature`: the giver's `TryGiveJob` asked directly instead of waiting on `baseChance`, the
 roof and the wall spawned by a step, the ring walled in for the fourth refusal, and the memory's multiplier checked
-offline as the one field the base game reads (`_tools/Run-Functional-Tests.ps1`, test 21). What stays out, and is
+offline as the one field the base game reads (`scripts/Run-Functional-Tests.ps1`, test 21). What stays out, and is
 said in `TESTING.md` as still to be validated by a person:
 
 - **That the halo is drawn.** The Linux game renders in software, and a distortion shader such as

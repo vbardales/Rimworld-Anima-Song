@@ -90,7 +90,7 @@ machine has played and what is left for a person.
 Beside it sits a suite that needs no game:
 
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1
 ```
 
 Twenty-two checks against the installed game's own assembly and def files, in a couple of seconds.

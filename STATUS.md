@@ -18,6 +18,7 @@ showcase:     complete
 tested_on:    2026-09-29, whole suite in English, French and with Phytokin on the published code (last code change 5967dd2); sound, studio and removal passes 2026-09-26..28, on the build before it
 workshop:     3806709272
 remaining:
+  - defect: user report 2026-10-08 (Workshop comment): with a mod that extracts and replants the anima tree, pawns no longer listen on their own to the replanted tree (the manual order still works). Not reproduced; cause unknown (the joy giver only searches `Plant_TreeAnima`; the replanted tree may be another def, or lose the comp state). Needs the replanting mod staged to reproduce; a fix changes `Source/` or `Mod/Defs`, so a new version and a fresh dry-run
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623

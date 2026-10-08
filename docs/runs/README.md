@@ -51,3 +51,5 @@ replaced by 09-28), `2026-09-28-waves` (now in the full runs).
 2026-10-08: `pickle-run-2026-10-08-ring2` (ticket 08d7, 1 of 1 passed, scenario 1 only, listeners placed on three sides) replaces `2026-10-07-ring` (deleted). The picture shows the faces and eyes, but the three listeners all stand east of the tree and the lilies are small: not a candidate yet (`PUBLICATION.md`).
 
 2026-10-08: `pickle-run-2026-10-08-cool` (ticket 19c9, 3 of 3 passed, map held at 20 degrees, JPEG 1280 px) replaces `-backlot2` and `-ring2` (deleted). No sweat any more ("Outdoors 20C" in the menu picture), but the listeners still do not form a ring: image 1 is not a candidate (`PUBLICATION.md`).
+
+2026-10-08, user report on replanting (Replantable Anima Trees (Continued), `Spuffy.AnimaReplant`): five probe runs (`07-replanted-tree.feature`, ordered by priority 1), folders deleted after reading. The mod's only patch removes `minifiedDef` from `Plant_TreeAnima`. A tree minified then spawned on another cell stays the same object with all its comps, `ListeningAllowed` true, `CanInteractWith` true, mature, reservable, reachable: not reproduced. The real install blueprint path is not played.

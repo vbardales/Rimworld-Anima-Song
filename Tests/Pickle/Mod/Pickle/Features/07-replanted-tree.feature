@@ -13,6 +13,7 @@ Feature: a replanted anima tree
     Then Anima Song: the tree at x=175 z=140 carries the song comp
     # The user report is about colonists going on their own: bored (joy 10 percent), and the only tree they can pick is the replanted one.
     Given Anima Song: every other anima tree than the one at x=175 z=140 forbids listening
+    And Anima Song: the schedule of "Nelim" is joy all day
     And "Nelim" needs "Joy" is set to 10 percent
     And game speed is ultrafast
     When I wait 600 ticks

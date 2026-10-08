@@ -261,6 +261,15 @@ namespace AnimaSong.PickleSteps
             Log.Message($"[AnimaSongProbe] {n} other anima tree(s) forbid listening");
         }
 
+        /// <summary>The colonist's schedule is joy all day long, so that work does not come before a recreation giver (a bored colonist at hour 12 went milking, 63 cells away, on 2026-10-08).</summary>
+        [Given("Anima Song: the schedule of {string} is joy all day")]
+        public void ScheduleJoy(PickleContext ctx, string nickname)
+        {
+            Pawn pawn = Colonist(ctx, nickname);
+            ctx.Assert(pawn.timetable != null, $"{nickname} has no schedule");
+            for (int hour = 0; hour < 24; hour++) pawn.timetable.SetAssignment(hour, TimeAssignmentDefOf.Joy);
+        }
+
         [When("Anima Song: I select the tree at x={int} z={int}")]
         public void SelectTree(PickleContext ctx, int x, int z)
         {

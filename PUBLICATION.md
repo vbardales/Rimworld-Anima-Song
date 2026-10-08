@@ -199,3 +199,5 @@ series, a common set, chosen subjects. For this mod:
 - **Run `19c9` (2026-10-08, map held at 20 degrees, evidence `pickle-run-2026-10-08-cool`)**: sweat and blush gone; the interface reads "Outdoors 20C". The listeners still do not seat around the tree (two stacked north of it, one east): image 1 not a candidate. Open: forcing the listening cells and the seated pose (Pickle Tools). The accepted image 2 (40C in its corner) could be replaced by this run's 20C menu picture if the owner wants.
 
 - **Image 2 replaced (owner, 2026-10-08)**: `2-the-right-click-menu.jpg` is now the 20C menu picture of run `19c9` (no one in the frame), a 1280 px JPEG copy of the capture (the 1920 px PNG had already been trimmed). Redo from the scenario if a full-size one is wanted.
+
+- **At the publish (owner, 2026-10-08): send the preview image again.** The 1.0.x dispatch carries `update_preview=true` (`dispatch-publish.sh … --preview`; the dry-run `37768907181` ran with it), so `Mod/About/Preview.png` replaces the header image on the Steam page. The gallery stays a manual upload; the description is not sent (no change).

@@ -203,9 +203,27 @@ namespace AnimaSong.PickleSteps
             Thing inner = minified.InnerThing;
             Log.Message($"[AnimaSongProbe] minified={minified.GetType().Name} inner={inner?.GetType().Name} innerDef={inner?.def.defName}");
             IntVec3 cell = new IntVec3(toX, 0, toZ);
-            minified.DeSpawn();
+            if (minified.Spawned) minified.DeSpawn();
             Thing spawned = GenSpawn.Spawn(inner, cell, map);
             Log.Message($"[AnimaSongProbe] after: def={spawned.def.defName} sameThing={ReferenceEquals(spawned, tree)} comps={string.Join(",", ((ThingWithComps)spawned).AllComps.Select(c => c.GetType().Name))} listerThings={map.listerThings.ThingsOfDef(spawned.def).Count} faction={spawned.Faction?.Name} ListeningAllowed={spawned.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
+        }
+
+        /// <summary>Diagnostic: writes the text files of an active mod to the log (what its patches do), capped per file.</summary>
+        [When("Anima Song: the text files of the mod {string} are logged")]
+        public void LogModFiles(PickleContext ctx, string packageId)
+        {
+            ModMetaData meta = ModLister.AllInstalledMods.FirstOrDefault(m => string.Equals(m.PackageIdNonUnique, packageId, StringComparison.OrdinalIgnoreCase) || string.Equals(m.PackageId, packageId, StringComparison.OrdinalIgnoreCase));
+            ctx.Assert(meta != null, $"no installed mod {packageId}");
+            string root = meta.RootDir.FullName;
+            foreach (string path in System.IO.Directory.GetFiles(root, "*", System.IO.SearchOption.AllDirectories))
+            {
+                string rel = path.Substring(root.Length);
+                string ext = System.IO.Path.GetExtension(path).ToLowerInvariant();
+                if (ext != ".xml" && ext != ".txt") { Log.Message($"[AnimaSongMod] file {rel} ({new System.IO.FileInfo(path).Length} bytes)"); continue; }
+                string text = System.IO.File.ReadAllText(path);
+                if (text.Length > 5000) text = text.Substring(0, 5000) + " [cut]";
+                Log.Message($"[AnimaSongMod] file {rel}: {text}");
+            }
         }
 
         [When("Anima Song: I select the tree at x={int} z={int}")]

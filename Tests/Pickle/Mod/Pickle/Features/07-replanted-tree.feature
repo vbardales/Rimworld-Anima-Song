@@ -8,5 +8,6 @@ Feature: a replanted anima tree
     Given the save "Nelims-tribe" is loaded
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
     And Anima Song: an anima tree grows at x=195 z=152
-    When Anima Song: the tree at x=195 z=152 is minified and replanted at x=190 z=152 and probed
+    When Anima Song: the text files of the mod "Spuffy.AnimaReplant" are logged
+    And Anima Song: the tree at x=195 z=152 is minified and replanted at x=190 z=152 and probed
     Then Anima Song: the tree at x=190 z=152 carries the song comp

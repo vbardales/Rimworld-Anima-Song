@@ -50,12 +50,12 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
-    And Nelim's Sanctuary: "Flore" has the gene "Eyes_Blue"
+    And Nelim's Pickle Tools: "Flore" has the gene "Eyes_Blue"
     And Nelim's Pickle Tools: "Flore" hairstyle is "Mop"
     And Nelim's Pickle Tools: "Flore" hair colour is rgb (235, 235, 230)
     And Nelim's Pickle Tools: "Flore" wears "Apparel_Robe" dyed rgb (235, 180, 50)
     And Nelim's Pickle Tools: "Flore" facial expression is "SocialRelax"
-    And Nelim's Sanctuary: "Soleil" has the gene "Eyes_Green"
+    And Nelim's Pickle Tools: "Soleil" has the gene "Eyes_Green"
     And Nelim's Pickle Tools: "Soleil" hairstyle is "Afro"
     And Nelim's Pickle Tools: "Soleil" hair colour is rgb (200, 150, 60)
     And Nelim's Pickle Tools: "Soleil" wears "Apparel_Robe" dyed rgb (240, 235, 215)

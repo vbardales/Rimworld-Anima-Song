@@ -203,8 +203,14 @@ namespace AnimaSong.PickleSteps
             Thing inner = minified.InnerThing;
             Log.Message($"[AnimaSongProbe] minified={minified.GetType().Name} inner={inner?.GetType().Name} innerDef={inner?.def.defName}");
             IntVec3 cell = new IntVec3(toX, 0, toZ);
-            if (minified.Spawned) minified.DeSpawn();
-            Thing spawned = GenSpawn.Spawn(inner, cell, map);
+            // The way the game does it: the minified item lies on the ground, an install blueprint is placed on the target cell, and the
+            // blueprint is replaced by the solid thing (the colonist's work, here done at once).
+            if (!minified.Spawned) GenPlace.TryPlaceThing(minified, tree.Position, map, ThingPlaceMode.Near);
+            Blueprint_Install blueprint = GenConstruct.PlaceBlueprintForInstall(minified, cell, map, Rot4.North, Faction.OfPlayer);
+            Log.Message($"[AnimaSongProbe] blueprint={(blueprint == null ? "null" : blueprint.GetType().Name)} minifiedSpawned={minified.Spawned}");
+            Thing spawned = null;
+            if (blueprint != null) { blueprint.TryReplaceWithSolidThing(pawn, out spawned, out bool _); }
+            if (spawned == null) { Log.Message("[AnimaSongProbe] the blueprint gave no thing"); return; }
             Log.Message($"[AnimaSongProbe] after: def={spawned.def.defName} sameThing={ReferenceEquals(spawned, tree)} comps={string.Join(",", ((ThingWithComps)spawned).AllComps.Select(c => c.GetType().Name))} listerThings={map.listerThings.ThingsOfDef(spawned.def).Count} faction={spawned.Faction?.Name} ListeningAllowed={spawned.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
             LogGiverView(giverDef, pawn, tree, "before");
             LogGiverView(giverDef, pawn, spawned, "after");

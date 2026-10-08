@@ -206,6 +206,17 @@ namespace AnimaSong.PickleSteps
             if (minified.Spawned) minified.DeSpawn();
             Thing spawned = GenSpawn.Spawn(inner, cell, map);
             Log.Message($"[AnimaSongProbe] after: def={spawned.def.defName} sameThing={ReferenceEquals(spawned, tree)} comps={string.Join(",", ((ThingWithComps)spawned).AllComps.Select(c => c.GetType().Name))} listerThings={map.listerThings.ThingsOfDef(spawned.def).Count} faction={spawned.Faction?.Name} ListeningAllowed={spawned.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
+            LogGiverView(giverDef, pawn, tree, "before");
+            LogGiverView(giverDef, pawn, spawned, "after");
+        }
+
+        /// <summary>What the joy giver itself tests on one given tree: the generic gate by reflection, and the plant's own state.</summary>
+        private static void LogGiverView(JoyGiverDef giverDef, Pawn pawn, Thing t, string when)
+        {
+            var can = typeof(JoyGiver_InteractBuilding).GetMethod("CanInteractWith", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            bool? ok = can == null ? (bool?)null : (bool)can.Invoke(giverDef.Worker, new object[] { pawn, t, false });
+            Plant plant = t as Plant;
+            Log.Message($"[AnimaSongProbe] {when} tree view: spawned={t.Spawned} inLister={t.Map?.listerThings.ThingsOfDef(t.def).Contains(t)} CanInteractWith={ok} growth={plant?.Growth} lifeStage={plant?.LifeStage} dying={plant?.Dying} roofed={t.Position.Roofed(t.Map)} forbidden={t.IsForbidden(pawn)} reservable={pawn.CanReserve(t)} factionNull={t.Faction == null} reachable={pawn.CanReach(t, PathEndMode.Touch, Danger.None)}");
         }
 
         /// <summary>Diagnostic: writes the text files of an active mod to the log (what its patches do), capped per file.</summary>

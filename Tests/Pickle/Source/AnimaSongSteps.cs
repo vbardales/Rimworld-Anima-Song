@@ -243,6 +243,24 @@ namespace AnimaSong.PickleSteps
             }
         }
 
+        /// <summary>Makes the one tree at x z the only one a colonist can pick on their own: the others' listening toggle is switched off.</summary>
+        [Given("Anima Song: every other anima tree than the one at x={int} z={int} forbids listening")]
+        public void OtherTreesForbid(PickleContext ctx, int x, int z)
+        {
+            Thing keep = TreeAt(ctx, x, z);
+            var field = typeof(CompAnimaSong).GetField("listeningAllowed", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            ctx.Assert(field != null, "CompAnimaSong has no field listeningAllowed");
+            int n = 0;
+            foreach (Thing other in keep.Map.listerThings.ThingsOfDef(keep.def).Where(o => o != keep))
+            {
+                CompAnimaSong comp = other.TryGetComp<CompAnimaSong>();
+                if (comp == null) continue;
+                field.SetValue(comp, false);
+                n++;
+            }
+            Log.Message($"[AnimaSongProbe] {n} other anima tree(s) forbid listening");
+        }
+
         [When("Anima Song: I select the tree at x={int} z={int}")]
         public void SelectTree(PickleContext ctx, int x, int z)
         {

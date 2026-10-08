@@ -185,6 +185,29 @@ namespace AnimaSong.PickleSteps
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
 
+        /// <summary>
+        /// Diagnostic, not an assertion: moves the tree the way a replanting mod does (minify, then spawn the inner thing on another
+        /// cell) and writes to the log what the joy giver sees before and after. Written to chase a user report (2026-10-08).
+        /// </summary>
+        [When("Anima Song: the tree at x={int} z={int} is minified and replanted at x={int} z={int} and probed")]
+        public void ProbeReplant(PickleContext ctx, int x, int z, int toX, int toZ)
+        {
+            Thing tree = TreeAt(ctx, x, z);
+            Map map = tree.Map;
+            Pawn pawn = map.mapPawns.FreeColonists.First();
+            JoyGiverDef giverDef = DefDatabase<JoyGiverDef>.GetNamed("AnimaSong_Listen");
+            Log.Message($"[AnimaSongProbe] def={tree.def.defName} class={tree.GetType().Name} minifiable={tree.def.Minifiable} minifiedDef={tree.def.minifiedDef?.defName} comps={string.Join(",", tree.AllComps.Select(c => c.GetType().Name))} giverThingDefs={string.Join(",", giverDef.thingDefs.Select(d => d.defName))}");
+            Log.Message($"[AnimaSongProbe] before: listerThings={map.listerThings.ThingsOfDef(tree.def).Count} ListeningAllowed={tree.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
+            if (!tree.def.Minifiable) { Log.Message("[AnimaSongProbe] the tree is not minifiable here: the replanting goes another way"); return; }
+            MinifiedThing minified = MinifyUtility.MakeMinified(tree);
+            Thing inner = minified.InnerThing;
+            Log.Message($"[AnimaSongProbe] minified={minified.GetType().Name} inner={inner?.GetType().Name} innerDef={inner?.def.defName}");
+            IntVec3 cell = new IntVec3(toX, 0, toZ);
+            minified.DeSpawn();
+            Thing spawned = GenSpawn.Spawn(inner, cell, map);
+            Log.Message($"[AnimaSongProbe] after: def={spawned.def.defName} sameThing={ReferenceEquals(spawned, tree)} comps={string.Join(",", spawned.AllComps.Select(c => c.GetType().Name))} listerThings={map.listerThings.ThingsOfDef(spawned.def).Count} faction={spawned.Faction?.Name} ListeningAllowed={spawned.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
+        }
+
         [When("Anima Song: I select the tree at x={int} z={int}")]
         public void SelectTree(PickleContext ctx, int x, int z)
         {

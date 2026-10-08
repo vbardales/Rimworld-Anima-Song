@@ -1,0 +1,12 @@
+# A user report (2026-10-08): with Replantable Anima Trees (Continued), after extracting and replanting the tree, colonists stop listening on their own.
+# This feature only probes (the log carries the [AnimaSongProbe] lines); it asserts nothing about the cause yet.
+@requires:Spuffy.AnimaReplant
+Feature: a replanted anima tree
+
+  @timeout:240
+  Scenario: the tree moved the way a replanting mod does
+    Given the save "Nelims-tribe" is loaded
+    And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
+    And Anima Song: an anima tree grows at x=195 z=152
+    When Anima Song: the tree at x=195 z=152 is minified and replanted at x=190 z=152 and probed
+    Then Anima Song: the tree at x=190 z=152 carries the song comp

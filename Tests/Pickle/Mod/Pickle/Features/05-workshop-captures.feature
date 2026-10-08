@@ -1,5 +1,6 @@
 # Steps of two origins, told apart by their prefix: `Nelim's Sanctuary:` (SanctuaryBacklot: the named places, animals, bare floor, genes) and `Nelim's Pickle Tools:` (PickleTools: decor, camera framing, hair, dyed clothes, body type, hidden overlays, presentation mode); `Anima Song:` steps are this mod's own (Tests/Pickle/Source).
 # The pictures of the Workshop page, PUBLICATION.md. Played on the shared gallery scene, the Sanctuaire de Nelim (SanctuaryBacklot/docs/GALERIE.md,
+# Heat: the map is held at 20 degrees so nobody sweats or blushes (the biome is 40C).
 # Faces: `"X" facial expression is "<FaceAnimationDef>"` (PickleTools ColonistRace, 2026-10-08, NOT PLAYED: NPT's ticket 2532 says whether the expression holds during a capture); SocialRelax tried for the three listeners.
 # Eyes: Nelim has the brown eyes of EyeGenes3 by default in the fixture (nothing to set); the companions get their own with `has the gene "Eyes_<colour>"`. Faces: no step sets an expression; Facial Animation draws a face from the pawn's current JOB, and it maps none to the listening job, so the faces stay neutral (to be read on the picture).
 # SanctuaryBacklot/docs/SANCTUAIRE-LIEUX.md): `the save "Nelims-tribe" is loaded`, then `I am at the sanctuary "bare-clearing"`, a scene made with the Pickle Tools session for this mod (2026-10-06): the podium square of `emerald-clearing` without its green rug (the floor is bared by the step itself), centre (195, 152), x 191-204, z 147-157 free, brown earth, no roof, no smiley, no black edge; the vanometric pile at x 205 is out of frame at zoom 5. Earlier tries: `emerald-clearing` (the teal halo drowned in the green rug) and `calm-zone` (not a scene agreed with them).
@@ -33,6 +34,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
+    And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (200, 156)
     And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
@@ -86,6 +88,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
+    And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
     And Anima Song: "Nelim" stands 4 cells from the tree at x=195 z=152
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
@@ -109,6 +112,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
+    And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Anima Song: I select the tree at x=195 z=152

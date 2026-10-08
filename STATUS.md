@@ -133,3 +133,5 @@ The Sanctuaire has its own repository, `SanctuaryBacklot` (`nelim.sanctuarybackl
 ## French review, 2026-10-08
 
 The owner re-read the French and English texts after the gender-neutral rewording (`AnimaSong_OrderFull` in both languages, `AnimaSong_AllowListeningDesc`) and validated them: "Anima Song est validé". `translation_fr: complete` stands, now on the current texts (`FRENCH_REVIEW.md`).
+
+Gallery candidates of run `fc87` refused by the owner (2026-10-08) and deleted; regeneration on the Sanctuary Backlot with its whole minimum list, eye colours and facial expressions filed the same day.

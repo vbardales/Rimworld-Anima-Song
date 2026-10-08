@@ -21,7 +21,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
-updated:      2026-10-08, French and English texts validated by Virginie after the gender-neutral rewording
+updated:      2026-10-08, 1.0.3 prepared (CHANGELOG [1.0.3], PUBLICATION note); dry-run of the exact commit pending, then Virginie approves steam-production
 ---
 
 # Anima Song — status
@@ -37,6 +37,7 @@ left of the manual checks"). Run-by-run history through 1.0.2 is in `git log` an
 | 1.0.0 | First release | `v1.0.0` on `0529c10` | ManifestID `6527602686281192937`, 2026-09-28 |
 | 1.0.1 | Fix: `StampAhead` logs once instead of silently repeating the halo flicker if the reflected field is gone | `v1.0.1` on `bca2c3f` | ManifestID `9109123286002546468` |
 | 1.0.2 | Description: Phytokin origin paragraph reframed in the owner's own words | `v1.0.2` on `84d7fa8` | ManifestID `4870569081021350798` |
+| 1.0.3 | Prepared, not published: ModIcon and header image, French/English text fixes (owner-validated 2026-10-08) | tag/release by the CI after the upload | dry-run of the exact commit, then Virginie approves `steam-production` |
 | — | Description, hand-edited on Steam 2026-09-29: Workshop links added, no AI tool credited in Thanks | no version, no tag/release — a description-only change is not a minor bump | edited directly on the page |
 
 **The item is public since 2026-09-29**, description edited directly on the Steam page by the owner. Rollback

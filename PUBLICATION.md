@@ -89,9 +89,7 @@ Earlier sent notes (1.0.0–1.0.2): the tagged commits `v1.0.0`–`v1.0.2` and t
 change is not a minor bump**: 2026-09-29's Workshop-link and Thanks-wording edits went straight onto the Steam page
 by hand, no note, no tag (`CHANGELOG.md`, "Workshop page text, 2026-09-29").
 
-Draft for the next upload, `1.0.3` (above the tag `v1.0.2`; `1.0.3` was never published). Not sent: `Mod/` changed (two images and two French
-texts), so a fresh dry-run of the exact commit comes first, and the `## Unreleased` section of `CHANGELOG.md` becomes `## [1.0.3]` when the
-version is chosen.
+Next upload, `1.0.3` (above the tag `v1.0.2`; never published before). `Mod/` changed (two images and French/English texts), so the dry-run of the exact commit comes first, then Virginie approves `steam-production`. `CHANGELOG.md` carries `## [1.0.3] — 2026-10-08`. The gallery images and the description stay manual.
 
 ### 1.0.3
 

@@ -3,13 +3,16 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
-## Unreleased
+## [1.0.3] — 2026-10-08
+
+### Changed
+
+- New ModIcon and a refreshed header image (`About/Preview.png`, `About/ModIcon.png`). The Workshop gallery stays a manual upload.
 
 ### Fixed
 
 - French: the listening memory's description used "je me suis assis" (masculine only, no gender switch); reworded
-  to "j'ai pris le temps de l'écouter" (TRANSLATIONS.md, "French gender agreement"). Pending Virginie's French
-  review before a version and a dispatch.
+  to "j'ai pris le temps de l'écouter" (TRANSLATIONS.md, "French gender agreement"). Validated by Virginie, 2026-10-08.
 - French and English: the "full" refusal now reads "the tree already has as many listeners as it can take" ("l'arbre accueille déjà autant de personnes qu'il le peut"), and the tooltip says "Les personnes déjà à l'écoute" instead of "Ceux qui écoutent" (gender-neutral, owner's review 2026-10-08).
 - French: the "Allow listening" tooltip reworded after the owner's review ("et à écouter son chant pour se divertir", "Désactivez cette option pour les tenir à l'écart").
 

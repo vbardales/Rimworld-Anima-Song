@@ -73,7 +73,7 @@ reading is not the review TRANSLATIONS.md requires.
 
 **Done 2026-10-01:** Virginie read and validated the two French files (after rewording `AnimaSong_AllowListeningDesc`); `translation_fr` is `complete`.
 
-## Audit, 2026-10-01 (revision `3cf4884`, working tree: `TRANSLATIONS_REVIEW.md` untracked, now committed)
+## Audit, 2026-10-01 (revision `3cf4884`, working tree: `FRENCH_REVIEW.md` untracked, now committed)
 
 `published` stands: nothing before it fails. Checked, not taken from the old status:
 

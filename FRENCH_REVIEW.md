@@ -1,4 +1,4 @@
-# French review, Anima Song
+# French review, Anima Song (FRENCH_REVIEW.md)
 
 Source language: English (original text). Revision: `3cf4884`.
 

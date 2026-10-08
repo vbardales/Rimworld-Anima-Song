@@ -8,8 +8,8 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-stage:        tested
-workflow_stage: tested
+stage:        prepublished
+workflow_stage: prepublished
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -21,7 +21,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
-updated:      2026-10-08, back to tested for 1.0.3 (dry-run green on 7894817, run 37768907181); published again once Virginie approves and the page is checked
+updated:      2026-10-08, prepublished for 1.0.3: CHANGELOG [1.0.3] dated, note ready, gallery 1-3 restored, dry-run green on 7894817 (run 37768907181); awaits Virginie to approve steam-production
 ---
 
 # Anima Song — status

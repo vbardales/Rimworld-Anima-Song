@@ -169,6 +169,22 @@ namespace AnimaSong.PickleSteps
             option.Chosen(true, null);
         }
 
+        /// <summary>
+        /// The same order, with the seat chosen by the scenario instead of drawn at random in the ring (the mod shuffles the ring),
+        /// so a picture can place the listeners on chosen sides. The cell must satisfy the mod's own seat tests: refused otherwise.
+        /// </summary>
+        [When("Anima Song: {string} is ordered to listen to the tree at x={int} z={int} from the seat ({int}, {int})")]
+        public void OrderListenFrom(PickleContext ctx, string nickname, int x, int z, int seatX, int seatZ)
+        {
+            Thing tree = TreeAt(ctx, x, z);
+            Pawn pawn = Colonist(ctx, nickname);
+            IntVec3 seat = new IntVec3(seatX, 0, seatZ);
+            ctx.Assert(seat.Standable(tree.Map) && pawn.CanReserveSittableOrSpot(seat), $"the seat ({seatX}, {seatZ}) is not free for {nickname}");
+            ctx.Assert(pawn.CanReserve(tree, AnimaSongDefOf.AnimaSong_Listen.joyMaxParticipants), $"the tree has no free slot for {nickname}");
+            Job job = JobMaker.MakeJob(AnimaSongDefOf.AnimaSong_Listen, tree, seat);
+            pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+        }
+
         [When("Anima Song: I select the tree at x={int} z={int}")]
         public void SelectTree(PickleContext ctx, int x, int z)
         {

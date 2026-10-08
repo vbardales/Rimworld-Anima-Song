@@ -173,7 +173,7 @@ namespace AnimaSong.PickleSteps
         /// The same order, with the seat chosen by the scenario instead of drawn at random in the ring (the mod shuffles the ring),
         /// so a picture can place the listeners on chosen sides. The cell must satisfy the mod's own seat tests: refused otherwise.
         /// </summary>
-        [When("Anima Song: {string} is ordered to listen to the tree at x={int} z={int} from the seat ({int}, {int})")]
+        [When("Anima Song: {string} is ordered to listen to the tree at x={int} z={int} from the seat \\({int}, {int}\\)")]
         public void OrderListenFrom(PickleContext ctx, string nickname, int x, int z, int seatX, int seatZ)
         {
             Thing tree = TreeAt(ctx, x, z);
@@ -196,7 +196,7 @@ namespace AnimaSong.PickleSteps
             Map map = tree.Map;
             Pawn pawn = map.mapPawns.FreeColonists.First();
             JoyGiverDef giverDef = DefDatabase<JoyGiverDef>.GetNamed("AnimaSong_Listen");
-            Log.Message($"[AnimaSongProbe] def={tree.def.defName} class={tree.GetType().Name} minifiable={tree.def.Minifiable} minifiedDef={tree.def.minifiedDef?.defName} comps={string.Join(",", tree.AllComps.Select(c => c.GetType().Name))} giverThingDefs={string.Join(",", giverDef.thingDefs.Select(d => d.defName))}");
+            Log.Message($"[AnimaSongProbe] def={tree.def.defName} class={tree.GetType().Name} minifiable={tree.def.Minifiable} minifiedDef={tree.def.minifiedDef?.defName} comps={string.Join(",", ((ThingWithComps)tree).AllComps.Select(c => c.GetType().Name))} giverThingDefs={string.Join(",", giverDef.thingDefs.Select(d => d.defName))}");
             Log.Message($"[AnimaSongProbe] before: listerThings={map.listerThings.ThingsOfDef(tree.def).Count} ListeningAllowed={tree.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
             if (!tree.def.Minifiable) { Log.Message("[AnimaSongProbe] the tree is not minifiable here: the replanting goes another way"); return; }
             MinifiedThing minified = MinifyUtility.MakeMinified(tree);
@@ -205,7 +205,7 @@ namespace AnimaSong.PickleSteps
             IntVec3 cell = new IntVec3(toX, 0, toZ);
             minified.DeSpawn();
             Thing spawned = GenSpawn.Spawn(inner, cell, map);
-            Log.Message($"[AnimaSongProbe] after: def={spawned.def.defName} sameThing={ReferenceEquals(spawned, tree)} comps={string.Join(",", spawned.AllComps.Select(c => c.GetType().Name))} listerThings={map.listerThings.ThingsOfDef(spawned.def).Count} faction={spawned.Faction?.Name} ListeningAllowed={spawned.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
+            Log.Message($"[AnimaSongProbe] after: def={spawned.def.defName} sameThing={ReferenceEquals(spawned, tree)} comps={string.Join(",", ((ThingWithComps)spawned).AllComps.Select(c => c.GetType().Name))} listerThings={map.listerThings.ThingsOfDef(spawned.def).Count} faction={spawned.Faction?.Name} ListeningAllowed={spawned.TryGetComp<CompAnimaSong>()?.ListeningAllowed} job={(giverDef.Worker.TryGiveJob(pawn) != null)}");
         }
 
         [When("Anima Song: I select the tree at x={int} z={int}")]

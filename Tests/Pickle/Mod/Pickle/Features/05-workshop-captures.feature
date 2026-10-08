@@ -36,15 +36,17 @@ Feature: the pictures of the Workshop page
     And Anima Song: an anima tree grows at x=195 z=152
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (200, 156)
     And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
-    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (191, 156)
-    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (192, 155)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (198, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (190, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 154)
     And a colonist "Flore" exists
     And a colonist "Soleil" exists
     And Nelim's Pickle Tools: "Flore" body type is Thin
     And Nelim's Pickle Tools: "Soleil" body type is Male
-    And Anima Song: "Nelim" stands 4 cells from the tree at x=195 z=152
-    And Anima Song: "Flore" stands 4 cells from the tree at x=195 z=152
-    And Anima Song: "Soleil" stands 4 cells from the tree at x=195 z=152
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 156)
+    And Nelim's Pickle Tools: "Flore" stands at (191, 151)
+    And Nelim's Pickle Tools: "Soleil" stands at (199, 151)
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)

@@ -10,6 +10,7 @@ This file serves the repository and the writing of Steam patch notes; RimWorld d
 - French: the listening memory's description used "je me suis assis" (masculine only, no gender switch); reworded
   to "j'ai pris le temps de l'écouter" (TRANSLATIONS.md, "French gender agreement"). Pending Virginie's French
   review before a version and a dispatch.
+- French and English: the "full" refusal now reads "the tree already has as many listeners as it can take" ("l'arbre accueille déjà autant de personnes qu'il le peut"), and the tooltip says "Les personnes déjà à l'écoute" instead of "Ceux qui écoutent" (gender-neutral, owner's review 2026-10-08).
 - French: the "Allow listening" tooltip reworded after the owner's review ("et à écouter son chant pour se divertir", "Désactivez cette option pour les tenir à l'écart").
 
 ## Workshop page text, 2026-09-29 (no version)

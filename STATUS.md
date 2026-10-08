@@ -67,7 +67,7 @@ label and description). No grammar/Rules files.
 past participle or adjective agreeing with the pawn. One defect found: the memory description used "je me suis
 assis", masculine only, with no switch. Reworded to "j'ai pris le temps de l'écouter" — no agreement needed,
 reads naturally, meaning kept (English: "I sat and listened"). Everything else is either non-agreeing
-(infinitives, "n'entend pas", "Chante.") or a generic plural ("les colons", "Ceux qui écoutent"), not a
+(infinitives, "n'entend pas", "Chante.") or a generic plural ("les colons", "Les personnes déjà à l'écoute"), not a
 single-pawn gendered form, so no switch is owed there. `translation_fr` stayed `partial` then: this session's own
 reading is not the review TRANSLATIONS.md requires.
 

@@ -11,7 +11,7 @@
   <AnimaSong_ListenOrderDisabled>Listen to the anima song ({0})</AnimaSong_ListenOrderDisabled>
   <AnimaSong_OrderForbidden>listening not allowed here</AnimaSong_OrderForbidden>
   <AnimaSong_OrderCannotHear>cannot hear</AnimaSong_OrderCannotHear>
-  <AnimaSong_OrderFull>the tree has all the listeners it takes</AnimaSong_OrderFull>
+  <AnimaSong_OrderFull>the tree already has as many listeners as it can take</AnimaSong_OrderFull>
   <AnimaSong_OrderNoSeat>no free spot around the tree</AnimaSong_OrderNoSeat>
 
   <AnimaSong_InspectSinging>Singing.</AnimaSong_InspectSinging>

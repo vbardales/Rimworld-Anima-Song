@@ -99,7 +99,7 @@ version is chosen.
 [b]1.0.3[/b]
 
 [list]
-[*] French: the listening memory no longer assumes the colonist is a man, and the "Allow listening" tooltip reads more naturally.
+[*] French: the listening memory, the "Allow listening" tooltip and the "full" refusal no longer assume the gender of the colonist, and read more naturally. English: the "full" refusal is clearer.
 [*] New ModIcon and a refreshed header image.
 [/list]
 ```

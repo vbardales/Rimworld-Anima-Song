@@ -154,7 +154,7 @@ the end of it.
 
 2. Right-click the tree with a seventh colonist selected.
 
-**Pass:** the order is greyed out and reads *(the tree has all the listeners it takes)*. Nobody
+**Pass:** the order is greyed out and reads *(the tree already has as many listeners as it can take)*. Nobody
 walks over, and the log stays silent. What must not appear is
 `TryMakePreToilReservations() returned false for a non-queued job`, which is what a seventh
 colonist produced before the menu learnt to test the cap.

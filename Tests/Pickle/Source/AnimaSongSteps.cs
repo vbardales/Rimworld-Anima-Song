@@ -268,6 +268,10 @@ namespace AnimaSong.PickleSteps
             Pawn pawn = Colonist(ctx, nickname);
             ctx.Assert(pawn.timetable != null, $"{nickname} has no schedule");
             for (int hour = 0; hour < 24; hour++) pawn.timetable.SetAssignment(hour, TimeAssignmentDefOf.Joy);
+            // The job already running (milking, in the 2026-10-08 runs) goes on after the schedule changes, and the work types still pull
+            // the colonist to chores: no work at all, then the current job is ended.
+            if (pawn.workSettings != null) foreach (WorkTypeDef work in DefDatabase<WorkTypeDef>.AllDefs) pawn.workSettings.Disable(work);
+            pawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
         }
 
         [When("Anima Song: I select the tree at x={int} z={int}")]

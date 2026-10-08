@@ -46,6 +46,9 @@ Feature: the pictures of the Workshop page
     And a colonist "Soleil" exists
     And Nelim's Pickle Tools: "Flore" body type is Thin
     And Nelim's Pickle Tools: "Soleil" body type is Male
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 156)
+    And Nelim's Pickle Tools: "Flore" stands at (191, 151)
+    And Nelim's Pickle Tools: "Soleil" stands at (199, 151)
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
@@ -67,10 +70,6 @@ Feature: the pictures of the Workshop page
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152
     And Anima Song: "Flore" is ordered to listen to the tree at x=195 z=152
     And Anima Song: "Soleil" is ordered to listen to the tree at x=195 z=152
-    And I wait 90 ticks
-    And Nelim's Pickle Tools: "Flore" stands at (192, 152) facing East
-    And Nelim's Pickle Tools: "Soleil" stands at (198, 152) facing West
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing North
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
     And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5

@@ -21,7 +21,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
-updated:      2026-10-01, French review validated by Virginie (translation_fr complete)
+updated:      2026-10-08, French and English texts validated by Virginie after the gender-neutral rewording
 ---
 
 # Anima Song — status
@@ -129,3 +129,7 @@ The Sanctuaire has its own repository, `SanctuaryBacklot` (`nelim.sanctuarybackl
 ## Housekeeping, 2026-10-08
 
 `_tools/` moved to `scripts/` (`Run-Functional-Tests.ps1`, 22 passed, 0 failed after the move; README, TESTING and Tests/Pickle/README follow). Root now holds only `.git`, `.gitattributes`, `.github`, `.gitignore`. `Art/.render/` is ignored. Last code review: `1314c4c` (no finding); `Mod/` and `Source/` have changed since only by `Mod/About/ModIcon.png` and `Preview.png`, no code. Three gallery candidates are in `Art/Gallery/` (see PUBLICATION.md).
+
+## French review, 2026-10-08
+
+The owner re-read the French and English texts after the gender-neutral rewording (`AnimaSong_OrderFull` in both languages, `AnimaSong_AllowListeningDesc`) and validated them: "Anima Song est validé". `translation_fr: complete` stands, now on the current texts (`FRENCH_REVIEW.md`).

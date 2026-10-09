@@ -25,13 +25,13 @@ Feature: a replanted anima tree
   Scenario: the replanted tree, saved and reloaded, is still visited on its own
     Given the save "test-colony" is loaded
     And a colonist "Bored" exists
-    When Anima Song: the tree at x=70 z=132 is minified and replanted at x=80 z=126 and probed
-    Then Anima Song: the tree at x=80 z=126 carries the song comp
+    When Anima Song: the tree at x=70 z=132 is minified and replanted at x=73 z=132 and probed
+    Then Anima Song: the tree at x=73 z=132 carries the song comp
     When I save and reload
-    Given Anima Song: every other anima tree than the one at x=80 z=126 forbids listening
+    Given Anima Song: every other anima tree than the one at x=73 z=132 forbids listening
     And Anima Song: the schedule of "Bored" is joy all day
     And "Bored" needs "Joy" is set to 10 percent
     And game speed is ultrafast
     When I wait 600 ticks
-    And Anima Song: "Bored" sits in the ring of the tree at x=80 z=126
-    Then Anima Song: "Bored" is listening to the tree at x=80 z=126
+    And Anima Song: "Bored" sits in the ring of the tree at x=73 z=132
+    Then Anima Song: "Bored" is listening to the tree at x=73 z=132

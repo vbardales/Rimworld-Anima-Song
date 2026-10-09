@@ -119,6 +119,19 @@ Feature: the rest of the manual scenarios
     When Anima Song: the tree at x=70 z=132 is roofed over
     Then Anima Song: the recreation giver offers "Sheltered" nothing
 
+  # A user report (Markizo, 2026-10-09): an anima tree in a roofed gravship room is not visited on its own while the manual order works.
+  # The giver refuses the roofed tree (above); this checks the manual order still sends a colonist to it.
+  @timeout:300
+  Scenario: a tree under a roof is still listened to on a manual order
+    Given a colonist "Roofed" exists
+    And "Roofed" needs "Joy" is set to 10 percent
+    And Anima Song: the tree at x=70 z=132 is roofed over
+    Then Anima Song: the recreation giver offers "Roofed" nothing
+    And game speed is ultrafast
+    When Anima Song: "Roofed" is ordered to listen to the tree at x=70 z=132
+    Then Anima Song: "Roofed" sits in the ring of the tree at x=70 z=132
+    And Anima Song: "Roofed" is listening to the tree at x=70 z=132
+
   # TESTING.md 10 step 1: no one sits behind a wall.
   @timeout:300
   Scenario: with a wall to the north, every listener still has the tree in sight

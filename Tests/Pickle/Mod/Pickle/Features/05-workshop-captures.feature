@@ -46,9 +46,12 @@ Feature: the pictures of the Workshop page
     And a colonist "Soleil" exists
     And Nelim's Pickle Tools: "Flore" body type is Thin
     And Nelim's Pickle Tools: "Soleil" body type is Male
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 156)
-    And Nelim's Pickle Tools: "Flore" stands at (191, 151)
-    And Nelim's Pickle Tools: "Soleil" stands at (199, 151)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (191, 152)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
+    And Nelim's Pickle Tools: "Flore" stands at (191, 152) facing East
+    And Nelim's Pickle Tools: "Soleil" stands at (199, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)

@@ -11,6 +11,7 @@ This file serves the repository and the writing of Steam patch notes; RimWorld d
 
 ### Fixed
 
+- Colonists now go and listen on their own to an anima tree that has a roof over it (for example in a room on a gravship). The idle recreation giver used to skip roofed trees, while the manual order still worked. Reported on the Workshop.
 - French: the listening memory's description used "je me suis assis" (masculine only, no gender switch); reworded
   to "j'ai pris le temps de l'écouter" (TRANSLATIONS.md, "French gender agreement"). Validated by Virginie, 2026-10-08.
 - French and English: the "full" refusal now reads "the tree already has as many listeners as it can take" ("l'arbre accueille déjà autant de personnes qu'il le peut"), and the tooltip says "Les personnes déjà à l'écoute" instead of "Ceux qui écoutent" (gender-neutral, owner's review 2026-10-08).

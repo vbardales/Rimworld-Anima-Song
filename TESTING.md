@@ -39,7 +39,7 @@ requirement before the `publish` (owner, 2026-09-25). Each former manual check, 
 | A | The halo is drawn | **Validated by reading the pictures** | The teal glow shows in the software-rendered game (interface in French, ring and halo capture) and the owner saw it and approved its colour and size (2026-09-25). The mote is alive on every sample at 1x, 3x and 15x, with the glow. The waves of light are visible too, once the capture waits on a mote in flight instead of a blind tick count (`8b4879b`) |
 | B | The song is heard | **Automated, green; owner approved both videos** | The game holds the tree's song among its playing one-shots, under the def the modlist calls for: Royalty's `AnimaTreeLink` and Phytokin's `VRE_AnimaSongSound`, each in its own pass (`04-the-song-heard.feature`). That the audio output renders it: `PickleTools/SoundCapture`, in the WSL, both passes, peak -30.8/-30.9 dB against a -60 dB threshold. Both `film-sound.mp4` (Royalty's and Phytokin's) were sent to the owner and approved 2026-09-28 |
 | C | Phytokin's own ability soothes beside the mod | **Not applicable** | The ability is the Vanilla Expanded team's and this mod patches nothing of it (the def is asserted unpatched, the Phytokin pass is green). What it does when cast is their code, not a claim of this mod |
-| D | Colonists go on their own (`baseChance`) | **Not applicable** | `baseChance` is a die roll of the base game's recreation choice. What is the mod's is automated and green: the recreation giver offers the tree, refuses it when forbidden or roofed, and a sitting builds tolerance |
+| D | Colonists go on their own (`baseChance`) | **Not applicable** | `baseChance` is a die roll of the base game's recreation choice. What is the mod's is automated and green: the recreation giver offers the tree, refuses it when forbidden, still offers it when roofed, and a sitting builds tolerance |
 | E | Removing the mod from an existing save | **Automated, green** (with the mod's own condition, see 14) | What a save holds of the mod is what it says it stores. The removal itself: a `-Filter 06-removal-write -Then removal-check -ThenWithout nelim.animasong,nelim.animasong.pickletests` pass, a removal companion in `Tests/Pickle/Removal/Mod` with no dependency on the mod, only on `rimworks.pickle`, that loads the saved game as a fixture. First try crashed on every tick because the save held an active listener; the save now drafts the listener first (memory kept, nobody mid-job), and `About.xml` now asks the same of a player (`f9865ca`). See 14 |
 | F | The French reads well | **Automated, green; capture read** | The texts read back in French equal the resource files, and the inspect text of the tree carries the mod's line. The capture shows the French pane, the glow and the listener; the pane still clips the mod's own line below its fold, so the line is asserted from the text, not from the picture |
 | G | A real mouse click | **Not applicable for the click; automated for its result** | A mouse click is the engine's input layer, not the mod's. What the click produces is asked of the game's own menu builder and photographed in its three states (offered, "(cannot hear)", "(listening not allowed here)", `docs/runs/`). The "six already listen" refusal is asserted, not photographed |
@@ -236,9 +236,9 @@ reaching the tolerance system.
 
 **Pass:** they walk around and sit where they can see the trunk; no one sits behind the wall.
 
-2. Roof the tree over (it dies eventually, this is only to see the giver's reaction).
+2. Roof the tree over (a roofed anima tree does not die; a gravship room is a legitimate place for one).
 
-**Pass:** recreation time stops offering that tree.
+**Pass:** recreation time still offers that tree; the manual order works too.
 
 ## 11. The two soft dependencies
 

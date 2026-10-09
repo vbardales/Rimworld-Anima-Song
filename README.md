@@ -14,7 +14,7 @@ a day.
 | Recreation type | `AnimaSong_Song`, an eleventh one |
 | Job length | 4000 ticks, ending early on full joy |
 | Listeners at once | up to 6 |
-| Where they sit | a ring 2 to 5 cells from the trunk, line of sight required, unroofed |
+| Where they sit | a ring 2 to 5 cells from the trunk, line of sight required (a roof over the tree does not matter) |
 | Memory | +3 mood for 1 day, multiplied by psychic sensitivity, does not stack |
 | Cost to build | none — you need an anima tree |
 

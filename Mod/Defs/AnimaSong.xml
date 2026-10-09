@@ -52,9 +52,9 @@
     <defName>AnimaSong_Listen</defName>
     <giverClass>AnimaSong.JoyGiver_ListenAnimaSong</giverClass>
     <baseChance>2</baseChance>
-    <!-- An anima tree under a roof dies anyway; the line mostly keeps the giver from ever
-         offering a tree that has just been built over. -->
-    <unroofedOnly>true</unroofedOnly>
+    <!-- No `unroofedOnly`: a roofed anima tree does not die (`dieIfNoSunlight` is false), and one can
+         legitimately stand in a room, such as a gravship's. With the line, colonists never went to it
+         on their own while the manual order still worked (user report, 2026-10-09). -->
     <thingDefs>
       <li>Plant_TreeAnima</li>
     </thingDefs>

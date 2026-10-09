@@ -65,18 +65,6 @@ First version. RimWorld 1.6, Royalty required.
 
 ## [0.1.0] — 2026-09-23
 
-Prepublication: the first upload to the Steam Workshop, made to create the item and obtain its `PublishedFileId.txt`. Steam creates every new item private, and RimWorld never changes that.
-
-### Added
-
-- `Mod/About/PublishedFileId.txt`, holding the Workshop item ID `3806709272`, committed in `25751bc`. Without it the next upload would create a second item.
-
-### Notes
-
-- The content of this upload is what 1.0.0 describes, at an earlier stage: it predates the last halo fix (the component on the map, `c04edcc`). The `tested` and `prepublished` states have not been reached: see `STATUS.md`.
-
-## [0.1.0] — 2026-09-23
-
 Creation of the publishIdFile. First upload, whose only purpose was to create the (private) Workshop item and obtain
 `Mod/About/PublishedFileId.txt` (item `3806709272`, commit `25751bc`). It says nothing about the mod being tested or
 public; the first tested version is 1.0.0.

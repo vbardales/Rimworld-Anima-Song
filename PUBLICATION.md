@@ -34,9 +34,9 @@ the last line is the source link. 3.9 KB against Steam's 8000-byte limit.
 ```markdown
 Colonists can go and listen to an anima tree sing, as recreation.
 
-Vanilla Races Expanded - Phytokin has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and makes it sing a psychic orchestra. It fires once a quadrum, and only for them.
+Vanilla Races Expanded - Phytokin has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and causes a psychic orchestra to play. It is available only to Phytokin, once per quadrum.
 
-This mod does not touch that ability. It felt like a shame to leave that lovely effect locked to one genetically gifted colonist, once a quadrum — so here is the toned-down, repeatable version everyone can use: any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing, the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
+This mod does not touch that ability. It seemed a shame to leave such a lovely effect locked to a genetically gifted colonist and usable only once a quadrum — so here is the toned-down, repeatable version everyone can use: any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing, the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
 
 ## What it looks like
 
@@ -46,7 +46,7 @@ You do not have to wait for a colonist to decide on their own: select one, right
 
 ## Why this is worth a mod
 
-The base game has ten recreation types and only four of them come from a building. Expectations ask for up to six different types, and tolerance is counted per type, not per building — a colonist who has played chess all week is just as tired of poker. An eleventh type is therefore worth far more than a tenth building of a type you already had. This one costs nothing to build: you only need an anima tree, which quietly rewards a tribal start.
+The base game has ten recreation types and only four of them come from a building. Expectations ask for up to six different types, and tolerance is counted per type, not per building — a colonist who has played chess all week is just as tired of chess whether the colony owns one table or ten. An eleventh type is therefore worth far more than a tenth building of a type you already had. This one costs nothing to build: you only need an anima tree, which quietly rewards a tribal start.
 
 Listening leaves a memory: +3 mood for a day, multiplied by psychic sensitivity, and it does not stack. That is deliberately weaker than Phytokin's own +8 over two days — theirs is a once-a-quadrum ability, this is repeatable.
 

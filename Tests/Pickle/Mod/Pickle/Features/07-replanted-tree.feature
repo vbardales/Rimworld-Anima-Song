@@ -23,7 +23,8 @@ Feature: a replanted anima tree
   # The Backlot scene cannot be saved and reloaded (its fixtures register wall ids twice), so this one uses the fixture colony's own tree.
   @timeout:300
   Scenario: the replanted tree, saved and reloaded, is still visited on its own
-    Given a colonist "Bored" exists
+    Given the save "test-colony" is loaded
+    And a colonist "Bored" exists
     When Anima Song: the tree at x=70 z=132 is minified and replanted at x=80 z=126 and probed
     Then Anima Song: the tree at x=80 z=126 carries the song comp
     When I save and reload

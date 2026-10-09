@@ -20,11 +20,11 @@ workshop:     3806709272
 publication_changelog_review_sha: 5602e1bb6c807b7d927888d1dd711a545feee811
 code_review_sha: 1314c4c5a744e12458048e036b8c65d4f3eaabbe
 remaining:
-  - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay
+  - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay; 2026-10-09: the commenter (Markizo) says the tree sat in a room on a gravship, and works once replanted outside; cause found, `unroofedOnly` on the giver (runs 0ef3, 589f), fixed in 5fa7c4a; still unverified that his room is roofed
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
-updated:      2026-10-08, back to tested for 1.0.3: the gallery redo (new captures) is not accepted yet; ticket 135f queued; dry-run green on 7894817 (run 37768907181) stays valid unless Mod/ changes
+updated:      2026-10-09, 1.0.3 not published: image 1 of the gallery accepted (stools, run 342d); roofed-tree fix 5fa7c4a (Markizo report, issue #1) proven by runs 0ef3 and 589f; full English pass ed83 queued; the dry-run of 7894817 no longer applies
 ---
 
 # Anima Song — status
@@ -40,7 +40,7 @@ left of the manual checks"). Run-by-run history through 1.0.2 is in `git log` an
 | 1.0.0 | First release | `v1.0.0` on `0529c10` | ManifestID `6527602686281192937`, 2026-09-28 |
 | 1.0.1 | Fix: `StampAhead` logs once instead of silently repeating the halo flicker if the reflected field is gone | `v1.0.1` on `bca2c3f` | ManifestID `9109123286002546468` |
 | 1.0.2 | Description: Phytokin origin paragraph reframed in the owner's own words | `v1.0.2` on `84d7fa8` | ManifestID `4870569081021350798` |
-| 1.0.3 | Prepared, not published: ModIcon and header image, French/English text fixes (owner-validated 2026-10-08) | tag/release by the CI after the upload | dry-run green: run `37768907181`, SHA `7894817cd64228ae28834f169ea03627bafe857f`; publish awaits Virginie's approval |
+| 1.0.3 | Prepared, not published: ModIcon and header image, French/English text fixes (owner-validated 2026-10-08), roofed anima trees now offered to idle colonists (fix of 2026-10-09, commit `5fa7c4a`) | tag/release by the CI after the upload | dry-run of `7894817` is STALE (`Mod/Defs` changed): a new dry-run of the final SHA is owed; full English pass `ed83` queued on `5fa7c4a`; publish awaits Virginie's approval |
 | — | Description, hand-edited on Steam 2026-09-29: Workshop links added, no AI tool credited in Thanks | no version, no tag/release — a description-only change is not a minor bump | edited directly on the page |
 
 **The item is public since 2026-09-29**, description edited directly on the Steam page by the owner. Rollback

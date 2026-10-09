@@ -89,7 +89,7 @@ Earlier sent notes (1.0.0–1.0.2): the tagged commits `v1.0.0`–`v1.0.2` and t
 change is not a minor bump**: 2026-09-29's Workshop-link and Thanks-wording edits went straight onto the Steam page
 by hand, no note, no tag (`CHANGELOG.md`, "Workshop page text, 2026-09-29").
 
-Next upload, `1.0.3` (above the tag `v1.0.2`; never published before). `Mod/` changed (two images and French/English texts), so the dry-run of the exact commit comes first, then Virginie approves `steam-production`. `CHANGELOG.md` carries `## [1.0.3] — 2026-10-08` (a roofed-tree fix of 2026-10-09 is folded in). The gallery images and the description stay manual.
+Next upload, `1.0.3` (above the tag `v1.0.2`; never published before). `Mod/` changed (two images, French/English texts, and `Mod/Defs/AnimaSong.xml` for the roofed-tree fix), so the dry-run of the exact commit comes first, then Virginie approves `steam-production`. `CHANGELOG.md` carries `## [1.0.3] — 2026-10-08` (a roofed-tree fix of 2026-10-09 is folded in). The gallery images and the description stay manual.
 
 ### 1.0.3
 

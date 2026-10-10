@@ -143,7 +143,7 @@ bottom-left corner. It is an image-model illustration under human direction, and
 unless `update_preview` is turned on: **either Virginie turns it on for the dispatch, or the image is set by hand on the Steam page.**
 `Mod/About/ModIcon.png` (128 × 128, the mod list's own icon, regenerated from the owner's new `Art/ModIcon-source.png`) was opened too.
 
-**The ModIcon rides in the bottom-left corner** (owner's rule, 2026-09-29, `../PUBLISHING.md` "Images"): the `iconBadge` of `Art/Preview.config.json`, drawn by the shared renderer from `Art/ModIcon-source.png` (see `Art/preview-workflow.md`). Bottom-left was chosen as the scene's emptiest corner (no listener silhouette there). `Art/Gallery/0-preview.png` is recopied whenever `Preview.png` is regenerated, or the two diverge silently.
+**The ModIcon rides in the bottom-left corner** (owner's rule, 2026-09-29, `../PUBLISHING.md` "Images"): the `iconBadge` of `Art/Preview.config.json`, drawn by the shared renderer from `Art/ModIcon-source.png` (see `preview-workflow.md`). Bottom-left was chosen as the scene's emptiest corner (no listener silhouette there). `Art/Gallery/0-preview.png` is recopied whenever `Preview.png` is regenerated, or the two diverge silently.
 
 ## Content boxes (adult content, violence)
 

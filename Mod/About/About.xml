@@ -47,6 +47,8 @@ Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for Vanilla Races Ex
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 
+Kaetie_, who continues Replantable Anima Trees (Continued) (https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725), and Dark Passerida, who made the original (https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823): with their mod loaded, a replanted anima tree is still listened to, as my test suite checks. Nothing of theirs is used, patched or required.
+
 Pickle (https://steamcommunity.com/sharedfiles/filedetails/?id=3791648678) and Nelim's Pickle Tools (https://steamcommunity.com/sharedfiles/filedetails/?id=3806142401) were used for development and testing only; neither is a dependency of the distributed mod.
 
 Full attribution, including what was studied and what is looked up at runtime: ATTRIBUTION.md (https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md). Released under the MIT licence: LICENSE (https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE).

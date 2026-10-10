@@ -72,6 +72,8 @@ Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for [Vanilla Races E
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 
+Kaetie_, who continues [Replantable Anima Trees (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725), and Dark Passerida, who made the [original](https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823): with their mod loaded, a replanted anima tree is still listened to, as my test suite checks. Nothing of theirs is used, patched or required.
+
 [Pickle](https://steamcommunity.com/sharedfiles/filedetails/?id=3791648678) and [Nelim's Pickle Tools](https://steamcommunity.com/sharedfiles/filedetails/?id=3806142401) were used for development and testing only; neither is a dependency of the distributed mod.
 
 Full attribution, including what was studied and what is looked up at runtime: [ATTRIBUTION.md](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/ATTRIBUTION.md). Released under the MIT licence: [LICENSE](https://github.com/vbardales/Rimworld-Anima-Song/blob/main/LICENSE).
@@ -204,3 +206,11 @@ series, a common set, chosen subjects. For this mod:
 - **At the publish (owner, 2026-10-08): send the preview image again.** The 1.0.x dispatch carries `update_preview=true` (`dispatch-publish.sh … --preview`; the dry-run `37768907181` ran with it), so `Mod/About/Preview.png` replaces the header image on the Steam page. The gallery stays a manual upload; the description is not sent (no change).
 
 - **Image 1 replaced (owner, 2026-10-09)**: `1-the-tree-singing.jpg` is now the JPEG copy (400 KB, quality 88) of run `342d` (`pickle-run-2026-10-09-stools2`, scene `bare-clearing`, 1 of 1 passed). Three stools set with `I place the decor "Stool"`, each pawn put on one with `stands at ... facing` (Nelim north of the tree facing South, Flore west facing East, Soleil east facing West): seated ring around the tree, halo, torch and dyed robes read, no interface. Run `176a` (same, Nelim facing North) was refused: Nelim had her back to the tree. Remaining flaw: the daylilies sit in a strip on the left edge.
+
+## Thanks, to post
+
+Not posted yet. One message, on the Continued page, crediting the maintainer and the original author (`../WORKSHOP_COMMENTS.md`, row `3503586725`, `drafted`). Post it after the 1.0.3 update is public, and after Markizo's report is closed, since it is the same reader.
+
+```
+Hi Kaetie_ and Dark Passerida: thank you for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725]Replantable Anima Trees (Continued)[/url] (and for the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823]original[/url]). A player of my mod Anima Song (colonists sit around an anima tree and listen to it sing) used yours, so I tested the two together: a replanted tree keeps its listening toggle and colonists still go to it. Nothing of yours is used, patched or required, it just made me check :) Have a nice day!
+```

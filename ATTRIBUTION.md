@@ -41,6 +41,16 @@ Phytokin's ability throws on its target.
 
 Royalty is required: the anima tree is a Royalty plant.
 
+## Replantable Anima Trees (Continued), by Kaetie_, after Dark Passerida
+
+https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725 (continued version, by Kaetie_),
+https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823 (original, by Dark Passerida).
+
+Not used, not patched, not required. Their mod makes anima trees minifiable, so a player can replant
+one. A Workshop user reported a problem while using it (the cause was elsewhere: a roof over the tree),
+and the test suite stages the mod to check that a replanted tree keeps its listening component and is
+still visited (`Tests/Pickle/Mod/Pickle/Features/07-replanted-tree.feature`, a development-only run).
+
 ## Tools
 
 Code and documentation written with Claude Code (Anthropic); preview image generated with an

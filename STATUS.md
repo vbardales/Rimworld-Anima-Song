@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: shootGallery[1.0.3]
+workflow_stage: mountPreview[1.0.3]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -23,8 +23,8 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-10, shootGallery[1.0.3]: gallery images 1 to 3 on the Backlot, image 3 accepted by the session (run 4e27); next: mountPreview, writeDocs
-protocols_read_sha: f8bf9634403f684c5a0ca2ffcd724139134fba1d
+updated:      2026-10-10, mountPreview[1.0.3]: gallery done (images 1 to 3 on the Backlot, accepted); next: check the echo against the gallery, then writeDocs
+protocols_read_sha: b4a73cf0998fa5914b1d5e52b0817a8fe77abab3
 ---
 
 # Anima Song — status
@@ -157,3 +157,5 @@ Gallery candidates of run `fc87` refused by the owner (2026-10-08) and deleted; 
 | 1 | `1-the-tree-singing.jpg` | Backlot `bare-clearing`, run `342d`, stools, 2026-10-09 | accepted by the owner, 2026-10-09 |
 | 2 | `2-the-right-click-menu.jpg` | Backlot, run `19c9`, 20C | accepted 2026-10-08 |
 | 3 | `3-the-tree-selected.jpg` | Backlot `bare-clearing`, run `4e27`, 2026-10-10 | accepted by the session as director, 2026-10-10 |
+
+Order (session as director): 1 is the most demonstrative (the tree singing with its listeners, the point of the mod), 2 shows how a player orders it, 3 shows the toggle that allows or forbids it. All opened and looked at 2026-10-10; indexes 0 to 3, no gap, no duplicate.

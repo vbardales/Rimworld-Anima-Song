@@ -17,14 +17,15 @@ showcase:     complete
 tested_on:    2026-09-29, whole suite in English, French and with Phytokin on the published code (last code change 5967dd2); sound, studio and removal passes 2026-09-26..28, on the build before it
 workshop:     3806709272
 publication_changelog_review_sha: 5602e1bb6c807b7d927888d1dd711a545feee811
-code_review_sha: 1314c4c5a744e12458048e036b8c65d4f3eaabbe
+code_review_sha: c53d1a0e3fb0a85f6cac56068d8ad2e2d5ee7522
 remaining:
   - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay; 2026-10-09: the commenter (Markizo) says the tree sat in a room on a gravship, and works once replanted outside; cause found, `unroofedOnly` on the giver (runs 0ef3, 589f), fixed in 5fa7c4a; still unverified that his room is roofed
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
+  - unverified: audit 2026-10-10 (playTests[1.0.3]): French interface in game after the 2026-10-08 rewording, ticket 7398 queued; the full French and Phytokin passes are not replayed on the roofed-tree fix (non-regression, played after the commit, AUDIT.md 14.a)
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-09, back to playTests[1.0.3] (the roofed-tree fix is a code change after the first passes; full pass ed83 had one red, replayed green by 994e, final-SHA pass still owed); 1.0.3 not published: image 1 of the gallery accepted (stools, run 342d); roofed-tree fix 5fa7c4a (Markizo report, issue #1) proven by runs 0ef3 and 589f; full English pass ed83 queued; the dry-run of 7894817 no longer applies
-protocols_read_sha: 6591dbc87e6e41defa0dcf1fc510aac5ca522048
+updated:      2026-10-10, audit up to playTests[1.0.3] done: criteria 3 to 7 hold, 8.c red replayed green (994e, 3432), code review recorded; the French interface ticket 7398 is the last open item before shootGallery
+protocols_read_sha: 9f58f59d4c756c649e692d7501d531325cbefa74
 ---
 
 # Anima Song — status
@@ -139,3 +140,12 @@ The Sanctuaire has its own repository, `SanctuaryBacklot` (`nelim.sanctuarybackl
 The owner re-read the French and English texts after the gender-neutral rewording (`AnimaSong_OrderFull` in both languages, `AnimaSong_AllowListeningDesc`) and validated them: "Anima Song est validé". `translation_fr: complete` stands, now on the current texts (`FRENCH_REVIEW.md`).
 
 Gallery candidates of run `fc87` refused by the owner (2026-10-08) and deleted; regeneration on the Sanctuary Backlot with its whole minimum list, eye colours and facial expressions filed the same day.
+
+## Audit, 2026-10-10 (revision `c53d1a0`, AUDIT.md section 16, up to `playTests[1.0.3]`)
+
+- **3 code:** build clean, `Mod/Assemblies/AnimaSong.dll` byte-identical to a fresh Release build; `CHANGELOG.md` 1.0.3 lists the roofed-tree fix.
+- **4 dependencies:** `About.xml` declares Royalty as `modDependencies`, `loadAfter` Core; `LoadFolders.xml` has one `v1.6` block with the Royalty folder gated on `IfModActive`; Phytokin stays soft (looked up by def name). Not re-derived from the sources today beyond reading these files.
+- **5 settings:** no settings, no MainButtons entry in `Source/` or `Mod/Defs/` (grep): `not_applicable` stands.
+- **6 translations:** `Check-DefInjected.ps1`: 4 keys, 0 errors; `FRENCH_REVIEW.md` regenerated (Virginie's review of 2026-10-08 stands, wording unchanged since).
+- **7 tests:** `scripts/Run-Functional-Tests.ps1` 22 passed, 0 failed on `5fa7c4a`; Pickle suite in `Tests/Pickle/Mod/Pickle/Features/`; the mod keeps its scenarios in `TESTING.md`, not a file named `TEST_SCENARIOS.md`.
+- **8 playTests:** full English pass `ed83` (37 scenarios, 26 passed, 1 red, 10 skipped by `@requires`); the red replayed alone and green twice (`994e`, `3432`; `0a0c` crashed at startup, exit 139, nothing played). Roofed tree: `0ef3`, `589f`. Code review `1314c4c..c53d1a0` of `Mod/` (the roof line removed from `AnimaSong_Listen`, text, images): no finding, nothing in `Source/` changed. Gallery images 1 to 3 accepted.

@@ -17,7 +17,7 @@ showcase:     complete
 tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26 of 27 passed, the one red replayed green twice; French interface and texts on dd3de9d (7398); French and Phytokin full passes not replayed on the fix (non-regression after the commit); earlier: 2026-09-29 whole suite in English, French and with Phytokin, sound, studio and removal passes 2026-09-26..28
 workshop:     3806709272
 publication_changelog_review_sha: 5602e1bb6c807b7d927888d1dd711a545feee811
-code_review_sha: c53d1a0e3fb0a85f6cac56068d8ad2e2d5ee7522
+code_review_sha: 23bf286757554c813a4299650528b4dd1c63864e
 remaining:
   - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay; 2026-10-09: the commenter (Markizo) says the tree sat in a room on a gravship, and works once replanted outside; cause found, `unroofedOnly` on the giver (runs 0ef3, 589f), fixed in 5fa7c4a; still unverified that his room is roofed
   - defect: gallery image 3 (`3-the-tree-selected.jpg`) is still the 2026-09-27 capture on the old studio, not on SanctuaryBacklot; the Backlot capture of run 135f was refused (red radius-warning lines across the frame, an untranslated "Begin liaison d'arbre anima" label); replay `the tree selected with its toggle` with those two hidden
@@ -25,7 +25,7 @@ remaining:
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
 updated:      2026-10-10, shootGallery[1.0.3]: playTests exit criteria hold (French texts 7398 green); gallery images 1 and 2 accepted, image 3 still the 2026-09-27 studio capture (refused on the Backlot: red radius lines); table below
-protocols_read_sha: 9f58f59d4c756c649e692d7501d531325cbefa74
+protocols_read_sha: 973768851d9eb1967a275d98fbf1c660d4fdce88
 ---
 
 # Anima Song — status

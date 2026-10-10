@@ -127,5 +127,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the learning helper is hidden
     And Nelim's Pickle Tools: developer mode is turned off for the capture
     And I wait 60 ticks
+    And Nelim's Pickle Tools: the letters and the alerts are cleared from the screen
     And Nelim's Pickle Tools: the messages are cleared from the screen
     Then I take a screenshot "workshop 3 - the tree selected"

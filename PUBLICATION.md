@@ -56,7 +56,7 @@ With Phytokin installed, the tree sings Phytokin's own recording, and the toggle
 
 Royalty is required, since the anima tree is a Royalty plant. Without it the mod loads and adds nothing.
 
-No save data of its own. The toggle and the song cooldown are stored on the tree, in the save; the mod can be added to an ongoing game freely, and removed from one too, as long as nobody is actively listening at the time: draft or reassign a listening colonist first, the same as you would stop any other job before dropping a mod that added it.
+Only the listening toggle and the song cooldown are stored on the tree in the save; the mod can be added to an ongoing game freely, and removed from one too, as long as nobody is actively listening at the time: draft or reassign a listening colonist first, the same as you would stop any other job before dropping a mod that added it.
 
 ## If I go quiet
 
@@ -72,7 +72,7 @@ Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for [Vanilla Races E
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 
-Kaetie_, who continues [Replantable Anima Trees (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725), and Dark Passerida, who made the [original](https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823): with their mod loaded, a replanted anima tree is still listened to, as my test suite checks. Nothing of theirs is used, patched or required.
+Kaetie_, who continues [Replantable Anima Trees (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725), and Dark Passerida, who made the [original](https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823): with their mod loaded, colonists can still listen to a replanted anima tree, as verified by the test suite. Nothing of theirs is used, patched or required.
 
 [Pickle](https://steamcommunity.com/sharedfiles/filedetails/?id=3791648678) and [Nelim's Pickle Tools](https://steamcommunity.com/sharedfiles/filedetails/?id=3806142401) were used for development and testing only; neither is a dependency of the distributed mod.
 
@@ -91,7 +91,7 @@ Earlier sent notes (1.0.0–1.0.2): the tagged commits `v1.0.0`–`v1.0.2` and t
 change is not a minor bump**: 2026-09-29's Workshop-link and Thanks-wording edits went straight onto the Steam page
 by hand, no note, no tag (`CHANGELOG.md`, "Workshop page text, 2026-09-29").
 
-Next upload, `1.0.3` (above the tag `v1.0.2`; never published before). `Mod/` changed (two images, French/English texts, and `Mod/Defs/AnimaSong.xml` for the roofed-tree fix), so the dry-run of the exact commit comes first, then Virginie approves `steam-production`. `CHANGELOG.md` carries the 1.0.3 changes under `## [Unreleased]` (numbered and dated only just before the dry-run) (a roofed-tree fix of 2026-10-09 is folded in). The gallery images and the description stay manual.
+Next upload, `1.0.3` (above the tag `v1.0.2`; never published before). `Mod/` changed (two images, French/English texts, and `Mod/Defs/AnimaSong.xml` for the roofed-tree fix), so the dry-run of the exact commit comes first, then Virginie approves `steam-production`. `CHANGELOG.md` carries the 1.0.3 changes under `## [Unreleased]` (numbered and dated only just before the dry-run) (a roofed-tree fix of 2026-10-09 is folded in). The gallery is uploaded manually; the description is sent through CI or updated manually, as decided at `prepareRelease`.
 
 ### 1.0.3
 
@@ -147,8 +147,7 @@ unless `update_preview` is turned on: **either Virginie turns it on for the disp
 
 ## Content boxes (adult content, violence)
 
-The `Preview.png` and the `ModIcon.png` were opened again on 2026-10-07 (both regenerated 2026-10-05). Neither shows nudity, gore or anything sexual: seated The three gallery images were opened on 2026-10-10: a tree, three listeners in robes, an interface, no nudity or gore.
-figures in dark silhouette in the first, a stylised winking face in the second. Answer **no adult content**. Re-answer only after
+The `Preview.png` and the `ModIcon.png` were opened again on 2026-10-07 (both regenerated 2026-10-05). The Preview shows seated figures in dark silhouette; the ModIcon shows a stylised winking face. The three gallery images were opened on 2026-10-10 and show a tree, three listeners in robes and the interface. None shows nudity, gore or sexual content. Answer **no adult content**. Re-answer only after
 opening any image added later, because the boxes commit the page.
 
 ## Thanks, posted

@@ -31,7 +31,7 @@ With Phytokin installed, the tree sings Phytokin's own recording, and the toggle
 
 Royalty is required, since the anima tree is a Royalty plant. Without it the mod loads and adds nothing.
 
-No save data of its own. The toggle and the song cooldown are stored on the tree, in the save; the mod can be added to an ongoing game freely, and removed from one too, as long as nobody is actively listening at the time: draft or reassign a listening colonist first, the same as you would stop any other job before dropping a mod that added it.
+Only the listening toggle and the song cooldown are stored on the tree in the save; the mod can be added to an ongoing game freely, and removed from one too, as long as nobody is actively listening at the time: draft or reassign a listening colonist first, the same as you would stop any other job before dropping a mod that added it.
 
 If I go quiet
 
@@ -47,7 +47,7 @@ Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for Vanilla Races Ex
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 
-Kaetie_, who continues Replantable Anima Trees (Continued) (https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725), and Dark Passerida, who made the original (https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823): with their mod loaded, a replanted anima tree is still listened to, as my test suite checks. Nothing of theirs is used, patched or required.
+Kaetie_, who continues Replantable Anima Trees (Continued) (https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725), and Dark Passerida, who made the original (https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823): with their mod loaded, colonists can still listen to a replanted anima tree, as verified by the test suite. Nothing of theirs is used, patched or required.
 
 Pickle (https://steamcommunity.com/sharedfiles/filedetails/?id=3791648678) and Nelim's Pickle Tools (https://steamcommunity.com/sharedfiles/filedetails/?id=3806142401) were used for development and testing only; neither is a dependency of the distributed mod.
 

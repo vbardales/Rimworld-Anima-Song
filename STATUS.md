@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: writeDocs[1.0.3]
+workflow_stage: prepareRelease[1.0.3]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -16,8 +16,8 @@ dependencies: declared
 showcase:     complete
 tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26 of 27 passed, the one red replayed green twice; French interface and texts on dd3de9d (7398); French and Phytokin full passes not replayed on the fix (non-regression after the commit); earlier: 2026-09-29 whole suite in English, French and with Phytokin, sound, studio and removal passes 2026-09-26..28
 workshop:     3806709272
-publication_changelog_review_sha: 5602e1bb6c807b7d927888d1dd711a545feee811
-code_review_sha: 23bf286757554c813a4299650528b4dd1c63864e
+publication_changelog_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
+code_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
 echo_review_sha: ad20f6082d917ed14f463fdb2c330ac75c55ad14
 social_preview_sha256: d1409840fb49d96b0bbaf7b2fba77049036390c8abc1a9f2025e8261a8e0dce4
 remaining:
@@ -25,7 +25,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-10, writeDocs[1.0.3]: Preview, echo and social preview done (og:image served is byte-identical to Preview.png); next: description, PUBLICATION.md and CHANGELOG.md read, owner review 11.j
+updated:      2026-10-10, prepareRelease[1.0.3]: PUBLICATION.md and CHANGELOG.md reviewed by the owner (11.j, validated); next: code review of the last Mod/ text changes, dry-run of the final SHA, dated CHANGELOG section
 protocols_read_sha: b4a73cf0998fa5914b1d5e52b0817a8fe77abab3
 ---
 
@@ -165,3 +165,7 @@ Order (session as director): 1 is the most demonstrative (the tree singing with 
 ## Echo, 2026-10-10 (AUDIT.md 10.a)
 
 Decision: keep `Art/echo.png`. It is the line-art of the anima tree as the game draws it (the fan of long pale leaves, the buds, the short trunk), and the gallery now shows exactly that tree: the singing tree of image 1 and the selected tree of image 3. The Preview was accepted (opened 2026-10-07, ModIcon badge in the bottom-left corner, 896 x 504, 684 KB, version badge 1.6 = `supportedVersions`); it is not reopened for taste. Recorded in `echo_review_sha`.
+
+## Code review, 2026-10-10 (AUDIT.md 12.a)
+
+`23bf286..7170e13` of `Mod/` and `Source/`: only `Mod/About/About.xml` (description text: Phytokin link, save wording, DALL-E, Replantable thanks) and `Mod/ATTRIBUTION.md` (Replantable section, DALL-E). No code changed since the review of `c53d1a0`. No finding. The roofed-tree fix (`AnimaSong.xml`, no `unroofedOnly`) and the `build/` path change were reviewed earlier (`c53d1a0`); the Pickle runs `589f`, `ed83`, `3432`, `7398` are the in-game proof.

@@ -18,6 +18,7 @@ tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26
 workshop:     3806709272
 publication_changelog_review_sha: 5602e1bb6c807b7d927888d1dd711a545feee811
 code_review_sha: 23bf286757554c813a4299650528b4dd1c63864e
+echo_review_sha: ad20f6082d917ed14f463fdb2c330ac75c55ad14
 remaining:
   - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay; 2026-10-09: the commenter (Markizo) says the tree sat in a room on a gravship, and works once replanted outside; cause found, `unroofedOnly` on the giver (runs 0ef3, 589f), fixed in 5fa7c4a; still unverified that his room is roofed
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
@@ -159,3 +160,7 @@ Gallery candidates of run `fc87` refused by the owner (2026-10-08) and deleted; 
 | 3 | `3-the-tree-selected.jpg` | Backlot `bare-clearing`, run `4e27`, 2026-10-10 | accepted by the session as director, 2026-10-10 |
 
 Order (session as director): 1 is the most demonstrative (the tree singing with its listeners, the point of the mod), 2 shows how a player orders it, 3 shows the toggle that allows or forbids it. All opened and looked at 2026-10-10; indexes 0 to 3, no gap, no duplicate.
+
+## Echo, 2026-10-10 (AUDIT.md 10.a)
+
+Decision: keep `Art/echo.png`. It is the line-art of the anima tree as the game draws it (the fan of long pale leaves, the buds, the short trunk), and the gallery now shows exactly that tree: the singing tree of image 1 and the selected tree of image 3. The Preview was accepted (opened 2026-10-07, ModIcon badge in the bottom-left corner, 896 x 504, 684 KB, version badge 1.6 = `supportedVersions`); it is not reopened for taste. Recorded in `echo_review_sha`.

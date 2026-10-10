@@ -118,13 +118,12 @@ Feature: the pictures of the Workshop page
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
-    And Nelim's Pickle Tools: the meditation focus of the thing at (195, 152) is logged
-    And Nelim's Pickle Tools: the artificial buildings within 12 cells of (195, 152) are hidden
-    And Nelim's Pickle Tools: the meditation focus of the thing at (195, 152) is logged
+    And Nelim's Pickle Tools: the artificial buildings within 30 cells of (195, 152) are hidden
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Anima Song: I select the tree at x=195 z=152
     And Nelim's Pickle Tools: the resource readout is hidden
     And Nelim's Pickle Tools: the colonist bar is hidden
+    And Nelim's Pickle Tools: the alerts are hidden
     And Nelim's Pickle Tools: the learning helper is hidden
     And Nelim's Pickle Tools: developer mode is turned off for the capture
     And I wait 60 ticks

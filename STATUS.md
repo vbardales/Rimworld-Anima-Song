@@ -8,23 +8,23 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: playTests[1.0.3]
+workflow_stage: shootGallery[1.0.3]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
 dependencies: declared
 showcase:     complete
-tested_on:    2026-09-29, whole suite in English, French and with Phytokin on the published code (last code change 5967dd2); sound, studio and removal passes 2026-09-26..28, on the build before it
+tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26 of 27 passed, the one red replayed green twice; French interface and texts on dd3de9d (7398); French and Phytokin full passes not replayed on the fix (non-regression after the commit); earlier: 2026-09-29 whole suite in English, French and with Phytokin, sound, studio and removal passes 2026-09-26..28
 workshop:     3806709272
 publication_changelog_review_sha: 5602e1bb6c807b7d927888d1dd711a545feee811
 code_review_sha: c53d1a0e3fb0a85f6cac56068d8ad2e2d5ee7522
 remaining:
   - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay; 2026-10-09: the commenter (Markizo) says the tree sat in a room on a gravship, and works once replanted outside; cause found, `unroofedOnly` on the giver (runs 0ef3, 589f), fixed in 5fa7c4a; still unverified that his room is roofed
+  - defect: gallery image 3 (`3-the-tree-selected.jpg`) is still the 2026-09-27 capture on the old studio, not on SanctuaryBacklot; the Backlot capture of run 135f was refused (red radius-warning lines across the frame, an untranslated "Begin liaison d'arbre anima" label); replay `the tree selected with its toggle` with those two hidden
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
-  - unverified: audit 2026-10-10 (playTests[1.0.3]): French interface in game after the 2026-10-08 rewording, ticket 7398 queued; the full French and Phytokin passes are not replayed on the roofed-tree fix (non-regression, played after the commit, AUDIT.md 14.a)
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-10, audit up to playTests[1.0.3] done: criteria 3 to 7 hold, 8.c red replayed green (994e, 3432), code review recorded; the French interface ticket 7398 is the last open item before shootGallery
+updated:      2026-10-10, shootGallery[1.0.3]: playTests exit criteria hold (French texts 7398 green); gallery images 1 and 2 accepted, image 3 still the 2026-09-27 studio capture (refused on the Backlot: red radius lines); table below
 protocols_read_sha: 9f58f59d4c756c649e692d7501d531325cbefa74
 ---
 
@@ -149,3 +149,12 @@ Gallery candidates of run `fc87` refused by the owner (2026-10-08) and deleted; 
 - **6 translations:** `Check-DefInjected.ps1`: 4 keys, 0 errors; `FRENCH_REVIEW.md` regenerated (Virginie's review of 2026-10-08 stands, wording unchanged since).
 - **7 tests:** `scripts/Run-Functional-Tests.ps1` 22 passed, 0 failed on `5fa7c4a`; Pickle suite in `Tests/Pickle/Mod/Pickle/Features/`; the mod keeps its scenarios in `TESTING.md`, not a file named `TEST_SCENARIOS.md`.
 - **8 playTests:** full English pass `ed83` (37 scenarios, 26 passed, 1 red, 10 skipped by `@requires`); the red replayed alone and green twice (`994e`, `3432`; `0a0c` crashed at startup, exit 139, nothing played). Roofed tree: `0ef3`, `589f`. Code review `1314c4c..c53d1a0` of `Mod/` (the roof line removed from `AnimaSong_Listen`, text, images): no finding, nothing in `Source/` changed. Gallery images 1 to 3 accepted.
+
+## Gallery, 2026-10-10
+
+| # | File | Source | State |
+| --- | --- | --- | --- |
+| 0 | `0-preview.png` | copy of `Mod/About/Preview.png` | in place |
+| 1 | `1-the-tree-singing.jpg` | Backlot `bare-clearing`, run `342d`, stools, 2026-10-09 | accepted by the owner, 2026-10-09 |
+| 2 | `2-the-right-click-menu.jpg` | Backlot, run `19c9`, 20C | accepted 2026-10-08 |
+| 3 | `3-the-tree-selected.jpg` | old studio, run `a32d`, 2026-09-27 | accepted then; redo on the Backlot open (`remaining`) |

@@ -54,6 +54,6 @@ still visited (`Tests/Pickle/Mod/Pickle/Features/07-replanted-tree.feature`, a d
 ## Tools
 
 Code and documentation written with Claude Code (Anthropic); preview image generated with an
-image model, under human direction and review. The mod has been played by an automated in-game test suite in a headless game (`TESTING.md`); a person has not yet played it.
+DALL-E (OpenAI), under human direction and review. The mod has been played by an automated in-game test suite in a headless game (`TESTING.md`); a person has not yet played it.
 
 **Licence:** MIT (`LICENSE`).

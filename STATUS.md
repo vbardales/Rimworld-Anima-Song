@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: prepareRelease[1.0.3]
+workflow_stage: publish[1.0.3]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -25,7 +25,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-10, prepareRelease[1.0.3]: PUBLICATION.md and CHANGELOG.md reviewed by the owner (11.j, validated); next: code review of the last Mod/ text changes, dry-run of the final SHA, dated CHANGELOG section
+updated:      2026-10-10, publish[1.0.3]: first dry-run green on 7567c41 (run 38085302429); STATUS now says publish, so the SHA to send is the next one with its own dry-run; rollback target v1.0.2
 protocols_read_sha: b4a73cf0998fa5914b1d5e52b0817a8fe77abab3
 ---
 

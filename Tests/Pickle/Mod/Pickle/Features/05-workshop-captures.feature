@@ -118,7 +118,9 @@ Feature: the pictures of the Workshop page
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
+    And Nelim's Pickle Tools: the meditation focus of the thing at (195, 152) is logged
     And Nelim's Pickle Tools: the artificial buildings within 12 cells of (195, 152) are hidden
+    And Nelim's Pickle Tools: the meditation focus of the thing at (195, 152) is logged
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Anima Song: I select the tree at x=195 z=152
     And Nelim's Pickle Tools: the resource readout is hidden

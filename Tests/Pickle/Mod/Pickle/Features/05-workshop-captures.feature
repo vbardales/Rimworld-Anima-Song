@@ -110,6 +110,7 @@ Feature: the pictures of the Workshop page
   @timeout:120
   Scenario: the tree selected with its toggle
     Given the save "Nelims-tribe" is loaded
+    And Nelim's Sanctuary: the vanometric cell of the sanctuary is hidden
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
     And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
     And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
@@ -117,10 +118,13 @@ Feature: the pictures of the Workshop page
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
+    And Nelim's Pickle Tools: the artificial buildings within 12 cells of (195, 152) are hidden
     When Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
     And Anima Song: I select the tree at x=195 z=152
     And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the colonist bar is hidden
     And Nelim's Pickle Tools: the learning helper is hidden
     And Nelim's Pickle Tools: developer mode is turned off for the capture
     And I wait 60 ticks
+    And Nelim's Pickle Tools: the messages are cleared from the screen
     Then I take a screenshot "workshop 3 - the tree selected"

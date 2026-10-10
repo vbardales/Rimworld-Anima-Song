@@ -34,7 +34,7 @@ the last line is the source link. 3.9 KB against Steam's 8000-byte limit.
 ```markdown
 Colonists can go and listen to an anima tree sing, as recreation.
 
-Vanilla Races Expanded - Phytokin has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and causes a psychic orchestra to play. It is available only to Phytokin, once per quadrum.
+[Vanilla Races Expanded - Phytokin](https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805) has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and causes a psychic orchestra to play. It is available only to Phytokin, once per quadrum.
 
 This mod does not touch that ability. It seemed a shame to leave such a lovely effect locked to a genetically gifted colonist and usable only once a quadrum, so here is the toned-down, repeatable version everyone can use: any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing, the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
 
@@ -126,24 +126,14 @@ Checked in the sources on 2026-09-24, not from intention.
 
 ## Captures for the Workshop page
 
-Steam shows the first one large: put the most demonstrative there, not the prettiest. **The images in `Art/Gallery/` are the ones taken and approved on 2026-09-27; a staged redo is under way (last section), nothing replaced yet.**
-The three come from the Pickle feature `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`, played on PickleTools'
-Nelim zen meadow studio (run `a32d`, pass `studio`, revision `12e7f67`): an anima tree grown at (154, 98), the studio's own
-colonists (Miel, Flore, Soleil), the game's screenshot mode on for the first image so that no interface shows. Each image
-was opened and qualified by the owner before being committed. They are JPEG, 1920 x 1080, not cropped (converted from the PNG captures with ffmpeg `-q:v 3` on 2026-09-28: the PNGs were 4.6 to 4.9 MB and the Steam gallery refuses images over 2 MB; the JPEGs are about 740 KB, the interface text still sharp): `Art/Gallery/`,
-named `1-…`, `2-…`, `3-…` in the order they go on the page after `0-preview.png` (see "The preview image"),
-**and nothing else in that folder**: the folder is uploaded as it is and is the `--gallery-dir` of the workflow
-(`../PUBLISHING.md`, "Images").
+Steam shows the first one large: put the most demonstrative there, not the prettiest. The images of `Art/Gallery/` are the ones of the 2026-10-10 redo (below), JPEG 1920 x 1080 (converted from the PNG captures: the Steam gallery refuses images over 2 MB), named `1-…`, `2-…`, `3-…` in the order they go on the page after `0-preview.png` (see "The preview image"), **and nothing else in that folder**: the folder is uploaded as it is and is the `--gallery-dir` of the workflow (`../PUBLISHING.md`, "Images"). The gallery upload stays manual, the owner's.
 
-Owner's note on the first image: the camera at (154, 98) reads a little wide, not exactly where the three listeners end up
-seated. Zoom in closer next time this scenario is redone; kept as approved for this version.
-
-| # | File | Shows |
-| --- | --- | --- |
-| 0 | `0-preview.png` | Copy of `Preview.png` (`../PUBLISHING.md`, "Images") |
-| 1 | `1-the-tree-singing.jpg` | The tree singing, its halo up, three listeners nearby, no interface |
-| 2 | `2-the-right-click-menu.jpg` | The right-click order on the tree, offered to a selected colonist |
-| 3 | `3-the-tree-selected.jpg` | The tree selected, its **Allow listening** toggle in the gizmo bar, developer mode off |
+| # | File | Source | Shows |
+| --- | --- | --- | --- |
+| 0 | `0-preview.png` | Copy of `Preview.png` (`../PUBLISHING.md`, "Images") | The header image |
+| 1 | `1-the-tree-singing.jpg` | Backlot `bare-clearing`, run `342d` | The tree singing, its halo up, three listeners seated on stools in a ring, no interface |
+| 2 | `2-the-right-click-menu.jpg` | Backlot, run `19c9` (20 degrees) | The right-click order on the tree, offered to a selected colonist |
+| 3 | `3-the-tree-selected.jpg` | Backlot `bare-clearing`, run `4e27` | The tree selected, its **Allow listening** toggle in the gizmo bar, developer mode off |
 
 ## The preview image
 
@@ -157,7 +147,7 @@ unless `update_preview` is turned on: **either Virginie turns it on for the disp
 
 ## Content boxes (adult content, violence)
 
-The `Preview.png` and the `ModIcon.png` were opened again on 2026-10-07 (both regenerated 2026-10-05). Neither shows nudity, gore or anything sexual: seated
+The `Preview.png` and the `ModIcon.png` were opened again on 2026-10-07 (both regenerated 2026-10-05). Neither shows nudity, gore or anything sexual: seated The three gallery images were opened on 2026-10-10: a tree, three listeners in robes, an interface, no nudity or gore.
 figures in dark silhouette in the first, a stylised winking face in the second. Answer **no adult content**. Re-answer only after
 opening any image added later, because the boxes commit the page.
 
@@ -176,37 +166,19 @@ GitHub repository: topics `rimworld`, `rimworld-mod`, `mod`, and the social prev
 repository's Settings page (no API for it). **Done 2026-09-25/29** for this mod; `PublishedFileId.txt` committed
 (`25751bc`), topics set, item public.
 
-**After any upload:** check the public page (description, change note, images) and record it in `STATUS.md` — a
+**After any upload:** check the public page (description, change note, images) and record it in `STATUS.md`: a
 green GitHub release does not prove Steam is up to date.
 
-## The gallery, redone as staged photographs (owner, 2026-10-01/02, in progress)
+## The gallery, redone as staged photographs (done 2026-10-10)
 
-`../PUBLISHING.md` (rule of 2026-10-02): every gallery picture is a staged photograph, **except the menus**; no default settings, a story for the
-series, a common set, chosen subjects. For this mod:
+`../PUBLISHING.md` (rule of 2026-10-02): every gallery picture is a staged photograph, **except the menus**; the session directs the whole series (`../GALLERY.md`). For this mod:
 
-- **Picture 1** (the tree singing) is staged; pictures 2 (the right-click menu) and 3 (the tree selected, with its gizmo) are interface
-  screenshots, not staged.
-- **The scene** is `bare-clearing` of the Sanctuaire de Nelim, defined with the Pickle Tools session on 2026-10-06 (the podium square without its
-  green rug, brown earth, nothing around), after two places tried and dropped: `emerald-clearing` (the teal halo drowned in the green rug) and
-  `calm-zone` (not a scene agreed with them). `-DepMap wsl-deps.sanctuary.map`; the camera is framed on the tree at zoom 5.
-- **The subjects** (owner, 2026-10-07: "oui"): Nelim, the owner's own colonist and the protagonist of the Sanctuaire, is the first listener of picture 1, with two invented companions (Flore, Soleil: body type, hairstyle, hair colour, dyed robe), a lit torch and daylilies as set. Nelim's hairstyle, hair colour and robe are set for the picture; her body is left alone. The same Nelim, same look, is the colonist of picture 2.
-- **Results so far:** run `1993` (`bare-clearing`, 3 of 3 passed): the halo reads well on the earth; pawns were not seated in a ring and the
-  lilies were not visible. A run with hair and dyed robes (ticket `3f03`, still queued when Nelim became the protagonist: it plays the tree as it is when its turn comes, so it shows Nelim) was filed; its pictures are not read.
-- **Nothing is replaced yet**: `Art/Gallery/1-…3-` are the images of 2026-09-27 until the redo is approved by the owner.
-- **Candidates of run `fc87` refused (owner, 2026-10-08)** and deleted: to be regenerated on the Sanctuary Backlot with its whole minimum mod list, the eye colours and the facial expressions. The approved `1-`, `2-`, `3-` of 2026-09-27 stay in `Art/Gallery/` until accepted candidates replace them (a candidate is named `<n>-candidate-<name>`, under 2 MB each and 8 MB for the folder; an accepted one loses `candidate`, a refused one is deleted).
-
-- **Run `135f` (2026-10-08, Backlot, ticket 3 of 3 passed; evidence `pickle-run-2026-10-08-backlot2`)**, pictures opened: only the right-click menu (`2-candidate-the-right-click-menu.jpg`, a menu, so exempt from the staged-photo rule) is kept as a candidate. Not kept: picture 1 has two listeners at the tree's south and a third far to the west by the lilies (no ring), all seen from behind, so it is not a staged photograph; picture 3 shows the red radius-warning lines across the frame and the English UI carries an untranslated "Begin liaison d'arbre anima" label. The approved `1-`, `3-` stay. Open for the pawns: the ring placement (seated, all around the tree) and the faces, to ask Nelim's Pickle Tools / Sanctuary Backlot.
-
-- **Run `08d7` (2026-10-08, scenario 1 with `stands at` on three sides, evidence `pickle-run-2026-10-08-ring2`)**, picture opened: faces and eyes read well (green eyes on Soleil, `SocialRelax` held), the halo and torch are right. Still not a candidate: the three listeners all end up east of the tree (the job picks the nearest listening cells, so the start side does not hold), nobody is seated, the lilies are tiny. Needs a way to force the seating cells (to ask Pickle Tools).
-
-- **Run `19c9` (2026-10-08, map held at 20 degrees, evidence `pickle-run-2026-10-08-cool`)**: sweat and blush gone; the interface reads "Outdoors 20C". The listeners still do not seat around the tree (two stacked north of it, one east): image 1 not a candidate. Open: forcing the listening cells and the seated pose (Pickle Tools). The accepted image 2 (40C in its corner) could be replaced by this run's 20C menu picture if the owner wants.
-
-- **Image 2 replaced (owner, 2026-10-08)**: `2-the-right-click-menu.jpg` is now the 20C menu picture of run `19c9` (no one in the frame), a 1280 px JPEG copy of the capture (the 1920 px PNG had already been trimmed). Redo from the scenario if a full-size one is wanted.
-
-- **At the publish (owner, 2026-10-08): send the preview image again.** The 1.0.x dispatch carries `update_preview=true` (`dispatch-publish.sh … --preview`; the dry-run `37768907181` ran with it), so `Mod/About/Preview.png` replaces the header image on the Steam page. The gallery stays a manual upload; the description is not sent (no change).
-
-- **Image 1 replaced (owner, 2026-10-09)**: `1-the-tree-singing.jpg` is now the JPEG copy (400 KB, quality 88) of run `342d` (`pickle-run-2026-10-09-stools2`, scene `bare-clearing`, 1 of 1 passed). Three stools set with `I place the decor "Stool"`, each pawn put on one with `stands at ... facing` (Nelim north of the tree facing South, Flore west facing East, Soleil east facing West): seated ring around the tree, halo, torch and dyed robes read, no interface. Run `176a` (same, Nelim facing North) was refused: Nelim had her back to the tree. Remaining flaw: the daylilies sit in a strip on the left edge.
-
+- **Picture 1** (the tree singing) is staged; pictures 2 (the right-click menu) and 3 (the tree selected, with its gizmo) are interface screenshots, not staged.
+- **The scene** is `bare-clearing` of the Sanctuaire de Nelim (the podium square without its green rug, brown earth), played in `SanctuaryBacklot` with `-DepMap wsl-deps.sanctuary.map`; the camera is framed on the tree at zoom 5, the map held at 20 degrees so nobody sweats or blushes.
+- **The subjects:** Nelim, the owner's own colonist and the protagonist of the Sanctuaire, is the first listener, with two invented companions (Flore, Soleil: body type, hairstyle, hair colour, dyed robe), a lit torch lamp and daylilies as set. The three sit on stools set by StageDecor, each placed with `stands at ... facing` (a listener does not sit on a bare cell: the driver sets no seated posture). Run `176a` had Nelim facing North, her back to the tree: refused; `342d` (facing South) accepted.
+- **Picture 3** hides what the selected tree draws: its `FocusStrengthOffset_ArtificialBuildings` has a radius of 27.9 cells and the tree draws a red line to every artificial building inside it, so the scenario hides the artificial buildings within 30 cells (which also makes roofs collapse: the letters and alerts are cleared before the shot), the colonist bar, the vanometric cell, and clears the messages. The gizmo label "Begin liaison d'arbre anima" (not this mod's: French text in an English pass, maker unknown) stays, accepted by the owner.
+- **Candidates and sizes:** a candidate is named `<n>-candidate-<name>`, under 2 MB each and 8 MB for the folder; accepted: `candidate` dropped; refused: deleted. The folder is about 2.4 MB.
+- **At the publish (owner, 2026-10-08): send the preview image again.** The 1.0.x dispatch carries `update_preview=true` (`dispatch-publish.sh ... --preview`), so `Mod/About/Preview.png` replaces the header image on the Steam page. The gallery stays a manual upload. The description changed since 1.0.2 (the Replantable Anima Trees thanks): sent with `update_description=true`, or pasted by hand, the owner decides at `prepareRelease`.
 ## Thanks, to post
 
 Not posted yet. One message, on the Continued page, crediting the maintainer and the original author (`../WORKSHOP_COMMENTS.md`, row `3503586725`, `drafted`). Post it after the 1.0.3 update is public, and after Markizo's report is closed, since it is the same reader.

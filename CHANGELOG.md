@@ -25,7 +25,7 @@ Edited directly on the Steam page, not through the CI: a description-only change
   but not linked, and were missing entirely from the page's own text).
 - Removed Claude Code from the Thanks section (AI tool use stays disclosed in its own AI-generated section).
 
-## [1.0.2] — 2026-09-28
+## [1.0.2] - 2026-09-28
 
 ### Changed
 
@@ -33,7 +33,7 @@ Edited directly on the Steam page, not through the CI: a description-only change
   exists (the toned-down, repeatable version of an effect that felt like a shame to leave locked to one gifted
   colonist once a quadrum). No code change.
 
-## [1.0.1] — 2026-09-28
+## [1.0.1] - 2026-09-28
 
 ### Fixed
 
@@ -41,7 +41,7 @@ Edited directly on the Steam page, not through the CI: a description-only change
   error once instead of failing silently if a future RimWorld version renames the field it reads. No behaviour change
   when the field is present, which it is on 1.6.
 
-## [1.0.0] — 2026-09-25
+## [1.0.0] - 2026-09-25
 
 The CI creates the `v1.0.0` tag and the matching GitHub release after a successful upload (never by hand).
 
@@ -50,7 +50,7 @@ First version. RimWorld 1.6, Royalty required.
 ### Added
 
 - A new recreation type, `AnimaSong_Song`: any colonist able to hear can walk out to an anima tree, sit down in a ring 2 to 5 cells from the trunk, and listen to it sing. Up to six listeners at once, outdoors only, line of sight required.
-- A memory worth +3 mood for one day, multiplied by psychic sensitivity and not stacking — deliberately weaker than the +8 over two days of Phytokin's own once-a-quadrum ability.
+- A memory worth +3 mood for one day, multiplied by psychic sensitivity and not stacking, deliberately weaker than the +8 over two days of Phytokin's own once-a-quadrum ability.
 - A visible song: while anyone is listening the tree wears a soft teal glow (the colour of its leaves, from a texture of the mod's own) under Royalty's pulsing psychic halo, and a wave of light travels from the trunk to each listener every two seconds.
 - A right-click order, **Listen to the anima song**: select a colonist, click the tree, and they go and sit, instead of waiting for recreation time to come round. Greyed out with its reason when the pawn cannot hear, when the ring is full, when no free spot is left, or when listening is forbidden.
 - A toggle on the tree, **Allow listening**. Turned off, the joy giver skips that tree and current listeners stand up at once.
@@ -64,7 +64,7 @@ First version. RimWorld 1.6, Royalty required.
 - The halo is a maintained mote, and the base game destroys such a mote on the first tick nobody maintained it. The listener's job maintains it, and a component on the map keeps it up on the ticks the job skips at higher game speeds, so it holds at normal speed, Fast and Ultrafast.
 - Played by an automated in-game suite (25 scenarios, English, French, and with Phytokin) in a headless game; see `TESTING.md`. **Not yet watched by a person on the Windows game**: that the halo is drawn on screen, that the song is heard, that Phytokin's own ability soothes beside it, and removing the mod from an existing save are still to be checked.
 
-## [0.1.0] — 2026-09-23
+## [0.1.0] - 2026-09-23
 
 Creation of the publishIdFile. First upload, whose only purpose was to create the (private) Workshop item and obtain
 `Mod/About/PublishedFileId.txt` (item `3806709272`, commit `25751bc`). It says nothing about the mod being tested or

@@ -8,8 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-stage:        tested
-workflow_stage: tested
+workflow_stage: playTests[1.0.3]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -23,8 +22,9 @@ remaining:
   - unverified: user report 2026-10-08 (Workshop comment): with Replantable Anima Trees (Continued) (3503586725, `Spuffy.AnimaReplant`), pawns stop listening on their own to a replanted tree (the manual order still works). NOT reproduced: that mod only removes `minifiedDef` from `Plant_TreeAnima`; replanted through the game's own install blueprint, 20 cells away, the tree keeps its object, comps and toggle, and a bored colonist (joy 10 percent, schedule joy, no work) walks to it and listens on their own (`07-replanted-tree.feature`, run 15c9, 2026-10-08). Tracked in issue #1 (labels bug, not reproduced); the commenter was asked on 2026-10-08 for the exact steps, version and delay; 2026-10-09: the commenter (Markizo) says the tree sat in a room on a gravship, and works once replanted outside; cause found, `unroofedOnly` on the giver (runs 0ef3, 589f), fixed in 5fa7c4a; still unverified that his room is roofed
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
-session:      local_b972f1a7-9f09-4a1f-a952-6a1a8f96d623
-updated:      2026-10-09, 1.0.3 not published: image 1 of the gallery accepted (stools, run 342d); roofed-tree fix 5fa7c4a (Markizo report, issue #1) proven by runs 0ef3 and 589f; full English pass ed83 queued; the dry-run of 7894817 no longer applies
+session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
+updated:      2026-10-09, back to playTests[1.0.3] (the roofed-tree fix is a code change after the first passes; full pass ed83 had one red, replayed green by 994e, final-SHA pass still owed); 1.0.3 not published: image 1 of the gallery accepted (stools, run 342d); roofed-tree fix 5fa7c4a (Markizo report, issue #1) proven by runs 0ef3 and 589f; full English pass ed83 queued; the dry-run of 7894817 no longer applies
+protocols_read_sha: 6591dbc87e6e41defa0dcf1fc510aac5ca522048
 ---
 
 # Anima Song — status

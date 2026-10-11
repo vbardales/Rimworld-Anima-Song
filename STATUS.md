@@ -27,7 +27,7 @@ remaining:
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
 updated:      2026-10-10, followUp[1.0.3]: 1.0.3 uploaded (ManifestID 2330636768476916889), tag v1.0.3 on 5b21606; non-regression: English d3e2 and French 5a3a green, Phytokin dc8f queued; to do by hand: gallery images 1 to 3 on the Steam page, thank-you message, answer to Markizo
-protocols_read_sha: 6dd52ef3922884f0f42526e9e07e3a07ac9fa2b1
+protocols_read_sha: c55fe106bd30e5a043fa13194a954418a37831fe
 ---
 
 # Anima Song — status

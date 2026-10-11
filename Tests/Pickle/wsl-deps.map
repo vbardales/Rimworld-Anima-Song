@@ -9,3 +9,6 @@
 # nelim.pickletools.filmticks is a folder of this repository's collection, not a Workshop item: the staging reads a
 # `path:` line as a folder relative to the collection's root.
 nelim.pickletools.filmticks   path:PickleTools/FilmTicks/Mod
+
+# The two save steps (the game is saved as, the saved game is handed to the mod) come from PickleTools SaveSteps, not from this mod.
+nelim.pickletools.savesteps   path:PickleTools/SaveSteps/Mod

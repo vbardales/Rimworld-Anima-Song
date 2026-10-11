@@ -198,5 +198,5 @@ Feature: the rest of the manual scenarios
     And game speed is ultrafast
     When Anima Song: "Saved" is ordered to listen to the tree at x=70 z=132
     And Anima Song: "Saved" sits in the ring of the tree at x=70 z=132
-    And Anima Song: the game is saved to a file
-    Then Anima Song: the saved file mentions the mod only through what it says it stores
+    And Nelim's Pickle Tools: the game is saved as "pickle-animasong-save-check"
+    Then Anima Song: the saved game "pickle-animasong-save-check" mentions the mod only through what it says it stores

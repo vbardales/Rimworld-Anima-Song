@@ -24,6 +24,6 @@ Feature: a save with Anima Song, prepared for removal
     And I wait 1400 ticks
     And I draft "Handoff"
     Then Anima Song: "Handoff" holds 1 memory of the anima song
-    When Anima Song: the game is saved to a file
-    And Anima Song: the saved file is handed to the mod "nelim.animasong.pickleremoval"
+    When Nelim's Pickle Tools: the game is saved as "pickle-animasong-save-check"
+    And Nelim's Pickle Tools: the saved game "pickle-animasong-save-check" is handed to the mod "nelim.animasong.pickleremoval"
     Then no errors were logged

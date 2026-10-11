@@ -3,3 +3,6 @@
 # The removal companion is not staged from the Workshop: it lives in this repository and is loaded by path (relative to the
 # monorepo root, like every other path: line, hence the leading AnimaSong/), not by the mod's own repo root.
 nelim.animasong.pickleremoval  path:AnimaSong/Tests/Pickle/Removal/Mod
+
+# The two save steps (the game is saved as, the saved game is handed to the mod) come from PickleTools SaveSteps, not from this mod.
+nelim.pickletools.savesteps   path:PickleTools/SaveSteps/Mod

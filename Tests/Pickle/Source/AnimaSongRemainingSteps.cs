@@ -24,11 +24,6 @@ namespace AnimaSong.PickleSteps
     [PickleSteps]
     public class AnimaSongRemainingSteps
     {
-        private sealed class SavedFile
-        {
-            public string Path;
-        }
-
         private sealed class SongNote
         {
             public int Tick;
@@ -166,19 +161,6 @@ namespace AnimaSong.PickleSteps
         // ------------------------------------------------------------------ what the mod leaves in a save
 
         /// <summary>
-        /// Saves the game to a file of its own (the game's own saver) and remembers its name for the step that reads it.
-        /// </summary>
-        [When("Anima Song: the game is saved to a file")]
-        public void SaveToAFile(PickleContext ctx)
-        {
-            const string name = "pickle-animasong-save-check";
-            GameDataSaveLoader.SaveGame(name);
-            string path = GenFilePaths.FilePathForSavedGame(name);
-            ctx.Assert(File.Exists(path), $"the game did not write {path}");
-            ctx.Set(new SavedFile { Path = path });
-        }
-
-        /// <summary>
         /// What the mod says it stores in a save, and nothing else: the toggle and the cooldown on the tree, the listening counter of
         /// a job in progress and its driver, the class name of the halo keeper (the game writes the name of every map component, this one
         /// holds no data), the three defs it names (job, joy kind, memory), and the mod's own id in the header that
@@ -186,10 +168,11 @@ namespace AnimaSong.PickleSteps
         /// forgotten field or a def saved by mistake shows in the report. What the game does with such a save when the mod is gone
         /// is the game's, not asserted here.
         /// </summary>
-        [Then("Anima Song: the saved file mentions the mod only through what it says it stores")]
-        public void SaveMentionsOnlyWhatItStores(PickleContext ctx)
+        [Then("Anima Song: the saved game {string} mentions the mod only through what it says it stores")]
+        public void SaveMentionsOnlyWhatItStores(PickleContext ctx, string saveName)
         {
-            string path = ctx.Get<SavedFile>().Path;
+            string path = GenFilePaths.FilePathForSavedGame(saveName);
+            ctx.Assert(File.Exists(path), $"no saved game {path}: save it first (Nelim's Pickle Tools: the game is saved as ...)");
             string text = File.ReadAllText(path);
             var words = new System.Text.RegularExpressions.Regex(@"[A-Za-z0-9_.]*[Aa]nima[ ]?[Ss]ong[A-Za-z0-9_.]*")
                 .Matches(text).Cast<System.Text.RegularExpressions.Match>().Select(m => m.Value).ToList();
@@ -202,23 +185,6 @@ namespace AnimaSong.PickleSteps
             var stray = groups.Where(g => !allowed.IsMatch(g.Key)).Select(g => g.Key).ToList();
             ctx.Assert(groups.Count > 0, "the saved file never names the mod: the check reads nothing");
             ctx.Assert(stray.Count == 0, $"the save names the mod in places it does not say it stores: {string.Join(", ", stray)}. All: {listing}");
-        }
-
-        // Pickle finds a saved game as a fixture: a .rws in the Pickle/Fixtures folder of an active mod. A game saved in this
-        // launch is handed to the mod that the next launch (loaded without Anima Song) will load it with. Same mechanism as
-        // Housebroken's TF-18 (`../Housebroken/Tests/Pickle/Source/ExtraSteps.cs`).
-        [When("Anima Song: the saved file is handed to the mod {string}")]
-        public void HandSavedFile(PickleContext ctx, string packageId)
-        {
-            string path = ctx.Get<SavedFile>().Path;
-            ModContentPack target = LoadedModManager.RunningModsListForReading.FirstOrDefault(m =>
-                m.PackageIdPlayerFacing.ToLowerInvariant() == packageId.ToLowerInvariant());
-            ctx.Assert(target != null, $"no active mod has the packageId {packageId}");
-            string folder = Path.Combine(target.RootDir, "Pickle", "Fixtures");
-            Directory.CreateDirectory(folder);
-            string destination = Path.Combine(folder, Path.GetFileNameWithoutExtension(path) + ".rws");
-            File.Copy(path, destination, true);
-            ctx.Assert(File.Exists(destination), $"the saved game was not copied to {destination}");
         }
 
         // ------------------------------------------------------------------ the inspect line, and the waves

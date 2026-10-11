@@ -39,119 +39,23 @@ $ModRoot = Split-Path -Parent $PSScriptRoot
 $Mod     = Join-Path $ModRoot 'Mod'
 
 # ---------------------------------------------------------------------------------------------
-# Harness
+# Harness and reflection: shared by every mod's functional tests, kept in the protocols checkout
+# (scripts/lib/TestRunner.ps1, scripts/lib/GameReflection.ps1). The tests below stay here: they
+# are what this mod asks of the game.
 # ---------------------------------------------------------------------------------------------
 
-$script:pass = 0; $script:fail = 0; $script:n = 0
-function Test-That([string]$name, [scriptblock]$body) {
-    $script:n++
-    try {
-        $r = & $body
-        if (($r -is [string]) -and ($r -eq 'skip')) {
-            Write-Host ("  {0,2}. SKIP  {1}" -f $script:n, $name) -ForegroundColor DarkGray
-            return
-        }
-        if ($r) { $script:pass++; Write-Host ("  {0,2}. ok    {1}" -f $script:n, $name) -ForegroundColor DarkGreen }
-        else    { $script:fail++; Write-Host ("  {0,2}. FAIL  {1}" -f $script:n, $name) -ForegroundColor Red }
-    } catch {
-        $script:fail++
-        Write-Host ("  {0,2}. FAIL  {1}" -f $script:n, $name) -ForegroundColor Red
-        Write-Host ("        {0}" -f $_.Exception.Message) -ForegroundColor DarkRed
-    }
-}
-function Note([string]$text) { Write-Host ("        " + $text) -ForegroundColor DarkGray }
+. (Join-Path $PSScriptRoot '..\..\scripts\lib\TestRunner.ps1')
+. (Join-Path $PSScriptRoot '..\..\scripts\lib\GameReflection.ps1')
 
-# Always with -Encoding UTF8: Windows PowerShell 5.1 reads a BOM-less file through the system code
-# page, and a test looking for an accented word finds mojibake instead.
-function Read-Text([string]$p) { Get-Content $p -Raw -Encoding UTF8 }
-
-# ---------------------------------------------------------------------------------------------
-# The game, by reflection
-# ---------------------------------------------------------------------------------------------
-
-# Assembly-CSharp names Unity assemblies that are not next to this script. An unresolvable name
-# asked for twice recurses to a stack overflow rather than an error, hence the memo; the null
-# guard matters because the handler lives on the process AppDomain, which outlives this script.
-$script:probeDirs = @($Managed, (Join-Path $Mod 'Assemblies'))
-$script:probed = @{}
-$script:asmResolver = [System.ResolveEventHandler]{
-    param($sender, $e)
-    if ($null -eq $script:probed) { return $null }
-    $short = $e.Name.Split(',')[0]
-    if ($script:probed.ContainsKey($short)) { return $null }
-    $script:probed[$short] = $true
-    foreach ($d in $script:probeDirs) {
-        $p = Join-Path $d "$short.dll"
-        if (Test-Path $p) { return [System.Reflection.Assembly]::LoadFrom($p) }
-    }
-    return $null
-}
-[System.AppDomain]::CurrentDomain.add_AssemblyResolve($script:asmResolver)
-
-# GetTypes() always throws here - Unity is missing - but the exception carries every type it did
-# resolve, which is all of them but a handful. PowerShell wraps it, so both shapes are caught.
-function Get-AssemblyTypes([string]$path) {
-    $a = [System.Reflection.Assembly]::LoadFrom($path)
-    try     { return $a.GetTypes() }
-    catch [System.Reflection.ReflectionTypeLoadException] { return $_.Exception.Types | Where-Object { $_ } }
-    catch   { return $_.Exception.InnerException.Types | Where-Object { $_ } }
-}
+# Assembly-CSharp names Unity assemblies that are not next to this script: the resolver looks in
+# the game's Managed folder and in this mod's own Assemblies folder.
+Initialize-GameReflection -Managed $Managed -ExtraDirs @((Join-Path $Mod 'Assemblies'))
 
 $gameTypes = Get-AssemblyTypes (Join-Path $Managed 'Assembly-CSharp.dll')
 $modDll    = Join-Path $Mod 'Assemblies\AnimaSong.dll'
 $modTypes  = @(Get-AssemblyTypes $modDll)
-
-$TypeIndex = @{}
-foreach ($t in $gameTypes) {
-    if ($t.Name -and -not $TypeIndex.ContainsKey($t.Name)) { $TypeIndex[$t.Name] = $t }
-    if ($t.FullName -and -not $TypeIndex.ContainsKey($t.FullName)) { $TypeIndex[$t.FullName] = $t }
-}
+$TypeIndex = New-TypeIndex $gameTypes
 $BF = [System.Reflection.BindingFlags]'Public,NonPublic,Instance,Static'
-
-# Reading one method's instructions. Three questions are asked of a body below - what does it
-# call, what does it cast to, which fields does it touch - and all three are the same walk over
-# the IL with a token resolved against the declaring module. ResolveMember throws on a token that
-# belongs to a generic context it cannot rebuild, so every resolution is guarded: a body that
-# cannot be read at all comes back empty, which fails a test rather than passing it silently.
-Add-Type -TypeDefinition @'
-using System;using System.Collections.Generic;using System.Reflection;
-public static class AsIl {
-  // 0x28 call, 0x6F callvirt, 0x73 newobj, 0x74 castclass, 0x75 isinst,
-  // 0x7B ldfld, 0x7C ldflda, 0x7D stfld, 0x7E ldsfld, 0x7F ldsflda, 0x80 stsfld.
-  static bool IsCall(byte op)  { return op == 0x28 || op == 0x6F || op == 0x73; }
-  static bool IsCast(byte op)  { return op == 0x74 || op == 0x75; }
-  static bool IsField(byte op) { return op >= 0x7B && op <= 0x80; }
-
-  public static string[] Members(MethodBase m, string kind) {
-    var res = new List<string>();
-    byte[] il;
-    try { var b = m.GetMethodBody(); if (b == null) return res.ToArray(); il = b.GetILAsByteArray(); }
-    catch { return res.ToArray(); }
-    if (il == null) return res.ToArray();
-    Module mod = m.Module;
-    for (int i = 0; i + 4 < il.Length; i++) {
-      byte op = il[i];
-      bool want = kind == "call" ? IsCall(op) : kind == "cast" ? IsCast(op) : IsField(op);
-      if (!want) continue;
-      int tok = BitConverter.ToInt32(il, i + 1);
-      string name = null;
-      try {
-        if (IsCast(op)) { Type t = mod.ResolveType(tok); name = t.FullName; }
-        else {
-          MemberInfo mi = mod.ResolveMember(tok);
-          if (mi != null && mi.DeclaringType != null) name = mi.DeclaringType.Name + "." + mi.Name;
-        }
-      } catch { }
-      if (name != null && !res.Contains(name)) res.Add(name);
-    }
-    return res.ToArray();
-  }
-}
-'@
-
-function Calls-Of ($m)  { @([AsIl]::Members($m, 'call')) }
-function Casts-Of ($m)  { @([AsIl]::Members($m, 'cast')) }
-function Fields-Of ($m) { @([AsIl]::Members($m, 'field')) }
 
 $defsXml  = New-Object System.Xml.XmlDocument; $defsXml.Load((Join-Path $Mod 'Defs\AnimaSong.xml'))
 $patchXml = New-Object System.Xml.XmlDocument; $patchXml.Load((Join-Path $Mod 'Patches\AnimaTree.xml'))
@@ -532,12 +436,8 @@ Test-That "the halo glow is a mote of the mod's own, with its own texture, tinte
 
 
 # ---------------------------------------------------------------------------------------------
-Write-Host ""
-Write-Host ("  {0} passed, {1} failed, {2} total" -f $script:pass, $script:fail, $script:n) `
-    -ForegroundColor $(if ($script:fail) { 'Red' } else { 'Green' })
-Write-Host ""
-[System.AppDomain]::CurrentDomain.remove_AssemblyResolve($script:asmResolver)
-if ($script:fail) { exit 1 }
+Remove-GameReflection
+Complete-Tests
 
 # ---------------------------------------------------------------------------------------------
 # What this file can and cannot be seen to fail

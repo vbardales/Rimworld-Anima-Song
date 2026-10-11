@@ -22,11 +22,11 @@ echo_review_sha: ad20f6082d917ed14f463fdb2c330ac75c55ad14
 social_preview_sha256: d1409840fb49d96b0bbaf7b2fba77049036390c8abc1a9f2025e8261a8e0dce4
 remaining:
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; still not verified that his room is roofed
-  - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a and Phytokin dc8f still queued
+  - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f still queued
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-10, followUp[1.0.3]: 1.0.3 uploaded (ManifestID 2330636768476916889), tag v1.0.3 on 5b21606; non-regression: English d3e2 green, French 5a3a and Phytokin dc8f queued; to do by hand: gallery images 1 to 3 on the Steam page, thank-you message, answer to Markizo
+updated:      2026-10-10, followUp[1.0.3]: 1.0.3 uploaded (ManifestID 2330636768476916889), tag v1.0.3 on 5b21606; non-regression: English d3e2 and French 5a3a green, Phytokin dc8f queued; to do by hand: gallery images 1 to 3 on the Steam page, thank-you message, answer to Markizo
 protocols_read_sha: a5c7cf48b349ae00e7d28fd643e852dc860dfaf2
 ---
 

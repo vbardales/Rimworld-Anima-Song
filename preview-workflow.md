@@ -5,7 +5,7 @@ diagnostics go to `Art/.render/`, which git ignores.
 
 - `Preview.config.json`: the single source of copy, title hierarchy, layout, panel, echo, badge and palette.
 - `Preview-source.png`: the illustration, without text.
-- `echo.png`: the transparent line-art mask, redrawn from the anima tree of `Gallery/3-the-tree-selected.jpg`, sized for direct use.
+- `echo-source.png`: the transparent line-art mask, redrawn from the anima tree of `Gallery/3-the-tree-selected.jpg`, sized for direct use.
 - `ModIcon-source.png`: the badge in the bottom-left corner (`iconBadge` in the config).
 - `Gallery/0-preview.png`: byte-for-byte copy of `Mod/About/Preview.png`; screenshots continue as `1-`, `2-`, `3-`.
 

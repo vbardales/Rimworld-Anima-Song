@@ -101,7 +101,7 @@ reading is not the review TRANSLATIONS.md requires.
 
 ## Preview source migration — 2026-10-02
 
-Copy, typography, layout and palette are consolidated in `Art/Preview.config.json`. The canonical inputs are `Art/Preview-source.png`, `Art/echo.png` and `Art/ModIcon-source.png`; the shared renderer writes temporary diagnostics under ignored `Art/.render/`. Existing distributed Preview, gallery and ICO outputs were preserved because they were present and coherent; no render was run for this migration. Superseded JSON files and generated QA intermediates were removed. Nothing published.
+Copy, typography, layout and palette are consolidated in `Art/Preview.config.json`. The canonical inputs are `Art/Preview-source.png`, `Art/echo-source.png` and `Art/ModIcon-source.png`; the shared renderer writes temporary diagnostics under ignored `Art/.render/`. Existing distributed Preview, gallery and ICO outputs were preserved because they were present and coherent; no render was run for this migration. Superseded JSON files and generated QA intermediates were removed. Nothing published.
 
 ## Code review, 2026-10-05
 
@@ -165,7 +165,7 @@ Order (session as director): 1 is the most demonstrative (the tree singing with 
 
 ## Echo, 2026-10-10 (AUDIT.md 10.a)
 
-Decision: keep `Art/echo.png`. It is the line-art of the anima tree as the game draws it (the fan of long pale leaves, the buds, the short trunk), and the gallery now shows exactly that tree: the singing tree of image 1 and the selected tree of image 3. The Preview was accepted (opened 2026-10-07, ModIcon badge in the bottom-left corner, 896 x 504, 684 KB, version badge 1.6 = `supportedVersions`); it is not reopened for taste. Recorded in `echo_review_sha`.
+Decision: keep `Art/echo-source.png`. It is the line-art of the anima tree as the game draws it (the fan of long pale leaves, the buds, the short trunk), and the gallery now shows exactly that tree: the singing tree of image 1 and the selected tree of image 3. The Preview was accepted (opened 2026-10-07, ModIcon badge in the bottom-left corner, 896 x 504, 684 KB, version badge 1.6 = `supportedVersions`); it is not reopened for taste. Recorded in `echo_review_sha`.
 
 ## Code review, 2026-10-10 (AUDIT.md 12.a)
 

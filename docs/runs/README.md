@@ -61,3 +61,5 @@ replaced by 09-28), `2026-09-28-waves` (now in the full runs).
 2026-10-10, non-regression after the 1.0.3 publish (`v1.0.3`, `5b21606`): English full pass `d3e2` green (37 scenarios, 27 passed, 0 failed, 10 skipped by `@requires`, exitReason passed, 1 attempt each); French `5a3a` and Phytokin `dc8f` still to come. Evidence on disk in `Tests/Pickle/Evidence/pickle-run-2026-10-10-nonreg-en`.
 
 2026-10-10, non-regression after the 1.0.3 publish: French full pass `5a3a` green (37 scenarios, 27 passed, 0 failed, 10 skipped by `@requires`, exitReason passed). Evidence on disk in `Tests/Pickle/Evidence/pickle-run-2026-10-10-nonreg-fr`; Phytokin `dc8f` still to come.
+
+2026-10-11, SaveSteps swap (`6e02225`: the local save steps replaced by PickleTools SaveSteps): `e561` green (1 of 1, "what a save holds of the mod is what it says it stores"), `0cd2` green (removal pass, write then check, 2 of 2). Phytokin non-regression `dc8f` did not finish: exit 3, the game stopped writing for 5 minutes while loading a save after 11 green scenarios (exitReason in-progress, no failure); replayed whole as `3926` (2026-10-12).

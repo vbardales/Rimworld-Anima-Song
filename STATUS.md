@@ -18,7 +18,7 @@ tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26
 workshop:     3806709272
 publication_changelog_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
 code_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
-echo_review_sha: ad20f6082d917ed14f463fdb2c330ac75c55ad14
+echo_review_sha: 30f303ccb252009563ef6f67044007e1d239ab83
 social_preview_sha256: d1409840fb49d96b0bbaf7b2fba77049036390c8abc1a9f2025e8261a8e0dce4
 remaining:
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
@@ -165,7 +165,7 @@ Order (session as director): 1 is the most demonstrative (the tree singing with 
 
 ## Echo, 2026-10-10 (AUDIT.md 10.a)
 
-Decision: keep `Art/echo-source.png`. It is the line-art of the anima tree as the game draws it (the fan of long pale leaves, the buds, the short trunk), and the gallery now shows exactly that tree: the singing tree of image 1 and the selected tree of image 3. The Preview was accepted (opened 2026-10-07, ModIcon badge in the bottom-left corner, 896 x 504, 684 KB, version badge 1.6 = `supportedVersions`); it is not reopened for taste. Recorded in `echo_review_sha`.
+Decision: keep `Art/echo-source.png` (renamed from `echo.png` 2026-10-12, byte-identical, so the decision stands and `echo_review_sha` moved to the commit that carries the new name). It is the line-art of the anima tree as the game draws it (the fan of long pale leaves, the buds, the short trunk), and the gallery now shows exactly that tree: the singing tree of image 1 and the selected tree of image 3. The Preview was accepted (opened 2026-10-07, ModIcon badge in the bottom-left corner, 896 x 504, 684 KB, version badge 1.6 = `supportedVersions`); it is not reopened for taste. Recorded in `echo_review_sha`.
 
 ## Code review, 2026-10-10 (AUDIT.md 12.a)
 

@@ -28,7 +28,7 @@ remaining:
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
 updated:      2026-10-13, playTests[1.1.0]: first 1.7 diagnostic 9f17 (exit 3, 3 passed, 10 failed on the pawn walk to the ring, not concluded), see docs/runs/2026-10-13-1.7.md
-protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
+protocols_read_sha: 86cf2bf7fd989021fbad0ac45602a2109a7a3aa7
 ---
 
 # Anima Song — status

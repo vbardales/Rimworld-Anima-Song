@@ -1,0 +1,4 @@
+# RimWorld 1.7 pass (AUDIT.md "Passe 1.7"). Run: -DepMap wsl-deps.17.map -Game /home/nelim/rimworld17
+# FilmTicks is the net10.0 build of the 1.7 session (WSL ~/pt17/mods), read with a path relative to the rimworld repository root, as PickleTools' own 1.7 maps do.
+# SaveSteps has no net10.0 build yet: the scenarios that use its two steps (03, 06) fail on the missing step, not on the mod.
+nelim.pickletools.filmticks   path:../../../../../../home/nelim/pt17/mods/FilmTicks

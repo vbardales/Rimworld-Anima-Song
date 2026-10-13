@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: followUp[1.0.3]
+workflow_stage: playTests[1.1.0]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -21,13 +21,14 @@ code_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
 echo_review_sha: 30f303ccb252009563ef6f67044007e1d239ab83
 social_preview_sha256: d1409840fb49d96b0bbaf7b2fba77049036390c8abc1a9f2025e8261a8e0dce4
 remaining:
+  - open: 1.1.0 (RimWorld 1.7): `tested_1_7` not yet recorded; test the current `net472` DLL on 1.7 (Pickle on 1.7 and NPT/SB 1.7 prerequisites first, AUDIT.md); if it fails, add `1.7/` (`net10.0`) and a `<v1.7>` block in `LoadFolders.xml`; `<li>1.7</li>` in `supportedVersions`, version, `CHANGELOG.md` only after a green 1.7 run
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-10, followUp[1.0.3]: 1.0.3 uploaded (ManifestID 2330636768476916889), tag v1.0.3 on 5b21606; non-regression: English d3e2 and French 5a3a green, Phytokin dc8f stalled (exit 3) and replayed as 3926; to do by hand: gallery images 1 to 3 on the Steam page, thank-you message, answer to Markizo
-protocols_read_sha: c55fe106bd30e5a043fa13194a954418a37831fe
+updated:      2026-10-13, playTests[1.1.0]: minor 1.1.0 opened for the RimWorld 1.7 pass (AUDIT.md "Passe 1.7"); 1.0.3 stays the published revision; current net472 DLL to be tested on 1.7 first
+protocols_read_sha: e33f492fb1ae1abf5da0b25fef3ba13eef050d64
 ---
 
 # Anima Song — status

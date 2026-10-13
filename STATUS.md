@@ -21,14 +21,14 @@ code_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
 echo_review_sha: 30f303ccb252009563ef6f67044007e1d239ab83
 social_preview_sha256: d1409840fb49d96b0bbaf7b2fba77049036390c8abc1a9f2025e8261a8e0dce4
 remaining:
-  - open: 1.1.0 (RimWorld 1.7): `tested_1_7` not yet recorded; test the current `net472` DLL on 1.7 (Pickle on 1.7 and NPT/SB 1.7 prerequisites first, AUDIT.md); if it fails, add `1.7/` (`net10.0`) and a `<v1.7>` block in `LoadFolders.xml`; `<li>1.7</li>` in `supportedVersions`, version, `CHANGELOG.md` only after a green 1.7 run
+  - open: 1.1.0 (RimWorld 1.7): the 1.7 install ships English only, so 1.7 passes are English and `tested_1_7: yes` holds for English only (AUDIT.md, 2026-10-13); `tested_1_7` not yet recorded; first diagnostic 9f17 not conclusive (walk scenarios time out on 1.7, run stalled exit 3): replay one walking scenario alone with a longer timeout; SaveSteps has no `net10.0` build (scenarios 03, 06 not reached); test the current `net472` DLL on 1.7 (Pickle on 1.7 and NPT/SB 1.7 prerequisites first, AUDIT.md); if it fails, add `1.7/` (`net10.0`) and a `<v1.7>` block in `LoadFolders.xml`; `<li>1.7</li>` in `supportedVersions`, version, `CHANGELOG.md` only after a green 1.7 run
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-13, playTests[1.1.0]: minor 1.1.0 opened for the RimWorld 1.7 pass (AUDIT.md "Passe 1.7"); 1.0.3 stays the published revision; current net472 DLL to be tested on 1.7 first
-protocols_read_sha: e33f492fb1ae1abf5da0b25fef3ba13eef050d64
+updated:      2026-10-13, playTests[1.1.0]: first 1.7 diagnostic 9f17 (exit 3, 3 passed, 10 failed on the pawn walk to the ring, not concluded), see docs/runs/2026-10-13-1.7.md
+protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 ---
 
 # Anima Song — status

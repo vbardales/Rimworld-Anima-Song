@@ -536,7 +536,7 @@ namespace AnimaSong.PickleSteps
             await WaitOrExplain(ctx, () => IsListening(pawn, tree) && InRing(pawn, tree) && !pawn.pather.Moving, 90f,
                 () => $"{nickname} is doing {pawn.CurJob?.def.defName ?? "nothing"}, stands at {pawn.Position}, " +
                       $"{pawn.Position.DistanceTo(tree.Position):0.0} cells from the trunk (ring: " +
-                      $"{AnimaSongSeats.MinRadius} to {AnimaSongSeats.MaxRadius}), moving: {pawn.pather.Moving}");
+                      $"{AnimaSongSeats.MinRadius} to {AnimaSongSeats.MaxRadius}), moving: {pawn.pather.Moving}, going to {pawn.pather.Destination}, game tick {Find.TickManager.TicksGame}, speed {Find.TickManager.CurTimeSpeed}");
         }
 
         [Then("Anima Song: {int} listeners sit on {int} different cells around the tree at x={int} z={int}")]

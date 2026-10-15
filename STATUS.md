@@ -27,7 +27,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-15, playTests[1.1.0]: 1.7 diagnostic still open: 9f17 and replay 6567 both fail the pawn walk to the ring (96.7 cells away after 90 s, 1.6 passes in under 25 s), cause open; step now logs destination, tick and speed (docs/runs/2026-10-13-1.7.md)
+updated:      2026-10-15, playTests[1.1.0]: 1.7 diagnostic: 2043 shows ticks advance (69359) and the destination is right, but the pawn does not close in on the ring cell (58 cells away): 1.7 pathing or test map, control without mod code next (docs/runs/2026-10-13-1.7.md)
 protocols_read_sha: 7bafac79376f69b0ecc5d31de811aef4f53a9987
 ---
 

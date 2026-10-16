@@ -169,6 +169,25 @@ namespace AnimaSong.PickleSteps
             option.Chosen(true, null);
         }
 
+
+        /// <summary>Diagnostic for the RimWorld 1.7 pass: the same walk with no mod code, a vanilla Goto job.</summary>
+        [When("Anima Song: control: {string} is sent walking to x={int} z={int}")]
+        public void ControlGoto(PickleContext ctx, string nickname, int x, int z)
+        {
+            Pawn pawn = Colonist(ctx, nickname);
+            ctx.Attach("control start", $"{nickname} at {pawn.Position}, tick {Find.TickManager.TicksGame}");
+            pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.Goto, new IntVec3(x, 0, z)), JobTag.Misc);
+        }
+
+        [Then("Anima Song: control: {string} is within {int} cells of x={int} z={int}")]
+        public async Task ControlArrived(PickleContext ctx, string nickname, int cells, int x, int z)
+        {
+            Pawn pawn = Colonist(ctx, nickname);
+            IntVec3 goal = new IntVec3(x, 0, z);
+            await WaitOrExplain(ctx, () => pawn.Position.DistanceTo(goal) <= cells, 90f,
+                () => $"{nickname} is doing {pawn.CurJob?.def.defName ?? "nothing"}, stands at {pawn.Position}, {pawn.Position.DistanceTo(goal):0.0} cells from the goal, " +
+                      $"moving: {pawn.pather.Moving}, going to {pawn.pather.Destination}, game tick {Find.TickManager.TicksGame}, speed {Find.TickManager.CurTimeSpeed}");
+        }
         /// <summary>
         /// The same order, with the seat chosen by the scenario instead of drawn at random in the ring (the mod shuffles the ring),
         /// so a picture can place the listeners on chosen sides. The cell must satisfy the mod's own seat tests: refused otherwise.

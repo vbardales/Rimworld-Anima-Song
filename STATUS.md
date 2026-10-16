@@ -26,9 +26,9 @@ remaining:
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
-session:      local_ae6c16b5-ec90-4f74-83f7-1d66630344c3
-updated:      2026-10-15, playTests[1.1.0]: 1.7 diagnostic: 2043 shows ticks advance (69359) and the destination is right, but the pawn does not close in on the ring cell (58 cells away): 1.7 pathing or test map, control without mod code next (docs/runs/2026-10-13-1.7.md)
-protocols_read_sha: 7bafac79376f69b0ecc5d31de811aef4f53a9987
+session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
+updated:      2026-10-16, playTests[1.1.0]: control ticket f389 (vanilla Goto walk, 1.7) filed, waiting for RUN_DONE; protocols read at 005d9b27
+protocols_read_sha: 005d9b2720a85d62a3a31b02c265f3133621ee72
 ---
 
 # Anima Song — status

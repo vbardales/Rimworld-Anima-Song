@@ -1,6 +1,6 @@
 # Publication sheet
 
-This mod is **published** (`STATUS.md`: 1.0.0 through 1.0.2, item public since 2026-09-29). This sheet holds what the
+This mod is **published** (`STATUS.md`: 1.0.0 through 1.0.3, item public since 2026-09-29). This sheet holds what the
 Workshop page asks for and the repository holds nowhere else, so it can be used at the next update. Full history of how
 it got here: `git log` and the GitHub releases (`docs/runs/README.md`).
 

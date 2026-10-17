@@ -180,7 +180,7 @@ green GitHub release does not prove Steam is up to date.
 - **At the publish (owner, 2026-10-08): send the preview image again.** The 1.0.x dispatch carries `update_preview=true` (`dispatch-publish.sh ... --preview`), so `Mod/About/Preview.png` replaces the header image on the Steam page. The gallery stays a manual upload. The description changed since 1.0.2 (the Replantable Anima Trees thanks): sent with `update_description=true`, or pasted by hand, the owner decides at `prepareRelease`.
 ## Thanks, posted 2026-10-10
 
-Posted by the owner on 2026-10-10 (stated by her). One message, on the Continued page, crediting the maintainer and the original author (`../WORKSHOP_COMMENTS.md`, row `3503586725`, `drafted`). Post it after the 1.0.3 update is public, and after Markizo's report is closed, since it is the same reader.
+Posted by the owner on 2026-10-10 (stated by her), after the 1.0.3 update was public and Markizo's report was closed. One message, on the Continued page, crediting the maintainer and the original author (`../WORKSHOP_COMMENTS.md`, row `3503586725`, `posted`).
 
 ```
 Hi Kaetie_ and Dark Passerida: thank you for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3503586725]Replantable Anima Trees (Continued)[/url] (and for the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2586765823]original[/url]). A player of my mod Anima Song (colonists sit around an anima tree and listen to it sing) used yours, so I tested the two together: a replanted tree keeps its listening toggle and colonists still go to it. Nothing of yours is used, patched or required, it just made me check :) Have a nice day!

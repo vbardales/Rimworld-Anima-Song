@@ -28,7 +28,7 @@ remaining:
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
 updated:      2026-10-16, playTests[1.1.0]: control f389 red too (vanilla Goto does not close in, 71.6 cells): 1.7 pathing or test map, not the mod; next: ask PickleTools/Pickle session about 1.7 pathing on the test colony (docs/runs/2026-10-13-1.7.md)
-protocols_read_sha: 005d9b2720a85d62a3a31b02c265f3133621ee72
+protocols_read_sha: c283fedfcc80166d175245f9553ab4095716c1fa
 ---
 
 # Anima Song — status

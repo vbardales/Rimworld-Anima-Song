@@ -27,7 +27,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
-updated:      2026-10-18, playTests[1.1.0]: 1.7 walk failure is generic (vanilla Goto red, CrystalBall same, test-colony saved in 1.6.4633 unproven lead); waiting for the 1.7 session (controls a, b, c) and NPT (diagnostic step); no ticket until then; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
+updated:      2026-10-18, playTests[1.1.0]: 1.7 walk failure likely slow ticks (about 13.5 TPS headless, 1.7 session reading) not pathing; waiting for probe bf2b (CrystalBall folder) before any AnimaSong ticket; if it passes, walk scenarios move to tick-based waits; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
 protocols_read_sha: c283fedfcc80166d175245f9553ab4095716c1fa
 ---
 

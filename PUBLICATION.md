@@ -91,7 +91,7 @@ Earlier sent notes (1.0.0–1.0.2): the tagged commits `v1.0.0`–`v1.0.2` and t
 change is not a minor bump**: 2026-09-29's Workshop-link and Thanks-wording edits went straight onto the Steam page
 by hand, no note, no tag (`CHANGELOG.md`, "Workshop page text, 2026-09-29").
 
-Next upload, `1.0.3` (above the tag `v1.0.2`; never published before). `Mod/` changed (two images, French/English texts, and `Mod/Defs/AnimaSong.xml` for the roofed-tree fix), so the dry-run of the exact commit comes first, then Virginie approves `steam-production`. `CHANGELOG.md` carries the 1.0.3 changes under `## [Unreleased]` (numbered and dated only just before the dry-run) (a roofed-tree fix of 2026-10-09 is folded in). The gallery is uploaded manually; the description is sent through CI or updated manually, as decided at `prepareRelease`.
+Last upload, `1.0.3` (tag `v1.0.3` on `5b21606`, ManifestID `2330636768476916889`, 2026-10-10; publish run 38085429954 after dry-run 38085370562). `Mod/` changed (two images, French/English texts, and `Mod/Defs/AnimaSong.xml` for the roofed-tree fix). The gallery was uploaded manually; the description was sent through CI. The note below is what was sent. The next upload is 1.1.0 (RimWorld 1.7, `CHANGELOG.md` `[Unreleased]`), with its own dry-run of the exact commit first.
 
 ### 1.0.3
 

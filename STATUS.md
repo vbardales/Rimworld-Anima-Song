@@ -28,7 +28,7 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
-updated:      2026-10-18, playTests[1.1.0]: 1.7 walk failure still open (slow ticks vs pathing); probe bf2b flawed (haul job), v2 ticket 75fc pending in the 1.7 session; no AnimaSong ticket until it returns; @wip movement-log control written (ColonistRace net10.0 in wsl-deps.17.map), not played; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
+updated:      2026-10-18, playTests[1.1.0]: probe 75fc passed 2/2 on 1.7.4976 (pathing OK, cause = slow ticks, 2 to 5 ticks/s); walk waits now in game ticks (`WaitTicksOrExplain`, 6000 and 9000, scenario @timeout:1800, uncommitted); ticket 20261018-194841-488-f83d (walk scenario alone, wsl-deps.17.map, English) waits; RIMMSQOL tagged 1.7: scenarios skipped for it to replay before tested_1_7 yes; @wip movement-log control written (ColonistRace net10.0 in wsl-deps.17.map), not played; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
 protocols_read_sha: d5cd310616877d8094b9072e61494cfa1af33b4f
 ---
 

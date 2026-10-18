@@ -104,6 +104,22 @@ namespace AnimaSong.PickleSteps
             }
         }
 
+        /// <summary>
+        /// Same as <see cref="WaitOrExplain"/> but the budget is game ticks, not wall-clock seconds: on 1.7
+        /// headless the game runs at 2 to 5 ticks per second, so a walk that takes 8 s on 1.6 outlasts any
+        /// real-time wait. Ticks are driven by <c>WaitTicks</c>, so the walk length decides, not the frame rate.
+        /// </summary>
+        internal static async Task WaitTicksOrExplain(PickleContext ctx, Func<bool> condition, int maxTicks, Func<string> explain)
+        {
+            int start = Find.TickManager.TicksGame;
+            while (!condition())
+            {
+                if (Find.TickManager.TicksGame - start >= maxTicks)
+                    ctx.Assert(false, $"after {maxTicks} game ticks: {explain()}");
+                await ctx.WaitTicks(10);
+            }
+        }
+
         // The gizmo the player would click: the selected tree's own toggle, found by the translation
         // of the key it is labelled with.
         private static Command_Toggle SelectedToggle(PickleContext ctx)
@@ -552,7 +568,7 @@ namespace AnimaSong.PickleSteps
         {
             Thing tree = TreeAt(ctx, x, z);
             Pawn pawn = Colonist(ctx, nickname);
-            await WaitOrExplain(ctx, () => IsListening(pawn, tree) && InRing(pawn, tree) && !pawn.pather.Moving, 90f,
+            await WaitTicksOrExplain(ctx, () => IsListening(pawn, tree) && InRing(pawn, tree) && !pawn.pather.Moving, 6000,
                 () => $"{nickname} is doing {pawn.CurJob?.def.defName ?? "nothing"}, stands at {pawn.Position}, " +
                       $"{pawn.Position.DistanceTo(tree.Position):0.0} cells from the trunk (ring: " +
                       $"{AnimaSongSeats.MinRadius} to {AnimaSongSeats.MaxRadius}), moving: {pawn.pather.Moving}, going to {pawn.pather.Destination}, game tick {Find.TickManager.TicksGame}, speed {Find.TickManager.CurTimeSpeed}");
@@ -564,7 +580,7 @@ namespace AnimaSong.PickleSteps
             Map map = CurrentMap(ctx);
             Thing tree = TreeAt(ctx, x, z);
             Func<List<Pawn>> seated = () => ListenersOf(map, tree).Where(p => !p.pather.Moving && InRing(p, tree)).ToList();
-            await WaitOrExplain(ctx, () => seated().Count >= listeners, 120f,
+            await WaitTicksOrExplain(ctx, () => seated().Count >= listeners, 9000,
                 () => $"{seated().Count} of {listeners} listeners sit in the ring; the listeners not seated: " +
                       string.Join(", ", ListenersOf(map, tree).Except(seated()).Select(p => $"{p.LabelShort} at {p.Position}")));
 

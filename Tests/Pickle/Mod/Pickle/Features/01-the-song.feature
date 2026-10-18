@@ -57,7 +57,7 @@ Feature: listening to an anima tree sing
   # then FIVE seconds - and the fixture's colonists stand some sixty cells from the tree, which is
   # more than five seconds of walking. The first run (2026-09-21) lost three scenarios to that
   # alone, at "sits in the ring", while the three that carried a tag passed.
-  @same-world @timeout:120
+  @same-world @timeout:1800
   Scenario: an ordered colonist walks out, sits in the ring, and the tree sings
     Given a colonist "Listener" exists
     And game speed is ultrafast

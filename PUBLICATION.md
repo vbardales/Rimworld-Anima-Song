@@ -187,3 +187,14 @@ Hi Kaetie_ and Dark Passerida: thank you for [url=https://steamcommunity.com/sha
 ```
 
 - **Image 3 replaced (session as director, 2026-10-10)**: `3-the-tree-selected.jpg` is now the JPEG copy (412 KB, quality 88) of run `4e27` (`pickle-run-2026-10-10-gallery3f`, Backlot `bare-clearing`). The selected tree draws red focus lines to every artificial building within 27.9 cells (its `FocusStrengthOffset_ArtificialBuildings`), so the scenario hides them (`the artificial buildings within 30 cells ... are hidden`, which also makes roofs collapse: the letters and alerts are cleared before the shot), hides the colonist bar and the vanometric cell, and clears the messages. The gizmo label "Begin liaison d'arbre anima" (not this mod's, French text in an English pass) stays, accepted by the owner. It is a UI screenshot, not staged.
+
+## Gallery subtitles (draft, 2026-10-18, applied after the reindex, `../GALLERY.md`)
+
+Staged scenes only; the menu and the selected-tree screenshots carry none, nor `0-`. The series is one day with the singing tree (plan in the header of `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`). Indexes are assigned at the reindex; scenarios A, E, F are written and not played.
+
+| index | file | line |
+| --- | --- | --- |
+| 1 | `1-the-tree-singing.jpg` (noon, B) | Three friends sit in a ring and the tree answers. |
+| tbd | dawn (A) | At first light the tree sings for one listener. |
+| tbd | dusk (E) | Up to six can sit, and the glow shows from across the map. |
+| tbd | night (F) | The song is over; the memory lasts a day. |

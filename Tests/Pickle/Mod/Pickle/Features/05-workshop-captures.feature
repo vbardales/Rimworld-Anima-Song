@@ -20,11 +20,12 @@
 #
 # SHOOTING PLAN, 2026-10-18 (session as director, GALLERY.md; WRITTEN, NOT PLAYED, nothing here is played before shootGallery). One story, one clearing, one tree, the day turning: a day with the singing tree. Protagonist Nelim; one common set (bare-clearing, tree at (195, 152), zoom 5, 20 degrees, game mode off); the set is posed, shot and removed in each scenario.
 # Order of the scenarios = order of the story (indexes in Art/Gallery are assigned at the reindex; the noon crowd stays the lead image, the most demonstrative):
-#   A dawn, hour 6: Nelim alone, plum robe and Cape, seated south of the tree, anima grass fully grown on the ring, a hare and a squirrel at the edge, the tree barely glowing. Says: it sings for one listener too. Tight shot, low sun.
+#   Orientation (z grows northward, the tree is at z 152): a seat at z 155 is NORTH of the tree and its sitter faces South; a seat at z 149 is SOUTH of it and its sitter faces North; x 191 faces East, x 199 faces West. Run 176a (seat z 155 facing North, back to the tree) was refused.
+#   A dawn, hour 6: Nelim alone, plum robe and Cape, seated north of the tree facing it, anima grass fully grown on the ring, a hare and a squirrel at the edge, the tree barely glowing. Says: it sings for one listener too. Tight shot (zoom 6), low sun.
 #   B noon, hour 12 (the accepted lead, kept): three listeners (Nelim, Flore, Soleil), torch, daylilies, stools. Says: colonists sit in a ring and the tree answers. Peacock and labrador added at the edge, seen from the front. Wide.
 #   C the right-click menu (UI, not staged, kept). D the tree selected with its toggle (UI, not staged, kept).
-#   E dusk, hour 18: the ring nearly full, five listeners in five robes (plum, saffron, ivory, indigo, sapphire), a headwrap, an old man with a Wizard beard, a face tattoo (Face_Stars), torch lit, the glow at its strongest. Says: up to six at once, and the glow is what you see from across the map. Wide, low angle on the glow.
-#   F night, hour 22: Nelim back alone, a labrador asleep at her feet, the torch low, the halo pulsing. Says: the song carries the memory (+3 mood for a day) after dark. Tight.
+#   E dusk, hour 18: the ring nearly full, five listeners in five robes (plum, saffron, ivory, indigo, sapphire), a headwrap, an old man with a Wizard beard, a face tattoo (Face_Stars), torch lit, the glow at its strongest. Says: several sit at once (five here), and the glow is what you see from across the map. Wide, low angle on the glow.
+#   F night, hour 22: Nelim back alone, a labrador asleep at her feet, the torch low, the halo pulsing. Says: the tree sings after dark too, for one listener and a sleeping dog (the +3 mood memory does not show on a picture, it stays in the text). Tight (zoom 6).
 # Looks come from NPT catalogues (PickleTools/ColonistRace/docs: CATALOGUE-LOOKS, CATALOGUE-APPAREL, CATALOGUE-COLOURS, FACE-PARTS): hairstyles Bob, Mop, Afro, Cleopatra, Elder, Princess; beard Wizard; face tattoo Face_Stars; garments Apparel_Robe (Core, dyed), Apparel_Cape, Apparel_Headwrap (Ideology). Palette: robes and hair chosen to stand out from the teal glow and the brown earth. All vanilla or DLC: nothing to add to the pass map and nothing to credit.
 # Animals: vanilla kinds Hare, Squirrel, Peacock, LabradorRetriever (names to confirm on the first run, Check-Steps.ps1 then the run). Animals face the camera where the step allows it; no step sets an animal's rotation yet: ask NPT through the TM if the first run shows backs. Diurnal animals by day, the labrador asleep at night.
 # Plants: Plant_GrassAnima fully grown on the ring (the grass the linking ritual needs, a nod to the mod's design), set with `the plants from (x, z) to (x, z) are fully grown` (StageDecor, not played yet); Plant_Daylily as before.
@@ -55,7 +56,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
     And Nelim's Pickle Tools: an adult animal of kind "Hare" named "Brume" is spawned at (190, 158)
     And Nelim's Pickle Tools: an adult animal of kind "Squirrel" named "Noisette" is spawned at (200, 157)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing North
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
@@ -66,7 +67,7 @@ Feature: the pictures of the Workshop page
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     Then Anima Song: 1 listeners sit on 1 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Nelim's Pickle Tools: I frame the cell (195, 153) at zoom 4
+    And Nelim's Pickle Tools: I frame the cell (195, 153) at zoom 6
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And I wait 60 ticks
     And I take a screenshot "workshop A - dawn"
@@ -206,11 +207,11 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
     And Nelim's Pickle Tools: I place the decor "Stool" at (193, 149)
     And Nelim's Pickle Tools: I place the decor "Stool" at (197, 149)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing North
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
     And Nelim's Pickle Tools: "Flore" stands at (191, 152) facing East
     And Nelim's Pickle Tools: "Soleil" stands at (199, 152) facing West
-    And Nelim's Pickle Tools: "Oren" stands at (193, 149) facing South
-    And Nelim's Pickle Tools: "Ysa" stands at (197, 149) facing South
+    And Nelim's Pickle Tools: "Oren" stands at (193, 149) facing North
+    And Nelim's Pickle Tools: "Ysa" stands at (197, 149) facing North
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
@@ -264,7 +265,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
     And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
     And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Biscuit" is spawned at (193, 156)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing North
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
@@ -275,7 +276,7 @@ Feature: the pictures of the Workshop page
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     Then Anima Song: 1 listeners sit on 1 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Nelim's Pickle Tools: I frame the cell (195, 154) at zoom 4
+    And Nelim's Pickle Tools: I frame the cell (195, 154) at zoom 6
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And I wait 60 ticks
     And I take a screenshot "workshop F - night"

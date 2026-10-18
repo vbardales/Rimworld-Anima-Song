@@ -196,5 +196,5 @@ Staged scenes only; the menu and the selected-tree screenshots carry none, nor `
 | --- | --- | --- |
 | 1 | `1-the-tree-singing.jpg` (noon, B) | Three friends sit in a ring and the tree answers. |
 | tbd | dawn (A) | At first light the tree sings for one listener. |
-| tbd | dusk (E) | Up to six can sit, and the glow shows from across the map. |
-| tbd | night (F) | The song is over; the memory lasts a day. |
+| tbd | dusk (E) | Five friends sit around it, and the glow shows from across the map. |
+| tbd | night (F) | Even at night, one listener and a sleeping dog are enough for it to sing. |

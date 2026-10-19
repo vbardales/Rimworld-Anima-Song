@@ -91,7 +91,7 @@ reading is not the review TRANSLATIONS.md requires.
   (`TESTING.md`, "What is left of the manual checks"). Two reservations, in `remaining`: those passes predate `5967dd2`, and each sound
   report holds one expected red.
 - **`.dds`**: none tracked, none ever committed (`git log --all -- '*.dds'` empty), none on disk; `*.dds` already ignored.
-- **Evidence**: none tracked; `Tests/Pickle/Evidence/` ignored explicitly; trimmed from 147 MB to 2 MB, list in `docs/runs/README.md`.
+- **Evidence**: none tracked; `Tests/Pickle/Evidence/` (2 MB, each folder has a RELEASE.md), `Inbox/` and `Parked/` ignored; sorted 2026-10-19; list in `docs/runs/README.md`.
   No field of this file points to a deleted report.
 - **Upstream**: original mod, no source mod, `upstream_mod_remotes: N/A` stands (no repository to base code on or send PRs to).
 - **Publish id**: `Mod/About/PublishedFileId.txt` = `3806709272`; `CHANGELOG.md` now carries the `[0.1.0]` entry (creation of the publishIdFile,

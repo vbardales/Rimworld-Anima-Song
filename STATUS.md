@@ -28,8 +28,8 @@ remaining:
   - unverified: the three conditional passes (sound, studio, removal) ran before 5967dd2 (a log-once guard, no behaviour change); they stand as sole proof but were not replayed on the published build
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
-updated:      2026-10-19, playTests[1.1.0]: probe 75fc passed 2/2 on 1.7.4976 (pathing OK, cause = slow ticks, 2 to 5 ticks/s); walk waits now in game ticks (`WaitTicksOrExplain`, 6000 and 9000, scenario @timeout:1800, uncommitted); ticket f83d ended exit 137 (scenario watchdog 300 s probable, not proven); refiled 2026-10-19 as 20261019-211606-742-cf2a (walk alone, -pickle-scenario-timeout=5400, run 120 min), waits; RIMMSQOL tagged 1.7: scenarios skipped for it to replay before tested_1_7 yes; @wip movement-log control written (ColonistRace net10.0 in wsl-deps.17.map), not played; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
-protocols_read_sha: 2442e211bd4516b10b1740009e11b7312c5e1c2b
+updated:      2026-10-23, playTests[1.1.0]: probe 75fc passed 2/2 on 1.7.4976 (pathing OK, cause = slow ticks, 2 to 5 ticks/s); walk waits now in game ticks (`WaitTicksOrExplain`, 6000 and 9000, scenario @timeout:1800); ticket f83d ended exit 137 (scenario watchdog 300 s probable, not proven); refile cf2a failed at staging (exit 1, no report, FilmTicks overlay "no About/" at staging time, About/ exists now in WSL `pt17/mods/FilmTicks`); refiled 2026-10-23 as 20261023-185851-379-2011 (walk alone, -pickle-scenario-timeout=5400, run 120 min, `-DepMap` by absolute path: the name `17` does not resolve), waits; RIMMSQOL tagged 1.7: scenarios skipped for it to replay before tested_1_7 yes; @wip movement-log control written (ColonistRace net10.0 in wsl-deps.17.map), not played; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
+protocols_read_sha: 86a8eb5aaf483fd95321f7c516d432ad44bd3fe7
 ---
 
 # Anima Song — status

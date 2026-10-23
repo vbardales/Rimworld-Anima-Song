@@ -18,8 +18,8 @@ tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26
 workshop:     3806709272
 publication_changelog_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
 code_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
-echo_review_sha: 30f303ccb252009563ef6f67044007e1d239ab83
-social_preview_sha256: d1409840fb49d96b0bbaf7b2fba77049036390c8abc1a9f2025e8261a8e0dce4
+echo_review_sha: 70f6c760c3663834a2b800302ae81a480e8c9416
+social_preview_sha256: ca6c28c06d5df40e82a5c2a8847029ed5dd33da4be02073f51150f6e07ad6f03
 remaining:
   - open: gallery prep (Audit via TM, 2026-10-18): shooting plan and scenarios A dawn, E dusk, F night written in `05-workshop-captures.feature` (@wip, NOT played, steps resolve per Check-Steps), noon scenario gained a peacock and a labrador, subtitles drafted in `PUBLICATION.md`; shot list reviewed 2026-10-18 (listener facing fixed: z grows north, seat z 155 faces South, z 149 faces North; zoom 6 on dawn and night; dusk and night subtitles reworded; rated 4 of 5, not played); to do at shootGallery: play, open each capture against the plan, confirm animal kinds and `Face_Stars`, ask NPT (via TM) for an animal-facing step if backs show; 9a/9b at prepareRelease (the mod adds no props, apparel or hairstyles: nothing for `GALLERY-PROPS.md` beyond "seen in a capture" for what gets played); no game run before shootGallery
   - open: 1.1.0 (RimWorld 1.7): the 1.7 install ships English only, so 1.7 passes are English and `tested_1_7: yes` holds for English only (AUDIT.md, 2026-10-13); `tested_1_7` not yet recorded; first diagnostic 9f17 not conclusive (walk scenarios time out on 1.7, run stalled exit 3): replay one walking scenario alone with a longer timeout; SaveSteps has no `net10.0` build (scenarios 03, 06 not reached); test the current `net472` DLL on 1.7 (Pickle on 1.7 and NPT/SB 1.7 prerequisites first, AUDIT.md); if it fails, add `1.7/` (`net10.0`) and a `<v1.7>` block in `LoadFolders.xml`; `<li>1.7</li>` in `supportedVersions`, version, `CHANGELOG.md` only after a green 1.7 run

@@ -1,46 +1,24 @@
 {
-  "title": "Anima Song",
-  "titleSize": 46,
-  "titleParts": [
-    {
-      "text": "Anima Song",
-      "scale": 1
-    }
-  ],
-  "suffix": "",
-  "tag": "",
-  "copyLines": [
-    "Colonists listen to the anima tree sing, as recreation."
-  ],
-  "layout": "panel",
-  "panelAnchor": "top-left",
-  "modIconSource": "ModIcon-source.png",
+  "panel": {
+    "title": "Anima Song",
+    "titleSize": 46,
+    "titleParts": [
+      {
+        "text": "Anima Song",
+        "scale": 1
+      }
+    ],
+    "copyLines": [
+      "Colonists listen to the anima tree sing, as recreation."
+    ]
+  },
   "backgroundFile": "Preview-source.png",
-  "backgroundPosition": "center",
-  "backgroundSize": "cover",
   "echo": {
     "file": "echo-source.png",
-    "preSized": true,
-    "color": "var(--accent)",
-    "width": 190,
-    "height": 171,
-    "opacity": 1,
-    "veil": false,
-    "panelTop": 2,
-    "panelRight": 1,
-    "panelWidth": 38,
-    "flipX": true
+    "color": "var(--accent)"
   },
-  "iconBadge": {
-    "file": "ModIcon-source.png",
-    "corner": "bottom-left",
-    "translate": "-12.5%,12.5%",
-    "width": 220,
-    "outline": false,
-    "veil": "radial",
-    "veilSize": 275,
-    "veilLeft": -55,
-    "veilBottom": -61
+  "icon": {
+    "file": "ModIcon-source.png"
   },
   "palette": {
     "veil": "#171C26",

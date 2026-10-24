@@ -1,5 +1,6 @@
 # RimWorld 1.7 pass (AUDIT.md "Passe 1.7"). Run: -DepMap wsl-deps.17.map -Game /home/nelim/rimworld17
 # FilmTicks is the net10.0 build of the 1.7 session (WSL ~/pt17/mods), read with a path relative to the rimworld repository root, as PickleTools' own 1.7 maps do.
 # SaveSteps has no net10.0 build yet: the scenarios that use its two steps (03, 06) fail on the missing step, not on the mod.
-nelim.pickletools.filmticks   path:../../../../../../home/nelim/pt17/mods/FilmTicks
-nelim.pickletools.colonistrace path:../../../../../../home/nelim/pt17/mods/ColonistRace
+# Copies of the WSL builds sit in Tests/Pickle/pt17 (ignored by git): the launcher stages in a container that sees only /repo and /home/pickle, not /home/nelim (NPT, 2026-10-24). Refresh: wsl -e cp -r /home/nelim/pt17/mods/<Tool> /mnt/c/Users/nelim/Documents/rimworld/AnimaSong/Tests/Pickle/pt17/
+nelim.pickletools.filmticks   path:AnimaSong/Tests/Pickle/pt17/FilmTicks
+nelim.pickletools.colonistrace path:AnimaSong/Tests/Pickle/pt17/ColonistRace

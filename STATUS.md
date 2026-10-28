@@ -29,7 +29,7 @@ remaining:
   - unverified: each sound report (09-27) holds one red, the scenario of the other modlist; replay each pass with the scenario selected by name for a report with no red
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
 updated:      2026-10-24, playTests[1.1.0]: refiled as 20261024-140854-392-1571 (walk alone, tool builds copied to Tests/Pickle/pt17 and the map points there, 7b9b12e; NPT: the container sees only /repo and /home/pickle), waits; ticket 2011 (p17-walk-5400b) failed at staging again, exit 1, no report, same error as cf2a ("no About/ in /repo/../../../../../../home/nelim/pt17/mods/FilmTicks") although About/ exists in WSL (`ls` shows About.xml); cause not found, asked NPT; nothing replayed; earlier 2026-10-23: probe 75fc passed 2/2 on 1.7.4976 (pathing OK, cause = slow ticks, 2 to 5 ticks/s); walk waits now in game ticks (`WaitTicksOrExplain`, 6000 and 9000, scenario @timeout:1800); ticket f83d ended exit 137 (scenario watchdog 300 s probable, not proven); refile cf2a failed at staging (exit 1, no report, FilmTicks overlay "no About/" at staging time, About/ exists now in WSL `pt17/mods/FilmTicks`); refiled 2026-10-23 as 20261023-185851-379-2011 (walk alone, -pickle-scenario-timeout=5400, run 120 min, `-DepMap` by absolute path: the name `17` does not resolve), waits; RIMMSQOL tagged 1.7: scenarios skipped for it to replay before tested_1_7 yes; @wip movement-log control written (ColonistRace net10.0 in wsl-deps.17.map), not played; French tooltip infinitive (Mod/ text change, code review text diff to redo); protocols read c283fed
-protocols_read_sha: 709f94c1383b5e32138ef80caf13ef1057a42d1f
+protocols_read_sha: cc1f93006ee3756009054a0389731cff310d8784
 ---
 
 # Anima Song — status

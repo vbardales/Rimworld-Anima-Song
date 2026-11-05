@@ -1,0 +1,10 @@
+name: XML tests
+on: [push, pull_request]
+jobs:
+  xml:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shared checks and own rules
+        shell: powershell
+        run: ./Tests/Test-Mod.ps1

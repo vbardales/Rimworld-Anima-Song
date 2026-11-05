@@ -1,18 +1,16 @@
 {
   "panel": {
     "title": "Anima Song",
-    "titleSize": 46,
     "titleParts": [
       {
-        "text": "Anima Song",
-        "scale": 1
+        "text": "Anima Song"
       }
     ],
-    "copyLines": [
-      "Colonists listen to the anima tree sing, as recreation."
-    ]
+    "description": "Colonists listen to the anima tree sing, as recreation."
   },
-  "backgroundFile": "Preview-source.png",
+  "background": {
+    "file": "Preview-source.png"
+  },
   "echo": {
     "file": "echo-source.png"
   },

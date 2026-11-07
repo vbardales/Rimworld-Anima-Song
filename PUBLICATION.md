@@ -36,7 +36,7 @@ Colonists can go and listen to an anima tree sing, as recreation.
 
 [Vanilla Races Expanded - Phytokin](https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805) has a lovely ability called anima song: a genetically gifted Phytokin points at an anima tree and causes a psychic orchestra to play. It is available only to Phytokin, once per quadrum.
 
-This mod does not touch that ability. It seemed a shame to leave such a lovely effect locked to a genetically gifted colonist and usable only once a quadrum, so here is the toned-down, repeatable version everyone can use: any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing, the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
+This mod does not touch that ability. It seemed a shame to leave such a lovely effect locked to a genetically gifted colonist and usable only once per quadrum, so here is the toned-down, repeatable version everyone can use: any colonist can walk out to an anima tree, sit down in a ring around it, and hear it sing, the way they would use a telescope or watch a television. The song comes from the tree, not from the pawn.
 
 ## What it looks like
 
@@ -68,7 +68,7 @@ This mod's code was written with Claude Code (Anthropic) and its preview image g
 
 ## Thanks
 
-Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for [Vanilla Races Expanded - Phytokin](https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805), whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets were not called at all, say so and it stops.
+Oskar Potocki, Sarg Bjornson and the Vanilla Expanded team, for [Vanilla Races Expanded - Phytokin](https://steamcommunity.com/sharedfiles/filedetails/?id=2927323805), whose anima song ability gave me the idea and whose recording the tree borrows when their mod is present. Their ability is not touched, patched or altered by this mod. If they would rather their assets not be used at all, say so and it stops.
 
 Ludeon Studios, for the anima tree and for the psychic effects this mod reuses unmodified.
 

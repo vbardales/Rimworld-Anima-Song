@@ -22,11 +22,12 @@
 # STORY: a day with the singing tree. Nelim (protagonist, NSB roster look, smiling) walks out to the anima tree at the same corner of `bare-clearing` (195, 152) at four hours of one day (6, 12, 18, 22, weather Clear, 20 degrees, one hour per image: the day turns, the story advances). One outfit all day, plum Apparel_Robe with ivory Apparel_Cape (continuity). Guests: Soren and Ryu "Blue" Sai (NSB, roster looks; Miel has no validated look in NSB VALIDE.md, so not used), Shogun (NSB labrador, Apparel_leatherdogcollar). The ring of stools is the thread: empty at dawn, three sitters at noon, being left at dusk, still warm at night. The mod adds no animal (rule 5 empty). Colonists and animals: NSB only, no outside pawn, no changed colonist property.
 # Orientation (z grows northward, the tree is at z 152): a seat at z 155 is NORTH of the tree and its sitter faces South (seen from the front); a seat at z 149 is SOUTH of it and its sitter faces North (seen from behind); x 191 faces East, x 199 faces West.
 # How the gesture is obtained (criterion e): every listener is given the mod's own order ("is ordered to listen ... from the seat"), the game is paused by the screenshot after the wait named per shot, never a posed "sits" step.
-#   A (opening) dawn, hour 6, Clear, zoom 6 tight. Place: bare-clearing. Instant: Nelim is one step from her seat at (195,155) with the order just given, not yet seated (screenshot 20 ticks after the order; the wait is adjusted on the first run). Subject: the tree answers even one listener. Decor: stools at (195,155), (191,152), (199,152) left empty (the ring waiting), Plant_GrassAnima on the ring fully grown, 4 Plant_Daylily, a TorchLamp at (200,156) still lit from the night, hare "Brume" facing South to the camera in the foreground at (193,158) and squirrel "Noisette" at (200,157). Light: low sun from the east, long shadows. Framing: tree off-centre to the right, hare foreground left, the lit torch lamp in the background right, the three empty stools in the middle ground. Nelim smiling (SocialRelax). The image says: someone arrives at an empty ring of three stools while the tree already glows, so the tree is waiting for listeners; at 268 px the halo around the tree and the stool ring are the readable subject. Subtitle drafted in PUBLICATION.md.
-#   B (lead, accepted idea) noon, hour 12, Clear, zoom 5 medium, tree off-centre. Instant: the three have just sat (screenshot 90 ticks after the orders, the wait adjusted on the first run), the halo starts. Subject: colonists sit in a ring and the tree answers. Pawns: Nelim (195,155) facing South, Soren (191,152) facing East, Ryu (199,152) facing West, each given the listen order, all smiling; Soren in his validated daily outfit (shirt slate-blue #708090, vest brown #6B4F3A, trousers slate #3C4650), Ryu in his (shirt pine green #1F3A34, trousers rust #A0522D, brown boots). Decor: stools, TorchLamp (200,156) lit, 4 Plant_Daylily, Plant_GrassAnima. Animals: peacock "Paon" facing South in the foreground at (189,157), Shogun lying at (201,155) head toward Nelim (lies at ... facing). Wide enough for the ring, tight enough for the glow at 268 px.
-#   C the right-click menu that offers the order (UI, not staged, kept). D the tree selected with its toggle (UI, not staged, kept).
-#   E dusk, hour 18, Clear, zoom 4.5 wide, edges of frame filled with grass and daylilies (no bare earth). Instant: Nelim arrives last, the order just given and she is one step from her seat at (195,155), Soren and Ryu already seated and listening, Shogun on his feet yawning (stands at (201,155) facing West); same mechanism as A (order, screenshot 20 ticks after). Subject: the glow is what you see from across the map. Decor: two lit TorchLamps (200,156) and (190,156), stools, daylilies, anima grass.
-#   F (closing) night, hour 22, Clear, zoom 6 tight. Mirror of A: Nelim seated south of the tree at (195,149) facing North (back to the camera, the tree beyond her), Shogun lying asleep against her stool (lies at (196,149) facing North), the torch close at (193,150) lit, two stools empty and still in the ring (the ring stays set from dusk), her ivory cape against the dark ground. Subject: it sings after dark, for one listener and a sleeping dog. The pulsing of the halo is not asked (it does not show on a still).
+#   1. workshop-A-dawn (opening), 6h, Clear, 20 degrees, bare-clearing, zoom 6 on (196, 153), tree off-centre to the right, hare foreground left, lit torch background right. Instant: Nelim at (195, 157) is one step from her seat (195, 155), order just given, screenshot 20 ticks after. Nelim: Apparel_Robe rgb (140, 40, 90), Apparel_Cape rgb (240, 235, 215), roster hair, SocialRelax smile. Decor: stools (195, 155) (191, 152) (199, 152) left empty, Plant_GrassAnima (193, 156) (197, 156) (191, 150) fully grown, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), TorchLamp (200, 156) lit. Hare "Brume" (193, 158) faces the camera. Says: someone arrives at an empty ring of three stools while the tree already glows, the tree waits for listeners; at 268 px the halo and the stool ring read.
+#   2. workshop-B-noon (lead), 12h, Clear, 20 degrees, zoom 5 on (194, 152), tree off-centre. Instant: the three have just sat, the halo starts (screenshot 90 ticks after the orders). Nelim seat (195, 155) facing South; Soren from (190, 152) to seat (191, 152) facing East: LisaWork_ApparelCollaredShirt rgb (112, 128, 144), LisaWork_ApparelLeatherVest rgb (107, 79, 58), VAE_Apparel_Trousers rgb (60, 70, 80), Roo_HD_Hair_Tidy; Ryu from (200, 152) to seat (199, 152) facing West: Apparel_CollarShirt rgb (31, 58, 52), LisaWork_ApparelPantsAndBelt rgb (160, 82, 45), VAE_Footwear_Boots rgb (107, 79, 58), Roo_Royal_CleancutHD; all smiling (SocialRelax). Decor: stools, TorchLamp (200, 156) lit, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), Plant_GrassAnima (193, 156). Animals: peacock "Paon" (189, 157) foreground facing the camera, squirrel "Noisette" (202, 153), Shogun (201, 155) lying (stands at facing West, then lies down). Says: colonists sit in a ring and the tree answers.
+#   3. workshop-C-menu, 12h, the right-click menu that offers the order, the tree at (195, 152), the game screen kept, Apparel_Robe rgb (140, 40, 90). Not staged; the accepted image 2 stands (its scenario still carries the old Bob hair override of Nelim: if replayed, remove it first, rule 3).
+#   4. workshop-D-selected, 12h, the tree at (195, 152) selected with its toggle, developer mode off, the game screen kept. Not staged; the accepted image 3 stands.
+#   5. workshop-E-dusk, 18h, Clear, 20 degrees, zoom 4.5 on (195, 152), grass and daylilies to the frame edges. Instant: Soren and Ryu already seated and listening, Nelim arrives last from (195, 157) to her seat (195, 155), order just given, screenshot 20 ticks after; Shogun standing (201, 155) facing West. Same outfits as shot 2: Apparel_Robe rgb (140, 40, 90), Apparel_Cape rgb (240, 235, 215), LisaWork_ApparelCollaredShirt rgb (112, 128, 144), Apparel_CollarShirt rgb (31, 58, 52). Decor: TorchLamp (200, 156) and TorchLamp (190, 156) lit, stools (191, 152) (199, 152), Plant_Daylily (188, 152) (202, 152) (192, 155) (198, 148). Says: the day turns, the glow is what you see from across the map.
+#   6. workshop-F-night (closing), 22h, Clear, 20 degrees, zoom 6 on (195, 151), mirror of shot 1. Nelim from (195, 147) to the seat (195, 149) south of the tree facing North (back to the camera, so no smile is visible: written, no malus), Apparel_Robe rgb (140, 40, 90), Apparel_Cape rgb (240, 235, 215) against the dark ground; Shogun asleep (196, 149) (stands at facing North, lies down, kept asleep); TorchLamp (193, 150) lit close; stools (191, 152) (199, 152) empty and still in the ring. Says: it sings after dark, for one listener and a sleeping dog.
 # Looks come from NPT catalogues (PickleTools/ColonistRace/docs: CATALOGUE-LOOKS, CATALOGUE-APPAREL, CATALOGUE-COLOURS, FACE-PARTS): hairstyles Bob, Mop, Afro, Cleopatra, Elder, Princess; beard Wizard; face tattoo Face_Stars; garments Apparel_Robe (Core, dyed), Apparel_Cape, Apparel_Headwrap (Ideology). Palette: robes and hair chosen to stand out from the teal glow and the brown earth. All vanilla or DLC: nothing to add to the pass map and nothing to credit.
 # Animals: vanilla kinds Hare, Squirrel, Peacock, LabradorRetriever (names to confirm on the first run, Check-Steps.ps1 then the run). Animals face the camera where the step allows it; no step sets an animal's rotation yet: ask NPT through the TM if the first run shows backs. Diurnal animals by day, the labrador asleep at night.
 # Plants: Plant_GrassAnima fully grown on the ring (the grass the linking ritual needs, a nod to the mod's design), set with `the plants from (x, z) to (x, z) are fully grown` (StageDecor, not played yet); Plant_Daylily as before.
@@ -35,51 +36,54 @@
 # Owner's note on the first run (2026-09-26): the camera reads a little wide; zoom in closer when the scenario is redone.
 #
 # `@requires:nelim.pickletools.screenshotstudio`: only the pass of `-DepMap wsl-deps.sanctuary.map`, in English, plays this feature;
-# every other pass skips it. Aim at it with `-Filter '05-workshop-captures'`. NOT played on `bare-clearing` yet. Positions (estimated by the Pickle Tools session on a capture, not on the file): the tree at (195, 152); the listeners 4 cells out; the lamp and the lilies 5 to 6 cells out, outside the ring (2 to 5 cells) so that they take no seat; the camera on the tree at zoom 5 (18 x 10 cells; the limit is lifted after `I am at the sanctuary`).
-@requires:nelim.pickletools.screenshotstudio @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.stagedecor
+# every other pass skips it. Aim at it with `-Filter '05-workshop-captures'`. NOT played yet; save Nelims-tribe-decor-mods-z3 (NPT, 2026-11-09), DepMap wsl-deps.gallery.map. Positions (estimated by the Pickle Tools session on a capture, not on the file): the tree at (195, 152); the listeners 4 cells out; the lamp and the lilies 5 to 6 cells out, outside the ring (2 to 5 cells) so that they take no seat; the camera on the tree at zoom 5 (18 x 10 cells; the limit is lifted after `I am at the sanctuary`).
+@requires:nelim.pickletools.screenshotstudio @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.stagedecor @requires:nelim.pickletools.camerazoom @requires:nelim.pickletools.colonistrace
 @workshop @review
 Feature: the pictures of the Workshop page
 
-  @timeout:240 @wip
-  Scenario: dawn, one listener and the first light
-    Given the save "Nelims-tribe" is loaded
+  @timeout:300
+  Scenario: dawn, an empty ring and the first listener arriving
+    Given the save "Nelims-tribe-decor-mods-z3" is loaded
+    And Nelim's Pickle Tools: all humans but "Nelim" are removed
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 6
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (200, 156)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (191, 152)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
     And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (193, 156)
     And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (197, 156)
     And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (191, 150)
     And Nelim's Pickle Tools: the plants from (190, 148) to (200, 158) are fully grown
-    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
-    And Nelim's Pickle Tools: an adult animal of kind "Hare" named "Brume" is spawned at (190, 158)
-    And Nelim's Pickle Tools: an adult animal of kind "Squirrel" named "Noisette" is spawned at (200, 157)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (192, 155)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (198, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (190, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 154)
+    And Nelim's Pickle Tools: an adult animal of kind "Hare" named "Brume" is spawned at (193, 158)
+    And Nelim's Pickle Tools: the animals except "Brume" are kept out of the area from (186, 147) to (204, 157)
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
     And game speed is ultrafast
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Cape" dyed rgb (240, 235, 215)
-    And Nelim's Sanctuary: Nelim has her own face
+    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
     And "Nelim" needs "Joy" is set to 10 percent
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
-    Then Anima Song: 1 listeners sit on 1 different cells around the tree at x=195 z=152
-    And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Nelim's Pickle Tools: I frame the cell (195, 153) at zoom 6
+    And I wait 20 ticks
+    And Nelim's Pickle Tools: I frame the cell (196, 153) at zoom 6
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    And I wait 60 ticks
+    Then Anima Song: the halo of the tree at x=195 z=152 is alive
     And I take a screenshot "workshop A - dawn"
     When Nelim's Pickle Tools: the decor is removed
 
-  @timeout:240
+  @timeout:360
   Scenario: the tree singing, with its glow and its listeners
-    Given the save "Nelims-tribe" is loaded
+    Given the save "Nelims-tribe-decor-mods-z3" is loaded
+    And Nelim's Pickle Tools: all humans but "Nelim" are removed
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 12
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
@@ -90,46 +94,87 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (198, 148)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (190, 148)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 154)
-    And a colonist "Flore" exists
-    And a colonist "Soleil" exists
-    And Nelim's Pickle Tools: "Flore" body type is Thin
-    And Nelim's Pickle Tools: "Soleil" body type is Male
     And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
     And Nelim's Pickle Tools: I place the decor "Stool" at (191, 152)
     And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
-    And Nelim's Pickle Tools: an adult animal of kind "Peacock" named "Paon" is spawned at (189, 156)
-    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Biscuit" is spawned at (201, 156)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
-    And Nelim's Pickle Tools: "Flore" stands at (191, 152) facing East
-    And Nelim's Pickle Tools: "Soleil" stands at (199, 152) facing West
+    And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (193, 156)
+    And Nelim's Pickle Tools: the plants from (190, 148) to (200, 158) are fully grown
+    And Nelim's Pickle Tools: an adult animal of kind "Peacock" named "Paon" is spawned at (189, 157)
+    And Nelim's Pickle Tools: an adult animal of kind "Squirrel" named "Noisette" is spawned at (202, 153)
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (201, 155) facing West
+    And Nelim's Pickle Tools: "Shogun" lies down
+    And Nelim's Pickle Tools: the animals except "Paon", "Shogun" and "Noisette" are kept out of the area from (186, 147) to (204, 157)
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
+    And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
+    And Nelim's Pickle Tools: "Ryu" stands at (200, 152) facing West
     And game speed is ultrafast
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Cape" dyed rgb (240, 235, 215)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
-    And Nelim's Pickle Tools: "Flore" has the gene "Eyes_Blue"
-    And Nelim's Pickle Tools: "Flore" hairstyle is "Mop"
-    And Nelim's Pickle Tools: "Flore" hair colour is rgb (235, 235, 230)
-    And Nelim's Pickle Tools: "Flore" wears "Apparel_Robe" dyed rgb (235, 180, 50)
-    And Nelim's Pickle Tools: "Flore" facial expression is "SocialRelax"
-    And Nelim's Pickle Tools: "Soleil" has the gene "Eyes_Green"
-    And Nelim's Pickle Tools: "Soleil" hairstyle is "Afro"
-    And Nelim's Pickle Tools: "Soleil" hair colour is rgb (200, 150, 60)
-    And Nelim's Pickle Tools: "Soleil" wears "Apparel_Robe" dyed rgb (240, 235, 215)
-    And Nelim's Pickle Tools: "Soleil" facial expression is "SocialRelax"
     And "Nelim" needs "Joy" is set to 10 percent
-    And "Flore" needs "Joy" is set to 10 percent
-    And "Soleil" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
+    And Nelim's Pickle Tools: "Soren" loses all genes
+    And Nelim's Pickle Tools: "Soren" gender is Male
+    And "Soren" is 38 years old
+    And Nelim's Pickle Tools: "Soren" body type is Male
+    And Nelim's Pickle Tools: "Soren" head type is "Male_AverageWide"
+    And Nelim's Pickle Tools: "Soren" has the gene "Skin_Melanin5"
+    And Nelim's Pickle Tools: "Soren" has the gene "Hair_DarkReddish"
+    And Nelim's Pickle Tools: "Soren" has the gene "Eyes_DarkGreen"
+    And Nelim's Pickle Tools: "Soren" hair colour is taken from its genes
+    And Nelim's Pickle Tools: "Soren" hairstyle is "Roo_HD_Hair_Tidy"
+    And Nelim's Pickle Tools: "Soren" beard is "NoBeard"
+    And Nelim's Pickle Tools: "Soren" face tattoo is "none"
+    And Nelim's Pickle Tools: "Soren" body tattoo is "none"
+    And Nelim's Pickle Tools: "Soren" is undressed
+    And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelCollaredShirt" made of "Cloth"
+    And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
+    And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelLeatherVest" made of "Leather_Plain"
+    And Nelim's Pickle Tools: the "LisaWork_ApparelLeatherVest" worn by "Soren" is dyed rgb (107, 79, 58)
+    And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
+    And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
+    And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
+    And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
+    And Nelim's Pickle Tools: "Soren" lids are "LidSimple"
+    And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
+    And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
+    And "Soren" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: a colonist "Ryu" of kind "Colonist" exists
+    And Nelim's Pickle Tools: "Ryu" loses all genes
+    And Nelim's Pickle Tools: "Ryu" gender is Male
+    And "Ryu" is 43 years old
+    And Nelim's Pickle Tools: "Ryu" body type is Thin
+    And Nelim's Pickle Tools: "Ryu" head type is "Male_NarrowPointy"
+    And Nelim's Pickle Tools: "Ryu" has the gene "Skin_Melanin4"
+    And Nelim's Pickle Tools: "Ryu" has the gene "Hair_InkBlack"
+    And Nelim's Pickle Tools: "Ryu" has the gene "Eyes_SkyBlue"
+    And Nelim's Pickle Tools: "Ryu" hair colour is taken from its genes
+    And Nelim's Pickle Tools: "Ryu" hairstyle is "Roo_Royal_CleancutHD"
+    And Nelim's Pickle Tools: "Ryu" face tattoo is "none"
+    And Nelim's Pickle Tools: "Ryu" body tattoo is "STribalTat_Body_SacredWater"
+    And Nelim's Pickle Tools: "Ryu" is undressed
+    And Nelim's Pickle Tools: "Ryu" wears "Apparel_CollarShirt" made of "Cloth"
+    And Nelim's Pickle Tools: the "Apparel_CollarShirt" worn by "Ryu" is dyed rgb (31, 58, 52)
+    And Nelim's Pickle Tools: "Ryu" wears "LisaWork_ApparelPantsAndBelt" made of "Cloth"
+    And Nelim's Pickle Tools: the "LisaWork_ApparelPantsAndBelt" worn by "Ryu" is dyed rgb (160, 82, 45)
+    And Nelim's Pickle Tools: "Ryu" wears "VAE_Footwear_Boots" made of "Leather_Plain"
+    And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Ryu" is dyed rgb (107, 79, 58)
+    And Nelim's Pickle Tools: "Ryu" mouth is "MouthSubtle"
+    And Nelim's Pickle Tools: "Ryu" brows are "BrowThin"
+    And Nelim's Pickle Tools: "Ryu" lids are "LidAlmond"
+    And Nelim's Pickle Tools: "Ryu" eyeballs are "EyeSmall"
+    And Nelim's Pickle Tools: "Ryu" facial expression is "SocialRelax"
+    And "Ryu" needs "Joy" is set to 10 percent
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
-    And Anima Song: "Flore" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
-    And Anima Song: "Soleil" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
+    And Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
+    And Anima Song: "Ryu" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
+    And I wait 90 ticks
+    And Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 5
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    And I wait 30 ticks
-    Then Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
+    Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And I take a screenshot "workshop 1 - the tree singing"
     When Nelim's Pickle Tools: the decor is removed
 
@@ -181,12 +226,12 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the messages are cleared from the screen
     Then I take a screenshot "workshop 3 - the tree selected"
 
-  @timeout:300 @wip
-  Scenario: dusk, five listeners and the glow at its strongest
-    Given the save "Nelims-tribe" is loaded
+
+  @timeout:420
+  Scenario: dusk, the glow at its strongest and the last listener arriving
+    Given the save "Nelims-tribe-decor-mods-z3" is loaded
+    And Nelim's Pickle Tools: all humans but "Nelim" are removed
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 18
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
@@ -195,90 +240,124 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
     And Nelim's Pickle Tools: I place the decor "TorchLamp" at (190, 156)
     And Nelim's Pickle Tools: the decor "TorchLamp" at (190, 156) is lit
-    And a colonist "Flore" exists
-    And a colonist "Soleil" exists
-    And a colonist "Oren" exists
-    And a colonist "Ysa" exists
-    And Nelim's Pickle Tools: "Flore" body type is Thin
-    And Nelim's Pickle Tools: "Soleil" body type is Male
-    And Nelim's Pickle Tools: "Oren" body type is Fat
-    And Nelim's Pickle Tools: "Ysa" body type is Female
     And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
     And Nelim's Pickle Tools: I place the decor "Stool" at (191, 152)
     And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
-    And Nelim's Pickle Tools: I place the decor "Stool" at (193, 149)
-    And Nelim's Pickle Tools: I place the decor "Stool" at (197, 149)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
-    And Nelim's Pickle Tools: "Flore" stands at (191, 152) facing East
-    And Nelim's Pickle Tools: "Soleil" stands at (199, 152) facing West
-    And Nelim's Pickle Tools: "Oren" stands at (193, 149) facing North
-    And Nelim's Pickle Tools: "Ysa" stands at (197, 149) facing North
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (192, 155)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (198, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (190, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 154)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (188, 152)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (202, 152)
+    And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (193, 156)
+    And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (197, 150)
+    And Nelim's Pickle Tools: the plants from (186, 147) to (204, 158) are fully grown
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (201, 155) facing West
+    And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
+    And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
+    And Nelim's Pickle Tools: "Ryu" stands at (200, 152) facing West
     And game speed is ultrafast
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
-    And Nelim's Sanctuary: Nelim has her own face
-    And Nelim's Pickle Tools: "Flore" hairstyle is "Mop"
-    And Nelim's Pickle Tools: "Flore" hair colour is rgb (235, 235, 230)
-    And Nelim's Pickle Tools: "Flore" wears "Apparel_Robe" dyed rgb (235, 180, 50)
-    And Nelim's Pickle Tools: "Soleil" hairstyle is "Afro"
-    And Nelim's Pickle Tools: "Soleil" hair colour is rgb (200, 150, 60)
-    And Nelim's Pickle Tools: "Soleil" wears "Apparel_Robe" dyed rgb (240, 235, 215)
-    And Nelim's Pickle Tools: "Oren" hairstyle is "Elder"
-    And Nelim's Pickle Tools: "Oren" hair colour is rgb (220, 220, 225)
-    And Nelim's Pickle Tools: "Oren" beard is "Wizard"
-    And Nelim's Pickle Tools: "Oren" wears "Apparel_Robe" dyed rgb (60, 50, 120)
-    And Nelim's Pickle Tools: "Oren" wears "Apparel_Headwrap" dyed rgb (230, 120, 40)
-    And Nelim's Pickle Tools: "Ysa" hairstyle is "Princess"
-    And Nelim's Pickle Tools: "Ysa" hair colour is rgb (240, 170, 200)
-    And Nelim's Pickle Tools: "Ysa" face tattoo is "Face_Stars"
-    And Nelim's Pickle Tools: "Ysa" wears "Apparel_Robe" dyed rgb (40, 80, 150)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Cape" dyed rgb (240, 235, 215)
+    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
     And "Nelim" needs "Joy" is set to 10 percent
-    And "Flore" needs "Joy" is set to 10 percent
-    And "Soleil" needs "Joy" is set to 10 percent
-    And "Oren" needs "Joy" is set to 10 percent
-    And "Ysa" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
+    And Nelim's Pickle Tools: "Soren" loses all genes
+    And Nelim's Pickle Tools: "Soren" gender is Male
+    And "Soren" is 38 years old
+    And Nelim's Pickle Tools: "Soren" body type is Male
+    And Nelim's Pickle Tools: "Soren" head type is "Male_AverageWide"
+    And Nelim's Pickle Tools: "Soren" has the gene "Skin_Melanin5"
+    And Nelim's Pickle Tools: "Soren" has the gene "Hair_DarkReddish"
+    And Nelim's Pickle Tools: "Soren" has the gene "Eyes_DarkGreen"
+    And Nelim's Pickle Tools: "Soren" hair colour is taken from its genes
+    And Nelim's Pickle Tools: "Soren" hairstyle is "Roo_HD_Hair_Tidy"
+    And Nelim's Pickle Tools: "Soren" beard is "NoBeard"
+    And Nelim's Pickle Tools: "Soren" face tattoo is "none"
+    And Nelim's Pickle Tools: "Soren" body tattoo is "none"
+    And Nelim's Pickle Tools: "Soren" is undressed
+    And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelCollaredShirt" made of "Cloth"
+    And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
+    And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelLeatherVest" made of "Leather_Plain"
+    And Nelim's Pickle Tools: the "LisaWork_ApparelLeatherVest" worn by "Soren" is dyed rgb (107, 79, 58)
+    And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
+    And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
+    And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
+    And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
+    And Nelim's Pickle Tools: "Soren" lids are "LidSimple"
+    And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
+    And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
+    And "Soren" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: a colonist "Ryu" of kind "Colonist" exists
+    And Nelim's Pickle Tools: "Ryu" loses all genes
+    And Nelim's Pickle Tools: "Ryu" gender is Male
+    And "Ryu" is 43 years old
+    And Nelim's Pickle Tools: "Ryu" body type is Thin
+    And Nelim's Pickle Tools: "Ryu" head type is "Male_NarrowPointy"
+    And Nelim's Pickle Tools: "Ryu" has the gene "Skin_Melanin4"
+    And Nelim's Pickle Tools: "Ryu" has the gene "Hair_InkBlack"
+    And Nelim's Pickle Tools: "Ryu" has the gene "Eyes_SkyBlue"
+    And Nelim's Pickle Tools: "Ryu" hair colour is taken from its genes
+    And Nelim's Pickle Tools: "Ryu" hairstyle is "Roo_Royal_CleancutHD"
+    And Nelim's Pickle Tools: "Ryu" face tattoo is "none"
+    And Nelim's Pickle Tools: "Ryu" body tattoo is "STribalTat_Body_SacredWater"
+    And Nelim's Pickle Tools: "Ryu" is undressed
+    And Nelim's Pickle Tools: "Ryu" wears "Apparel_CollarShirt" made of "Cloth"
+    And Nelim's Pickle Tools: the "Apparel_CollarShirt" worn by "Ryu" is dyed rgb (31, 58, 52)
+    And Nelim's Pickle Tools: "Ryu" wears "LisaWork_ApparelPantsAndBelt" made of "Cloth"
+    And Nelim's Pickle Tools: the "LisaWork_ApparelPantsAndBelt" worn by "Ryu" is dyed rgb (160, 82, 45)
+    And Nelim's Pickle Tools: "Ryu" wears "VAE_Footwear_Boots" made of "Leather_Plain"
+    And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Ryu" is dyed rgb (107, 79, 58)
+    And Nelim's Pickle Tools: "Ryu" mouth is "MouthSubtle"
+    And Nelim's Pickle Tools: "Ryu" brows are "BrowThin"
+    And Nelim's Pickle Tools: "Ryu" lids are "LidAlmond"
+    And Nelim's Pickle Tools: "Ryu" eyeballs are "EyeSmall"
+    And Nelim's Pickle Tools: "Ryu" facial expression is "SocialRelax"
+    And "Ryu" needs "Joy" is set to 10 percent
+    When Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
+    And Anima Song: "Ryu" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
+    Then Anima Song: 2 listeners sit on 2 different cells around the tree at x=195 z=152
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
-    And Anima Song: "Flore" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
-    And Anima Song: "Soleil" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
-    And Anima Song: "Oren" is ordered to listen to the tree at x=195 z=152 from the seat (193, 149)
-    And Anima Song: "Ysa" is ordered to listen to the tree at x=195 z=152 from the seat (197, 149)
-    Then Anima Song: 5 listeners sit on 5 different cells around the tree at x=195 z=152
-    And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 5
+    And I wait 20 ticks
+    And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 4.5
     And Nelim's Pickle Tools: studio presentation mode is enabled
-    And I wait 30 ticks
-    Then Anima Song: 5 listeners sit on 5 different cells around the tree at x=195 z=152
+    Then Anima Song: the halo of the tree at x=195 z=152 is alive
     And I take a screenshot "workshop E - dusk"
     When Nelim's Pickle Tools: the decor is removed
 
-  @timeout:240 @wip
-  Scenario: night, Nelim alone again and a sleeping dog
-    Given the save "Nelims-tribe" is loaded
+  @timeout:300
+  Scenario: night, Nelim back alone and a sleeping dog
+    Given the save "Nelims-tribe-decor-mods-z3" is loaded
+    And Nelim's Pickle Tools: all humans but "Nelim" are removed
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
-    And Nelim's Sanctuary: the animals are kept out of the sanctuary "bare-clearing"
     And I set the hour to 22
     And I set the weather to "Clear"
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
     And Anima Song: an anima tree grows at x=195 z=152
-    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (200, 156)
-    And Nelim's Pickle Tools: the decor "TorchLamp" at (200, 156) is lit
-    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 155)
-    And Nelim's Pickle Tools: an adult animal of kind "LabradorRetriever" named "Biscuit" is spawned at (193, 156)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 155) facing South
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (193, 150)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (193, 150) is lit
+    And Nelim's Pickle Tools: I place the decor "Stool" at (195, 149)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (191, 152)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (197, 148)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (191, 149)
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (196, 149) facing North
+    And Nelim's Pickle Tools: "Shogun" lies down
+    And Nelim's Pickle Tools: the animal "Shogun" is kept asleep
+    And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 147) facing North
     And game speed is ultrafast
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Bob"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (120, 40, 30)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Cape" dyed rgb (240, 235, 215)
-    And Nelim's Sanctuary: Nelim has her own face
+    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
     And "Nelim" needs "Joy" is set to 10 percent
-    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
+    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 149)
     Then Anima Song: 1 listeners sit on 1 different cells around the tree at x=195 z=152
-    And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And Nelim's Pickle Tools: I frame the cell (195, 154) at zoom 6
-    And Nelim's Pickle Tools: studio presentation mode is enabled
     And I wait 60 ticks
+    And Nelim's Pickle Tools: I frame the cell (195, 151) at zoom 6
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    Then Anima Song: the halo of the tree at x=195 z=152 is alive
     And I take a screenshot "workshop F - night"
     When Nelim's Pickle Tools: the decor is removed

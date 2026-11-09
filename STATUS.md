@@ -177,27 +177,24 @@ Decision: keep `Art/echo-source.png` (renamed from `echo.png` 2026-10-12, byte-i
 
 ## NSB (sync 2026-11-09, shootGallery[1.1.0])
 
-Reads: Places read: 2026-11-09 (`bare-clearing` row only) Tribe read: 2026-11-09 (animals catalogue; roster, VALIDE and AVANCEMENT searched for the four names) Steps read: not read this run (NPT steps and catalogues, to do before the shotlist).
+Reads: Places read: 2026-11-09 (`bare-clearing` row, "zone libre": free for shots) Tribe read: 2026-11-09 (animals catalogue, VALIDE.md colonists, GALERIE-COLONS, roster identity table) Steps read: not read this run (NPT steps and catalogues, to do before the shotlist).
 
-Rules of 2026-11-05 applied. Mod adds no animal (rule 5: nothing to show). Colonists and the labrador of the 05 scenarios are not in NSB: owner validation PENDING, no scenario played with them before the answer.
+Rules of 2026-11-05 applied. Owner, 2026-11-09: "reviens vers le sanctuaire". The invented companions (Flore, Soleil, Oren, Ysa) and the labrador Biscuit are dropped: they were written 2026-10-05 when NSB held one colonist; their only argument was visual contrast (robe and hair colours against the teal glow, three body types), which NSB colonists can give. Mod adds no animal (rule 5: nothing to show). Shotlist E (dusk, five listeners) is re-cast at write-shotlist with validated NSB colonists only (Nelim, Soren, Miel; Ryu only if his look is validated).
 
 | Place | Shots | Changes for the gallery | Last read |
 | --- | --- | --- | --- |
-| `bare-clearing` (195, 152) | A, B, C, D, E, F | tree grown by the mod, decor (stools, torch lamps, daylilies, anima grass) set and removed | 2026-11-09 (row only) |
+| `bare-clearing` (195, 152), zone libre | A, B, E, F (C, D UI) | tree grown by the mod, decor (stools, torch lamps, daylilies, anima grass) set and removed | 2026-11-09 (row only) |
 
-| Colonist | Shots | Outfit per shot | Last read of profile | Exceptions |
+| Colonist | Shots | Outfit | Last read of profile | Exceptions |
 | --- | --- | --- | --- | --- |
-| Nelim | A to F | Robe dyed plum; Cape ivory at dawn and night; why: stands out from teal glow | not opened | properties changed (hair Bob, hair colour, robe): PENDING, the roster says `Roo_HD_Hair_Highpony`; the 2026-10-07 agreement is not a validation in the rules |
-| Flore | B | Robe saffron | n/a | outside NSB: PENDING (alternative: Soren or Miel) |
-| Soleil | B | Robe ivory | n/a | outside NSB: PENDING (alternative: Soren or Miel) |
-| Oren | E | Robe indigo, Headwrap | n/a | outside NSB: PENDING |
-| Ysa | E | Robe sapphire, face tattoo Face_Stars | n/a | outside NSB: PENDING |
+| Nelim | A to F | robe and cape, dye chosen per shot (outfit, free) | not opened | none: played with her roster hair (`Roo_HD_Hair_Highpony`), the Bob and hair-colour overrides are dropped (rule 3) |
+| Soren | B, E | validated daily or ceremony outfit, to choose at shotlist | not opened | none |
+| Miel | B, E | to choose at shotlist | not opened | none |
 
 | Animal | Shots | Outfit | Last read | Exceptions |
 | --- | --- | --- | --- | --- |
-| Hare "Brume", Squirrel "Noisette" | A | none | n/a | wild, decor, not covered |
-| Peacock "Paon" | B | none | n/a | not NSB; farm bird, to confirm if decor |
-| Labrador "Biscuit" | B, F | none | n/a | domestic, outside NSB: PENDING (alternative: Shogun, NSB labrador of Nelim, `Apparel_leatherdogcollar` by default) |
+| Shogun (NSB labrador, Nelim's) | B, F | `Apparel_leatherdogcollar` by default | catalogue only | none |
+| Hare, Squirrel (A), Peacock (B) | A, B | none | n/a | wild or decor, not covered by rule 2 |
 
 | Included animal (rule 5) | Shots |
 | --- | --- |

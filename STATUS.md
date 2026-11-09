@@ -174,3 +174,31 @@ Decision: keep `Art/echo-source.png` (renamed from `echo.png` 2026-10-12, byte-i
 ## Code review, 2026-10-10 (AUDIT.md 12.a)
 
 `23bf286..7170e13` of `Mod/` and `Source/`: only `Mod/About/About.xml` (description text: Phytokin link, save wording, DALL-E, Replantable thanks) and `Mod/ATTRIBUTION.md` (Replantable section, DALL-E). No code changed since the review of `c53d1a0`. No finding. The roofed-tree fix (`AnimaSong.xml`, no `unroofedOnly`) and the `build/` path change were reviewed earlier (`c53d1a0`); the Pickle runs `589f`, `ed83`, `3432`, `7398` are the in-game proof.
+
+## NSB (sync 2026-11-09, shootGallery[1.1.0])
+
+Reads: Places read: 2026-11-09 (`bare-clearing` row only) Tribe read: 2026-11-09 (animals catalogue; roster, VALIDE and AVANCEMENT searched for the four names) Steps read: not read this run (NPT steps and catalogues, to do before the shotlist).
+
+Rules of 2026-11-05 applied. Mod adds no animal (rule 5: nothing to show). Colonists and the labrador of the 05 scenarios are not in NSB: owner validation PENDING, no scenario played with them before the answer.
+
+| Place | Shots | Changes for the gallery | Last read |
+| --- | --- | --- | --- |
+| `bare-clearing` (195, 152) | A, B, C, D, E, F | tree grown by the mod, decor (stools, torch lamps, daylilies, anima grass) set and removed | 2026-11-09 (row only) |
+
+| Colonist | Shots | Outfit per shot | Last read of profile | Exceptions |
+| --- | --- | --- | --- | --- |
+| Nelim | A to F | Robe dyed plum; Cape ivory at dawn and night; why: stands out from teal glow | not opened | properties changed (hair Bob, hair colour, robe): PENDING, the roster says `Roo_HD_Hair_Highpony`; the 2026-10-07 agreement is not a validation in the rules |
+| Flore | B | Robe saffron | n/a | outside NSB: PENDING (alternative: Soren or Miel) |
+| Soleil | B | Robe ivory | n/a | outside NSB: PENDING (alternative: Soren or Miel) |
+| Oren | E | Robe indigo, Headwrap | n/a | outside NSB: PENDING |
+| Ysa | E | Robe sapphire, face tattoo Face_Stars | n/a | outside NSB: PENDING |
+
+| Animal | Shots | Outfit | Last read | Exceptions |
+| --- | --- | --- | --- | --- |
+| Hare "Brume", Squirrel "Noisette" | A | none | n/a | wild, decor, not covered |
+| Peacock "Paon" | B | none | n/a | not NSB; farm bird, to confirm if decor |
+| Labrador "Biscuit" | B, F | none | n/a | domestic, outside NSB: PENDING (alternative: Shogun, NSB labrador of Nelim, `Apparel_leatherdogcollar` by default) |
+
+| Included animal (rule 5) | Shots |
+| --- | --- |
+| none: the mod ships no animal | n/a |

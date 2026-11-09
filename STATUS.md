@@ -177,9 +177,9 @@ Decision: keep `Art/echo-source.png` (renamed from `echo.png` 2026-10-12, byte-i
 
 ## NSB (sync 2026-11-09, shootGallery[1.1.0])
 
-Reads: Places read: 2026-11-09 (`bare-clearing` row, "zone libre": free for shots) Tribe read: 2026-11-09 (animals catalogue, VALIDE.md colonists, GALERIE-COLONS, roster identity table) Steps read: not read this run (NPT steps and catalogues, to do before the shotlist).
+Reads: Places read: 2026-11-09 (`bare-clearing` row, "zone libre": free for shots) Tribe read: 2026-11-09 (animals catalogue, VALIDE.md colonists, GALERIE-COLONS, roster identity table) Steps read: 2026-11-09 (steps.md changes since 2026-10-18: animal facing steps `the animal "X" faces <dir>`, `stands at (x, z) facing`, `lies at (x, z) facing` now exist; `sits on the building`; light of the map dimmed for dusk; catalogues not opened).
 
-Rules of 2026-11-05 applied. Owner, 2026-11-09: "reviens vers le sanctuaire". The invented companions (Flore, Soleil, Oren, Ysa) and the labrador Biscuit are dropped: they were written 2026-10-05 when NSB held one colonist; their only argument was visual contrast (robe and hair colours against the teal glow, three body types), which NSB colonists can give. Mod adds no animal (rule 5: nothing to show). Shotlist E (dusk, five listeners) is re-cast at write-shotlist with validated NSB colonists only (Nelim, Soren, Miel; Ryu only if his look is validated).
+Rules of 2026-11-05 applied. Owner, 2026-11-09: "reviens vers le sanctuaire". The invented companions (Flore, Soleil, Oren, Ysa) and the labrador Biscuit are dropped: they were written 2026-10-05 when NSB held one colonist; their only argument was visual contrast (robe and hair colours against the teal glow, three body types), which NSB colonists can give. Mod adds no animal (rule 5: nothing to show). Shotlist E (dusk, five listeners) is re-cast at write-shotlist with validated NSB colonists only (Nelim, Soren, Ryu: Miel has no validated look or outfit in VALIDE.md, 2026-11-09).
 
 | Place | Shots | Changes for the gallery | Last read |
 | --- | --- | --- | --- |
@@ -188,8 +188,8 @@ Rules of 2026-11-05 applied. Owner, 2026-11-09: "reviens vers le sanctuaire". Th
 | Colonist | Shots | Outfit | Last read of profile | Exceptions |
 | --- | --- | --- | --- | --- |
 | Nelim | A to F | robe and cape, dye chosen per shot (outfit, free) | not opened | none: played with her roster hair (`Roo_HD_Hair_Highpony`), the Bob and hair-colour overrides are dropped (rule 3) |
-| Soren | B, E | validated daily or ceremony outfit, to choose at shotlist | not opened | none |
-| Miel | B, E | to choose at shotlist | not opened | none |
+| Soren | B, E | validated daily: shirt #708090, vest #6B4F3A, trousers #3C4650 | VALIDE.md section read | none |
+| Ryu "Blue" Sai | B, E | validated daily: shirt #1F3A34, trousers #A0522D, brown boots | VALIDE.md section read | none (replaces Miel, no validated look) |
 
 | Animal | Shots | Outfit | Last read | Exceptions |
 | --- | --- | --- | --- | --- |
@@ -199,3 +199,16 @@ Rules of 2026-11-05 applied. Owner, 2026-11-09: "reviens vers le sanctuaire". Th
 | Included animal (rule 5) | Shots |
 | --- | --- |
 | none: the mod ships no animal | n/a |
+
+## Shotlist (2026-11-09, plan only, nothing played)
+
+Header of `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature` holds the full lines. Director pass by an Opus sub-agent: kept the empty ring at dawn, the arrival instant (order given, screenshot 20 ticks after), Shogun lying, peacock and hare in the foreground, weather named, halo pulsing cut, zoom 4.5 instead of "low angle", F mirrored from A; dropped the "Soren leaves his seat" instant (no step), replaced by Nelim arriving last.
+
+| # | Scene | a time | b decor | c living | d pawns | e action | f composition | g subject | j mod | plan |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | dawn, opening | h6 Clear 20C, 20 ticks | 3 empty stools, grass, 4 daylilies, lit torch | hare front, squirrel | Nelim plum robe, ivory cape, smile | arrives one step from seat | zoom 6, tree off-centre, hare foreground | empty ring, tree waits | halo + ring | 5 |
+| B | noon, lead | h12 Clear, 90 ticks | stools, torch, daylilies, grass | peacock front, Shogun lying | Nelim, Soren, Ryu named colours, smile | just sat, halo starts | zoom 5, tree off-centre | colonists ring, tree answers | halo + ring | 5 |
+| E | dusk | h18 Clear | 2 lit torches, stools, daylilies | Shogun standing, yawning | same three, same outfits | Nelim arrives last | zoom 4.5, grass at frame edges | the day turns, glow | glow from afar | 5 |
+| F | night, closing | h22 Clear | close torch, 2 empty stools | Shogun asleep | Nelim back to camera (no smile visible, reason written) | seated, tree beyond | zoom 6, mirror of A | sings after dark | glow vs torch | 5 |
+
+k (series): one story, one day, hours 6 12 18 22; tight, medium, wide, tight; opening A, closing F, rhythm moves: ok. C and D: interface, set aside. Plan means 5 on 4 scenes, by the fixed rule, on paper; main risks: the arrival instant (timing of the screenshot, adjusted on the first run), night brightness (one test capture), a smile not visible from behind in F. Not verified: steps `the animal ... lies at ... facing` and `faces` exist in steps.md (read), their behaviour in this fixture (not played). Existing `Art/Gallery/1-the-tree-singing.jpg` (old cast Flore and Soleil) is stale for B: deleted when the scenario is rewritten (`git rm`, next step).

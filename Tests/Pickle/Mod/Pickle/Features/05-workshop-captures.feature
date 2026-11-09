@@ -22,7 +22,7 @@
 # STORY: a day with the singing tree. Nelim (protagonist, NSB roster look, smiling) walks out to the anima tree at the same corner of `bare-clearing` (195, 152) at four hours of one day (6, 12, 18, 22, weather Clear, 20 degrees, one hour per image: the day turns, the story advances). One outfit all day, plum Apparel_Robe with ivory Apparel_Cape (continuity). Guests: Soren and Ryu "Blue" Sai (NSB, roster looks; Miel has no validated look in NSB VALIDE.md, so not used), Shogun (NSB labrador, Apparel_leatherdogcollar). The ring of stools is the thread: empty at dawn, three sitters at noon, being left at dusk, still warm at night. The mod adds no animal (rule 5 empty). Colonists and animals: NSB only, no outside pawn, no changed colonist property.
 # Orientation (z grows northward, the tree is at z 152): a seat at z 155 is NORTH of the tree and its sitter faces South (seen from the front); a seat at z 149 is SOUTH of it and its sitter faces North (seen from behind); x 191 faces East, x 199 faces West.
 # How the gesture is obtained (criterion e): every listener is given the mod's own order ("is ordered to listen ... from the seat"), the game is paused by the screenshot after the wait named per shot, never a posed "sits" step.
-#   1. workshop-A-dawn (opening), 6h, Clear, 20 degrees, bare-clearing, zoom 6 on (196, 153), tree off-centre to the right, hare foreground left, lit torch background right. Instant: Nelim at (195, 157) is one step from her seat (195, 155), order just given, screenshot 20 ticks after. Nelim: Apparel_Robe rgb (140, 40, 90), Apparel_Cape rgb (240, 235, 215), roster hair, SocialRelax smile. Decor: stools (195, 155) (191, 152) (199, 152) left empty, Plant_GrassAnima (193, 156) (197, 156) (191, 150) fully grown, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), TorchLamp (200, 156) lit. Hare "Brume" (193, 158) faces the camera. Says: someone arrives at an empty ring of three stools while the tree already glows, the tree waits for listeners; at 268 px the halo and the stool ring read.
+#   1. workshop-A-dawn (opening), 6h, Clear, 20 degrees, bare-clearing, zoom 6 on (193, 153), tree off-centre to the right, hare foreground left, lit torch background right. Instant: Nelim at (195, 157) is one step from her seat (195, 155), order just given, screenshot 20 ticks after. Nelim: Apparel_Robe rgb (140, 40, 90), Apparel_Cape rgb (240, 235, 215), roster hair, SocialRelax smile. Decor: stools (195, 155) (191, 152) (199, 152) left empty, Plant_GrassAnima (193, 156) (197, 156) (191, 150) fully grown, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), TorchLamp (200, 156) lit. Hare "Brume" (193, 156) faces the camera. Says: someone arrives at an empty ring of three stools while the tree already glows, the tree waits for listeners; at 268 px the halo and the stool ring read.
 #   2. workshop-B-noon (lead), 12h, Clear, 20 degrees, zoom 5 on (194, 152), tree off-centre. Instant: the three have just sat, the halo starts (screenshot 90 ticks after the orders). Nelim seat (195, 155) facing South; Soren from (190, 152) to seat (191, 152) facing East: LisaWork_ApparelCollaredShirt rgb (112, 128, 144), LisaWork_ApparelLeatherVest rgb (107, 79, 58), VAE_Apparel_Trousers rgb (60, 70, 80), Roo_HD_Hair_Tidy; Ryu from (200, 152) to seat (199, 152) facing West: Apparel_CollarShirt rgb (31, 58, 52), LisaWork_ApparelPantsAndBelt rgb (160, 82, 45), VAE_Footwear_Boots rgb (107, 79, 58), Roo_Royal_CleancutHD; all smiling (SocialRelax). Decor: stools, TorchLamp (200, 156) lit, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), Plant_GrassAnima (193, 156). Animals: peacock "Paon" (189, 157) foreground facing the camera, squirrel "Noisette" (202, 153), Shogun (201, 155) lying (stands at facing West, then lies down). Says: colonists sit in a ring and the tree answers.
 #   3. workshop-C-menu, 12h, the right-click menu that offers the order, the tree at (195, 152), the game screen kept, Apparel_Robe rgb (140, 40, 90). Not staged; the accepted image 2 stands (its scenario still carries the old Bob hair override of Nelim: if replayed, remove it first, rule 3).
 #   4. workshop-D-selected, 12h, the tree at (195, 152) selected with its toggle, developer mode off, the game screen kept. Not staged; the accepted image 3 stands.
@@ -344,6 +344,10 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I place the decor "Stool" at (199, 152)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (197, 148)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (191, 149)
+    And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (193, 146)
+    And Nelim's Pickle Tools: I place the decor "Plant_GrassAnima" at (197, 146)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (195, 146)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (199, 147)
     And Nelim's Pickle Tools: the animal "Shogun" stands at (196, 149) facing North
     And Nelim's Pickle Tools: "Shogun" lies down
     And Nelim's Pickle Tools: the animal "Shogun" is kept asleep
@@ -352,7 +356,8 @@ Feature: the pictures of the Workshop page
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Cape" dyed rgb (240, 235, 215)
-    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And "Nelim" needs "Joy" is set to 10 percent
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 149)
     Then Anima Song: 1 listeners sit on 1 different cells around the tree at x=195 z=152

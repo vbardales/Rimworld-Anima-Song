@@ -63,17 +63,18 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (198, 148)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (190, 148)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (200, 154)
-    And Nelim's Pickle Tools: an adult animal of kind "Hare" named "Brume" is spawned at (193, 158)
+    And Nelim's Pickle Tools: an adult animal of kind "Hare" named "Brume" is spawned at (193, 156)
     And Nelim's Pickle Tools: the animals except "Brume" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Cape" dyed rgb (240, 235, 215)
-    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And "Nelim" needs "Joy" is set to 10 percent
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     And I wait 20 ticks
-    And Nelim's Pickle Tools: I frame the cell (196, 153) at zoom 6
+    And Nelim's Pickle Tools: I frame the cell (193, 153) at zoom 6
     And Nelim's Pickle Tools: studio presentation mode is enabled
     Then Anima Song: the halo of the tree at x=195 z=152 is alive
     And I take a screenshot "workshop A - dawn"

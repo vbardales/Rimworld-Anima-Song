@@ -230,3 +230,5 @@ Ticket 20261109-180030-308-eeaa filed 2026-11-09 (gallery scene B alone, English
 One row in docs/inventory/ecosystem.tsv: Vanilla Races Expanded - Phytokin (2927323805, patch, matched on name). Already the mod's known soft Phytokin link (looked up by def name, Phytokin pass dc8f/a0ab): nothing new. Not in the ecosystem worklist (item 24). Translations: none found.
 
 TM missions 2026-11-12 (items 0 to 24) read: items 8.k wording, 14 (.gitignore holds desktop.ini, Inbox, Parked, Evidence; Mod/desktop.ini kept), 15 (Art/ closed set, no echo.png), 23 done; TRANSLATION_REVIEW.md exists (f3e23d6); the 2026-11-07 review predates the page-header fix: Audit asked whether to rerun (item 2 vs 21b).
+
+**2026-11-12, review-translation (page 1 of 1, ChatGPT, no correction) on d6f09c6 texts: validated by Virginie ("review validée"). translation_fr: complete stands.**

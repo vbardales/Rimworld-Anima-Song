@@ -225,9 +225,9 @@ Ticket 20261109-180030-308-eeaa filed 2026-11-09 (gallery scene B alone, English
 2026-11-12: tickets 08bb (A) and 59f6 (F) both RED at the robe proof step: "Nelim does not wear 'Apparel_Robe'; it wears Apparel_Cape" (junit; captures not usable). Cause: the cape shares the robe layer and takes it off, so the earlier orange look was the cape alone. Cape lines removed from A, B, E, F (feature file, header, shotlist agrees). Reports gallery-a2, gallery-a2-1, gallery-f2 parked as evidence for PiT, delete after the new green. A and F refiled as one ticket after commit.
 2026-11-12: ticket 20261112-213356-135-11fd (A dawn + F night together, robe without cape, d6f09c6, evidence Tests/Pickle/Inbox/gallery-af3) filed; waits. On result: open captures, rate (score-gallery), tell PiT the robe result.
 
-## Ecosystem (scan 2026-11-12, AUDIT 8.0)
+## Ecosystem (PiI Steam search 2026-11-13, AUDIT 1.a and 8.0)
 
-One row in docs/inventory/ecosystem.tsv: Vanilla Races Expanded - Phytokin (2927323805, patch, matched on name). Already the mod's known soft Phytokin link (looked up by def name, Phytokin pass dc8f/a0ab): nothing new. Not in the ecosystem worklist (item 24). Translations: none found.
+Detail: docs/inventory/ecosystem-steam/AnimaSong.md. No duplicate, fork or replacement: no other mod lets colonists listen to an anima tree sing (5441 folders scanned: only the Phytokin original 2927323805, its French translation, JoyRescue (ours) and our two items hold our defNames or label). Anima neighbours (VPE - Anima, Replantable Anima Trees, Anima Integration, Anima Tree Pet) are not competitors. Only Phytokin stays subscribed (compat pass 8.f); the 3 other study mods are unsubscribed. Replaces the local scan of 2026-11-12 (read only downloaded mods).
 
 TM missions 2026-11-12 (items 0 to 24) read: items 8.k wording, 14 (.gitignore holds desktop.ini, Inbox, Parked, Evidence; Mod/desktop.ini kept), 15 (Art/ closed set, no echo.png), 23 done; TRANSLATION_REVIEW.md exists (f3e23d6); the 2026-11-07 review predates the page-header fix: Audit asked whether to rerun (item 2 vs 21b).
 

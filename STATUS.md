@@ -229,6 +229,8 @@ Ticket 20261109-180030-308-eeaa filed 2026-11-09 (gallery scene B alone, English
 
 Detail: docs/inventory/ecosystem-steam/AnimaSong.md. No duplicate, fork or replacement: no other mod lets colonists listen to an anima tree sing (5441 folders scanned: only the Phytokin original 2927323805, its French translation, JoyRescue (ours) and our two items hold our defNames or label). Anima neighbours (VPE - Anima, Replantable Anima Trees, Anima Integration, Anima Tree Pet) are not competitors. Only Phytokin stays subscribed (compat pass 8.f); the 3 other study mods are unsubscribed. Replaces the local scan of 2026-11-12 (read only downloaded mods).
 
+Second request, Phytokin variants (PiI, e4ad269, same file, section "Second request"): 8 Phytokin-based mods checked (More Phytokin Xenotypes, Archeankin, HarbingerKin - Phytokin, Phytokin Have Fathers, Anima Theme for VRE: Phytokin, VRE - Phytokin - Anima Theme, Mokas Phytokin have Natural Connection, Phytokin Vanilla Faces). None touches the anima song or our recreation, no shared defName, no duplicate. All 8 unsubscribed; only 2927323805 stays (compat pass 8.f).
+
 TM missions 2026-11-12 (items 0 to 24) read: items 8.k wording, 14 (.gitignore holds desktop.ini, Inbox, Parked, Evidence; Mod/desktop.ini kept), 15 (Art/ closed set, no echo.png), 23 done; TRANSLATION_REVIEW.md exists (f3e23d6); the 2026-11-07 review predates the page-header fix: Audit asked whether to rerun (item 2 vs 21b).
 
 **2026-11-12, review-translation (page 1 of 1, ChatGPT, no correction) on d6f09c6 texts: validated by Virginie ("review validée"). translation_fr: complete stands.**

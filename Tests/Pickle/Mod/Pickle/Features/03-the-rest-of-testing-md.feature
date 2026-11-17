@@ -39,7 +39,7 @@ Feature: the rest of the manual scenarios
   # TESTING.md 7: only hearing is required, so a colonist who cannot see still listens.
   @timeout:120
   Scenario: a colonist who cannot see still listens
-    Given a colonist "Blind" exists
+    Given Nelim's Pickle Tools: a colonist "Blind" exists near (72, 132)
     And Anima Song: "Blind" is made blind
     And "Blind" needs "Joy" is set to 10 percent
     And game speed is ultrafast
@@ -50,9 +50,9 @@ Feature: the rest of the manual scenarios
   # on full joy before the next one arrives.
   @timeout:300
   Scenario: the song fires once, then holds its tongue for its cooldown
-    Given a colonist "Song-1" exists
-    And a colonist "Song-2" exists
-    And a colonist "Song-3" exists
+    Given Nelim's Pickle Tools: a colonist "Song-1" exists near (72, 132)
+    And Nelim's Pickle Tools: a colonist "Song-2" exists near (72, 132)
+    And Nelim's Pickle Tools: a colonist "Song-3" exists near (72, 132)
     And "Song-1" needs "Joy" is set to 10 percent
     And "Song-2" needs "Joy" is set to 10 percent
     And "Song-3" needs "Joy" is set to 10 percent

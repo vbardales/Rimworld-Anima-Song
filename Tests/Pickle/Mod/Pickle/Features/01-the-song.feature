@@ -82,7 +82,7 @@ Feature: listening to an anima tree sing
   # The step asserts 90 % alive and attaches the distribution to the report whatever the verdict.
   @same-world @timeout:180
   Scenario: the halo holds on the tree in view at normal speed
-    Given a colonist "Watched" exists
+    Given Nelim's Pickle Tools: a colonist "Watched" exists near (72, 132)
     And game speed is ultrafast
     When Anima Song: "Watched" is ordered to listen to the tree at x=70 z=132
     And Anima Song: "Watched" sits in the ring of the tree at x=70 z=132

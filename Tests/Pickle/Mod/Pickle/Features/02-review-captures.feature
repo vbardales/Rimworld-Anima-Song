@@ -27,9 +27,9 @@ Feature: what the song looks like
 
   @timeout:180
   Scenario: the ring, the halo, and the waves of light
-    Given a colonist "Shot-1" exists
-    And a colonist "Shot-2" exists
-    And a colonist "Shot-3" exists
+    Given Nelim's Pickle Tools: a colonist "Shot-1" exists near (72, 132)
+    And Nelim's Pickle Tools: a colonist "Shot-2" exists near (72, 132)
+    And Nelim's Pickle Tools: a colonist "Shot-3" exists near (72, 132)
     And game speed is ultrafast
     When Anima Song: "Shot-1" is ordered to listen to the tree at x=70 z=132
     And Anima Song: "Shot-2" is ordered to listen to the tree at x=70 z=132

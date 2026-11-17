@@ -12,6 +12,10 @@ Feature: 1.7 reachability probe of the anima tree ring
   Scenario: where is the spawn cell of a colonist, and can it reach the tree
     Given a colonist "Song-1" exists
     When Nelim's Pickle Tools: the reach of "Song-1" to (70, 132) is written to the log
+    And Nelim's Pickle Tools: the reach of "Song-1" to (72, 132) is written to the log
+    And Nelim's Pickle Tools: the reach of "Song-1" to (68, 132) is written to the log
+    And Nelim's Pickle Tools: the reach of "Song-1" to (70, 134) is written to the log
+    And Nelim's Pickle Tools: the reach of "Song-1" to (70, 130) is written to the log
     And game speed is ultrafast
     And I wait 600 ticks
-    Then Nelim's Pickle Tools: "Song-1" can reach (70, 132)
+    Then Nelim's Pickle Tools: "Song-1" can reach (72, 132)

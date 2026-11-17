@@ -21,6 +21,7 @@ code_review_sha: d211a046c8e339ee1587e2d97e4a35669550c824
 echo_review_sha: 70f6c760c3663834a2b800302ae81a480e8c9416
 social_preview_sha256: ace9cafd1a9e02e5d3934460e3776f096099d0f37820a70233c96ead0eb6bbd1
 remaining:
+  - waiting 2026-11-17: 1.7 whole suite English ticket 20261117-204306-624-ef14 (ColonistRace 38f99e28, a4d433a, 41 tests, azure lane, evidence Tests/Pickle/Inbox/p17-full), TM relays RUN_DONE by mod name; on result read summary.json (total, passed, exitReason), decide `tested_1_7` (yes if all green; else refile only the reds), then housekeeping below
   - done 2026-11-17: 8.f replays of the conditional passes on the current build, wsl local lane (hetzner ignoring -ThenWithout is NOT proven per Cloud 2026-11-17, code path reads fine, 1bbb log pruned; wsl chosen anyway, no audio server on hetzner): sound Royalty f855 green (1 of 1), sound Phytokin 3286 green (1 of 1), removal f0c3 green (seq1 1 of 1, seq2 1 of 1, 209 s); studio pass = gallery tickets 9bea and 11fd; evidence minified in Tests/Pickle/Evidence (sound-royalty2, sound-phytokin, removal-seq1, removal-seq2, each with RELEASE.md), Inbox empty, old sound and removal runs of 2026-09 deleted
   - open: housekeeping: run sync-nsb-npt (NSB changed 2026-11-12, Check-Status warn), trim STATUS.md (over 20 KB); evidence 2.4 MB over 2 MB (the three 2026-10 non-regression runs stay: sole proof of 5 to 7 scenarios, go when a non-regression pass on the next build replaces them)
   - open: 8.f (audit replay 2026-11-16): sound, studio and removal replays done 2026-11-17 (see done line); nothing left here but the 1.7 pass and the gallery; gallery work resumes at shootGallery
@@ -31,7 +32,7 @@ remaining:
   - done 2026-11-05: 7b Preview redo: config migrated to the new format (`description`, `background`, automatic title fit 41 px), echo centered, clear of title and copy line, opened and checked; Preview.png, Art/Gallery/0-preview.png, Preview.ico committed
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
-session:      local_c4b5f23a-99dd-41be-8ab8-4bb76043da8d
+session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
 updated:      2026-11-17, playTests[1.1.0] (8.f replays all green on the wsl local lane: sound f855 and 3286, removal f0c3; evidence sorted and pruned; protocols read b0f1f9bf; earlier history in git log)
 protocols_read_sha: 1aaeb41728dda3daade528e599c37c7ae2662992
 ---

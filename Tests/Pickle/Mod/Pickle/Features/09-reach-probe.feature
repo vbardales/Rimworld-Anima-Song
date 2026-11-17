@@ -5,6 +5,9 @@
 
 Feature: 1.7 reachability probe of the anima tree ring
 
+  Background:
+    Given the save "test-colony" is loaded
+
   @requires:nelim.pickletools.colonistrace @timeout:120
   Scenario: where is the spawn cell of a colonist, and can it reach the tree
     Given a colonist "Song-1" exists

@@ -402,7 +402,17 @@ namespace AnimaSong.PickleSteps
         {
             CompAnimaSong comp = SongAt(ctx, x, z);
             await WaitOrExplain(ctx, () => comp.Singing, 30f,
-                () => "nobody is listening: the tree is silent");
+                () => "nobody is listening: the tree is silent; " + SilenceDetail(comp, tree: TreeAt(ctx, x, z)));
+        }
+
+        /// <summary>What the silent tree and its colonists were doing: tells a job that ended from a toil that never ticked.</summary>
+        private static string SilenceDetail(CompAnimaSong comp, Thing tree)
+        {
+            object last = typeof(CompAnimaSong).GetField("lastListenTick",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)?.GetValue(comp);
+            string pawns = string.Join("; ", tree.Map.mapPawns.FreeColonistsSpawned.Select(p =>
+                $"{p.LabelShort} at {p.Position} job {p.CurJob?.def.defName ?? "none"} joy {p.needs?.joy?.CurLevel:0.00}"));
+            return $"game tick {Find.TickManager.TicksGame}, lastListenTick {last}, speed {Find.TickManager.CurTimeSpeed}; {pawns}";
         }
 
         [Then("Anima Song: the tree at x={int} z={int} is not singing")]

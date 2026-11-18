@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: writeShotlist[1.1.0]
+workflow_stage: shootGallery[1.1.0]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -35,7 +35,7 @@ remaining:
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
 session:      local_c4b5f23a-99dd-41be-8ab8-4bb76043da8d
-updated:      2026-11-18, writeShotlist[1.1.0] (8.a to 8.m done: evidence under 2 MB, code review d211a04..HEAD holds only About.xml wording, no finding; B and E recast Nelim, Soren, Miel; earlier history in git log)
+updated:      2026-11-18, shootGallery[1.1.0] (9.0 bis: shotlist written, plan 5 on A B E F, scenarios written, drift check 0; B and E recast with Miel; candidates A and F in Art/Gallery; earlier history in git log)
 protocols_read_sha: 2b16552b1c489cd8537d600a08630cb582a11b68
 ---
 
@@ -93,7 +93,7 @@ reading is not the review TRANSLATIONS.md requires.
 
 The dated sections of 2026-10 (audit, preview migration, code reviews, art, gallery, sanctuary move, French review, echo) moved to `Docs/runs/status-journal-2026-10.md` on 2026-11-18.
 
-## NSB (sync 2026-11-18, writeShotlist[1.1.0])
+## NSB (sync 2026-11-18, shootGallery[1.1.0])
 
 Reads: Places read: 2026-11-18 Tribe read: 2026-11-18 Steps read: 2026-11-18. Sync 2026-11-18 (second, NSB log since 2026-11-17): places docs unchanged; new `RECONSTRUCTION-SAUVEGARDE.md` = plan only (rebuild of the Sanctuary save as `Nelims-tribe-v2`, nothing built, doors not passed: no change for our fixture `Nelims-tribe-decor-mods-z3` before it ships); VALIDE.md: Miel Aveline now validated (daily looks, 2026-11-17), Daichi and Dalia validated (babies, not used), Iori profile changes (not used); BiB gene renames (not used); NPT log since 2026-11-18: no change to steps.md or catalogues. Nothing to update in shotlist or scenarios (stage playTests, notes only); for shootGallery: Miel is now a validated alternative to Ryu for the ring of three (B, E), to weigh at write-shotlist. Older syncs: Docs/runs/status-journal-2026-11.md.
 

@@ -12,3 +12,6 @@ nelim.pickletools.filmticks   path:PickleTools/FilmTicks/Mod
 
 # The two save steps (the game is saved as, the saved game is handed to the mod) come from PickleTools SaveSteps, not from this mod.
 nelim.pickletools.savesteps   path:PickleTools/SaveSteps/Mod
+
+# The step "a colonist {string} exists near ({int}, {int})" (scenarios 01 to 03) comes from PickleTools ColonistRace, built for 1.6 in PickleTools/ColonistRace/Mod (2026-11-18). The 1.7 pass takes its net10.0 copy from wsl-deps.17.map.
+nelim.pickletools.colonistrace   path:PickleTools/ColonistRace/Mod

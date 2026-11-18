@@ -200,6 +200,8 @@ namespace AnimaSong.PickleSteps
             ctx.Assert(pawn.CanReserve(tree, AnimaSongDefOf.AnimaSong_Listen.joyMaxParticipants), $"the tree has no free slot for {nickname}");
             Job job = JobMaker.MakeJob(AnimaSongDefOf.AnimaSong_Listen, tree, seat);
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+            // TryTakeOrderedJob returns nothing: what the pawn does right after tells whether the order held (ticket 6ab9, 2026-11-18: nobody listened).
+            Log.Message($"[AnimaSongProbe] {nickname} ordered to listen from {seat}: now {pawn.CurJob?.def.defName ?? "nothing"} (target {pawn.CurJob?.targetA.Thing}), queue {pawn.jobs.jobQueue.Count}, drafted {pawn.Drafted}, downed {pawn.Downed}, mental {pawn.InMentalState}");
         }
 
         /// <summary>
@@ -574,7 +576,8 @@ namespace AnimaSong.PickleSteps
             Func<List<Pawn>> seated = () => ListenersOf(map, tree).Where(p => !p.pather.Moving && InRing(p, tree)).ToList();
             await WaitTicksOrExplain(ctx, () => seated().Count >= listeners, 9000,
                 () => $"{seated().Count} of {listeners} listeners sit in the ring; the listeners not seated: " +
-                      string.Join(", ", ListenersOf(map, tree).Except(seated()).Select(p => $"{p.LabelShort} at {p.Position}")));
+                      string.Join(", ", ListenersOf(map, tree).Except(seated()).Select(p => $"{p.LabelShort} at {p.Position}")) +
+                      "; every colonist: " + string.Join(", ", map.mapPawns.FreeColonists.Select(p => $"{p.LabelShort} {p.CurJob?.def.defName ?? "nothing"} at {p.Position}")));
 
             List<Pawn> sitting = seated();
             ctx.Assert(ListenersOf(map, tree).Count() == listeners,

@@ -131,6 +131,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the "LisaWork_ApparelLeatherVest" worn by "Soren" is dyed rgb (107, 79, 58)
     And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
     And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
+    Then Nelim's Pickle Tools: the clothes worn by "Soren" are logged
     And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
     And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
     And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
@@ -161,6 +162,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" wears "VAE_Footwear_Boots" made of "Leather_Plain"
     And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Miel" is dyed rgb (107, 79, 58)
     And Nelim's Pickle Tools: "Miel" wears "VanityCase_LipstickCaramel"
+    Then Nelim's Pickle Tools: the clothes worn by "Miel" are logged
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
     And Nelim's Pickle Tools: "Miel" lids are "LidFlirty"

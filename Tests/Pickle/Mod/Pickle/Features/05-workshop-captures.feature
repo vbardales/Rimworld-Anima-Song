@@ -106,8 +106,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Shogun" lies down
     And Nelim's Pickle Tools: the animals except "Paon", "Shogun" and "Noisette" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
-    And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
-    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
@@ -169,6 +167,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
+    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     And Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
     And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
@@ -258,8 +258,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animal "Shogun" stands at (201, 155) facing West
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
-    And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
-    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
@@ -321,6 +319,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
+    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     When Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
     And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
     Then Anima Song: 2 listeners sit on 2 different cells around the tree at x=195 z=152

@@ -127,8 +127,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" is undressed
     And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelCollaredShirt" made of "Cloth"
     And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
-    And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelLeatherVest" made of "Leather_Plain"
-    And Nelim's Pickle Tools: the "LisaWork_ApparelLeatherVest" worn by "Soren" is dyed rgb (107, 79, 58)
     And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
     And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
     Then Nelim's Pickle Tools: the clothes worn by "Soren" are logged
@@ -139,6 +137,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Miel" loses all genes
     And Nelim's Pickle Tools: "Miel" gender is Female
@@ -169,6 +168,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
     And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)

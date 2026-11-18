@@ -35,7 +35,7 @@ remaining:
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
 session:      local_c4b5f23a-99dd-41be-8ab8-4bb76043da8d
 updated:      2026-11-17, playTests[1.1.0] (8.f replays all green on the wsl local lane: sound f855 and 3286, removal f0c3; evidence sorted and pruned; protocols read b0f1f9bf; earlier history in git log)
-protocols_read_sha: f8fee9ce3e84db4584ec0256dddb91ff50a3b435
+protocols_read_sha: 6ffe26641372a55fb2f825b5324dfe8fcd9632fb
 ---
 
 # Anima Song — status

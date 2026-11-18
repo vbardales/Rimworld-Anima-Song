@@ -8,7 +8,7 @@ packageId:    nelim.animasong
 repo:         Rimworld-Anima-Song
 visibility:   public
 detached:     yes
-workflow_stage: playTests[1.1.0]
+workflow_stage: writeShotlist[1.1.0]
 licence:      original
 licence_at:   Original creation by Nelim; MIT in LICENSE and Mod/LICENSE, copyright (c) 2026 Nelim; credits in ATTRIBUTION.md
 upstream_mod_remotes: N/A
@@ -18,13 +18,13 @@ tested_1_7:   yes
 tested_on:    2026-10-10, English full pass on the roofed-tree fix (5fa7c4a): 26 of 27 passed, the one red replayed green twice; French interface and texts on dd3de9d (7398); French and Phytokin full passes not replayed on the fix (non-regression after the commit); earlier: 2026-09-29 whole suite in English, French and with Phytokin, sound, studio and removal passes 2026-09-26..28
 workshop:     3806709272
 publication_changelog_review_sha: 7170e131a60b986d1f993a037c6136d15068cc76
-code_review_sha: d211a046c8e339ee1587e2d97e4a35669550c824
+code_review_sha: af0687ea5105f2cdea14ff2761d920f6dc048532
 echo_review_sha: 70f6c760c3663834a2b800302ae81a480e8c9416
 social_preview_sha256: ace9cafd1a9e02e5d3934460e3776f096099d0f37820a70233c96ead0eb6bbd1
 remaining:
   - done 2026-11-18: 1.6 ticket f8bd GREEN 1 of 1 (ordered walk alone, rebuilt steps DLL, 18.8 s, summary.json passed): the red of 05bd and b579 was the stale or first-run steps DLL, not the mod; 1.6 `exists near` side closed; evidence p16-near2, p16-near3, p16-near4 read and deleted; next: non-regression pass on the next build, housekeeping below
   - done 2026-11-18: 1.7 whole suite English: ef14 (ColonistRace 38f99e28+, a4d433a, azure) 21 of 24 passed, 3 reds (ordered walk, halo normal speed, full sitting) = test side only: Listener and Passerby still used the plain `exists` spawn, halo step at its 180 s limit; fixed in 01-the-song.feature (`exists near (72, 132)`, halo `@timeout:300`), replayed 0de3: 3 of 3 passed; mod files unchanged between the two runs; `tested_1_7: yes` (English only); `<li>1.7</li>`, version and CHANGELOG only at the publication gesture (same commit as the Preview redo); 1.6 warning: scenarios using `exists near` need the 1.6 ColonistRace DLL of 38f99e28+ (non-regression pass); next: housekeeping below
-  - open: housekeeping (sync-nsb-npt and STATUS.md trim done 2026-11-18, 17 KB): evidence 2.4 MB over 2 MB (the three 2026-10 non-regression runs stay: sole proof of 5 to 7 scenarios, go when a non-regression pass on the next build replaces them)
+  - done 2026-11-18: housekeeping: sync-nsb-npt, STATUS.md trimmed, evidence under 2 MB (deleted nonreg-en 2026-10-10, p16-singing2, p17-walk-repo4: covered by newer greens; nonreg-fr and nonreg-phytokin stay, sole proof of 6 to 7 scenarios until a non-regression pass on a published build); code review 8.m: git diff d211a04..HEAD -- Mod holds only About.xml wording (two descriptions), no finding, code_review_sha = HEAD
   - open: 8.f (audit replay 2026-11-16): sound, studio and removal replays done 2026-11-17 (see done line); nothing left here but the 1.7 pass and the gallery; gallery work resumes at shootGallery
   - done 2026-11-18: SaB answered (via TM): Soren, Miel and Ryu all validated and free in a gallery scene (VALIDE.md); Ryu is Thin Male, a body the owner marked NOT OK for VTW trousers (awaiting a VTW fix), so shots with his trousers may change: DECISION for B and E (ring of three): Nelim, Soren, Miel (daily outfits: Miel overalls orange `#C58A3A` and cream chest wrap, with or without the green builders jacket, Soren as in the colonists table); Ryu dropped for B and E; scenarios B and E rewritten at shootGallery with Miel built inline from her VALIDE.md block, tell SaB the scenario used so it keeps its log; no game run before shootGallery
   - open: protocols read 2026-11-18 (f8fee9c): when all gallery captures are candidates (4 or more at score-gallery), ask the owner `🟠 À toi, maintenant : lance /mod-workflow:rate-gallery` (the session no longer writes or burns subtitles alone, AUDIT 9.e bis, GALLERY.md); Preview at mountPreview uses the gallery block with `Art/Gallery-clean/` originals (STYLE_RIMWORLD.md)
@@ -35,7 +35,7 @@ remaining:
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
 session:      local_c4b5f23a-99dd-41be-8ab8-4bb76043da8d
-updated:      2026-11-17, playTests[1.1.0] (8.f replays all green on the wsl local lane: sound f855 and 3286, removal f0c3; evidence sorted and pruned; protocols read b0f1f9bf; earlier history in git log)
+updated:      2026-11-18, writeShotlist[1.1.0] (8.a to 8.m done: evidence under 2 MB, code review d211a04..HEAD holds only About.xml wording, no finding; B and E recast Nelim, Soren, Miel; earlier history in git log)
 protocols_read_sha: 2b16552b1c489cd8537d600a08630cb582a11b68
 ---
 
@@ -93,7 +93,7 @@ reading is not the review TRANSLATIONS.md requires.
 
 The dated sections of 2026-10 (audit, preview migration, code reviews, art, gallery, sanctuary move, French review, echo) moved to `Docs/runs/status-journal-2026-10.md` on 2026-11-18.
 
-## NSB (sync 2026-11-09, shootGallery[1.1.0])
+## NSB (sync 2026-11-18, writeShotlist[1.1.0])
 
 Reads: Places read: 2026-11-18 Tribe read: 2026-11-18 Steps read: 2026-11-18. Sync 2026-11-18 (second, NSB log since 2026-11-17): places docs unchanged; new `RECONSTRUCTION-SAUVEGARDE.md` = plan only (rebuild of the Sanctuary save as `Nelims-tribe-v2`, nothing built, doors not passed: no change for our fixture `Nelims-tribe-decor-mods-z3` before it ships); VALIDE.md: Miel Aveline now validated (daily looks, 2026-11-17), Daichi and Dalia validated (babies, not used), Iori profile changes (not used); BiB gene renames (not used); NPT log since 2026-11-18: no change to steps.md or catalogues. Nothing to update in shotlist or scenarios (stage playTests, notes only); for shootGallery: Miel is now a validated alternative to Ryu for the ring of three (B, E), to weigh at write-shotlist. Older syncs: Docs/runs/status-journal-2026-11.md.
 

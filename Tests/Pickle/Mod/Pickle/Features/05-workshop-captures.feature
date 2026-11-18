@@ -19,14 +19,14 @@
 # 3 the tree selected with its toggle, developer mode off, the interface kept
 #
 # SHOOTING PLAN, 2026-11-09 (session as director, GALLERY.md; rewritten at shootGallery after the NSB sync, director pass by an Opus sub-agent; WRITTEN, NOT PLAYED).
-# STORY: a day with the singing tree. Nelim (protagonist, NSB roster look, smiling) walks out to the anima tree at the same corner of `bare-clearing` (195, 152) at four hours of one day (6, 12, 18, 22, weather Clear, 20 degrees, one hour per image: the day turns, the story advances). One outfit all day, plum Apparel_Robe alone (the cape takes the robe off, same layer: proved 2026-11-12). Guests: Soren and Ryu "Blue" Sai (NSB, roster looks; Miel has no validated look in NSB VALIDE.md, so not used), Shogun (NSB labrador, Apparel_leatherdogcollar). The ring of stools is the thread: empty at dawn, three sitters at noon, being left at dusk, still warm at night. The mod adds no animal (rule 5 empty). Colonists and animals: NSB only, no outside pawn, no changed colonist property.
+# STORY: a day with the singing tree. Nelim (protagonist, NSB roster look, smiling) walks out to the anima tree at the same corner of `bare-clearing` (195, 152) at four hours of one day (6, 12, 18, 22, weather Clear, 20 degrees, one hour per image: the day turns, the story advances). One outfit all day, plum Apparel_Robe alone (the cape takes the robe off, same layer: proved 2026-11-12). Guests: Soren and Miel Aveline (NSB, roster looks, both validated in VALIDE.md; SaB answer 2026-11-18; Ryu dropped for B and E: Thin Male trousers are not OK for VTW yet; Soren = Male body, Miel = Thin Female, three different bodies with Nelim), Shogun (NSB labrador, Apparel_leatherdogcollar). The ring of stools is the thread: empty at dawn, three sitters at noon, being left at dusk, still warm at night. The mod adds no animal (rule 5 empty). Colonists and animals: NSB only, no outside pawn, no changed colonist property.
 # Orientation (z grows northward, the tree is at z 152): a seat at z 155 is NORTH of the tree and its sitter faces South (seen from the front); a seat at z 149 is SOUTH of it and its sitter faces North (seen from behind); x 191 faces East, x 199 faces West.
 # How the gesture is obtained (criterion e): every listener is given the mod's own order ("is ordered to listen ... from the seat"), the game is paused by the screenshot after the wait named per shot, never a posed "sits" step.
 #   1. workshop-A-dawn (opening), 6h, Clear, 20 degrees, bare-clearing, zoom 6 on (193, 153), tree off-centre to the right, hare foreground left, lit torch background right. Instant: Nelim at (195, 158) is one step from her seat (195, 155), order just given, screenshot 20 ticks after. Nelim: Apparel_Robe rgb (140, 40, 90), roster hair, SocialRelax smile. Decor: stools (195, 155) (191, 152) (199, 152) left empty, Plant_GrassAnima (193, 156) (197, 156) (191, 150) fully grown, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), TorchLamp (200, 156) lit. Hare "Brume" (193, 156) faces the camera. Says: someone arrives at an empty ring of three stools while the tree already glows, the tree waits for listeners; at 268 px the halo and the stool ring read.
-#   2. workshop-B-noon (lead), 12h, Clear, 20 degrees, zoom 5 on (194, 152), tree off-centre. Instant: the three have just sat, the halo starts (screenshot 90 ticks after the orders). Nelim seat (195, 155) facing South; Soren from (190, 152) to seat (191, 152) facing East: LisaWork_ApparelCollaredShirt rgb (112, 128, 144), LisaWork_ApparelLeatherVest rgb (107, 79, 58), VAE_Apparel_Trousers rgb (60, 70, 80), Roo_HD_Hair_Tidy; Ryu from (200, 152) to seat (199, 152) facing West: Apparel_CollarShirt rgb (31, 58, 52), LisaWork_ApparelPantsAndBelt rgb (160, 82, 45), VAE_Footwear_Boots rgb (107, 79, 58), Roo_Royal_CleancutHD; all smiling (SocialRelax). Decor: stools, TorchLamp (200, 156) lit, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), Plant_GrassAnima (193, 156). Animals: peacock "Paon" (189, 157) foreground facing the camera, squirrel "Noisette" (202, 153), Shogun (201, 155) lying (stands at facing West, then lies down). Says: colonists sit in a ring and the tree answers.
+#   2. workshop-B-noon (lead), 12h, Clear, 20 degrees, zoom 5 on (194, 152), tree off-centre. Instant: the three have just sat, the halo starts (screenshot 90 ticks after the orders). Nelim seat (195, 155) facing South; Soren from (190, 152) to seat (191, 152) facing East: LisaWork_ApparelCollaredShirt rgb (112, 128, 144), LisaWork_ApparelLeatherVest rgb (107, 79, 58), VAE_Apparel_Trousers rgb (60, 70, 80), Roo_HD_Hair_Tidy; Miel from (200, 152) to seat (199, 152) facing West (Thin Female, GES_Skin_Chocolate, Eyes_Orange, Roo_Royal_NaturalcurlsHD, VanityCase_LipstickCaramel, validated daily "salopette" look): UnderWhere_Chestwrap rgb (240, 232, 214), VAE_Apparel_Overalls rgb (197, 138, 58), VAE_Footwear_Boots rgb (107, 79, 58); all smiling (SocialRelax). Decor: stools, TorchLamp (200, 156) lit, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), Plant_GrassAnima (193, 156). Animals: peacock "Paon" (189, 157) foreground facing the camera, squirrel "Noisette" (202, 153), Shogun (201, 155) lying (stands at facing West, then lies down). Says: colonists sit in a ring and the tree answers.
 #   3. workshop-C-menu, 12h, the right-click menu that offers the order, the tree at (195, 152), the game screen kept, Apparel_Robe rgb (140, 40, 90). Not staged; the accepted image 2 stands (its scenario still carries the old Bob hair override of Nelim: if replayed, remove it first, rule 3).
 #   4. workshop-D-selected, 12h, the tree at (195, 152) selected with its toggle, developer mode off, the game screen kept. Not staged; the accepted image 3 stands.
-#   5. workshop-E-dusk, 18h, Clear, 20 degrees, zoom 4.5 on (195, 152), grass and daylilies to the frame edges. Instant: Soren and Ryu already seated and listening, Nelim arrives last from (195, 157) to her seat (195, 155), order just given, screenshot 20 ticks after; Shogun standing (201, 155) facing West. Same outfits as shot 2: Apparel_Robe rgb (140, 40, 90), LisaWork_ApparelCollaredShirt rgb (112, 128, 144), Apparel_CollarShirt rgb (31, 58, 52). Decor: TorchLamp (200, 156) and TorchLamp (190, 156) lit, stools (191, 152) (199, 152), Plant_Daylily (188, 152) (202, 152) (192, 155) (198, 148). Says: the day turns, the glow is what you see from across the map.
+#   5. workshop-E-dusk, 18h, Clear, 20 degrees, zoom 4.5 on (195, 152), grass and daylilies to the frame edges. Instant: Soren and Miel already seated and listening, Nelim arrives last from (195, 157) to her seat (195, 155), order just given, screenshot 20 ticks after; Shogun standing (201, 155) facing West. Same outfits as shot 2: Apparel_Robe rgb (140, 40, 90), LisaWork_ApparelCollaredShirt rgb (112, 128, 144), UnderWhere_Chestwrap rgb (240, 232, 214), VAE_Apparel_Overalls rgb (197, 138, 58). Decor: TorchLamp (200, 156) and TorchLamp (190, 156) lit, stools (191, 152) (199, 152), Plant_Daylily (188, 152) (202, 152) (192, 155) (198, 148). Says: the day turns, the glow is what you see from across the map.
 #   6. workshop-F-night (closing), 22h, Clear, 20 degrees, zoom 6 on (195, 151), mirror of shot 1. Nelim from (195, 147) to the seat (195, 149) south of the tree facing North (back to the camera, so no smile is visible: written, no malus), Apparel_Robe rgb (140, 40, 90) against the dark ground; Shogun asleep (196, 149) (stands at facing North, lies down, kept asleep); TorchLamp (193, 150) lit close; stools (191, 152) (199, 152) empty and still in the ring. Says: it sings after dark, for one listener and a sleeping dog.
 # Looks come from NPT catalogues (PickleTools/ColonistRace/docs: CATALOGUE-LOOKS, CATALOGUE-APPAREL, CATALOGUE-COLOURS, FACE-PARTS): hairstyles Bob, Mop, Afro, Cleopatra, Elder, Princess; beard Wizard; face tattoo Face_Stars; garments Apparel_Robe (Core, dyed), Apparel_Cape, Apparel_Headwrap (Ideology). Palette: robes and hair chosen to stand out from the teal glow and the brown earth. All vanilla or DLC: nothing to add to the pass map and nothing to credit.
 # Animals: vanilla kinds Hare, Squirrel, Peacock, LabradorRetriever (names to confirm on the first run, Check-Steps.ps1 then the run). Animals face the camera where the step allows it; no step sets an animal's rotation yet: ask NPT through the TM if the first run shows backs. Diurnal animals by day, the labrador asleep at night.
@@ -107,7 +107,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animals except "Paon", "Shogun" and "Noisette" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
-    And Nelim's Pickle Tools: "Ryu" stands at (200, 152) facing West
+    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
@@ -140,35 +140,38 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
-    And Nelim's Pickle Tools: a colonist "Ryu" of kind "Colonist" exists
-    And Nelim's Pickle Tools: "Ryu" loses all genes
-    And Nelim's Pickle Tools: "Ryu" gender is Male
-    And "Ryu" is 43 years old
-    And Nelim's Pickle Tools: "Ryu" body type is Thin
-    And Nelim's Pickle Tools: "Ryu" head type is "Male_NarrowPointy"
-    And Nelim's Pickle Tools: "Ryu" has the gene "Skin_Melanin4"
-    And Nelim's Pickle Tools: "Ryu" has the gene "Hair_InkBlack"
-    And Nelim's Pickle Tools: "Ryu" has the gene "Eyes_SkyBlue"
-    And Nelim's Pickle Tools: "Ryu" hair colour is taken from its genes
-    And Nelim's Pickle Tools: "Ryu" hairstyle is "Roo_Royal_CleancutHD"
-    And Nelim's Pickle Tools: "Ryu" face tattoo is "none"
-    And Nelim's Pickle Tools: "Ryu" body tattoo is "STribalTat_Body_SacredWater"
-    And Nelim's Pickle Tools: "Ryu" is undressed
-    And Nelim's Pickle Tools: "Ryu" wears "Apparel_CollarShirt" made of "Cloth"
-    And Nelim's Pickle Tools: the "Apparel_CollarShirt" worn by "Ryu" is dyed rgb (31, 58, 52)
-    And Nelim's Pickle Tools: "Ryu" wears "LisaWork_ApparelPantsAndBelt" made of "Cloth"
-    And Nelim's Pickle Tools: the "LisaWork_ApparelPantsAndBelt" worn by "Ryu" is dyed rgb (160, 82, 45)
-    And Nelim's Pickle Tools: "Ryu" wears "VAE_Footwear_Boots" made of "Leather_Plain"
-    And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Ryu" is dyed rgb (107, 79, 58)
-    And Nelim's Pickle Tools: "Ryu" mouth is "MouthSubtle"
-    And Nelim's Pickle Tools: "Ryu" brows are "BrowThin"
-    And Nelim's Pickle Tools: "Ryu" lids are "LidAlmond"
-    And Nelim's Pickle Tools: "Ryu" eyeballs are "EyeSmall"
-    And Nelim's Pickle Tools: "Ryu" facial expression is "SocialRelax"
-    And "Ryu" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
+    And Nelim's Pickle Tools: "Miel" loses all genes
+    And Nelim's Pickle Tools: "Miel" gender is Female
+    And "Miel" is 34 years old
+    And Nelim's Pickle Tools: "Miel" body type is Thin
+    And Nelim's Pickle Tools: "Miel" head type is "Female_AverageWide"
+    And Nelim's Pickle Tools: "Miel" has the gene "GES_Skin_Chocolate"
+    And Nelim's Pickle Tools: "Miel" has the gene "Hair_DarkBlack"
+    And Nelim's Pickle Tools: "Miel" has the gene "Eyes_Orange"
+    And Nelim's Pickle Tools: "Miel" hair colour is taken from its genes
+    And Nelim's Pickle Tools: "Miel" hairstyle is "Roo_Royal_NaturalcurlsHD"
+    And Nelim's Pickle Tools: "Miel" beard is "NoBeard"
+    And Nelim's Pickle Tools: "Miel" face tattoo is "none"
+    And Nelim's Pickle Tools: "Miel" body tattoo is "STribalTat_Body_SacredGrass"
+    And Nelim's Pickle Tools: "Miel" face skin is "SkinEyeshadow"
+    And Nelim's Pickle Tools: "Miel" is undressed
+    And Nelim's Pickle Tools: "Miel" wears "UnderWhere_Chestwrap" made of "Cloth"
+    And Nelim's Pickle Tools: the "UnderWhere_Chestwrap" worn by "Miel" is dyed rgb (240, 232, 214)
+    And Nelim's Pickle Tools: "Miel" wears "VAE_Apparel_Overalls"
+    And Nelim's Pickle Tools: the "VAE_Apparel_Overalls" worn by "Miel" is dyed rgb (197, 138, 58)
+    And Nelim's Pickle Tools: "Miel" wears "VAE_Footwear_Boots" made of "Leather_Plain"
+    And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Miel" is dyed rgb (107, 79, 58)
+    And Nelim's Pickle Tools: "Miel" wears "VanityCase_LipstickCaramel"
+    And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
+    And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
+    And Nelim's Pickle Tools: "Miel" lids are "LidFlirty"
+    And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
+    And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
+    And "Miel" needs "Joy" is set to 10 percent
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     And Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
-    And Anima Song: "Ryu" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
+    And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
     And I wait 90 ticks
@@ -256,7 +259,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
-    And Nelim's Pickle Tools: "Ryu" stands at (200, 152) facing West
+    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
@@ -289,34 +292,37 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
-    And Nelim's Pickle Tools: a colonist "Ryu" of kind "Colonist" exists
-    And Nelim's Pickle Tools: "Ryu" loses all genes
-    And Nelim's Pickle Tools: "Ryu" gender is Male
-    And "Ryu" is 43 years old
-    And Nelim's Pickle Tools: "Ryu" body type is Thin
-    And Nelim's Pickle Tools: "Ryu" head type is "Male_NarrowPointy"
-    And Nelim's Pickle Tools: "Ryu" has the gene "Skin_Melanin4"
-    And Nelim's Pickle Tools: "Ryu" has the gene "Hair_InkBlack"
-    And Nelim's Pickle Tools: "Ryu" has the gene "Eyes_SkyBlue"
-    And Nelim's Pickle Tools: "Ryu" hair colour is taken from its genes
-    And Nelim's Pickle Tools: "Ryu" hairstyle is "Roo_Royal_CleancutHD"
-    And Nelim's Pickle Tools: "Ryu" face tattoo is "none"
-    And Nelim's Pickle Tools: "Ryu" body tattoo is "STribalTat_Body_SacredWater"
-    And Nelim's Pickle Tools: "Ryu" is undressed
-    And Nelim's Pickle Tools: "Ryu" wears "Apparel_CollarShirt" made of "Cloth"
-    And Nelim's Pickle Tools: the "Apparel_CollarShirt" worn by "Ryu" is dyed rgb (31, 58, 52)
-    And Nelim's Pickle Tools: "Ryu" wears "LisaWork_ApparelPantsAndBelt" made of "Cloth"
-    And Nelim's Pickle Tools: the "LisaWork_ApparelPantsAndBelt" worn by "Ryu" is dyed rgb (160, 82, 45)
-    And Nelim's Pickle Tools: "Ryu" wears "VAE_Footwear_Boots" made of "Leather_Plain"
-    And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Ryu" is dyed rgb (107, 79, 58)
-    And Nelim's Pickle Tools: "Ryu" mouth is "MouthSubtle"
-    And Nelim's Pickle Tools: "Ryu" brows are "BrowThin"
-    And Nelim's Pickle Tools: "Ryu" lids are "LidAlmond"
-    And Nelim's Pickle Tools: "Ryu" eyeballs are "EyeSmall"
-    And Nelim's Pickle Tools: "Ryu" facial expression is "SocialRelax"
-    And "Ryu" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
+    And Nelim's Pickle Tools: "Miel" loses all genes
+    And Nelim's Pickle Tools: "Miel" gender is Female
+    And "Miel" is 34 years old
+    And Nelim's Pickle Tools: "Miel" body type is Thin
+    And Nelim's Pickle Tools: "Miel" head type is "Female_AverageWide"
+    And Nelim's Pickle Tools: "Miel" has the gene "GES_Skin_Chocolate"
+    And Nelim's Pickle Tools: "Miel" has the gene "Hair_DarkBlack"
+    And Nelim's Pickle Tools: "Miel" has the gene "Eyes_Orange"
+    And Nelim's Pickle Tools: "Miel" hair colour is taken from its genes
+    And Nelim's Pickle Tools: "Miel" hairstyle is "Roo_Royal_NaturalcurlsHD"
+    And Nelim's Pickle Tools: "Miel" beard is "NoBeard"
+    And Nelim's Pickle Tools: "Miel" face tattoo is "none"
+    And Nelim's Pickle Tools: "Miel" body tattoo is "STribalTat_Body_SacredGrass"
+    And Nelim's Pickle Tools: "Miel" face skin is "SkinEyeshadow"
+    And Nelim's Pickle Tools: "Miel" is undressed
+    And Nelim's Pickle Tools: "Miel" wears "UnderWhere_Chestwrap" made of "Cloth"
+    And Nelim's Pickle Tools: the "UnderWhere_Chestwrap" worn by "Miel" is dyed rgb (240, 232, 214)
+    And Nelim's Pickle Tools: "Miel" wears "VAE_Apparel_Overalls"
+    And Nelim's Pickle Tools: the "VAE_Apparel_Overalls" worn by "Miel" is dyed rgb (197, 138, 58)
+    And Nelim's Pickle Tools: "Miel" wears "VAE_Footwear_Boots" made of "Leather_Plain"
+    And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Miel" is dyed rgb (107, 79, 58)
+    And Nelim's Pickle Tools: "Miel" wears "VanityCase_LipstickCaramel"
+    And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
+    And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
+    And Nelim's Pickle Tools: "Miel" lids are "LidFlirty"
+    And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
+    And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
+    And "Miel" needs "Joy" is set to 10 percent
     When Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
-    And Anima Song: "Ryu" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
+    And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
     Then Anima Song: 2 listeners sit on 2 different cells around the tree at x=195 z=152
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     And I wait 20 ticks

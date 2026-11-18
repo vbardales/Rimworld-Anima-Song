@@ -38,7 +38,7 @@ remaining:
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
 session:      local_c4b5f23a-99dd-41be-8ab8-4bb76043da8d
 updated:      2026-11-18, shootGallery[1.1.0] (9.0 bis: shotlist written, plan 5 on A B E F, scenarios written, drift check 0; B and E recast with Miel; candidates A and F in Art/Gallery; earlier history in git log)
-protocols_read_sha: 9338d8dcb0ab58bd06f914cc97073e4eb6c611c9
+protocols_read_sha: c75e709ad14b7a6f8640d3660311fbd18e5242b0
 ---
 
 # Anima Song — status

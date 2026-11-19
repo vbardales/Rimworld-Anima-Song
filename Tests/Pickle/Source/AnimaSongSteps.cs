@@ -574,10 +574,30 @@ namespace AnimaSong.PickleSteps
             Map map = CurrentMap(ctx);
             Thing tree = TreeAt(ctx, x, z);
             Func<List<Pawn>> seated = () => ListenersOf(map, tree).Where(p => !p.pather.Moving && InRing(p, tree)).ToList();
-            await WaitTicksOrExplain(ctx, () => seated().Count >= listeners, 9000,
+            // Job history of every colonist, one entry per change, polled with the wait (run 4588, 2026-11-20: the orders held at once, then
+            // the colonists were found far away doing other work; the final state alone does not say when or why the listen job ended).
+            var lastJob = new Dictionary<Pawn, string>();
+            var history = new List<string>();
+            int historyStart = Find.TickManager.TicksGame;
+            Func<bool> done = () =>
+            {
+                foreach (Pawn p in map.mapPawns.FreeColonists)
+                {
+                    string now = p.CurJob?.def.defName ?? "nothing";
+                    if (!lastJob.TryGetValue(p, out string before) || before != now)
+                    {
+                        lastJob[p] = now;
+                        if (history.Count < 60)
+                            history.Add($"+{Find.TickManager.TicksGame - historyStart} {p.LabelShort} {now} at {p.Position}");
+                    }
+                }
+                return seated().Count >= listeners;
+            };
+            await WaitTicksOrExplain(ctx, done, 9000,
                 () => $"{seated().Count} of {listeners} listeners sit in the ring; the listeners not seated: " +
                       string.Join(", ", ListenersOf(map, tree).Except(seated()).Select(p => $"{p.LabelShort} at {p.Position}")) +
-                      "; every colonist: " + string.Join(", ", map.mapPawns.FreeColonists.Select(p => $"{p.LabelShort} {p.CurJob?.def.defName ?? "nothing"} at {p.Position}")));
+                      "; every colonist: " + string.Join(", ", map.mapPawns.FreeColonists.Select(p => $"{p.LabelShort} {p.CurJob?.def.defName ?? "nothing"} at {p.Position}")) +
+                      "; job history (tick, colonist, job): " + string.Join(" | ", history));
 
             List<Pawn> sitting = seated();
             ctx.Assert(ListenersOf(map, tree).Count() == listeners,

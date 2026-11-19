@@ -105,6 +105,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animal "Noisette" lies at (202, 153) facing West
     And Nelim's Pickle Tools: the animal "Shogun" lies at (201, 155) facing West
     And Nelim's Pickle Tools: the animal "Paon" lies at (193, 149) facing North
+    And Nelim's Pickle Tools: the animal "Paon" is logged
+    And Nelim's Pickle Tools: the animal "Noisette" is logged
     And Nelim's Pickle Tools: the animals except "Paon", "Shogun" and "Noisette" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And game speed is ultrafast
@@ -184,6 +186,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 5
     And Nelim's Pickle Tools: studio presentation mode is enabled
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
+    And Nelim's Pickle Tools: the animal "Paon" is logged
+    And Nelim's Pickle Tools: the animal "Noisette" is logged
     And I take a screenshot "workshop 1 - the tree singing"
     When Nelim's Pickle Tools: the decor is removed
 

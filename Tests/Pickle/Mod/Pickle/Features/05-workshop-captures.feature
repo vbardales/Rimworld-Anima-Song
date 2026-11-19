@@ -290,7 +290,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
     And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
     And Nelim's Pickle Tools: "Soren" lids are "LidSimple"
-    And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared

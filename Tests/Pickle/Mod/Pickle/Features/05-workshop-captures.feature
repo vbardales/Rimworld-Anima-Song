@@ -316,7 +316,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" wears "VanityCase_LipstickCaramel"
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
-    And Nelim's Pickle Tools: "Miel" lids are "LidFlirty"
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent

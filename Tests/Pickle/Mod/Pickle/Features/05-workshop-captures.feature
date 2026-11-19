@@ -182,12 +182,18 @@ Feature: the pictures of the Workshop page
     And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Anima Song: the halo of the tree at x=195 z=152 is alive
-    And I wait 90 ticks
+    And Nelim's Pickle Tools: the animal "Paon" is logged
+    And I wait 30 ticks
+    And Nelim's Pickle Tools: the animal "Paon" is logged
+    And I wait 30 ticks
+    And Nelim's Pickle Tools: the animal "Paon" is logged
+    And I wait 30 ticks
     And Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 5
     And Nelim's Pickle Tools: studio presentation mode is enabled
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Nelim's Pickle Tools: the animal "Paon" is logged
     And Nelim's Pickle Tools: the animal "Noisette" is logged
+    And Nelim's Pickle Tools: the render tree of "Soren" is rebuilt
     And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: the body texture of "Soren" is logged
     And I take a screenshot "workshop 1 - the tree singing"

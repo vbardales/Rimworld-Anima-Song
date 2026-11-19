@@ -102,8 +102,9 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the plants from (190, 148) to (200, 158) are fully grown
     And Nelim's Pickle Tools: an adult animal of kind "Peacock" named "Paon" is spawned at (189, 157)
     And Nelim's Pickle Tools: an adult animal of kind "Squirrel" named "Noisette" is spawned at (202, 153)
+    And Nelim's Pickle Tools: the animal "Noisette" lies at (202, 153) facing West
     And Nelim's Pickle Tools: the animal "Shogun" lies at (201, 155) facing West
-    And Nelim's Pickle Tools: the animal "Paon" stands at (193, 149) facing North
+    And Nelim's Pickle Tools: the animal "Paon" lies at (193, 149) facing North
     And Nelim's Pickle Tools: the animals except "Paon", "Shogun" and "Noisette" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And game speed is ultrafast

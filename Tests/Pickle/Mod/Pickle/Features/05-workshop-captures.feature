@@ -287,11 +287,13 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
     And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
     And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
+    Then Nelim's Pickle Tools: the clothes worn by "Soren" are logged
     And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
+    And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Miel" loses all genes
     And Nelim's Pickle Tools: "Miel" gender is Female
@@ -315,6 +317,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" wears "VAE_Footwear_Boots" made of "Leather_Plain"
     And Nelim's Pickle Tools: the "VAE_Footwear_Boots" worn by "Miel" is dyed rgb (107, 79, 58)
     And Nelim's Pickle Tools: "Miel" wears "VanityCase_LipstickCaramel"
+    Then Nelim's Pickle Tools: the clothes worn by "Miel" are logged
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"

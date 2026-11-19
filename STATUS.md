@@ -145,6 +145,8 @@ Detail: docs/inventory/ecosystem-steam/AnimaSong.md (`ecosystem-links` block add
 
 Second request, Phytokin variants (PiI, e4ad269, same file, section "Second request"): 8 Phytokin-based mods checked (More Phytokin Xenotypes, Archeankin, HarbingerKin - Phytokin, Phytokin Have Fathers, Anima Theme for VRE: Phytokin, VRE - Phytokin - Anima Theme, Mokas Phytokin have Natural Connection, Phytokin Vanilla Faces). None touches the anima song or our recreation, no shared defName, no duplicate. All 8 unsubscribed; only 2927323805 stays (compat pass 8.f).
 
+Refresh 2026-11-19 (PiI, DELTA since 2026-11-13, same file, section "Refresh 2026-11-19"): Phytokin original 2927323805 unchanged (last update 2026-10-14); no fork, replacement, duplicate, patch or retexture since. Two translations of the original added to the `ecosystem-links` block: Russian 2927850559 (1.4 to 1.7) and Spanish 2938609408 (1.4, dead). Correction: the French pack 2927405383 was last updated 2026-10-05, not 2026-11-12. Translations of the original are not part of this mod's languages (English and French only); a Russian pack of ours would be a choice at the next `localize`, not owed now.
+
 TM missions 2026-11-12 (items 0 to 24) read: items 8.k wording, 14 (.gitignore holds desktop.ini, Inbox, Parked, Evidence; Mod/desktop.ini kept), 15 (Art/ closed set, no echo.png), 23 done; TRANSLATION_REVIEW.md exists (f3e23d6); the 2026-11-07 review predates the page-header fix: Audit asked whether to rerun (item 2 vs 21b).
 
 **2026-11-12, review-translation (page 1 of 1, ChatGPT, no correction) on d6f09c6 texts: validated by Virginie ("review validée"). translation_fr: complete stands.**

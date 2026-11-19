@@ -136,7 +136,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
     And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
     And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
-    And Nelim's Pickle Tools: "Soren" lids are "LidSimple"
     # 2026-11-19: no "Soren" eyeballs step: EyeThin comes from sd.fa.movingvanillaeyes, dropped from wsl-deps.gallery.map (its Log.Error fails the scene). Soren keeps the default eyeballs, the gene still sets the green.
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
@@ -169,7 +168,6 @@ Feature: the pictures of the Workshop page
     Then Nelim's Pickle Tools: the clothes worn by "Miel" are logged
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
-    And Nelim's Pickle Tools: "Miel" lids are "LidFlirty"
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent

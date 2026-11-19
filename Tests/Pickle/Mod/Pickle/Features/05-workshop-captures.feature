@@ -26,7 +26,7 @@
 #   2. workshop-B-noon (lead), 12h, Clear, 20 degrees, zoom 5 on (194, 152), tree off-centre. Instant: the three have just sat, the halo starts (screenshot 90 ticks after the orders). Nelim from (201, 152) to seat (199, 152) facing West (profile, robe and smile seen); Soren from (190, 152) to seat (191, 152) facing East: LisaWork_ApparelCollaredShirt rgb (112, 128, 144), VAE_Apparel_Trousers rgb (60, 70, 80), Roo_HD_Hair_Tidy; Miel from (195, 157) to seat (195, 155) north of the tree facing South, seen from the front, hair and overalls readable (2026-11-19, back to camera in 477b and 71c9) (Thin Female, GES_Skin_Chocolate, Eyes_Orange, Roo_Royal_NaturalcurlsHD, VanityCase_LipstickCaramel, validated daily "salopette" look): UnderWhere_Chestwrap rgb (240, 232, 214), VAE_Apparel_Overalls rgb (197, 138, 58), VAE_Footwear_Boots rgb (107, 79, 58); all smiling (SocialRelax). Decor: stools, TorchLamp (200, 156) lit, Plant_Daylily (192, 155) (198, 148) (190, 148) (200, 154), Plant_GrassAnima (193, 156). Animals: peacock "Paon" (189, 157) foreground facing the camera, squirrel "Noisette" (202, 153), Shogun (201, 155) lying (stands at facing West, then lies down). Says: colonists sit in a ring and the tree answers.
 #   3. workshop-C-menu, 12h, the right-click menu that offers the order, the tree at (195, 152), the game screen kept, Apparel_Robe rgb (140, 40, 90). Not staged; the accepted image 2 stands (its scenario still carries the old Bob hair override of Nelim: if replayed, remove it first, rule 3).
 #   4. workshop-D-selected, 12h, the tree at (195, 152) selected with its toggle, developer mode off, the game screen kept. Not staged; the accepted image 3 stands.
-#   5. workshop-E-dusk, 18h, Clear, 20 degrees, zoom 4.5 on (195, 152), grass and daylilies to the frame edges. Instant: Soren and Miel already seated and listening, Nelim arrives last from (195, 157) to her seat (195, 155), order just given, screenshot 20 ticks after; Shogun standing (201, 155) facing West. Same outfits as shot 2: Apparel_Robe rgb (140, 40, 90), LisaWork_ApparelCollaredShirt rgb (112, 128, 144), UnderWhere_Chestwrap rgb (240, 232, 214), VAE_Apparel_Overalls rgb (197, 138, 58). Decor: TorchLamp (200, 156) and TorchLamp (190, 156) lit, stools (191, 152) (199, 152), Plant_Daylily (188, 152) (202, 152) (192, 155) (198, 148). Says: the day turns, the glow is what you see from across the map.
+#   5. workshop-E-dusk, 18h, Clear, 20 degrees, zoom 4.5 on (195, 152), grass and daylilies to the frame edges. Instant: Soren and Miel already seated and listening, Nelim arrives last from (201, 152) to her seat (199, 152) facing West, Miel already on the north seat (195, 155) from (195, 157) facing South (front view, 80f7), order just given, screenshot 20 ticks after; Shogun standing (201, 155) facing West. Same outfits as shot 2: Apparel_Robe rgb (140, 40, 90), LisaWork_ApparelCollaredShirt rgb (112, 128, 144), UnderWhere_Chestwrap rgb (240, 232, 214), VAE_Apparel_Overalls rgb (197, 138, 58). Decor: TorchLamp (200, 156) and TorchLamp (190, 156) lit, stools (191, 152) (199, 152), Plant_Daylily (188, 152) (202, 152) (192, 155) (198, 148). Says: the day turns, the glow is what you see from across the map.
 #   6. workshop-F-night (closing), 22h, Clear, 20 degrees, zoom 6 on (195, 151), mirror of shot 1. Nelim from (195, 147) to the seat (195, 149) south of the tree facing North (back to the camera, so no smile is visible: written, no malus), Apparel_Robe rgb (140, 40, 90) against the dark ground; Shogun asleep (196, 149) (stands at facing North, lies down, kept asleep); TorchLamp (193, 150) lit close; stools (191, 152) (199, 152) empty and still in the ring. Says: it sings after dark, for one listener and a sleeping dog.
 # Looks come from NPT catalogues (PickleTools/ColonistRace/docs: CATALOGUE-LOOKS, CATALOGUE-APPAREL, CATALOGUE-COLOURS, FACE-PARTS): hairstyles Bob, Mop, Afro, Cleopatra, Elder, Princess; beard Wizard; face tattoo Face_Stars; garments Apparel_Robe (Core, dyed), Apparel_Cape, Apparel_Headwrap (Ideology). Palette: robes and hair chosen to stand out from the teal glow and the brown earth. All vanilla or DLC: nothing to add to the pass map and nothing to credit.
 # Animals: vanilla kinds Hare, Squirrel, Peacock, LabradorRetriever (names to confirm on the first run, Check-Steps.ps1 then the run). Animals face the camera where the step allows it; no step sets an animal's rotation yet: ask NPT through the TM if the first run shows backs. Diurnal animals by day, the labrador asleep at night.
@@ -262,7 +262,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the plants from (186, 147) to (204, 158) are fully grown
     And Nelim's Pickle Tools: the animal "Shogun" stands at (201, 155) facing West
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
+    And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
@@ -284,8 +284,6 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" is undressed
     And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelCollaredShirt" made of "Cloth"
     And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
-    And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelLeatherVest" made of "Leather_Plain"
-    And Nelim's Pickle Tools: the "LisaWork_ApparelLeatherVest" worn by "Soren" is dyed rgb (107, 79, 58)
     And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
     And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
     And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
@@ -295,6 +293,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" eyeballs are "EyeThin"
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
+    And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Miel" loses all genes
     And Nelim's Pickle Tools: "Miel" gender is Female
@@ -324,12 +324,14 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
+    And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
-    And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
+    And Nelim's Pickle Tools: "Miel" stands at (195, 157) facing South
     When Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)
-    And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
+    And Anima Song: "Miel" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     Then Anima Song: 2 listeners sit on 2 different cells around the tree at x=195 z=152
-    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
+    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
     And I wait 20 ticks
     And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 4.5
     And Nelim's Pickle Tools: studio presentation mode is enabled

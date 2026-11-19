@@ -102,8 +102,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the plants from (190, 148) to (200, 158) are fully grown
     And Nelim's Pickle Tools: an adult animal of kind "Peacock" named "Paon" is spawned at (189, 157)
     And Nelim's Pickle Tools: an adult animal of kind "Squirrel" named "Noisette" is spawned at (202, 153)
-    And Nelim's Pickle Tools: the animal "Shogun" stands at (201, 155) facing West
-    And Nelim's Pickle Tools: "Shogun" lies down
+    And Nelim's Pickle Tools: the animal "Shogun" lies at (201, 155) facing West
+    And Nelim's Pickle Tools: the animal "Paon" stands at (193, 149) facing North
     And Nelim's Pickle Tools: the animals except "Paon", "Shogun" and "Noisette" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 157) facing South
     And game speed is ultrafast
@@ -138,6 +138,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
+    And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
+    And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Miel" loses all genes
     And Nelim's Pickle Tools: "Miel" gender is Female
@@ -169,6 +171,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
+    And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
     And Nelim's Pickle Tools: "Miel" stands at (200, 152) facing West
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)

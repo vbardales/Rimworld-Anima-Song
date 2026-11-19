@@ -188,6 +188,8 @@ Feature: the pictures of the Workshop page
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Nelim's Pickle Tools: the animal "Paon" is logged
     And Nelim's Pickle Tools: the animal "Noisette" is logged
+    And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
+    And Nelim's Pickle Tools: the body texture of "Soren" is logged
     And I take a screenshot "workshop 1 - the tree singing"
     When Nelim's Pickle Tools: the decor is removed
 

@@ -19,7 +19,7 @@ VanillaExpanded.VTEXE.FacialAnims 2816938779
 Newton.AKNExtras.FacialAnimations 2889716301
 lucius.eyegenes3 3745223213
 astryl.FacialAnimationPerformancePatch 3790129900
-sd.fa.movingvanillaeyes 3753978140
+# 2026-11-19: sd.fa.movingvanillaeyes (3753978140) REMOVED here. Its Facial Animation Performance Patch filter throws ArgumentOutOfRangeException in Thought.get_CurStage (HasNegativeBlushThought); the Log.Error failed scene B three times (c442, d4b5/d4d5, ca9c) and E once. Not our mod, not fixable here. Eyes are set per pawn by steps, so the pictures do not depend on it (E green without it, ticket 492d, wsl-deps.gallery-e.map). Put it back only if a shot needs its moving eyes.
 nelim.sanctuarybacklot path:SanctuaryBacklot/Mod
 nelim.pickletools.screenshotmode path:PickleTools/ScreenshotMode/Mod
 nelim.pickletools.savesteps path:PickleTools/SaveSteps/Mod

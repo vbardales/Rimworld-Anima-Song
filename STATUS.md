@@ -46,7 +46,7 @@ remaining:
   - unverified: user report 2026-10-08 (Markizo, Workshop): idle colonists did not visit an anima tree replanted in a gravship room; cause found (the giver skipped roofed trees), fixed in 1.0.3 (v1.0.3), reporter told on the Workshop page 2026-10-10 (stated by the owner), issue 1 closed; reporter confirmed on the Workshop page 2026-10-11 ("now it works just fine", relayed by the owner); his room being roofed stays unverified
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
-updated:      2026-11-19, shootGallery[1.1.0] (B candidate, E refiled b1c3; docs migration of 2026-11-19 done)
+updated:      2026-11-22, shootGallery[1.1.0] (replay: first open 9.a, B redo awaiting PiT answer on shirt and Paon)
 protocols_read_sha: 9076dc7ed32ed99800d4f0026157da2053469dd4
 ---
 

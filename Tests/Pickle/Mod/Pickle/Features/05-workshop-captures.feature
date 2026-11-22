@@ -304,6 +304,7 @@ Feature: the pictures of the Workshop page
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
+    And Nelim's Pickle Tools: the render tree of "Soren" is rebuilt
     And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Miel" loses all genes

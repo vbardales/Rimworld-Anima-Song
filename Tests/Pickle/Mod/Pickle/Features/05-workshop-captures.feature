@@ -294,6 +294,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" face tattoo is "none"
     And Nelim's Pickle Tools: "Soren" body tattoo is "none"
     And Nelim's Pickle Tools: "Soren" is undressed
+    And Nelim's Pickle Tools: the colonist "Soren" follows an apparel policy that allows everything
     And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelCollaredShirt" made of "Cloth"
     And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
     And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
@@ -322,6 +323,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" body tattoo is "STribalTat_Body_SacredGrass"
     And Nelim's Pickle Tools: "Miel" face skin is "SkinEyeshadow"
     And Nelim's Pickle Tools: "Miel" is undressed
+    And Nelim's Pickle Tools: the colonist "Miel" follows an apparel policy that allows everything
     And Nelim's Pickle Tools: "Miel" wears "UnderWhere_Chestwrap" made of "Cloth"
     And Nelim's Pickle Tools: the "UnderWhere_Chestwrap" worn by "Miel" is dyed rgb (240, 232, 214)
     And Nelim's Pickle Tools: "Miel" wears "VAE_Apparel_Overalls"

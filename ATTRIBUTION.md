@@ -51,6 +51,28 @@ one. A Workshop user reported a problem while using it (the cause was elsewhere:
 and the test suite stages the mod to check that a replanted tree keeps its listening component and is
 still visited (`Tests/Pickle/Mod/Pickle/Features/07-replanted-tree.feature`, a development-only run).
 
+## Gallery set (Steam screenshots only)
+
+The Steam gallery images are shot in a development-only test run (Pickle) with other mods loaded. None of them is a dependency of Anima Song, none is required to play it, and nothing from them is copied into it. They are credited here because their art shows in the pictures (the list is the defs the final scenes call by name, checked in `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`; the load list is `Tests/Pickle/wsl-deps.gallery.map`).
+
+Hair, clothes and skin of the colonists:
+
+* Roo's HD Hairstyles (continued), by Qux, after Rooboid: https://steamcommunity.com/sharedfiles/filedetails/?id=3559870636 (hairstyles `Roo_HD_Hair_Highpony`, `Roo_HD_Hair_Tidy`, `Roo_Royal_NaturalcurlsHD`).
+* Vanilla Apparel Expanded, by Oskar Potocki, Trunken and Sarg Bjornson: https://steamcommunity.com/sharedfiles/filedetails/?id=1814987817 (trousers, overalls and boots, `VAE_*`).
+* Lisa's Work Apparel, by Hysteria82: https://steamcommunity.com/sharedfiles/filedetails/?id=3709891968 (collared shirt).
+* UnderWhere, by Malistaticy and Dhyne: https://steamcommunity.com/sharedfiles/filedetails/?id=1870010563 (chest wrap).
+* Tribal Tattoos, by Shenanigans: https://steamcommunity.com/sharedfiles/filedetails/?id=2782262247 (body tattoo `STribalTat_Body_SacredGrass`).
+* [LFS] Genes Expanded - Skin Colors, by Lazy Friday Studio: https://steamcommunity.com/sharedfiles/filedetails/?id=3214172563 (skin gene `GES_Skin_Chocolate`).
+
+Faces and eyes (Facial Animation):
+
+* Vanilla Textures Expanded - [NL] Facial Animation, by Oracle of Thessia: https://steamcommunity.com/sharedfiles/filedetails/?id=2816938779 (mouths, brows, face skins such as `SkinEyeshadow`).
+* Vanilla Experimentals for Facial Animation, by SunshineyDays: https://steamcommunity.com/sharedfiles/filedetails/?id=3753978140 (moving eyes).
+* EyeGenes3, by Lucius: https://steamcommunity.com/sharedfiles/filedetails/?id=3745223213 (eye colour genes `Eyes_*`).
+* [NL] Facial Animation - WIP, by Nals: https://steamcommunity.com/sharedfiles/filedetails/?id=1635901197 (the framework the three mods above build on).
+
+Our own mods also load in these runs (Pickle Tools, Sanctuary Backlot, Vanity Case, Venus Touch Waistlines). Everything else on screen is vanilla RimWorld or Royalty (robes, stools, torch lamps, daylilies, anima grass, animals).
+
 ## Tools
 
 Code and documentation written with Claude Code (Anthropic); preview image generated with

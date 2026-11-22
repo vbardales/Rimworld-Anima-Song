@@ -73,6 +73,9 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
@@ -118,6 +121,9 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
@@ -292,6 +298,9 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
@@ -404,6 +413,9 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent

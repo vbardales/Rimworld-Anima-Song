@@ -199,6 +199,17 @@ Feature: the pictures of the Workshop page
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
+    # 2026-11-23 (owner: head of Nelim wrong in 4 and 5, right in 6): F has no other colonist and reads right; B and E create Soren and Miel after her face steps, so her head, face and render are set again here, last, before the stand, frame and zoom steps.
+    And Nelim's Pickle Tools: "Nelim" head type is "Female_AveragePointy"
+    And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the graphics of "Nelim" are refreshed
+    And Nelim's Pickle Tools: the render tree of "Nelim" is rebuilt
+    And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
     And Nelim's Pickle Tools: "Miel" stands at (195, 157) facing South
     And Nelim's Pickle Tools: I frame the cell (194, 152) at zoom 5
@@ -375,6 +386,17 @@ Feature: the pictures of the Workshop page
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
+    # 2026-11-23 (owner: head of Nelim wrong in 4 and 5, right in 6): F has no other colonist and reads right; B and E create Soren and Miel after her face steps, so her head, face and render are set again here, last, before the stand, frame and zoom steps.
+    And Nelim's Pickle Tools: "Nelim" head type is "Female_AveragePointy"
+    And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the graphics of "Nelim" are refreshed
+    And Nelim's Pickle Tools: the render tree of "Nelim" is rebuilt
+    And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And Nelim's Pickle Tools: "Soren" stands at (190, 152) facing East
     And Nelim's Pickle Tools: "Miel" stands at (195, 157) facing South
     When Anima Song: "Soren" is ordered to listen to the tree at x=195 z=152 from the seat (191, 152)

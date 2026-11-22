@@ -127,6 +127,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: the memory thoughts of "Nelim" are cleared
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Soren" loses all genes
     And Nelim's Pickle Tools: "Soren" gender is Male
@@ -213,6 +214,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the body texture of "Soren" is logged
     And Nelim's Pickle Tools: the render nodes and layers of "Soren" are logged
     And Nelim's Pickle Tools: the render nodes and layers of "Nelim" are logged
+    And Nelim's Pickle Tools: the thermal state and thoughts of "Nelim" are logged
     And I take a screenshot "workshop 1 - the tree singing"
     When Nelim's Pickle Tools: the decor is removed
 
@@ -304,6 +306,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
+    And Nelim's Pickle Tools: the memory thoughts of "Nelim" are cleared
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Soren" loses all genes
     And Nelim's Pickle Tools: "Soren" gender is Male
@@ -379,6 +382,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: I frame the cell (195, 152) at zoom 4.5
     And Nelim's Pickle Tools: studio presentation mode is enabled
     Then Anima Song: the halo of the tree at x=195 z=152 is alive
+    And Nelim's Pickle Tools: the thermal state and thoughts of "Nelim" are logged
     And I take a screenshot "workshop E - dusk"
     When Nelim's Pickle Tools: the decor is removed
 

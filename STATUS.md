@@ -54,7 +54,7 @@ remaining:
   - unverified: after the 1.0.3 upload (2026-10-10): the public page re-read, description updated (DALL-E and the Replantable thanks show), four gallery slots shown; the content of images 1 to 3 on the page not compared with Art/Gallery; Markizo told and the Replantable thank-you posted (stated by the owner, 2026-10-10); non-regression English d3e2 green (27 of 37 passed, 0 failed, 10 skipped by @requires), French 5a3a green (27 of 37 passed, 0 failed), Phytokin dc8f stalled after 11 green (exit 3, a save load hung), replayed as 3926
 session:      local_f0c91329-9f7d-466a-a59d-00d4fb78d1f2
 updated:      2026-11-22, shootGallery[1.1.0] (replay: first open 9.a, B redo awaiting PiT answer on shirt and Paon)
-protocols_read_sha: 45fe675796d2688b18b086e6d64b337ad98a648e
+protocols_read_sha: a5a7da529015428e109fd62ae7f61ca8f80f742a
 ---
 
 # Anima Song — status

@@ -67,6 +67,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animal "Brume" stands at (193, 155) facing South
     And Nelim's Pickle Tools: the animals except "Brume" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 158) facing South
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
@@ -273,6 +274,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animal "Shogun" stands at (201, 155) facing West
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
@@ -372,6 +374,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animal "Shogun" is kept asleep
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 147) facing North
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)

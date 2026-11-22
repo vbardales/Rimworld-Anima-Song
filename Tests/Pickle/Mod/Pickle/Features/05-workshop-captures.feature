@@ -141,6 +141,8 @@ Feature: the pictures of the Workshop page
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
+    # 2026-11-22 (PiT): rebuild the render tree AFTER the last dressing and face step, BEFORE any stand, frame or zoom step; read [render-rebuilt] (children must equal garments worn).
+    And Nelim's Pickle Tools: the render tree of "Soren" is rebuilt
     And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: a colonist "Miel" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Miel" loses all genes
@@ -186,7 +188,6 @@ Feature: the pictures of the Workshop page
     Then Anima Song: 3 listeners sit on 3 different cells around the tree at x=195 z=152
     And Nelim's Pickle Tools: the animal "Paon" is logged
     And Nelim's Pickle Tools: the animal "Noisette" is logged
-    And Nelim's Pickle Tools: the render tree of "Soren" is rebuilt
     And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: the body texture of "Soren" is logged
     And I take a screenshot "workshop 1 - the tree singing"

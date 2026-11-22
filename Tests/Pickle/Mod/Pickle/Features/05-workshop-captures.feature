@@ -113,7 +113,7 @@ Feature: the pictures of the Workshop page
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And "Nelim" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Soren" loses all genes
@@ -130,6 +130,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" face tattoo is "none"
     And Nelim's Pickle Tools: "Soren" body tattoo is "none"
     And Nelim's Pickle Tools: "Soren" is undressed
+    And Nelim's Pickle Tools: the colonist "Soren" follows an apparel policy that allows everything
     And Nelim's Pickle Tools: "Soren" wears "LisaWork_ApparelCollaredShirt" made of "Cloth"
     And Nelim's Pickle Tools: the "LisaWork_ApparelCollaredShirt" worn by "Soren" is dyed rgb (112, 128, 144)
     And Nelim's Pickle Tools: "Soren" wears "VAE_Apparel_Trousers" made of "Cloth"
@@ -139,7 +140,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
     And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
     # 2026-11-19: no "Soren" eyeballs step: EyeThin comes from sd.fa.movingvanillaeyes, dropped from wsl-deps.gallery.map (its Log.Error fails the scene). Soren keeps the default eyeballs, the gene still sets the green.
-    And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: "Soren" facial expression "SocialRelax" is held
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
@@ -162,6 +163,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" body tattoo is "STribalTat_Body_SacredGrass"
     And Nelim's Pickle Tools: "Miel" face skin is "SkinEyeshadow"
     And Nelim's Pickle Tools: "Miel" is undressed
+    And Nelim's Pickle Tools: the colonist "Miel" follows an apparel policy that allows everything
     And Nelim's Pickle Tools: "Miel" wears "UnderWhere_Chestwrap" made of "Cloth"
     And Nelim's Pickle Tools: the "UnderWhere_Chestwrap" worn by "Miel" is dyed rgb (240, 232, 214)
     And Nelim's Pickle Tools: "Miel" wears "VAE_Apparel_Overalls"
@@ -173,7 +175,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
-    And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: "Miel" facial expression "SocialRelax" is held
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
@@ -277,7 +279,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
-    And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
     And "Nelim" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Soren" loses all genes
@@ -301,7 +303,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
     Then Nelim's Pickle Tools: the clothes worn by "Soren" are logged
     And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
-    And Nelim's Pickle Tools: "Soren" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: "Soren" facial expression "SocialRelax" is held
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
@@ -335,7 +337,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
     And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
-    And Nelim's Pickle Tools: "Miel" facial expression is "SocialRelax"
+    And Nelim's Pickle Tools: "Miel" facial expression "SocialRelax" is held
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: the graphics of "Miel" are refreshed

@@ -59,12 +59,6 @@ namespace AnimaSong
         {
             this.EndOnDespawnedOrNull(TreeIndex);
 
-            // TEMPORARY diagnostic (gallery B, tickets 3104 and de21 red: listeners lose the job before the ring forms). Remove once read.
-            this.AddFinishAction(delegate (JobCondition condition)
-            {
-                Log.Message($"[AnimaSongEnd] {pawn.LabelShort} tick {Find.TickManager.TicksGame} condition {condition} toil {CurToilIndex} listened {ticksListened} at {pawn.Position} joy {pawn.needs?.joy?.CurLevel:F2}");
-            });
-
             // The player's toggle has to bite immediately: cutting listening off before a linking
             // ritual is meant to clear the ring now, not in an hour.
             this.FailOn(delegate

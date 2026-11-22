@@ -111,6 +111,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" facial expression is "SocialRelax"
     And "Nelim" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
@@ -190,6 +191,8 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animal "Noisette" is logged
     And Nelim's Pickle Tools: the draw state of the render nodes of "Soren" is logged
     And Nelim's Pickle Tools: the body texture of "Soren" is logged
+    And Nelim's Pickle Tools: the render nodes and layers of "Soren" are logged
+    And Nelim's Pickle Tools: the render nodes and layers of "Nelim" are logged
     And I take a screenshot "workshop 1 - the tree singing"
     When Nelim's Pickle Tools: the decor is removed
 

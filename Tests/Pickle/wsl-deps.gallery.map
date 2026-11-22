@@ -19,7 +19,11 @@ VanillaExpanded.VTEXE.FacialAnims 2816938779
 Newton.AKNExtras.FacialAnimations 2889716301
 lucius.eyegenes3 3745223213
 astryl.FacialAnimationPerformancePatch 3790129900
-# 2026-11-19: sd.fa.movingvanillaeyes (3753978140) REMOVED here. Its Facial Animation Performance Patch filter throws ArgumentOutOfRangeException in Thought.get_CurStage (HasNegativeBlushThought); the Log.Error failed scene B three times (c442, d4b5/d4d5, ca9c) and E once. Not our mod, not fixable here. Eyes are set per pawn by steps, so the pictures do not depend on it (E green without it, ticket 492d, wsl-deps.gallery-e.map). Put it back only if a shot needs its moving eyes.
+# 2026-11-22 (owner: the eyes must be VTE and VEFA; SaB, same block as SanctuaryBacklot wsl-deps.sanctuary-daily.map lines 33-47): VEFA = Vanilla Experimentals for Facial Animation (sd.fa.movingvanillaeyes), VTE = VanillaExpanded.VTEXE.FacialAnims. Back after the 2026-11-19 removal: its HasNegativeBlushThought Log.Error is cut by the seed config/gallery/Mod_3753978140_MovingVanillaEyesMod.xml (enableBlushLimiting False, SaB run d445); the eye COLOUR stays the EyeGenes3 gene.
+vk.addeyes.EX 3694711465
+sd.fa.movingvanillaeyes 3753978140
+Moshii.NLFA.InitFix 3609895011
+ccj.nlfaloadfix 3721489042
 nelim.sanctuarybacklot path:SanctuaryBacklot/Mod
 nelim.pickletools.screenshotmode path:PickleTools/ScreenshotMode/Mod
 nelim.pickletools.savesteps path:PickleTools/SaveSteps/Mod

@@ -68,6 +68,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animals except "Brume" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (195, 158) facing South
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" head type is "Female_AveragePointy"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
@@ -119,6 +120,7 @@ Feature: the pictures of the Workshop page
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" head type is "Female_AveragePointy"
     And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" face skin is "SkinNormal"
@@ -296,6 +298,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" head type is "Female_AveragePointy"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
@@ -412,6 +415,7 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
     And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" head type is "Female_AveragePointy"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)

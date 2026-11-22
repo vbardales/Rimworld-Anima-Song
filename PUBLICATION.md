@@ -188,13 +188,13 @@ Hi Kaetie_ and Dark Passerida: thank you for [url=https://steamcommunity.com/sha
 
 - **Image 3 replaced (session as director, 2026-10-10)**: `3-the-tree-selected.jpg` is now the JPEG copy (412 KB, quality 88) of run `4e27` (`pickle-run-2026-10-10-gallery3f`, Backlot `bare-clearing`). The selected tree draws red focus lines to every artificial building within 27.9 cells (its `FocusStrengthOffset_ArtificialBuildings`), so the scenario hides them (`the artificial buildings within 30 cells ... are hidden`, which also makes roofs collapse: the letters and alerts are cleared before the shot), hides the colonist bar and the vanometric cell, and clears the messages. The gizmo label "Begin liaison d'arbre anima" (not this mod's, French text in an English pass) stays, accepted by the owner. It is a UI screenshot, not staged.
 
-## Gallery subtitles (draft, 2026-10-18, applied after the reindex, `../GALLERY.md`)
+## Gallery subtitles (applied 2026-11-22, `../GALLERY.md`)
 
-Staged scenes only; the menu and the selected-tree screenshots carry none, nor `0-`. The series is one day with the singing tree (plan in the header of `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`). Indexes are assigned at the reindex; scenarios A, E, F are written and not played.
+Staged scenes only; the menu and the selected-tree screenshots carry none, nor `0-`. The series is one day with the singing tree (plan in the header of `Tests/Pickle/Mod/Pickle/Features/05-workshop-captures.feature`). Final indexes 1 to 6 (menus are 2 and 3); clean originals in `Art/Gallery-clean/`, burned copies in `Art/Gallery/`.
 
 | index | file | line |
 | --- | --- | --- |
-| 1 | `1-the-tree-singing.jpg` (noon, B) | Three friends sit in a ring and the tree answers. |
-| tbd | dawn (A) | At first light the tree sings for one listener. |
-| tbd | dusk (E) | Five friends sit around it, and the glow shows from across the map. |
-| tbd | night (F) | Even at night, one listener and a sleeping dog are enough for it to sing. |
+| 4 | `4-noon.png` (noon, B) | Three friends sit in a ring and the tree answers. |
+| 1 | `1-dawn.png` (dawn, A) | At first light the tree sings for one listener. |
+| 5 | `5-dusk.png` (dusk, E) | Three friends sit around it, and the glow shows from across the map. |
+| 6 | `6-night.png` (night, F) | Even at night, one listener and a sleeping dog are enough for it to sing. |

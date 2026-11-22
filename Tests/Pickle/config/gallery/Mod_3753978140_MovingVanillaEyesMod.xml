@@ -10,5 +10,6 @@
 <SettingsBlock>
   <ModSettings Class="MovingVanillaEyes.MovingVanillaEyesSettings">
     <enableBlushLimiting>False</enableBlushLimiting>
+    <enableExperimentalEyeTextures>True</enableExperimentalEyeTextures>
   </ModSettings>
 </SettingsBlock>

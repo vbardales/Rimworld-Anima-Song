@@ -27,7 +27,7 @@
 #   3. workshop-C-menu, 12h, the right-click menu that offers the order, the tree at (195, 152), the game screen kept, Apparel_Robe rgb (140, 40, 90). Not staged; the accepted image 2 stands (its scenario still carries the old Bob hair override of Nelim: if replayed, remove it first, rule 3).
 #   4. workshop-D-selected, 12h, the tree at (195, 152) selected with its toggle, developer mode off, the game screen kept. Not staged; the accepted image 3 stands.
 #   5. workshop-E-dusk, 18h, Clear, 20 degrees, zoom 4.5 on (195, 152), grass and daylilies to the frame edges. Instant: Soren and Miel already seated and listening, Nelim arrives last from (201, 152) to her seat (199, 152) facing West, Miel already on the north seat (195, 155) from (195, 157) facing South (front view, 80f7), order just given, screenshot 20 ticks after; Shogun standing (201, 155) facing West. Same outfits as shot 2: Apparel_Robe rgb (140, 40, 90), LisaWork_ApparelCollaredShirt rgb (112, 128, 144), UnderWhere_Chestwrap rgb (240, 232, 214), VAE_Apparel_Overalls rgb (197, 138, 58). Decor: TorchLamp (200, 156) and TorchLamp (190, 156) lit, stools (191, 152) (199, 152), Plant_Daylily (188, 152) (202, 152) (192, 155) (198, 148). Says: the day turns, the glow is what you see from across the map.
-#   6. workshop-F-night (closing), 22h, Clear, 20 degrees, zoom 6 on (195, 151), mirror of shot 1. Nelim from (195, 147) to the seat (195, 149) south of the tree facing North (back to the camera, so no smile is visible: written, no malus), Apparel_Robe rgb (140, 40, 90) against the dark ground; Shogun asleep (196, 149) (stands at facing North, lies down, kept asleep); TorchLamp (193, 150) lit close; stools (191, 152) (199, 152) empty and still in the ring. Says: it sings after dark, for one listener and a sleeping dog.
+#   6. workshop-F-night (closing), 22h, Clear, 20 degrees, zoom 6 on (195, 151), Nelim from (201, 152) to the seat (199, 152) east of the tree facing West (profile so her VEFA and VTE eyes show, owner 2026-11-22; no longer a back view), Apparel_Robe rgb (140, 40, 90) against the dark ground; Shogun asleep (196, 149) (stands at facing North, lies down, kept asleep); TorchLamp (193, 150) lit close; stools (191, 152) (195, 149) empty and still in the ring. Says: it sings after dark, for one listener and a sleeping dog.
 # Looks come from NPT catalogues (PickleTools/ColonistRace/docs: CATALOGUE-LOOKS, CATALOGUE-APPAREL, CATALOGUE-COLOURS, FACE-PARTS): hairstyles Bob, Mop, Afro, Cleopatra, Elder, Princess; beard Wizard; face tattoo Face_Stars; garments Apparel_Robe (Core, dyed), Apparel_Cape, Apparel_Headwrap (Ideology). Palette: robes and hair chosen to stand out from the teal glow and the brown earth. All vanilla or DLC: nothing to add to the pass map and nothing to credit.
 # Animals: vanilla kinds Hare, Squirrel, Peacock, LabradorRetriever (names to confirm on the first run, Check-Steps.ps1 then the run). Animals face the camera where the step allows it; no step sets an animal's rotation yet: ask NPT through the TM if the first run shows backs. Diurnal animals by day, the labrador asleep at night.
 # Plants: Plant_GrassAnima fully grown on the ring (the grass the linking ritual needs, a nod to the mod's design), set with `the plants from (x, z) to (x, z) are fully grown` (StageDecor, not played yet); Plant_Daylily as before.
@@ -71,7 +71,10 @@ Feature: the pictures of the Workshop page
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
     When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 155)
     And I wait 25 ticks
@@ -113,7 +116,10 @@ Feature: the pictures of the Workshop page
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Soren" loses all genes
@@ -140,7 +146,10 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Soren" mouth is "MouthClassicSmile"
     And Nelim's Pickle Tools: "Soren" brows are "MonoScarredBrows"
     # 2026-11-19: no "Soren" eyeballs step: EyeThin comes from sd.fa.movingvanillaeyes, dropped from wsl-deps.gallery.map (its Log.Error fails the scene). Soren keeps the default eyeballs, the gene still sets the green.
+    And Nelim's Pickle Tools: "Soren" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Soren" lids are "LidAlmond"
     And Nelim's Pickle Tools: "Soren" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Soren" are logged
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
@@ -174,8 +183,10 @@ Feature: the pictures of the Workshop page
     Then Nelim's Pickle Tools: the clothes worn by "Miel" are logged
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
-    And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
+    And Nelim's Pickle Tools: "Miel" eyeballs are "EyeSmall"
+    And Nelim's Pickle Tools: "Miel" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Miel" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Miel" are logged
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
@@ -279,7 +290,10 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: a colonist "Soren" of kind "Colonist" exists
     And Nelim's Pickle Tools: "Soren" loses all genes
@@ -303,7 +317,10 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: the "VAE_Apparel_Trousers" worn by "Soren" is dyed rgb (60, 70, 80)
     Then Nelim's Pickle Tools: the clothes worn by "Soren" are logged
     And Nelim's Pickle Tools: "Soren" face skin is "SkinNormal"
+    And Nelim's Pickle Tools: "Soren" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Soren" lids are "LidAlmond"
     And Nelim's Pickle Tools: "Soren" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Soren" are logged
     And "Soren" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Soren" are cleared
     And Nelim's Pickle Tools: the graphics of "Soren" are refreshed
@@ -336,8 +353,10 @@ Feature: the pictures of the Workshop page
     Then Nelim's Pickle Tools: the clothes worn by "Miel" are logged
     And Nelim's Pickle Tools: "Miel" mouth is "MouthLipsBig"
     And Nelim's Pickle Tools: "Miel" brows are "BrowTriangle"
-    And Nelim's Pickle Tools: "Miel" eyeballs are "Empathetic"
+    And Nelim's Pickle Tools: "Miel" eyeballs are "EyeSmall"
+    And Nelim's Pickle Tools: "Miel" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Miel" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Miel" are logged
     And "Miel" needs "Joy" is set to 10 percent
     And Nelim's Pickle Tools: the memory thoughts of "Miel" are cleared
     And Nelim's Pickle Tools: the graphics of "Miel" are refreshed
@@ -378,14 +397,17 @@ Feature: the pictures of the Workshop page
     And Nelim's Pickle Tools: "Shogun" lies down
     And Nelim's Pickle Tools: the animal "Shogun" is kept asleep
     And Nelim's Pickle Tools: the animals except "Shogun" are kept out of the area from (186, 147) to (204, 157)
-    And Nelim's Pickle Tools: "Nelim" stands at (195, 147) facing North
+    And Nelim's Pickle Tools: "Nelim" stands at (201, 152) facing West
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And game speed is ultrafast
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Robe" dyed rgb (140, 40, 90)
     And Nelim's Pickle Tools: the "Apparel_Robe" worn by "Nelim" is dyed rgb (140, 40, 90)
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "EyeNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression "SocialRelax" is held
+    And Nelim's Pickle Tools: the face parts of "Nelim" are logged
     And "Nelim" needs "Joy" is set to 10 percent
-    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (195, 149)
+    When Anima Song: "Nelim" is ordered to listen to the tree at x=195 z=152 from the seat (199, 152)
     Then Anima Song: 1 listeners sit on 1 different cells around the tree at x=195 z=152
     And I wait 60 ticks
     And Nelim's Pickle Tools: I frame the cell (195, 151) at zoom 6
